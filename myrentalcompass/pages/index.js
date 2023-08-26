@@ -9,13 +9,18 @@ export default function LandingPage() {
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen">
+      <div className="font-inter flex flex-col m-1 h-screen">
         <Navbar activePage="Home" />
 
-        <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
-          <p>Hello Zecheng and Malek</p>
-        </section>
-      </main>
+        <div className="relative" style={{ height: "24rem" }}>
+          <div className=" absolute inset-0 bg-cover bg-center"
+            style = {{
+              backgroundImage: "url('/liveable-cities.jpeg')",
+              backgroundSize: "cover",
+            }}
+          ></div>
+        </div>
+      </div>
     </>
   );
 }
