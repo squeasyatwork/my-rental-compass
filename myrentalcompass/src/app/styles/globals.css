@@ -59,3 +59,23 @@ body {
     @apply text-BackgroundWhite transform scale-110 opacity-80;
   }
 }
+
+/* For components used in YQA and OR sections of landing page */
+@layer components {
+  .index-page-section-heading {
+    @apply p-3 mb-4 mt-7 text-5xl font-bold leading-tight justify-center items-center font-istok;
+    color: #757575;
+  }
+  .yqa-cross-section-container {
+    @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok sm:grid-cols-1 sm:text-center sm:gap-0;
+  }
+  .yqa-subheading {
+    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
+  }
+  .copywrite-content {
+    @apply font-istok text-NavTextGray;
+  }
+  /* .image-borders {
+    border-color: #757575;
+  } */
+}
