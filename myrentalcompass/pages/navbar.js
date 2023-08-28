@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavBar = ({ activePage }) => {
   return (
-    <nav className="fixed top-0 left-0 h-30 w-screen px-2 py-4 bg-BackgroundWhite flex items-center justify-center" style={{zIndex: 1}}>
+    <nav className="fixed top-0 left-0 h-30 w-screen px-2 py-4 bg-BackgroundWhite flex items-center justify-center" style={{zIndex: 9}}>
       <div className="flex max-w-screen-lg w-full justify-between px-4 items-center">
         {/* Placeholder for the icon */}
         <div className="w-8 h-8 bg-gray-400 rounded mr-4"></div>
