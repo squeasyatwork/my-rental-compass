@@ -17,14 +17,14 @@ export default function LandingPage() {
 
           <div
             className="relative"
-            style={{ height: "60vh", marginTop: "6.6rem"}}
+            style={{ height: "60vh"}}
           >
             <div
               className="inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: "url('/liveable-cities.jpeg')",
                 backgroundSize: "cover",
-                //filter: "brightness(0.8)",
+                // filter: "brightness(0.8)",
                 //zIndex: "-1",
               }}
             >
@@ -79,7 +79,7 @@ export default function LandingPage() {
             <div className="yqa-cross-section-container">
               <div id="yqa-section-1" className="justify-center mx-3">
                 <Image
-                  src="/looking-to-rent-icon.jpg"
+                  src={"/looking-to-rent-icon.jpeg"}
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -106,7 +106,7 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-2" className="justify-center mx-3">
                 <Image
-                  src="/curious-icon.jpg"
+                  src="/curious-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -133,7 +133,7 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-3" className="justify-center mx-3">
                 <Image
-                  src="/liveability-icon.jpg"
+                  src="/liveability-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -167,14 +167,14 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-2 align-center justify-center mx-3">
                   <Image
-                    src="/or-unsdg-picture.jpg"
+                    src="/or-unsdg-picture.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
                     loading="eager"
                   />
                   <Image
-                    src="/or-unsdg-picture-2.jpg"
+                    src="/or-unsdg-picture-2.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture-2"
@@ -197,7 +197,7 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-plan-melb-picture.jpg"
+                  src="/or-plan-melb-picture.jpeg"
                   height={180}
                   width={200}
                   alt="or-plan-melb-picture"
@@ -218,7 +218,7 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-crt-logo.jpg"
+                  src="/or-crt-logo.jpeg"
                   height={240}
                   width={300}
                   alt="or-crt-logo"
@@ -236,7 +236,11 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+          <footer className="bg-FooterButtonYellow text-NavTextGray py-8 text-center mt-auto">
+    <p className="text-sm">© {new Date().getFullYear()} SuperFivers. All rights reserved.</p>
+</footer>
         </div>
+
       </main>
     </>
   );
