@@ -111,7 +111,8 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-2" className="justify-center mx-3">
                 <Image
-                  src="/curious-icon.jpeg"
+                  loader={imageLoader}
+                  src="curious-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -138,7 +139,8 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-3" className="justify-center mx-3">
                 <Image
-                  src="/liveability-icon.jpeg"
+                  loader={imageLoader}
+                  src="liveability-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -172,14 +174,16 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-2 align-center justify-center mx-3">
                   <Image
-                    src="/or-unsdg-picture.jpeg"
+                    loader={imageLoader}
+                    src="or-unsdg-picture.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
                     loading="eager"
                   />
                   <Image
-                    src="/or-unsdg-picture-2.jpeg"
+                    loader={imageLoader}
+                    src="or-unsdg-picture-2.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture-2"
@@ -202,7 +206,8 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-plan-melb-picture.jpeg"
+                  loader={imageLoader}
+                  src="or-plan-melb-picture.jpeg"
                   height={180}
                   width={200}
                   alt="or-plan-melb-picture"
@@ -223,7 +228,8 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-crt-logo.jpeg"
+                  loader={imageLoader}
+                  src="or-crt-logo.jpeg"
                   height={240}
                   width={300}
                   alt="or-crt-logo"
