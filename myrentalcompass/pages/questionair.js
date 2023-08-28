@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Navbar from "./navbar.js";
 
-function Resources() {
+function Questionnaire() {
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Resources</title>
-        <meta name="description" content="Valuable resources for renters." />
+        <title>MyRentalCompass | Questionnaire</title>
+        <meta name="description" content="Questionnaire to find best suburbs." />
       </Head>
 
       <main className="font-inter flex flex-col m-1 h-screen">
-        <Navbar activePage="Other resources" />
+        <Navbar activePage="Home" />
 
         <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
           <p>This page is a work in progress still!</p>
@@ -20,4 +20,4 @@ function Resources() {
   );
 }
 
-export default Resources;
+export default Questionnaire;
