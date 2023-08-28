@@ -17,14 +17,14 @@ export default function LandingPage() {
 
           <div
             className="relative"
-            style={{ height: "60vh", marginTop: "6.6rem"}}
+            style={{ height: "60vh"}}
           >
             <div
               className="inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: "url('/liveable-cities.jpeg')",
                 backgroundSize: "cover",
-                //filter: "brightness(0.8)",
+                // filter: "brightness(0.8)",
                 //zIndex: "-1",
               }}
             >
@@ -236,7 +236,11 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+          <footer className="bg-FooterButtonYellow text-NavTextGray py-8 text-center mt-auto">
+    <p className="text-sm">© {new Date().getFullYear()} SuperFivers. All rights reserved.</p>
+</footer>
         </div>
+
       </main>
     </>
   );
