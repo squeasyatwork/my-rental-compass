@@ -13,11 +13,11 @@ export default function LandingPage() {
 
       <main>
         <div className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Home" />
+          <Navbar activePage="Home" style={{zIndex: 1}}/>
 
           <div
             className="relative"
-            style={{ height: "60vh", marginTop: "6.6rem", zIndex: "-1" }}
+            style={{ height: "60vh", marginTop: "6.6rem"}}
           >
             <div
               className="inset-0 bg-cover bg-center"
@@ -28,7 +28,7 @@ export default function LandingPage() {
                 //zIndex: "-1",
               }}
             >
-              <div className="inset-0 flex flex-col justify-between">
+              <div className="inset-0 flex flex-col justify-between text-white">
                 <div
                   className=" flex flex-col items-center"
                   style={{ marginTop: "5rem" }}
@@ -50,12 +50,14 @@ export default function LandingPage() {
                   </h2>
                   <br></br>
                   <br></br>
-                  <Link href="/questionnaire">
-                    <button className="font-istok text-2xl font-semibold text-center bg-yellow-400 text-black rounded-2xl p-8">
-                      {" "}
-                      Find where to live{" "}
-                    </button>
-                  </Link>
+                  <center>
+                    <Link href="/questionnaire">
+                      <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8">
+                        {" "}
+                        Find where to live{" "}
+                      </button>
+                    </Link>
+                  </center>
                   <br></br>
                 </div>
                 <div className=" flex flex-col items-end">

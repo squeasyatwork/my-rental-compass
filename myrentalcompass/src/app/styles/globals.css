@@ -56,7 +56,7 @@ body {
       transition-transform transform active:scale-95 active:opacity-90; /* Added transformations for the "press" effect */
   }
   .call-action-button:hover {
-    @apply text-BackgroundWhite transform scale-110 opacity-80;
+    @apply text-BackgroundWhite transform scale-110 opacity-100;
   }
 }
 
