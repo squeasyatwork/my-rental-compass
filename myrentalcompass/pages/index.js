@@ -90,6 +90,7 @@ export default function LandingPage() {
                   alt="looking-to-rent-icon"
                   loading="eager"
                   className="@apply mx-auto"
+                  loading="eager"
                 />
                 <div id="looking-to-rent" className="yqa-subheading">
                   Looking to rent?
@@ -172,7 +173,7 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-2 align-center justify-center mx-3">
                   <Image
-                    src="/or-unsdg-picture.jpeg"
+                    src={"/or-unsdg-picture.jpeg"}
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
