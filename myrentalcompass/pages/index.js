@@ -83,6 +83,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <div id="looking-to-rent" className="yqa-subheading">
@@ -109,6 +110,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <div id="curious-what-it-means" className="yqa-subheading">
@@ -135,6 +137,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <div id="what-is-liveability" className="yqa-subheading">
@@ -168,12 +171,14 @@ export default function LandingPage() {
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
+                    loading="eager"
                   />
                   <Image
                     src="/or-unsdg-picture-2.jpg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture-2"
+                    loading="eager"
                     // className="@apply mx-auto"
                   />
                 </div>
@@ -196,6 +201,7 @@ export default function LandingPage() {
                   height={180}
                   width={200}
                   alt="or-plan-melb-picture"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <center>
@@ -216,6 +222,7 @@ export default function LandingPage() {
                   height={240}
                   width={300}
                   alt="or-crt-logo"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <center>
