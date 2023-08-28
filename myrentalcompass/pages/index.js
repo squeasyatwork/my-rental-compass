@@ -77,7 +77,7 @@ export default function LandingPage() {
             <div className="yqa-cross-section-container">
               <div id="yqa-section-1" className="justify-center mx-3">
                 <Image
-                  src="url('/looking-to-rent-icon.jpg')"
+                  src="/looking-to-rent-icon.jpg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
