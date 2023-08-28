@@ -50,7 +50,7 @@ export default function LandingPage() {
                   </h2>
                   <br></br>
                   <br></br>
-                  <Link href="/questionair">
+                  <Link href="/questionnaire">
                     <button className="font-istok text-2xl font-semibold text-center bg-yellow-400 text-black rounded-2xl p-8">
                       {" "}
                       Find where to live{" "}
