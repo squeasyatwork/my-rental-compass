@@ -77,7 +77,7 @@ export default function LandingPage() {
             <div className="yqa-cross-section-container">
               <div id="yqa-section-1" className="justify-center mx-3">
                 <Image
-                  src={"/looking-to-rent-icon.jpeg"}
+                  src="/looking-to-rent-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -163,7 +163,7 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-2 align-center justify-center mx-3">
                   <Image
-                    src={"/or-unsdg-picture.jpeg"}
+                    src="/or-unsdg-picture.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
