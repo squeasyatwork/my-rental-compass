@@ -13,10 +13,12 @@ module.exports = {
       },
       colors: {
         MainButtonYellow: "#FFCD29",
-        NavTextGray: "#404040",
+        NavTextGray: "#262626",
         HeadingTextGray: "#757575",
         FooterButtonYellow: "#F9DE89",
         BackgroundWhite: "#FFFEFC",
+        ShadeGray: "#BFBFBF",
+        ResourceButtonYellow: "#fff5cc",
       },
     },
   },
