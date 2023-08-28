@@ -2,8 +2,28 @@ import Head from "next/head";
 import Navbar from "./helperpages/navbar.js";
 import Image from "next/image.js";
 import Link from "next/link";
+import { useState } from "react";
+
+const questions = ["q1", "q2", "q3"];
 
 function Questionnaire() {
+  const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
+  const currentQuestion = questions[currentQuestionIndex];
+
+  const handleNext = () => {
+    if (currentQuestionIndex < questions.length - 1) {
+      setCurrentQuestionIndex(currentQuestionIndex + 1);
+    }
+  };
+
+  const handlePrevious = () => {
+    if (currentQuestionIndex > 0) {
+      setCurrentQuestionIndex(currentQuestionIndex - 1);
+    }
+  };
+  const previousQuestionId =
+    currentQuestionIndex > 0 ? questions[currentQuestionIndex - 1] : null;
+
   return (
     <>
       <Head>
@@ -74,10 +94,200 @@ function Questionnaire() {
                   className="border-4 border-MainButtonYellow rounded-lg w-60 h-16 text-2xl text-NavTextGray font-bold text-center mr-4"
                   placeholder="$400"
                 />
-                <Link href="/">
-                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8 ml-6">
+                <button
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8 ml-6"
+                  onClick={handleNext}
+                >
+                  {" "}
+                  Start{" "}
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            id="q2"
+            className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
+              currentQuestion === "q2" ? "" : "hidden"
+            }`}
+            style={{ height: "60vh", zIndex: 2 }}
+          >
+            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
+              <h2> How would you rate these</h2>
+              <h2>liveability aspects?</h2>
+              <br></br>
+              <Image
+                src="/forest-nature-park.svg"
+                alt="Staff"
+                width={200}
+                height={200}
+                className="rounded-xl"
+              />
+              <br></br>
+              <br></br>
+              <Link href={`#${questions[previousQuestionId]}`}>
+                <button
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8"
+                  onClick={handlePrevious}
+                >
+                  Go back
+                </button>
+              </Link>
+            </div>
+            <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
+              <div className=" max-w-2xl">
+                <h2>
+                  Finding a liveable home at an affordable rent in Melbourne can
+                  be difficult, but we know it is not impossible.{" "}
+                </h2>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <div className="likert-options flex flex-col justify-center text-3xl font-bold">
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="1"
+                      className="likert-radio"
+                    />
+                    Strongly Disagree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="2"
+                      className="likert-radio"
+                    />
+                    Disagree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="3"
+                      className="likert-radio"
+                    />
+                    Neutral
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="4"
+                      className="likert-radio"
+                    />
+                    Agree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="5"
+                      className="likert-radio"
+                    />
+                    Strongly Agree
+                  </label>
+                </div>
+                <br></br>
+                <button
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-56 p-8 ml-6"
+                  onClick={handleNext}
+                >
+                  Final question
+                </button>
+              </div>
+            </div>
+          </div>
+          <div
+            id="q3"
+            className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
+              currentQuestion === "q3" ? "" : "hidden"
+            }`}
+            style={{ height: "60vh", zIndex: 2 }}
+          >
+            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
+              <h2>Do you have any</h2>
+              <h2>preferred area(s) in</h2>
+              <h2>Melbourne?</h2>
+              <br></br>
+              <Image
+                src="/districts-melbourne.jpg"
+                alt="disctricts"
+                width={200}
+                height={200}
+                className="rounded-xl"
+              />
+              <br></br>
+              <br></br>
+              <Link href={`#${questions[previousQuestionId]}`}>
+                <button
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8"
+                  onClick={handlePrevious}
+                >
+                  Go back
+                </button>
+              </Link>
+            </div>
+            <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
+              <div className=" max-w-2xl">
+                <h2>
+                  Finding a liveable home at an affordable rent in Melbourne can
+                  be difficult, but we know it is not impossible.{" "}
+                </h2>
+              </div>
+              <div className="flex flex-col items-center justify-center">
+                <div className="likert-options flex flex-col justify-center text-3xl font-bold">
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="1"
+                      className="likert-radio"
+                    />
+                    Strongly Disagree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="2"
+                      className="likert-radio"
+                    />
+                    Disagree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="3"
+                      className="likert-radio"
+                    />
+                    Neutral
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="4"
+                      className="likert-radio"
+                    />
+                    Agree
+                  </label>
+                  <label className="likert-label">
+                    <input
+                      type="radio"
+                      name="likertScale"
+                      value="5"
+                      className="likert-radio"
+                    />
+                    Strongly Agree
+                  </label>
+                </div>
+                <br></br>
+                <Link href="/map">
+                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-52 p-8 ml-6">
                     {" "}
-                    Start{" "}
+                    Show result{" "}
                   </button>
                 </Link>
               </div>
