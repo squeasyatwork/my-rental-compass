@@ -3,6 +3,13 @@ import Navbar from "./navbar.js";
 import Link from "next/link";
 import Image from "next/image";
 
+const imageLoader = ({ src, width, quality }) => {
+  return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
+    quality || 75
+  }`;
+};
+// https://develop.d1f77h13nbf5uz.amplifyapp.com/
+
 export default function LandingPage() {
   return (
     <>
@@ -13,12 +20,9 @@ export default function LandingPage() {
 
       <main>
         <div className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Home" style={{zIndex: 1}}/>
+          <Navbar activePage="Home" style={{ zIndex: 1 }} />
 
-          <div
-            className="relative"
-            style={{ height: "60vh"}}
-          >
+          <div className="relative" style={{ height: "60vh" }}>
             <div
               className="inset-0 bg-cover bg-center"
               style={{
@@ -79,13 +83,13 @@ export default function LandingPage() {
             <div className="yqa-cross-section-container">
               <div id="yqa-section-1" className="justify-center mx-3">
                 <Image
+                  loader={imageLoader}
                   src="/looking-to-rent-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
                   loading="eager"
                   className="@apply mx-auto"
-                  loading="eager"
                 />
                 <div id="looking-to-rent" className="yqa-subheading">
                   Looking to rent?
@@ -238,10 +242,11 @@ export default function LandingPage() {
             </div>
           </div>
           <footer className="bg-FooterButtonYellow text-NavTextGray py-8 text-center mt-auto">
-    <p className="text-sm">© {new Date().getFullYear()} SuperFivers. All rights reserved.</p>
-</footer>
+            <p className="text-sm">
+              © {new Date().getFullYear()} SuperFivers. All rights reserved.
+            </p>
+          </footer>
         </div>
-
       </main>
     </>
   );
