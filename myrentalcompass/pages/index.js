@@ -13,22 +13,22 @@ export default function LandingPage() {
 
       <main>
         <div className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Home" />
+          <Navbar activePage="Home" style={{zIndex: 1}}/>
 
           <div
             className="relative"
-            style={{ height: "60vh", marginTop: "6.6rem", zIndex: "-1" }}
+            style={{ height: "60vh"}}
           >
             <div
               className="inset-0 bg-cover bg-center"
               style={{
                 backgroundImage: "url('/liveable-cities.jpeg')",
                 backgroundSize: "cover",
-                //filter: "brightness(0.8)",
+                // filter: "brightness(0.8)",
                 //zIndex: "-1",
               }}
             >
-              <div className="inset-0 flex flex-col justify-between">
+              <div className="inset-0 flex flex-col justify-between text-white">
                 <div
                   className=" flex flex-col items-center"
                   style={{ marginTop: "5rem" }}
@@ -50,12 +50,14 @@ export default function LandingPage() {
                   </h2>
                   <br></br>
                   <br></br>
-                  <Link href="/questionair">
-                    <button className="font-istok text-2xl font-semibold text-center bg-yellow-400 text-black rounded-2xl p-8">
-                      {" "}
-                      Find where to live{" "}
-                    </button>
-                  </Link>
+                  <center>
+                    <Link href="/questionnaire">
+                      <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8">
+                        {" "}
+                        Find where to live{" "}
+                      </button>
+                    </Link>
+                  </center>
                   <br></br>
                 </div>
                 <div className=" flex flex-col items-end">
@@ -81,6 +83,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                   loading="eager"
                 />
@@ -108,6 +111,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <div id="curious-what-it-means" className="yqa-subheading">
@@ -134,6 +138,7 @@ export default function LandingPage() {
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <div id="what-is-liveability" className="yqa-subheading">
@@ -167,12 +172,14 @@ export default function LandingPage() {
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
+                    loading="eager"
                   />
                   <Image
                     src="/or-unsdg-picture-2.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture-2"
+                    loading="eager"
                     // className="@apply mx-auto"
                   />
                 </div>
@@ -195,6 +202,7 @@ export default function LandingPage() {
                   height={180}
                   width={200}
                   alt="or-plan-melb-picture"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <center>
@@ -215,6 +223,7 @@ export default function LandingPage() {
                   height={240}
                   width={300}
                   alt="or-crt-logo"
+                  loading="eager"
                   className="@apply mx-auto"
                 />
                 <center>
@@ -228,7 +237,11 @@ export default function LandingPage() {
               </div>
             </div>
           </div>
+          <footer className="bg-FooterButtonYellow text-NavTextGray py-8 text-center mt-auto">
+    <p className="text-sm">© {new Date().getFullYear()} SuperFivers. All rights reserved.</p>
+</footer>
         </div>
+
       </main>
     </>
   );
