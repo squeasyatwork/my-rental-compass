@@ -88,7 +88,7 @@ export default function LandingPage() {
                 </div>
                 <p className="copywrite-content mx-2 my-4">
                   Finding a place to live in Victoria can be very frustrating.
-                  We know, because we have been there too. That's why we are
+                  We know, because we have been there too. That is why we are
                   driven to help young people like you to make an informed
                   decision in finding the place to call home in Victoria.
                 </p>
