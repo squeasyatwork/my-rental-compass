@@ -13,7 +13,9 @@ export default function LandingPage() {
 
       <main>
         <div className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Home" style={{zIndex: 1}}/>
+        <div style={{ position: "fixed", width: "100%", zIndex: 100 }}>
+          <Navbar activePage="Home" />
+        </div>
 
           <div
             className="relative"
