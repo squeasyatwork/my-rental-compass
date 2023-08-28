@@ -3,6 +3,13 @@ import Navbar from "./navbar.js";
 import Link from "next/link";
 import Image from "next/image";
 
+const imageLoader = ({ src, width, quality }) => {
+  return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
+    quality || 75
+  }`;
+};
+// https://develop.d1f77h13nbf5uz.amplifyapp.com/
+
 export default function LandingPage() {
   return (
     <>
@@ -17,10 +24,7 @@ export default function LandingPage() {
           <Navbar activePage="Home" />
         </div>
 
-          <div
-            className="relative"
-            style={{ height: "60vh"}}
-          >
+          <div className="relative" style={{ height: "60vh" }}>
             <div
               className="inset-0 bg-cover bg-center"
               style={{
@@ -81,7 +85,8 @@ export default function LandingPage() {
             <div className="yqa-cross-section-container">
               <div id="yqa-section-1" className="justify-center mx-3">
                 <Image
-                  src={"/looking-to-rent-icon.jpeg"}
+                  loader={imageLoader}
+                  src="/looking-to-rent-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -108,7 +113,8 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-2" className="justify-center mx-3">
                 <Image
-                  src="/curious-icon.jpeg"
+                  loader={imageLoader}
+                  src="curious-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -135,7 +141,8 @@ export default function LandingPage() {
               </div>
               <div id="yqa-section-3" className="justify-center mx-3">
                 <Image
-                  src="/liveability-icon.jpeg"
+                  loader={imageLoader}
+                  src="liveability-icon.jpeg"
                   width={100}
                   height={120}
                   alt="looking-to-rent-icon"
@@ -169,14 +176,16 @@ export default function LandingPage() {
               >
                 <div className="grid grid-cols-2 align-center justify-center mx-3">
                   <Image
-                    src="/or-unsdg-picture.jpeg"
+                    loader={imageLoader}
+                    src="or-unsdg-picture.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture"
                     loading="eager"
                   />
                   <Image
-                    src="/or-unsdg-picture-2.jpeg"
+                    loader={imageLoader}
+                    src="or-unsdg-picture-2.jpeg"
                     height={180}
                     width={150}
                     alt="or-unsdg-picture-2"
@@ -199,7 +208,8 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-plan-melb-picture.jpeg"
+                  loader={imageLoader}
+                  src="or-plan-melb-picture.jpeg"
                   height={180}
                   width={200}
                   alt="or-plan-melb-picture"
@@ -220,7 +230,8 @@ export default function LandingPage() {
                 className="grid grid-rows-2 align-center justify-center mx-3"
               >
                 <Image
-                  src="/or-crt-logo.jpeg"
+                  loader={imageLoader}
+                  src="or-crt-logo.jpeg"
                   height={240}
                   width={300}
                   alt="or-crt-logo"
@@ -239,10 +250,11 @@ export default function LandingPage() {
             </div>
           </div>
           <footer className="bg-FooterButtonYellow text-NavTextGray py-8 text-center mt-auto">
-    <p className="text-sm">© {new Date().getFullYear()} SuperFivers. All rights reserved.</p>
-</footer>
+            <p className="text-sm">
+              © {new Date().getFullYear()} SuperFivers. All rights reserved.
+            </p>
+          </footer>
         </div>
-
       </main>
     </>
   );
