@@ -20,8 +20,11 @@ export default function LandingPage() {
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
-      <main className="font-inter flex flex-col">
-        <Navbar activePage="Home" className="z-10" />
+      <main>
+        <div className="font-inter flex flex-col h-screen">
+        <div style={{ position: "fixed", width: "100%", zIndex: 100 }}>
+          <Navbar activePage="Home" />
+        </div>
 
         <div className="relative h-4/5-screen w-full">
           <img

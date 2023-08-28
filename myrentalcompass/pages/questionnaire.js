@@ -14,8 +14,10 @@ function Questionnaire() {
         />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen">
-        <Navbar activePage="Home" />
+      <main className="font-inter flex flex-col h-screen">
+        <div style={{ position: "fixed", width: "100%", zIndex: 100 }}>
+          <Navbar activePage="Home" />
+        </div>
 
         <section
           className="flex-grow w-full flex items-center justify-center text-NavTextGray"
