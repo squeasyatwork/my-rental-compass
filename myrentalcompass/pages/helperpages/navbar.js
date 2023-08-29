@@ -2,7 +2,7 @@ import Link from "next/link";
 
 const NavBar = ({ activePage }) => {
   return (
-    <nav className="relative top-0 left-0 h-30 w-screen px-2 py-4 bg-BackgroundWhite flex items-center justify-center">
+    <nav className="relative top-0 left-0 h-30 w-full px-2 py-4 bg-BackgroundWhite flex items-center justify-center">
       <Link href="/"> 
           <div className="absolute left-20 top-1 bottom-1 w-24"> 
               <img src="/mrc_logo.svg" alt="MRC Logo" className="w-full h-auto object-contain"/>
