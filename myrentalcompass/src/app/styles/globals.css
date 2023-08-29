@@ -65,7 +65,7 @@ body {
 }
 
 /* For components used in questionnaire page */
-@layer components{
+@layer components {
   /*.fade-in{
     opacity: 1;
     transition: opacity 0.3s ease-in;
@@ -76,8 +76,8 @@ body {
     pointer-events: none;
     transition: opacity 0.3s ease-out;
   }*/
-  
-  .likert-option{
+
+  .likert-option {
     @apply space-x-4;
   }
 
@@ -89,15 +89,15 @@ body {
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
-  
+
   .likert-radio {
     @apply absolute h-0 w-0 opacity-0;
   }
-  
+
   .likert-label:hover {
     @apply bg-MainButtonYellow transform scale-105;
   }
-  
+
   .likert-radio:checked + .likert-label {
     @apply bg-MainButtonYellow transform scale-105;
   }
