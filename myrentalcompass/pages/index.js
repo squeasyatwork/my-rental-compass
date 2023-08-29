@@ -27,6 +27,7 @@ const Section = ({
     <div id={id} className="flex flex-col items-center mx-3 section-container">
       <div className="bg-gray-200 w-96 h-44 flex rounded items-center justify-center mb-1">
         <Image
+          loader={imageLoader}
           src={imageSrc}
           width={150}
           height={100}
