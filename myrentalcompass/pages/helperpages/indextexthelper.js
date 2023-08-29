@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export const Section = ({
+export default const Section = ({
   id,
   imageSrc,
   altText,
