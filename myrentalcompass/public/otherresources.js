@@ -4,6 +4,12 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
+const imageLoader = ({ src, width, quality }) => {
+  return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
+    quality || 75
+  }`;
+};
+
 export const Section = ({
   id,
   imageSrc,
@@ -17,6 +23,7 @@ export const Section = ({
     <div id={id} className="flex flex-col items-center mx-3 section-container">
       <div className="bg-gray-200 w-96 h-44 flex rounded items-center justify-center mb-1">
         <Image
+          loader={imageLoader}
           src={imageSrc}
           width={150}
           height={100}
@@ -51,6 +58,7 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
     >
       <div className="flex-1 flex justify-center items-start">
         <Image
+          loader={imageLoader}
           src={imageSrc}
           alt={altText}
           width={150}
@@ -69,4 +77,3 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
     </div>
   );
 };
-// ignore

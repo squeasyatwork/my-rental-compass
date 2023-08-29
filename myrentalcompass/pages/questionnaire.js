@@ -4,8 +4,6 @@ import Image from "next/image.js";
 import Link from "next/link";
 import { useState } from "react";
 
-import Footer from "./helperpages/footer.js";
-
 const questions = ["q1", "q2", "q3"];
 
 function Questionnaire() {
@@ -53,7 +51,7 @@ function Questionnaire() {
             className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
               currentQuestion === "q1" ? "" : "hidden"
             }`}
-            style={{ width: "80rem", height: "60vh", zIndex: 2 }}
+            style={{ height: "60vh", zIndex: 2 }}
           >
             <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2> We are here to help you!</h2>
@@ -100,10 +98,11 @@ function Questionnaire() {
                   placeholder="$400"
                 />
                 <button
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8 ml-6"
                   onClick={handleNext}
                 >
-                  Start
+                  {" "}
+                  Start{" "}
                 </button>
               </div>
             </div>
@@ -113,7 +112,7 @@ function Questionnaire() {
             className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
               currentQuestion === "q2" ? "" : "hidden"
             }`}
-            style={{ width: "80rem", height: "60vh", zIndex: 2 }}
+            style={{ height: "60vh", zIndex: 2 }}
           >
             <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2> How would you rate these</h2>
@@ -130,7 +129,7 @@ function Questionnaire() {
               <br></br>
               <Link href={`#${questions[previousQuestionId]}`}>
                 <button
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8"
                   onClick={handlePrevious}
                 >
                   Go back
@@ -194,7 +193,7 @@ function Questionnaire() {
                 </div>
                 <br></br>
                 <button
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-56 p-8 ml-6"
                   onClick={handleNext}
                 >
                   Final question
@@ -207,7 +206,7 @@ function Questionnaire() {
             className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
               currentQuestion === "q3" ? "" : "hidden"
             }`}
-            style={{ width: "80rem", height: "60vh", zIndex: 2 }}
+            style={{ height: "60vh", zIndex: 2 }}
           >
             <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2>Do you have any</h2>
@@ -225,7 +224,7 @@ function Questionnaire() {
               <br></br>
               <Link href={`#${questions[previousQuestionId]}`}>
                 <button
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center p-8"
                   onClick={handlePrevious}
                 >
                   Go back
@@ -289,7 +288,7 @@ function Questionnaire() {
                 </div>
                 <br></br>
                 <Link href="/map">
-                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6">
+                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-52 p-8 ml-6">
                     {" "}
                     Show result{" "}
                   </button>
