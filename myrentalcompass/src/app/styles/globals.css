@@ -92,6 +92,10 @@ body {
     transition: background-color 0.2s, transform 0.2s;
   }
 
+  .yqa-subheading {
+    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
+  }
+
   .likert-radio {
     @apply absolute h-0 w-0 opacity-0;
   }
