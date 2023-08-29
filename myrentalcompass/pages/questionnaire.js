@@ -47,8 +47,21 @@ function Questionnaire() {
         }}>
           <div id="q1" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
             currentQuestion === "q1" ? "" : "hidden"}`} 
-            style={{width:"80rem", height: "60vh", zIndex: 2}}>
-            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6" style={{width: "40%"}}>
+            style={{height: "60vh", zIndex: 2}}>
+=========
+        <section
+          className="flex-grow w-full flex items-center justify-center text-NavTextGray"
+          style={{
+            backgroundImage: "url('/liveable-cities.jpeg')",
+            backgroundSize: "cover",
+          }}
+        >
+          <div
+            className="flex items-center bg-BackgroundWhite rounded-xl p-8"
+            style={{ height: "60vh", zIndex: 2 }}
+          >
+>>>>>>>>> Temporary merge branch 2
+            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2> We are here to help you!</h2>
               <br></br>
               <br></br>
