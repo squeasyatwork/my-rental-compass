@@ -66,16 +66,7 @@ body {
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
-
-  .likert-radio {
-    @apply absolute h-0 w-0 opacity-0;
-  }
-
-  .likert-label:hover {
-    @apply bg-MainButtonYellow transform scale-105;
-  }
-
-  .likert-radio:checked + .likert-label {
-    @apply bg-MainButtonYellow transform scale-105;
+  .copywrite-content {
+    @apply font-istok text-NavTextGray;
   }
 }
