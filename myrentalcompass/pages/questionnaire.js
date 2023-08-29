@@ -47,20 +47,8 @@ function Questionnaire() {
         }}>
           <div id="q1" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
             currentQuestion === "q1" ? "" : "hidden"}`} 
-            style={{height: "60vh", zIndex: 2}}>
-=========
-        <section
-          className="flex-grow w-full flex items-center justify-center text-NavTextGray"
-          style={{
-            backgroundImage: "url('/liveable-cities.jpeg')",
-            backgroundSize: "cover",
-          }}
-        >
-          <div
-            className="flex items-center bg-BackgroundWhite rounded-xl p-8"
-            style={{ height: "60vh", zIndex: 2 }}
-          >
->>>>>>>>> Temporary merge branch 2
+            style={{width: "80rem", height: "60vh", zIndex: 2}}>
+
             <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2> We are here to help you!</h2>
               <br></br>
@@ -75,12 +63,13 @@ function Questionnaire() {
               <br></br>
               <br></br>
               <Link href="/">
-                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-40 p-8 ">
-                  Go back
+                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8">
+                  {" "}
+                  Go back{" "}
                 </button>
               </Link>
             </div>
-            <div className="flex flex-col font-Inter font-normal text-3xl ml-6" style={{width: "60%"}}>
+            <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
               <div className=" max-w-2xl">
                 <h2>
                   Finding a liveable home at an affordable rent in Melbourne can
@@ -104,7 +93,7 @@ function Questionnaire() {
                   className="border-4 border-MainButtonYellow rounded-lg w-60 h-16 text-2xl text-NavTextGray font-bold text-center mr-4"
                   placeholder="$400"
                 />
-                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-40 p-8 ml-6"
+                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6"
                   onClick={handleNext}>
                   Start
                 </button>
@@ -114,13 +103,13 @@ function Questionnaire() {
           <div id="q2" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
             currentQuestion === "q2" ? "" : "hidden"}`} 
             style={{width: "80rem", height: "60vh", zIndex: 2}}>
-            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6" style={{width: "40%"}}>
+            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2> How would you rate these</h2>
               <h2>liveability aspects?</h2>
               <br></br>
               <Image
                 src="/forest-nature-park.svg"
-                alt="Park"
+                alt="Staff"
                 width={200}
                 height={200}
                 className="rounded-xl"
@@ -128,13 +117,13 @@ function Questionnaire() {
               <br></br><br></br>
               <Link href={`#${questions[previousQuestionId]}`}>
                 <button 
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-40 p-8"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8"
                   onClick={handlePrevious}>
                   Go back
                 </button>
               </Link>
             </div>
-            <div className="flex flex-col font-Inter font-normal text-3xl ml-6" style={{width: "60%"}}>
+            <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
               <div className=" max-w-2xl">
                 <h2>Finding a liveable home at an affordable rent in Melbourne can be difficult, but we know it is not impossible. </h2>
               </div>
@@ -162,7 +151,7 @@ function Questionnaire() {
                   </label>
                 </div>
                 <br></br>
-                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-56 p-8"
+                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6"
                   onClick={handleNext}>
                   Final question
                 </button>
@@ -172,7 +161,7 @@ function Questionnaire() {
           <div id="q3" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
             currentQuestion === "q3" ? "" : "hidden"}`} 
             style={{width: "80rem", height: "60vh", zIndex: 2}}>
-            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6" style={{width: "40%"}}>
+            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
               <h2>Do you have any</h2>
               <h2>preferred area(s) in</h2>
               <h2>Melbourne?</h2>
@@ -187,13 +176,13 @@ function Questionnaire() {
               <br></br><br></br>
               <Link href={`#${questions[previousQuestionId]}`}>
                 <button 
-                  className="call-action-button text-NavTextGray text-2xl font-bold flex justify-center items-center p-8"
+                  className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8"
                   onClick={handlePrevious}>
                   Go back
                 </button>
               </Link>
             </div>
-            <div className="flex flex-col font-Inter font-normal text-3xl ml-6"  style={{width: "60%"}}>
+            <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
               <div className=" max-w-2xl">
                 <h2>Finding a liveable home at an affordable rent in Melbourne can be difficult, but we know it is not impossible. </h2>
               </div>
@@ -222,7 +211,7 @@ function Questionnaire() {
                 </div>
                 <br></br>
                 <Link href="/map">
-                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center w-52 p-8">
+                  <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6">
                     {" "}
                     Show result{" "}
                   </button>
@@ -231,8 +220,8 @@ function Questionnaire() {
             </div>
           </div>
         </section>
-        <Footer />
       </main>
+      <Footer />
     </>
   );
 }

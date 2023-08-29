@@ -69,7 +69,6 @@ body {
   .copywrite-content {
     @apply font-istok text-NavTextGray;
   }
-}
 
 /* For components used in questionnaire page */
 @layer components{

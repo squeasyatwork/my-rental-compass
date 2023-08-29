@@ -20,13 +20,6 @@ export default function LandingPage() {
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
-<<<<<<<<< Temporary merge branch 1
-      <main>
-        <div className="font-inter flex flex-col h-screen">
-          <div>
-            <Navbar activePage="Home" />
-          </div>
-=========
       <main className="font-inter flex flex-col">
         <Navbar activePage="Home" className="z-10" />
 
