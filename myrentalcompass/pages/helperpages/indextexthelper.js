@@ -67,3 +67,5 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
     </div>
   );
 };
+
+export default Section;
