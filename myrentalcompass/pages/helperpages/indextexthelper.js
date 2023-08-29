@@ -69,4 +69,4 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
       </div>
     );
   };
-  
+  // ignore
