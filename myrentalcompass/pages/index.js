@@ -4,7 +4,8 @@ import Image from "next/image";
 
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import ResourceSection, { Section } from "./helperpages/indextexthelper.js";
+import Section from "./helperpages/indextexthelper.js";
+import ResourceSection from "./helperpages/otherresources.js";
 
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
@@ -19,7 +20,6 @@ export default function LandingPage() {
         <title>MyRentalCompass | Home</title>
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
-
 
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Home" className="z-10" />
