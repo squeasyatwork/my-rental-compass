@@ -2,7 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-export default const Section = ({
+const Section = ({
   id,
   imageSrc,
   altText,
@@ -70,3 +70,4 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
     );
   };
   
+export default Section;
