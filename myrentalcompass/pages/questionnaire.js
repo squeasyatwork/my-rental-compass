@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 import Footer from "./helperpages/footer.js";
+import LikertScale from "./helperpages/likertscale.js";
 
 const questions = ["q1", "q2", "q3"];
 
@@ -24,6 +25,16 @@ function Questionnaire() {
     }
   };
   const previousQuestionId = currentQuestionIndex > 0 ? questions[currentQuestionIndex - 1] : null;
+
+  /*const likertLabels = document.querySelectorAll(".likert-label");
+
+  likertLabels.forEach(label =>{
+    label.addEventListener("click", () => {
+      likertLabels.forEach(otherlabel => 
+        otherlabel.classList.remove("selected"));
+    });
+    label.classList.add("selected");
+  })*/
 
   return (
     <>
@@ -100,12 +111,13 @@ function Questionnaire() {
               </div>
             </div>
           </div>
-          <div id="q2" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${
+          <div id="q2" className={`flex items-center justify-center bg-BackgroundWhite rounded-xl mt-12 p-8 ${
             currentQuestion === "q2" ? "" : "hidden"}`} 
-            style={{width: "80rem", height: "60vh", zIndex: 2}}>
-            <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
-              <h2> How would you rate these</h2>
+            style={{width: "80rem", height: "75vh", zIndex: 2}}>
+            <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
+              <h2> How much do you value these</h2>
               <h2>liveability aspects?</h2>
+              <h2>(Please rate 1 to 5)</h2>
               <br></br>
               <Image
                 src="/forest-nature-park.svg"
@@ -124,34 +136,38 @@ function Questionnaire() {
               </Link>
             </div>
             <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
-              <div className=" max-w-2xl">
-                <h2>Finding a liveable home at an affordable rent in Melbourne can be difficult, but we know it is not impossible. </h2>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="likert-options flex flex-col justify-center text-3xl font-bold">
-                  <label className="likert-label">
-                    <input type="radio" name="likertScale" value="1" className="likert-radio" />
-                    Strongly Disagree
-                  </label>
-                  <label className="likert-label">
-                    <input type="radio" name="likertScale" value="2" className="likert-radio" />
-                    Disagree
-                  </label>
-                  <label className="likert-label">
-                    <input type="radio" name="likertScale" value="3" className="likert-radio" />
-                    Neutral
-                  </label>
-                  <label className="likert-label">
-                    <input type="radio" name="likertScale" value="4" className="likert-radio" />
-                    Agree
-                  </label>
-                  <label className="likert-label">
-                    <input type="radio" name="likertScale" value="5" className="likert-radio" />
-                    Strongly Agree
-                  </label>
+              <div className="flex flex-col font-bold">
+                <div className=" flex text-lg space-x-2">
+                  <h2>(1-Not at all</h2>
+                  <h2>2-Low importance</h2>
+                  <h2>3-Neutral</h2>
+                  <h2>4-Important</h2>
+                  <h2>5-Very important)</h2>
                 </div>
-                <br></br>
-                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 ml-6"
+                <div className="text-xl mt-4">
+                  <h2>Affordable housing</h2>
+                </div>
+                <LikertScale />
+                <div className="text-xl">
+                  <h2>Easy access to public transport</h2>
+                </div>
+                <LikertScale />
+                <div className="text-xl">
+                  <h2>Abundance of public open space e.g. gradens, parks</h2>
+                </div>
+                <LikertScale />
+                <div className="text-xl">
+                  <h2>Low crime rate</h2>
+                </div>
+                <LikertScale />
+                <div className="text-xl">
+                  <h2>Safe roads</h2>
+                </div>
+                <LikertScale />
+              </div>
+              <br></br>
+              <div className="flex justify-end">
+                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-end w-56 p-8"
                   onClick={handleNext}>
                   Final question
                 </button>

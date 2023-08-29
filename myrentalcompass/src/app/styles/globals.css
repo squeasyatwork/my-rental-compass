@@ -88,7 +88,7 @@ body {
   }
 
   .likert-label {
-    @apply cursor-pointer text-center px-4 py-2 bg-white border rounded-lg shadow-md;
+    @apply cursor-pointer text-center px-1 py-2 bg-white border rounded-lg shadow-md w-32;
     transition: background-color 0.2s, transform 0.2s;
   }
 
@@ -101,10 +101,15 @@ body {
   }
   
   .likert-label:hover {
-    @apply bg-MainButtonYellow transform scale-105;
+    @apply bg-ResourceButtonYellow transform scale-105;
   }
   
   .likert-radio:checked + .likert-label {
-    @apply bg-MainButtonYellow transform scale-105;
+    @apply bg-ResourceButtonYellow transform scale-105;
   }
+
+  
+}
+.likert-label.selected {
+  @apply bg-ResourceButtonYellow transform scale-105;
 }
