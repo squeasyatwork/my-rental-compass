@@ -68,4 +68,4 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
   );
 };
 
-export default Section;
+export default { Section, ResourceSection };
