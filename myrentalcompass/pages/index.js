@@ -2,10 +2,10 @@ import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
 
-import Navbar from "./helperpages/navbar.js";
-import Footer from "./helperpages/footer.js";
-import Section from "./helperpages/indextexthelper.js";
-import ResourceSection from "./helperpages/otherresources.js";
+import Navbar from "~/pages/helperpages/navbar.js";
+import Footer from "~/pages/helperpages/footer.js";
+import Section from "~/pages/helperpages/indextexthelper.js";
+import ResourceSection from "~/pages/helperpages/otherresources.js";
 
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
