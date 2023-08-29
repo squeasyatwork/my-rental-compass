@@ -62,14 +62,7 @@ body {
   .yqa-cross-section-container {
     @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok 
     sm:grid-cols-1 sm:text-center sm:gap-0 mx-auto px-5;
-  .yqa-subheading {
-    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
-  .copywrite-content {
-    @apply font-istok text-NavTextGray;
-  }
-}
-}
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
