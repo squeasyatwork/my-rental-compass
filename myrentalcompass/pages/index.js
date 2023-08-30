@@ -1,12 +1,10 @@
 import Head from "next/head";
 import Link from "next/link";
 import Image from "next/image";
-import React from "react";
 
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 import { Section, ResourceSection } from "./helperpages/indextexthelper.js";
-// import { Section, ResourceSection } from "~/public/otherresources.js";
 
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
