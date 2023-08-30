@@ -63,12 +63,6 @@ body {
     @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok sm:grid-cols-1 sm:text-center sm:gap-0 mx-auto px-5;
   }
 }
-  .yqa-subheading {
-    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
-  }
-  .copywrite-content {
-    @apply font-istok text-NavTextGray;
-  }
 
 /* For components used in questionnaire page */
 @layer components{
@@ -88,10 +82,9 @@ body {
   }
 
   .likert-label {
-    @apply cursor-pointer text-center px-1 py-2 bg-white border rounded-lg shadow-md w-32;
+    @apply cursor-pointer text-center px-4 py-2 bg-white border rounded-lg shadow-md;
     transition: background-color 0.2s, transform 0.2s;
   }
-
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
@@ -101,11 +94,11 @@ body {
   }
   
   .likert-label:hover {
-    @apply bg-ResourceButtonYellow transform scale-105;
+    @apply bg-MainButtonYellow transform scale-105;
   }
   
   .likert-radio:checked + .likert-label {
-    @apply bg-ResourceButtonYellow transform scale-105;
+    @apply bg-MainButtonYellow transform scale-105;
   }
 
   
