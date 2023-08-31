@@ -1,4 +1,4 @@
-// NOT BEING USED ATM
+// THIS FILE ENSURES THAT ONLY ONE PRISMA CLIENT IS INSTANTIATED DURING RUNTIME
 
 import { PrismaClient } from "@prisma/client";
 
