@@ -1,7 +1,11 @@
 import Head from "next/head";
-import Navbar from "./navbar.js";
+import Link from "next/link";
 
-function Map() {
+import Navbar from "~/pages/helperpages/navbar.js";
+import Footer from "~/pages/helperpages/footer.js";
+import Mapone from "~/components/mapone.js";
+
+function Mapoverview() {
   return (
     <>
       <Head>
@@ -9,15 +13,48 @@ function Map() {
         <meta name="description" content="Find the best places to live." />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen">
-        <Navbar activePage="Find where to live" />
+      <main className="font-inter flex flex-col h-screen">
+        <div style={{ width: "100%", zIndex: 100 }}>
+          <Navbar activePage="Find where to live" />
+        </div>
 
-        <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
-          <p>This page is a work in progress still!</p>
+        <section className="flex-grow w-full flex flex-col bg-white justify-center text-NavTextGray">
+          <div className="flex flex-col justify-center px-12 pt-12">
+            <h2 className="text-4xl font-bold pb-4">
+              Liveability index of Melbourne suburbs
+            </h2>
+            <h2 className="text-2xl py-1">
+              The interactive map below shows each suburb&aposs liveability index
+              based on 4 key criteria: safety, affordability, accessibility
+            </h2>
+            <h2 className="text-2xl"> and wellness.</h2>
+          </div>
+          <br />
+          <div className="flex flex-col justify-center items-center pb-12">
+            <Mapone />
+          </div>
+          <div className="flex w-full justify-center items-center">
+            <div className="mt-auto flex items-center justify-center pb-16">
+              <Link href="/recommendations">
+                <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 mr-40">
+                  Get new recommendations
+                </button>
+              </Link>
+            </div>
+            <div className="mt-auto flex items-center justify-center pb-16">
+              <Link href="/recommendations">
+                <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 ml-40">
+                  View my previous recommendations
+                </button>
+              </Link>
+            </div>
+          </div>
         </section>
+
+        <Footer />
       </main>
     </>
   );
 }
 
-export default Map;
+export default Mapoverview;

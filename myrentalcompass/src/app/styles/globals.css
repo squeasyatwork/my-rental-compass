@@ -1,7 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@900&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@900&display=swap");
 
 :root {
   --foreground-rgb: 0, 0, 0;
@@ -31,10 +31,7 @@ body {
   .navbar-button {
     @apply relative flex items-center justify-center flex-grow
       h-16 mt-2 mb-1 text-NavTextGray font-istok font-semibold pb-1
-      transition-transform transform active:scale-95 active:opacity-90; /* Added transformations for smooth effect */
-  }
-  .navbar-button:hover {
-    @apply text-MainButtonYellow transform scale-110 opacity-80;
+      transition-transform transform active:scale-95 active:opacity-90;
   }
   .navbar-button:hover:not(.navbar-button-active) {
     @apply text-MainButtonYellow transform scale-110 opacity-80;
@@ -52,30 +49,72 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-16 px-3 py-1
-      transition-transform transform active:scale-95 active:opacity-90; /* Added transformations for the "press" effect */
+    @apply bg-MainButtonYellow rounded-2xl h-16 px-5 py-1 w-48 text-NavTextGray
+      transition-transform transform font-bold active:scale-95 active:opacity-90;
   }
   .call-action-button:hover {
-    @apply text-BackgroundWhite transform scale-110 opacity-80;
+    @apply text-BackgroundWhite transform scale-110 opacity-100;
   }
-}
-
-/* For components used in YQA and OR sections of landing page */
-@layer components {
   .index-page-section-heading {
     @apply p-3 mb-4 mt-7 text-5xl font-bold leading-tight justify-center items-center font-istok;
     color: #757575;
   }
   .yqa-cross-section-container {
-    @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok sm:grid-cols-1 sm:text-center sm:gap-0;
+    @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok sm:grid-cols-1 sm:text-center sm:gap-0 mx-auto px-5;
   }
+}
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
   .copywrite-content {
     @apply font-istok text-NavTextGray;
   }
-  /* .image-borders {
-    border-color: #757575;
-  } */
+
+/* For components used in questionnaire page */
+@layer components{
+  /*.fade-in{
+    opacity: 1;
+    transition: opacity 0.3s ease-in;
+  }
+
+  .fade-out{
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease-out;
+  }*/
+  
+  .likert-option{
+    @apply space-x-4;
+  }
+
+  .likert-label {
+    @apply cursor-pointer text-center px-1 py-2 bg-white border rounded-lg shadow-md w-32;
+    transition: background-color 0.2s, transform 0.2s;
+  }
+
+  .yqa-subheading {
+    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
+  }
+  
+  .likert-radio {
+    @apply absolute h-0 w-0 opacity-0;
+  }
+  
+  .likert-label:hover {
+    @apply bg-ResourceButtonYellow transform scale-105;
+  }
+  
+  .likert-radio:checked + .likert-label {
+    @apply bg-ResourceButtonYellow transform scale-105;
+  }
+  
+  .likert-label.selected {
+    @apply bg-ResourceButtonYellow transform scale-105;
+  }
+  
+  .bet_time {
+    position:absolute;
+    bottom:0;
+    right:0;
+} 
 }

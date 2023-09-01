@@ -1,0 +1,54 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model airports {
+  airport_code                                String    @id @db.VarChar(3)
+  airport_name                                String?   @db.VarChar(100)
+  city                                        String?   @db.VarChar(100)
+  country                                     String?   @db.VarChar(100)
+  flights_flights_arrival_airportToairports   flights[] @relation("flights_arrival_airportToairports")
+  flights_flights_departure_airportToairports flights[] @relation("flights_departure_airportToairports")
+}
+
+model flights {
+  flight_id                                    Int            @id @default(autoincrement())
+  flight_number                                String?        @db.VarChar(10)
+  departure_airport                            String?        @db.VarChar(3)
+  arrival_airport                              String?        @db.VarChar(3)
+  departure_time                               DateTime?      @db.Timestamp(6)
+  arrival_time                                 DateTime?      @db.Timestamp(6)
+  available_seats                              Int?
+  airports_flights_arrival_airportToairports   airports?      @relation("flights_arrival_airportToairports", fields: [arrival_airport], references: [airport_code], onDelete: NoAction, onUpdate: NoAction)
+  airports_flights_departure_airportToairports airports?      @relation("flights_departure_airportToairports", fields: [departure_airport], references: [airport_code], onDelete: NoAction, onUpdate: NoAction)
+  reservations                                 reservations[]
+
+  @@index([arrival_airport], map: "idx_arrival_airport")
+  @@index([departure_airport], map: "idx_departure_airport")
+}
+
+model passengers {
+  passenger_id Int            @id @default(autoincrement())
+  first_name   String?        @db.VarChar(50)
+  last_name    String?        @db.VarChar(50)
+  email        String?        @unique @db.VarChar(100)
+  phone_number String?        @db.VarChar(20)
+  reservations reservations[]
+}
+
+model reservations {
+  reservation_id   Int         @id @default(autoincrement())
+  passenger_id     Int?
+  flight_id        Int?
+  reservation_date DateTime?   @default(now()) @db.Timestamp(6)
+  flights          flights?    @relation(fields: [flight_id], references: [flight_id], onDelete: NoAction, onUpdate: NoAction)
+  passengers       passengers? @relation(fields: [passenger_id], references: [passenger_id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([flight_id], map: "idx_flight_id")
+  @@index([passenger_id], map: "idx_passenger_id")
+}
