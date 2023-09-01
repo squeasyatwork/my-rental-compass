@@ -18,7 +18,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
   return (
     <div
       id="q1"
-      className="flex flex-col items-center justify-center bg-white rounded-xl px-24 w-full h-full"
+      className="flex flex-col items-center justify-center bg-white rounded-xl w-full h-full"
     >
       <div className="flex flex-col md:flex-row items-center justify-center w-full">
         <div className="flex flex-col items-center text-4xl font-bold mb-4 md:mb-0 md:mr-6">
