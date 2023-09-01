@@ -24,7 +24,7 @@ function Mapoverview() {
               Liveability index of Melbourne suburbs
             </h2>
             <h2 className="text-2xl py-1">
-              The interactive map below shows each suburb's liveability index
+              The interactive map below shows each suburb liveability index
               based on 4 key criteria: safety, affordability, accessibility
             </h2>
             <h2 className="text-2xl"> and wellness.</h2>
