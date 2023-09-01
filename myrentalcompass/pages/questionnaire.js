@@ -187,7 +187,7 @@ function Questionnaire() {
             </div>
           </div>
           <div id="q3" className={`flex flex-col items-center justify-center bg-BackgroundWhite rounded-xl mt-12 p-8 ${currentQuestion === "q3" ? "" : "hidden"}`}
-            style={{ width: "80%", height: "60vh", zIndex: 2 }}>
+            style={{ width: "80%", height: "70vh", zIndex: 2 }}>
             <div className="flex">
               <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
                 <h2 className="text-xl">(OPTIONAL)</h2>
