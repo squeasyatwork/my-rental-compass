@@ -54,14 +54,14 @@ function Scratchpage({ dbResponse }) {
             {/* <div>scratchpage</div>
             <h1>{dbResponse[0].airport_name}</h1> */}
             {/*  */}
-            <Box my="14px" bgcolor="#fff" width="80rem" borderRadius="10px" padding="10px" alignItems="center" sx={{ justifyContent: { sm: "center", lg: "space-between" } }}>
+            <Box my="14px" bgcolor="#fff" width="80rem" borderRadius="10px" padding="10px" alignItems="left" sx={{ justifyContent: { sm: "center", lg: "space-between" } }}>
               <Grid container spacing={4}>
                 <Grid item lg={2.5}>
                   <PreferencesBar></PreferencesBar>
                 </Grid>
                 <Grid item lg={9.5}>
                   {/* MAP COMPONENT GOES HERE */}
-                  <Grid container spacing={4} flexDirection={"column"} justifyContent={"center"} alignItems={"stretch"}>
+                  <Grid container spacing={4} flexDirection={"column"} justifyContent={"flex-end"} alignItems={"flex-end"}>
                     <Grid item>
                       <Image loader={ImageLoader}
                         src={"/liveable-cities.jpeg"}
@@ -71,16 +71,16 @@ function Scratchpage({ dbResponse }) {
                         loading="eager"
                         className="mx-auto" style={{ borderRadius: "14px" }}></Image>
                     </Grid>
-                    <Grid item>
-                      <div className="flex flex-row m-4 align-bottom">
-                        <div className="align-bottom mt-auto flex pb-4 m-2">
+                    <Grid item style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", justifyContent: "flex-end" }}>
+                      <div className="flex flex-row m-4">
+                        <div className="mt-auto flex pb-4 m-2">
                           <Link href={"/questionnaire"}>
                             <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
                               Start over
                             </button>
                           </Link>
                         </div>
-                        <div className="align-bottom mt-auto flex pb-4 m-2">
+                        <div className="mt-auto flex pb-4 m-2">
                           <Link href={"/"}>
                             <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
                               Home

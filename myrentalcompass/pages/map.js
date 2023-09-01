@@ -1,97 +1,60 @@
-import * as React from 'react';
 import Head from "next/head";
-import Navbar from "./helperpages/navbar.js";
-import Footer from "./helperpages/footer.js";
-import prisma from "~/lib/prisma";
-import Image from "next/image.js";
-import PreferencesBar from "~/components/PreferencesBar";
-import { Box } from '@mui/material';
-import Grid from '@mui/material/Grid';
-import ImageLoader from '~/components/ImageLoader';
+import Link from "next/link";
 
+import Navbar from "~/pages/helperpages/navbar.js";
+import Footer from "~/pages/helperpages/footer.js";
+import Mapone from "~/components/mapone.js";
 
-// This is needed to make sure that the dbResponse parameter is correctly passed on to the page component.
-export const config = {
-  runtime: "nodejs", // or "edge"
-};
+function Mapoverview() {
+  return (
+    <>
+      <Head>
+        <title>MyRentalCompass | Map</title>
+        <meta name="description" content="Find the best places to live." />
+      </Head>
 
-export const getServerSideProps = async (context) => {
-  // const prisma = new PrismaClient();
-  const feed = await prisma.airports.findMany({
-    where: {
-      airport_code: context.query.country,
-    },
-  });
-  const dbResponse = JSON.parse(JSON.stringify(feed));
-  // console.log("VALUE INSIDE BACKEND dbResponse: " + JSON.stringify(dbResponse));
+      <main className="font-inter flex flex-col h-screen">
+        <div style={{ width: "100%", zIndex: 100 }}>
+          <Navbar activePage="Find where to live" />
+        </div>
 
-  return { props: { dbResponse } };
+        <section className="flex-grow w-full flex flex-col bg-white justify-center text-NavTextGray">
+          <div className="flex flex-col justify-center px-12 pt-12">
+            <h2 className="text-4xl font-bold pb-4">
+              Liveability index of Melbourne suburbs
+            </h2>
+            <h2 className="text-2xl py-1">
+              The interactive map below shows each suburb&aposs liveability index
+              based on 4 key criteria: safety, affordability, accessibility
+            </h2>
+            <h2 className="text-2xl"> and wellness.</h2>
+          </div>
+          <br />
+          <div className="flex flex-col justify-center items-center pb-12">
+            <Mapone />
+          </div>
+          <div className="flex w-full justify-center items-center">
+            <div className="mt-auto flex items-center justify-center pb-16">
+              <Link href="/recommendation">
+                <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 mr-40">
+                  Get new recommendations
+                </button>
+              </Link>
+            </div>
+            <div className="mt-auto flex items-center justify-center pb-16">
+              <Link href="/recommendation">
+                <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 ml-40">
+                  View my previous recommendations
+                </button>
+              </Link>
+            </div>
+          </div>
+        </section>
+
+        <Footer />
+      </main>
+    </>
+  );
 }
 
-function Map({ dbResponse }) {
-
-  // console.log("INSIDE SCRATCHPAGE component: " + JSON.stringify(dbResponse));
-  if (dbResponse.length != 0) { // i.e., the database returned something in dbResponse.
-    return (
-      <>
-        <Head>
-          <title>MyRentalCompass | Explore the Map</title>
-          <meta name="description" content="Discover potential homes." />
-        </Head>
-
-        <main className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Find where to live" />
-
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
-
-            <Box my="14px" bgcolor="#fff" width="80rem" borderRadius="10px" padding="10px" alignItems="center" sx={{ justifyContent: { sm: "center", lg: "space-between" } }}>
-              <Grid container spacing={4}>
-                <Grid item lg={2.5}>
-                  <PreferencesBar></PreferencesBar>
-                </Grid>
-                <Grid item lg={9.5}>
-                  {/* MAP COMPONENT GOES HERE */}
-
-                  <Image loader={ImageLoader}
-                    src={"/liveable-cities.jpeg"}
-                    width={1300}
-                    height={100}
-                    alt={"liveable-cities"}
-                    loading="eager"
-                    className="mx-auto" style={{ borderRadius: "14px" }}></Image>
-
-
-                </Grid>
-              </Grid></Box>
-          </section>
-
-
-          <Footer />
-        </main >
-      </>
-    );
-  }
-  else {  // If no records were returned by the database, dbResponse will be [] ( ,i.e., an empty array).
-    return (
-      <>
-        <Head>
-          <title>MyRentalCompass | Explore the Map</title>
-          <meta name="description" content="Discover potential homes." />
-        </Head>
-
-        <main className="font-inter flex flex-col m-1 h-screen">
-          <Navbar activePage="Find where to live" />
-
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
-
-            <div>NOT FOUND IN DATABASE</div>
-
-          </section>
-          <Footer />
-        </main>
-      </>
-    );
-  }
-}
-
-export default Map;
+export default Mapoverview;
