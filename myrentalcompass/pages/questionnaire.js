@@ -49,7 +49,7 @@ function Questionnaire() {
             backgroundSize: "cover",
           }}>
           <div id="q1" className={`flex flex-col items-center justify-center bg-BackgroundWhite rounded-xl p-8 ${currentQuestion === "q1" ? "" : "hidden"}`}
-            style={{ width: "80%", height: "60%", zIndex: 2 }}>
+            style={{ width: "80%", height: "60vh", zIndex: 2 }}>
             <div className="flex">
               <div className="flex flex-col items-center font-Inter font-bold text-4xl mr-6">
                 <h2> We are here to help you!</h2>
@@ -109,7 +109,7 @@ function Questionnaire() {
             </div>
           </div>
           <div id="q2" className={`flex flex-col items-center justify-center bg-BackgroundWhite rounded-xl mt-12 p-8 ${currentQuestion === "q2" ? "" : "hidden"}`}
-            style={{ width: "80%", height: "75%", zIndex: 2 }}>
+            style={{ width: "80%", height: "75%vh", zIndex: 2 }}>
             <div className="flex">
               <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
                 <h2> How much do you value these</h2>
@@ -187,7 +187,7 @@ function Questionnaire() {
             </div>
           </div>
           <div id="q3" className={`flex flex-col items-center justify-center bg-BackgroundWhite rounded-xl mt-12 p-8 ${currentQuestion === "q3" ? "" : "hidden"}`}
-            style={{ width: "80%", height: "60%", zIndex: 2 }}>
+            style={{ width: "80%", height: "70vh", zIndex: 2 }}>
             <div className="flex">
               <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
                 <h2 className="text-xl">(OPTIONAL)</h2>
@@ -247,7 +247,7 @@ function Questionnaire() {
                 </Link>
               </div>
               <div className="ml-60">
-                <Link href="/map">
+                <Link href="/recommendations">
                   <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8">
                     {" "}
                     Show result{" "}
