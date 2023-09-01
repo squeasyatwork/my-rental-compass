@@ -35,14 +35,14 @@ function Mapoverview() {
           </div>
           <div className="flex w-full justify-center items-center">
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="/recommendations">
                 <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 mr-40">
                   Get new recommendations
                 </button>
               </Link>
             </div>
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="/recommendations">
                 <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 ml-40">
                   View my previous recommendations
                 </button>
