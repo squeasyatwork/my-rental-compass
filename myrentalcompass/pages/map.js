@@ -24,7 +24,7 @@ function Mapoverview() {
               Liveability index of Melbourne suburbs
             </h2>
             <h2 className="text-2xl py-1">
-              The interactive map below shows each suburb&aposs liveability index
+              The interactive map below shows each suburb's liveability index
               based on 4 key criteria: safety, affordability, accessibility
             </h2>
             <h2 className="text-2xl"> and wellness.</h2>
@@ -35,14 +35,14 @@ function Mapoverview() {
           </div>
           <div className="flex w-full justify-center items-center">
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="/questionnaire">
                 <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 mr-40">
-                  Get new recommendations
+                  Get my recommendations
                 </button>
               </Link>
             </div>
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="#"> {/* iteration2: saving past reco's */}
                 <button className="call-action-button text-NavTextGray text-xl font-bold flex items-center justify-center w-56 p-8 ml-40">
                   View my previous recommendations
                 </button>

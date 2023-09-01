@@ -1,3 +1,5 @@
+"use client";
+
 import * as React from 'react';
 import Head from "next/head";
 import Navbar from "./helperpages/navbar.js";
@@ -8,6 +10,12 @@ import PreferencesBar from "~/components/PreferencesBar";
 import { Box } from '@mui/material';
 import Grid from '@mui/material/Grid';
 import ImageLoader from '~/components/ImageLoader';
+import Mapone from "~/components/mapone.js";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import Router from "next/router";
+
+
 
 
 // This is needed to make sure that the dbResponse parameter is correctly passed on to the page component.
@@ -15,23 +23,53 @@ export const config = {
     runtime: "nodejs", // or "edge"
 };
 
-export const getServerSideProps = async (context) => {
-    // const prisma = new PrismaClient();
-    const feed = await prisma.airports.findMany({
-        where: {
-            airport_code: context.query.country,
-        },
-    });
-    const dbResponse = JSON.parse(JSON.stringify(feed));
-    // console.log("VALUE INSIDE BACKEND dbResponse: " + JSON.stringify(dbResponse));
-
-    return { props: { dbResponse } };
+function calculateLiveabilityScore({ suburbLiveabilityRecord, liveabilityPreferences }) {
+    return null;
 }
 
-function Recommendations({ dbResponse }) {
+export const getServerSideProps = async (context) => {
+    let params = new URLSearchParams(context.query);
+    // First, get nearby suburbs based on the university selected.
+    let nearbySuburbsResponse = await prisma.uni_suburbs.findFirst({
+        where: {
+            // university: params.get("university"),
+        },
+    });
+    let suburbsJson = JSON.parse(JSON.stringify(nearbySuburbsResponse));
+    console.log("VALUE INSIDE BACKEND dbResponse: " + JSON.stringify(suburbsJson));
 
-    // console.log("INSIDE SCRATCHPAGE component: " + JSON.stringify(dbResponse));
-    if (dbResponse.length != 0) { // i.e., the database returned something in dbResponse.
+    let nearbySuburbsList = eval(suburbsJson.nearby_suburbs);
+    console.log("AFTER PARSING suburbsList: " + JSON.stringify(nearbySuburbsList));
+
+    // Next I calculate the liveability scores of all the suburbs found above.
+    let nearbySuburbLiveabilities = {};
+
+    nearbySuburbsList.forEach(function (currentElement) {
+        console.log(currentElement);
+        nearbySuburbLiveabilities[currentElement] = -1;
+    });
+
+    const suburbLiveabilityRecords = await prisma.liveability_data.findMany({
+        where: {
+        },
+    })
+    // console.log(suburbLiveabilityRecords);
+
+    // suburbLiveabilityRecords.forEach(function (currentElement) {
+    //     if (nearbySuburbLiveabilities.includes(currentElement.suburb)) {
+
+    //     }
+    // });
+
+    return { props: { nearbySuburbsList } };
+}
+
+function Recommendations({ nearbySuburbsList }) {
+
+    const router = useRouter();
+
+    console.log("INSIDE SCRATCHPAGE component: " + nearbySuburbsList.length);
+    if (nearbySuburbsList.length != 0) { // i.e., the database returned something in dbResponse.
         return (
             <>
                 <Head>
@@ -51,18 +89,34 @@ function Recommendations({ dbResponse }) {
                                 </Grid>
                                 <Grid item lg={9.5}>
                                     {/* MAP COMPONENT GOES HERE */}
-
-                                    <Image loader={ImageLoader}
+                                    <Mapone></Mapone>
+                                    {/* <Image loader={ImageLoader}
                                         src={"/liveable-cities.jpeg"}
                                         width={1300}
                                         height={100}
                                         alt={"liveable-cities"}
                                         loading="eager"
-                                        className="mx-auto" style={{ borderRadius: "14px" }}></Image>
+                                        className="mx-auto" style={{ borderRadius: "14px" }}></Image> */}
 
 
                                 </Grid>
-                            </Grid></Box>
+
+                            </Grid><div className="flex flex-row m-4">
+                                <div className="mt-auto flex pb-4 m-2">
+                                    <Link href={"/questionnaire"}>
+                                        <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
+                                            Start over
+                                        </button>
+                                    </Link>
+                                </div>
+                                <div className="mt-auto flex pb-4 m-2">
+                                    <Link href={"/"}>
+                                        <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
+                                            Home
+                                        </button>
+                                    </Link>
+                                </div>
+                            </div></Box>
                     </section>
 
 
@@ -84,7 +138,7 @@ function Recommendations({ dbResponse }) {
 
                     <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
 
-                        <div>NOT FOUND IN DATABASE</div>
+                        <div>APPARENTLY YOUR UNIVERSITY HAS NO NEARBY SUBURBS IN OUR DATABASE...</div>
 
                     </section>
                     <Footer />
