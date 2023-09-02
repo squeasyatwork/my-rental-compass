@@ -19,6 +19,8 @@ module.exports = {
         BackgroundWhite: "#FFFEFC",
         ShadeGray: "#BFBFBF",
         ResourceButtonYellow: "#fff5cc",
+        MapNavGray: "#f5f5f5",
+        MapHeadingGray: "#ffffff",
       },
     },
   },

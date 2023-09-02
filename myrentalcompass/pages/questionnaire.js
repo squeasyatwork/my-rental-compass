@@ -135,7 +135,7 @@ function Questionnaire() {
                       src="/information-icon.svg"
                       alt="Hint"
                       width={22}
-                      height={22}
+                      height={"auto"}
                       className="rounded-xl"
                     />
                     <h2>1-Not at all</h2>
@@ -247,7 +247,7 @@ function Questionnaire() {
                 </Link>
               </div>
               <div className="ml-60">
-                <Link href="/map">
+                <Link href="/recommendations">
                   <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8">
                     {" "}
                     Show result{" "}
