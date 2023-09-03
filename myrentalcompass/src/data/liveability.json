@@ -1,0 +1,3322 @@
+[
+  {
+    "lga": "Yarra City Council",
+    "suburb": "Abbotsford",
+    "liveability_score": 0.53,
+    "average_rent": 520,
+    "ptv_stop_count": 21,
+    "openspace_count": 31,
+    "crash_count": 33,
+    "crime_count": 1097
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Aberfeldie",
+    "liveability_score": 0.55,
+    "average_rent": 446.25,
+    "ptv_stop_count": 20,
+    "openspace_count": 2,
+    "crash_count": 8,
+    "crime_count": 797
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Aintree",
+    "liveability_score": 0.53,
+    "average_rent": 467.93,
+    "ptv_stop_count": 19,
+    "openspace_count": 0,
+    "crash_count": 1,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Airport West",
+    "liveability_score": 0.58,
+    "average_rent": 446.25,
+    "ptv_stop_count": 60,
+    "openspace_count": 16,
+    "crash_count": 30,
+    "crime_count": 797
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Albanvale",
+    "liveability_score": 0.56,
+    "average_rent": 410,
+    "ptv_stop_count": 22,
+    "openspace_count": 3,
+    "crash_count": 4,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Albert Park",
+    "liveability_score": 0.53,
+    "average_rent": 545,
+    "ptv_stop_count": 30,
+    "openspace_count": 12,
+    "crash_count": 18,
+    "crime_count": 393
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Albion",
+    "liveability_score": 0.56,
+    "average_rent": 410,
+    "ptv_stop_count": 20,
+    "openspace_count": 10,
+    "crash_count": 9,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Alphington",
+    "liveability_score": 0.6,
+    "average_rent": 400,
+    "ptv_stop_count": 29,
+    "openspace_count": 2,
+    "crash_count": 8,
+    "crime_count": 190
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Altona",
+    "liveability_score": 0.61,
+    "average_rent": 430,
+    "ptv_stop_count": 66,
+    "openspace_count": 15,
+    "crash_count": 18,
+    "crime_count": 493
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Altona Meadows",
+    "liveability_score": 0.62,
+    "average_rent": 505,
+    "ptv_stop_count": 47,
+    "openspace_count": 55,
+    "crash_count": 20,
+    "crime_count": 535
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Altona North",
+    "liveability_score": 0.56,
+    "average_rent": 505,
+    "ptv_stop_count": 107,
+    "openspace_count": 12,
+    "crash_count": 51,
+    "crime_count": 535
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Ardeer",
+    "liveability_score": 0.54,
+    "average_rent": 410,
+    "ptv_stop_count": 13,
+    "openspace_count": 1,
+    "crash_count": 11,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Stonnington City Council",
+    "suburb": "Armadale",
+    "liveability_score": 0.56,
+    "average_rent": 490,
+    "ptv_stop_count": 58,
+    "openspace_count": 5,
+    "crash_count": 14,
+    "crime_count": 439
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Ascot Vale",
+    "liveability_score": 0.56,
+    "average_rent": 460,
+    "ptv_stop_count": 63,
+    "openspace_count": 10,
+    "crash_count": 25,
+    "crime_count": 845
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Ashburton",
+    "liveability_score": 0.55,
+    "average_rent": 475,
+    "ptv_stop_count": 28,
+    "openspace_count": 2,
+    "crash_count": 9,
+    "crime_count": 529
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Ashwood",
+    "liveability_score": 0.53,
+    "average_rent": 496.88,
+    "ptv_stop_count": 30,
+    "openspace_count": 9,
+    "crash_count": 10,
+    "crime_count": 998
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Aspendale",
+    "liveability_score": 0.57,
+    "average_rent": 495,
+    "ptv_stop_count": 19,
+    "openspace_count": 19,
+    "crash_count": 9,
+    "crime_count": 196
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Aspendale Gardens",
+    "liveability_score": 0.58,
+    "average_rent": 482.5,
+    "ptv_stop_count": 17,
+    "openspace_count": 25,
+    "crash_count": 8,
+    "crime_count": 416
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Attwood",
+    "liveability_score": 0.54,
+    "average_rent": 411,
+    "ptv_stop_count": 5,
+    "openspace_count": 5,
+    "crash_count": 1,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Avondale Heights",
+    "liveability_score": 0.62,
+    "average_rent": 440,
+    "ptv_stop_count": 43,
+    "openspace_count": 30,
+    "crash_count": 12,
+    "crime_count": 357
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Balaclava",
+    "liveability_score": 0.49,
+    "average_rent": 499.38,
+    "ptv_stop_count": 11,
+    "openspace_count": 2,
+    "crash_count": 12,
+    "crime_count": 1316
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Balwyn",
+    "liveability_score": 0.53,
+    "average_rent": 575,
+    "ptv_stop_count": 49,
+    "openspace_count": 14,
+    "crash_count": 16,
+    "crime_count": 378
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Balwyn North",
+    "liveability_score": 0.59,
+    "average_rent": 508,
+    "ptv_stop_count": 107,
+    "openspace_count": 25,
+    "crash_count": 37,
+    "crime_count": 563
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Bangholme",
+    "liveability_score": 0.49,
+    "average_rent": 396.25,
+    "ptv_stop_count": 13,
+    "openspace_count": 1,
+    "crash_count": 18,
+    "crime_count": 2671
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Bayswater",
+    "liveability_score": 0.59,
+    "average_rent": 440,
+    "ptv_stop_count": 61,
+    "openspace_count": 21,
+    "crash_count": 23,
+    "crime_count": 786
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Bayswater North",
+    "liveability_score": 0.54,
+    "average_rent": 476.67,
+    "ptv_stop_count": 66,
+    "openspace_count": 10,
+    "crash_count": 26,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Cardinia Shire Council",
+    "suburb": "Beaconsfield",
+    "liveability_score": 0.54,
+    "average_rent": 467.93,
+    "ptv_stop_count": 27,
+    "openspace_count": 14,
+    "crash_count": 20,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Beaumaris",
+    "liveability_score": 0.51,
+    "average_rent": 630,
+    "ptv_stop_count": 66,
+    "openspace_count": 7,
+    "crash_count": 9,
+    "crime_count": 314
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Bellfield",
+    "liveability_score": 0.54,
+    "average_rent": 465,
+    "ptv_stop_count": 11,
+    "openspace_count": 0,
+    "crash_count": 2,
+    "crime_count": 696
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Bentleigh",
+    "liveability_score": 0.52,
+    "average_rent": 550,
+    "ptv_stop_count": 55,
+    "openspace_count": 7,
+    "crash_count": 22,
+    "crime_count": 726
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Bentleigh East",
+    "liveability_score": 0.62,
+    "average_rent": 474.67,
+    "ptv_stop_count": 146,
+    "openspace_count": 14,
+    "crash_count": 39,
+    "crime_count": 533
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Berwick",
+    "liveability_score": 0.76,
+    "average_rent": 470,
+    "ptv_stop_count": 204,
+    "openspace_count": 117,
+    "crash_count": 78,
+    "crime_count": 1716
+  },
+  {
+    "lga": "Mitchell Shire Council",
+    "suburb": "Beveridge",
+    "liveability_score": 0.54,
+    "average_rent": 467.93,
+    "ptv_stop_count": 9,
+    "openspace_count": 17,
+    "crash_count": 11,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Black Rock",
+    "liveability_score": 0.45,
+    "average_rent": 653.6,
+    "ptv_stop_count": 26,
+    "openspace_count": 3,
+    "crash_count": 12,
+    "crime_count": 756
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Blackburn",
+    "liveability_score": 0.63,
+    "average_rent": 460,
+    "ptv_stop_count": 85,
+    "openspace_count": 32,
+    "crash_count": 16,
+    "crime_count": 522
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Blackburn North",
+    "liveability_score": 0.56,
+    "average_rent": 480,
+    "ptv_stop_count": 39,
+    "openspace_count": 11,
+    "crash_count": 16,
+    "crime_count": 639
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Blackburn South",
+    "liveability_score": 0.57,
+    "average_rent": 480,
+    "ptv_stop_count": 47,
+    "openspace_count": 13,
+    "crash_count": 14,
+    "crime_count": 639
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Bonbeach",
+    "liveability_score": 0.55,
+    "average_rent": 482.5,
+    "ptv_stop_count": 15,
+    "openspace_count": 7,
+    "crash_count": 3,
+    "crime_count": 416
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Boronia",
+    "liveability_score": 0.63,
+    "average_rent": 450,
+    "ptv_stop_count": 118,
+    "openspace_count": 37,
+    "crash_count": 27,
+    "crime_count": 1291
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Botanic Ridge",
+    "liveability_score": 0.54,
+    "average_rent": 442,
+    "ptv_stop_count": 13,
+    "openspace_count": 14,
+    "crash_count": 3,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Box Hill",
+    "liveability_score": 0.59,
+    "average_rent": 460,
+    "ptv_stop_count": 90,
+    "openspace_count": 28,
+    "crash_count": 30,
+    "crime_count": 1239
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Box Hill North",
+    "liveability_score": 0.57,
+    "average_rent": 480,
+    "ptv_stop_count": 58,
+    "openspace_count": 17,
+    "crash_count": 31,
+    "crime_count": 639
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Box Hill South",
+    "liveability_score": 0.6,
+    "average_rent": 480,
+    "ptv_stop_count": 53,
+    "openspace_count": 28,
+    "crash_count": 11,
+    "crime_count": 639
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Braeside",
+    "liveability_score": 0.55,
+    "average_rent": 482.5,
+    "ptv_stop_count": 34,
+    "openspace_count": 3,
+    "crash_count": 6,
+    "crime_count": 416
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Braybrook",
+    "liveability_score": 0.55,
+    "average_rent": 455,
+    "ptv_stop_count": 44,
+    "openspace_count": 8,
+    "crash_count": 22,
+    "crime_count": 947
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Briar Hill",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 14,
+    "openspace_count": 5,
+    "crash_count": 3,
+    "crime_count": 696
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Brighton",
+    "liveability_score": 0.45,
+    "average_rent": 725,
+    "ptv_stop_count": 117,
+    "openspace_count": 11,
+    "crash_count": 41,
+    "crime_count": 952
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Brighton East",
+    "liveability_score": 0.4,
+    "average_rent": 783,
+    "ptv_stop_count": 65,
+    "openspace_count": 6,
+    "crash_count": 34,
+    "crime_count": 589
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Broadmeadows",
+    "liveability_score": 0.52,
+    "average_rent": 395,
+    "ptv_stop_count": 91,
+    "openspace_count": 10,
+    "crash_count": 58,
+    "crime_count": 2523
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Brooklyn",
+    "liveability_score": 0.56,
+    "average_rent": 410,
+    "ptv_stop_count": 27,
+    "openspace_count": 13,
+    "crash_count": 23,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Brunswick",
+    "liveability_score": 0.52,
+    "average_rent": 485,
+    "ptv_stop_count": 110,
+    "openspace_count": 27,
+    "crash_count": 82,
+    "crime_count": 2132
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Brunswick East",
+    "liveability_score": 0.61,
+    "average_rent": 450,
+    "ptv_stop_count": 54,
+    "openspace_count": 40,
+    "crash_count": 30,
+    "crime_count": 779
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Brunswick West",
+    "liveability_score": 0.63,
+    "average_rent": 390,
+    "ptv_stop_count": 86,
+    "openspace_count": 26,
+    "crash_count": 34,
+    "crime_count": 815
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Bulla",
+    "liveability_score": 0.53,
+    "average_rent": 411,
+    "ptv_stop_count": 4,
+    "openspace_count": 2,
+    "crash_count": 8,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Bulleen",
+    "liveability_score": 0.57,
+    "average_rent": 520,
+    "ptv_stop_count": 51,
+    "openspace_count": 22,
+    "crash_count": 25,
+    "crime_count": 280
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Bundoora",
+    "liveability_score": 0.68,
+    "average_rent": 440,
+    "ptv_stop_count": 133,
+    "openspace_count": 79,
+    "crash_count": 63,
+    "crime_count": 1473
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Burnside",
+    "liveability_score": 0.54,
+    "average_rent": 467.93,
+    "ptv_stop_count": 19,
+    "openspace_count": 9,
+    "crash_count": 4,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Burnside Heights",
+    "liveability_score": 0.53,
+    "average_rent": 467.93,
+    "ptv_stop_count": 15,
+    "openspace_count": 7,
+    "crash_count": 7,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Burwood",
+    "liveability_score": 0.62,
+    "average_rent": 475,
+    "ptv_stop_count": 84,
+    "openspace_count": 37,
+    "crash_count": 33,
+    "crime_count": 613
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Burwood East",
+    "liveability_score": 0.57,
+    "average_rent": 510,
+    "ptv_stop_count": 65,
+    "openspace_count": 21,
+    "crash_count": 23,
+    "crime_count": 498
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Cairnlea",
+    "liveability_score": 0.58,
+    "average_rent": 410,
+    "ptv_stop_count": 16,
+    "openspace_count": 26,
+    "crash_count": 16,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Camberwell",
+    "liveability_score": 0.61,
+    "average_rent": 500,
+    "ptv_stop_count": 142,
+    "openspace_count": 34,
+    "crash_count": 54,
+    "crime_count": 834
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Campbellfield",
+    "liveability_score": 0.53,
+    "average_rent": 411,
+    "ptv_stop_count": 40,
+    "openspace_count": 7,
+    "crash_count": 50,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Canterbury",
+    "liveability_score": 0.54,
+    "average_rent": 550,
+    "ptv_stop_count": 25,
+    "openspace_count": 15,
+    "crash_count": 12,
+    "crime_count": 157
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Carlton",
+    "liveability_score": 0.51,
+    "average_rent": 400,
+    "ptv_stop_count": 53,
+    "openspace_count": 17,
+    "crash_count": 79,
+    "crime_count": 1999
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Carlton North",
+    "liveability_score": 0.48,
+    "average_rent": 620,
+    "ptv_stop_count": 36,
+    "openspace_count": 9,
+    "crash_count": 36,
+    "crime_count": 360
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Carnegie",
+    "liveability_score": 0.58,
+    "average_rent": 433,
+    "ptv_stop_count": 65,
+    "openspace_count": 4,
+    "crash_count": 19,
+    "crime_count": 689
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Caroline Springs",
+    "liveability_score": 0.63,
+    "average_rent": 467.93,
+    "ptv_stop_count": 94,
+    "openspace_count": 45,
+    "crash_count": 21,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Carrum",
+    "liveability_score": 0.58,
+    "average_rent": 495,
+    "ptv_stop_count": 28,
+    "openspace_count": 19,
+    "crash_count": 5,
+    "crime_count": 243
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Carrum Downs",
+    "liveability_score": 0.67,
+    "average_rent": 450,
+    "ptv_stop_count": 106,
+    "openspace_count": 80,
+    "crash_count": 59,
+    "crime_count": 1281
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Caulfield",
+    "liveability_score": 0.54,
+    "average_rent": 495,
+    "ptv_stop_count": 26,
+    "openspace_count": 2,
+    "crash_count": 14,
+    "crime_count": 240
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Caulfield East",
+    "liveability_score": 0.54,
+    "average_rent": 474.67,
+    "ptv_stop_count": 14,
+    "openspace_count": 1,
+    "crash_count": 8,
+    "crime_count": 533
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Caulfield North",
+    "liveability_score": 0.56,
+    "average_rent": 474.67,
+    "ptv_stop_count": 74,
+    "openspace_count": 4,
+    "crash_count": 34,
+    "crime_count": 533
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Caulfield South",
+    "liveability_score": 0.56,
+    "average_rent": 474.67,
+    "ptv_stop_count": 57,
+    "openspace_count": 5,
+    "crash_count": 22,
+    "crime_count": 533
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Chadstone",
+    "liveability_score": 0.54,
+    "average_rent": 475,
+    "ptv_stop_count": 28,
+    "openspace_count": 5,
+    "crash_count": 22,
+    "crime_count": 632
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Chelsea",
+    "liveability_score": 0.57,
+    "average_rent": 495,
+    "ptv_stop_count": 31,
+    "openspace_count": 23,
+    "crash_count": 16,
+    "crime_count": 452
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Chelsea Heights",
+    "liveability_score": 0.57,
+    "average_rent": 482.5,
+    "ptv_stop_count": 41,
+    "openspace_count": 15,
+    "crash_count": 13,
+    "crime_count": 416
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Cheltenham",
+    "liveability_score": 0.6,
+    "average_rent": 500,
+    "ptv_stop_count": 136,
+    "openspace_count": 38,
+    "crash_count": 49,
+    "crime_count": 1351
+  },
+  {
+    "lga": "Yarra Ranges Shire Council",
+    "suburb": "Chirnside Park",
+    "liveability_score": 0.58,
+    "average_rent": 478,
+    "ptv_stop_count": 48,
+    "openspace_count": 17,
+    "crash_count": 20,
+    "crime_count": 403
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Clarinda",
+    "liveability_score": 0.58,
+    "average_rent": 482.5,
+    "ptv_stop_count": 38,
+    "openspace_count": 19,
+    "crash_count": 8,
+    "crime_count": 416
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Clayton",
+    "liveability_score": 0.53,
+    "average_rent": 450,
+    "ptv_stop_count": 90,
+    "openspace_count": 11,
+    "crash_count": 61,
+    "crime_count": 1503
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Clayton South",
+    "liveability_score": 0.6,
+    "average_rent": 482.5,
+    "ptv_stop_count": 70,
+    "openspace_count": 24,
+    "crash_count": 27,
+    "crime_count": 416
+  },
+  {
+    "lga": "Yarra City Council",
+    "suburb": "Clifton Hill",
+    "liveability_score": 0.48,
+    "average_rent": 600,
+    "ptv_stop_count": 21,
+    "openspace_count": 6,
+    "crash_count": 24,
+    "crime_count": 353
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Clyde",
+    "liveability_score": 0.51,
+    "average_rent": 442,
+    "ptv_stop_count": 10,
+    "openspace_count": 3,
+    "crash_count": 20,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Clyde North",
+    "liveability_score": 0.53,
+    "average_rent": 442,
+    "ptv_stop_count": 40,
+    "openspace_count": 5,
+    "crash_count": 14,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Coburg",
+    "liveability_score": 0.61,
+    "average_rent": 475,
+    "ptv_stop_count": 135,
+    "openspace_count": 47,
+    "crash_count": 62,
+    "crime_count": 1544
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Coburg North",
+    "liveability_score": 0.6,
+    "average_rent": 445,
+    "ptv_stop_count": 62,
+    "openspace_count": 24,
+    "crash_count": 32,
+    "crime_count": 585
+  },
+  {
+    "lga": "Yarra City Council",
+    "suburb": "Collingwood",
+    "liveability_score": 0.47,
+    "average_rent": 520,
+    "ptv_stop_count": 21,
+    "openspace_count": 6,
+    "crash_count": 35,
+    "crime_count": 1543
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Coolaroo",
+    "liveability_score": 0.54,
+    "average_rent": 411,
+    "ptv_stop_count": 42,
+    "openspace_count": 4,
+    "crash_count": 26,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Craigieburn",
+    "liveability_score": 0.7,
+    "average_rent": 421,
+    "ptv_stop_count": 161,
+    "openspace_count": 104,
+    "crash_count": 92,
+    "crime_count": 2347
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Cranbourne",
+    "liveability_score": 0.56,
+    "average_rent": 460,
+    "ptv_stop_count": 65,
+    "openspace_count": 54,
+    "crash_count": 70,
+    "crime_count": 2094
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Cranbourne East",
+    "liveability_score": 0.55,
+    "average_rent": 442,
+    "ptv_stop_count": 38,
+    "openspace_count": 21,
+    "crash_count": 24,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Cranbourne North",
+    "liveability_score": 0.61,
+    "average_rent": 442,
+    "ptv_stop_count": 77,
+    "openspace_count": 43,
+    "crash_count": 28,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Cranbourne South",
+    "liveability_score": 0.51,
+    "average_rent": 442,
+    "ptv_stop_count": 7,
+    "openspace_count": 2,
+    "crash_count": 13,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Cranbourne West",
+    "liveability_score": 0.54,
+    "average_rent": 442,
+    "ptv_stop_count": 33,
+    "openspace_count": 19,
+    "crash_count": 27,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Croydon",
+    "liveability_score": 0.6,
+    "average_rent": 470,
+    "ptv_stop_count": 153,
+    "openspace_count": 30,
+    "crash_count": 67,
+    "crime_count": 1162
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Croydon Hills",
+    "liveability_score": 0.52,
+    "average_rent": 476.67,
+    "ptv_stop_count": 17,
+    "openspace_count": 4,
+    "crash_count": 1,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Croydon North",
+    "liveability_score": 0.55,
+    "average_rent": 476.67,
+    "ptv_stop_count": 27,
+    "openspace_count": 20,
+    "crash_count": 6,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Croydon South",
+    "liveability_score": 0.52,
+    "average_rent": 476.67,
+    "ptv_stop_count": 14,
+    "openspace_count": 6,
+    "crash_count": 6,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Dallas",
+    "liveability_score": 0.56,
+    "average_rent": 411,
+    "ptv_stop_count": 20,
+    "openspace_count": 14,
+    "crash_count": 8,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Dandenong",
+    "liveability_score": 0.51,
+    "average_rent": 370,
+    "ptv_stop_count": 158,
+    "openspace_count": 49,
+    "crash_count": 88,
+    "crime_count": 5534
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Dandenong North",
+    "liveability_score": 0.62,
+    "average_rent": 400,
+    "ptv_stop_count": 108,
+    "openspace_count": 25,
+    "crash_count": 57,
+    "crime_count": 976
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Dandenong South",
+    "liveability_score": 0.49,
+    "average_rent": 396.25,
+    "ptv_stop_count": 89,
+    "openspace_count": 6,
+    "crash_count": 82,
+    "crime_count": 2671
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Deanside",
+    "liveability_score": 0.51,
+    "average_rent": 467.93,
+    "ptv_stop_count": 3,
+    "openspace_count": 0,
+    "crash_count": 6,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Deer Park",
+    "liveability_score": 0.62,
+    "average_rent": 370,
+    "ptv_stop_count": 67,
+    "openspace_count": 21,
+    "crash_count": 30,
+    "crime_count": 1017
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Delahey",
+    "liveability_score": 0.55,
+    "average_rent": 410,
+    "ptv_stop_count": 30,
+    "openspace_count": 4,
+    "crash_count": 15,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Derrimut",
+    "liveability_score": 0.55,
+    "average_rent": 410,
+    "ptv_stop_count": 23,
+    "openspace_count": 10,
+    "crash_count": 25,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Devon Meadows",
+    "liveability_score": 0.52,
+    "average_rent": 442,
+    "ptv_stop_count": 19,
+    "openspace_count": 0,
+    "crash_count": 7,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Nillumbik Shire Council",
+    "suburb": "Diamond Creek",
+    "liveability_score": 0.63,
+    "average_rent": 500,
+    "ptv_stop_count": 43,
+    "openspace_count": 48,
+    "crash_count": 19,
+    "crime_count": 42
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Diggers Rest",
+    "liveability_score": 0.54,
+    "average_rent": 411,
+    "ptv_stop_count": 13,
+    "openspace_count": 5,
+    "crash_count": 13,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Dingley Village",
+    "liveability_score": 0.6,
+    "average_rent": 482.5,
+    "ptv_stop_count": 61,
+    "openspace_count": 27,
+    "crash_count": 24,
+    "crime_count": 416
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Docklands",
+    "liveability_score": 0.46,
+    "average_rent": 550,
+    "ptv_stop_count": 45,
+    "openspace_count": 15,
+    "crash_count": 55,
+    "crime_count": 1857
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Doncaster",
+    "liveability_score": 0.59,
+    "average_rent": 520,
+    "ptv_stop_count": 110,
+    "openspace_count": 38,
+    "crash_count": 36,
+    "crime_count": 1109
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Doncaster East",
+    "liveability_score": 0.65,
+    "average_rent": 550,
+    "ptv_stop_count": 131,
+    "openspace_count": 60,
+    "crash_count": 32,
+    "crime_count": 635
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Donvale",
+    "liveability_score": 0.6,
+    "average_rent": 550,
+    "ptv_stop_count": 58,
+    "openspace_count": 42,
+    "crash_count": 20,
+    "crime_count": 215
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Doveton",
+    "liveability_score": 0.55,
+    "average_rent": 442,
+    "ptv_stop_count": 39,
+    "openspace_count": 13,
+    "crash_count": 14,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Eaglemont",
+    "liveability_score": 0.54,
+    "average_rent": 465,
+    "ptv_stop_count": 7,
+    "openspace_count": 7,
+    "crash_count": 8,
+    "crime_count": 696
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "East Melbourne",
+    "liveability_score": 0.55,
+    "average_rent": 540,
+    "ptv_stop_count": 33,
+    "openspace_count": 31,
+    "crash_count": 28,
+    "crime_count": 672
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Edithvale",
+    "liveability_score": 0.56,
+    "average_rent": 482.5,
+    "ptv_stop_count": 30,
+    "openspace_count": 9,
+    "crash_count": 12,
+    "crime_count": 416
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Elsternwick",
+    "liveability_score": 0.56,
+    "average_rent": 470,
+    "ptv_stop_count": 58,
+    "openspace_count": 4,
+    "crash_count": 19,
+    "crime_count": 541
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Eltham",
+    "liveability_score": 0.7,
+    "average_rent": 500,
+    "ptv_stop_count": 52,
+    "openspace_count": 95,
+    "crash_count": 24,
+    "crime_count": 512
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Eltham North",
+    "liveability_score": 0.61,
+    "average_rent": 465,
+    "ptv_stop_count": 25,
+    "openspace_count": 38,
+    "crash_count": 5,
+    "crime_count": 696
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Elwood",
+    "liveability_score": 0.58,
+    "average_rent": 450,
+    "ptv_stop_count": 44,
+    "openspace_count": 21,
+    "crash_count": 28,
+    "crime_count": 718
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Endeavour Hills",
+    "liveability_score": 0.66,
+    "average_rent": 400,
+    "ptv_stop_count": 126,
+    "openspace_count": 30,
+    "crash_count": 35,
+    "crime_count": 834
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "Epping",
+    "liveability_score": 0.67,
+    "average_rent": 410,
+    "ptv_stop_count": 161,
+    "openspace_count": 92,
+    "crash_count": 124,
+    "crime_count": 2012
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Essendon",
+    "liveability_score": 0.59,
+    "average_rent": 425,
+    "ptv_stop_count": 114,
+    "openspace_count": 7,
+    "crash_count": 46,
+    "crime_count": 926
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Essendon Fields",
+    "liveability_score": 0.54,
+    "average_rent": 446.25,
+    "ptv_stop_count": 3,
+    "openspace_count": 0,
+    "crash_count": 1,
+    "crime_count": 797
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Essendon North",
+    "liveability_score": 0.53,
+    "average_rent": 446.25,
+    "ptv_stop_count": 10,
+    "openspace_count": 0,
+    "crash_count": 12,
+    "crime_count": 797
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Essendon West",
+    "liveability_score": 0.58,
+    "average_rent": 446.25,
+    "ptv_stop_count": 8,
+    "openspace_count": 21,
+    "crash_count": 2,
+    "crime_count": 797
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Eumemmerring",
+    "liveability_score": 0.51,
+    "average_rent": 442,
+    "ptv_stop_count": 7,
+    "openspace_count": 4,
+    "crash_count": 9,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Fairfield",
+    "liveability_score": 0.59,
+    "average_rent": 400,
+    "ptv_stop_count": 40,
+    "openspace_count": 6,
+    "crash_count": 23,
+    "crime_count": 380
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Fawkner",
+    "liveability_score": 0.65,
+    "average_rent": 415,
+    "ptv_stop_count": 80,
+    "openspace_count": 42,
+    "crash_count": 39,
+    "crime_count": 646
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Ferntree Gully",
+    "liveability_score": 0.65,
+    "average_rent": 460,
+    "ptv_stop_count": 135,
+    "openspace_count": 43,
+    "crash_count": 30,
+    "crime_count": 1220
+  },
+  {
+    "lga": "Yarra City Council",
+    "suburb": "Fitzroy",
+    "liveability_score": 0.42,
+    "average_rent": 590,
+    "ptv_stop_count": 36,
+    "openspace_count": 9,
+    "crash_count": 52,
+    "crime_count": 1899
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Fitzroy North",
+    "liveability_score": 0.56,
+    "average_rent": 600,
+    "ptv_stop_count": 69,
+    "openspace_count": 50,
+    "crash_count": 35,
+    "crime_count": 817
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Flemington",
+    "liveability_score": 0.55,
+    "average_rent": 450,
+    "ptv_stop_count": 26,
+    "openspace_count": 10,
+    "crash_count": 22,
+    "crime_count": 795
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Footscray",
+    "liveability_score": 0.58,
+    "average_rent": 400,
+    "ptv_stop_count": 115,
+    "openspace_count": 25,
+    "crash_count": 54,
+    "crime_count": 2166
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Forest Hill",
+    "liveability_score": 0.56,
+    "average_rent": 510,
+    "ptv_stop_count": 52,
+    "openspace_count": 15,
+    "crash_count": 17,
+    "crime_count": 457
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Frankston",
+    "liveability_score": 0.57,
+    "average_rent": 450,
+    "ptv_stop_count": 215,
+    "openspace_count": 68,
+    "crash_count": 74,
+    "crime_count": 5024
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Frankston North",
+    "liveability_score": 0.5,
+    "average_rent": 450,
+    "ptv_stop_count": 38,
+    "openspace_count": 7,
+    "crash_count": 9,
+    "crime_count": 2549
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Frankston South",
+    "liveability_score": 0.55,
+    "average_rent": 450,
+    "ptv_stop_count": 65,
+    "openspace_count": 30,
+    "crash_count": 12,
+    "crime_count": 2549
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Fraser Rise",
+    "liveability_score": 0.53,
+    "average_rent": 467.93,
+    "ptv_stop_count": 9,
+    "openspace_count": 9,
+    "crash_count": 3,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Gardenvale",
+    "liveability_score": 0.54,
+    "average_rent": 474.67,
+    "ptv_stop_count": 9,
+    "openspace_count": 3,
+    "crash_count": 4,
+    "crime_count": 533
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Gladstone Park",
+    "liveability_score": 0.59,
+    "average_rent": 420,
+    "ptv_stop_count": 32,
+    "openspace_count": 10,
+    "crash_count": 17,
+    "crime_count": 269
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Glen Huntly",
+    "liveability_score": 0.54,
+    "average_rent": 474.67,
+    "ptv_stop_count": 9,
+    "openspace_count": 3,
+    "crash_count": 4,
+    "crime_count": 533
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Glen Iris",
+    "liveability_score": 0.57,
+    "average_rent": 500,
+    "ptv_stop_count": 77,
+    "openspace_count": 27,
+    "crash_count": 47,
+    "crime_count": 743
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Glen Waverley",
+    "liveability_score": 0.63,
+    "average_rent": 550,
+    "ptv_stop_count": 173,
+    "openspace_count": 70,
+    "crash_count": 67,
+    "crime_count": 1604
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Glenroy",
+    "liveability_score": 0.59,
+    "average_rent": 415,
+    "ptv_stop_count": 83,
+    "openspace_count": 30,
+    "crash_count": 50,
+    "crime_count": 1433
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Gowanbrae",
+    "liveability_score": 0.56,
+    "average_rent": 459.38,
+    "ptv_stop_count": 16,
+    "openspace_count": 15,
+    "crash_count": 4,
+    "crime_count": 886
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Grangefields",
+    "liveability_score": 0.51,
+    "average_rent": 467.93,
+    "ptv_stop_count": 1,
+    "openspace_count": 0,
+    "crash_count": 8,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Greensborough",
+    "liveability_score": 0.64,
+    "average_rent": 440,
+    "ptv_stop_count": 100,
+    "openspace_count": 48,
+    "crash_count": 57,
+    "crime_count": 824
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Greenvale",
+    "liveability_score": 0.59,
+    "average_rent": 411,
+    "ptv_stop_count": 65,
+    "openspace_count": 17,
+    "crash_count": 19,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Hadfield",
+    "liveability_score": 0.55,
+    "average_rent": 459.38,
+    "ptv_stop_count": 41,
+    "openspace_count": 5,
+    "crash_count": 8,
+    "crime_count": 886
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Hallam",
+    "liveability_score": 0.56,
+    "average_rent": 442,
+    "ptv_stop_count": 55,
+    "openspace_count": 27,
+    "crash_count": 43,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Hampton",
+    "liveability_score": 0.49,
+    "average_rent": 630,
+    "ptv_stop_count": 67,
+    "openspace_count": 5,
+    "crash_count": 18,
+    "crime_count": 574
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Hampton East",
+    "liveability_score": 0.45,
+    "average_rent": 653.6,
+    "ptv_stop_count": 20,
+    "openspace_count": 2,
+    "crash_count": 9,
+    "crime_count": 756
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Hampton Park",
+    "liveability_score": 0.63,
+    "average_rent": 440,
+    "ptv_stop_count": 103,
+    "openspace_count": 39,
+    "crash_count": 33,
+    "crime_count": 1146
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Hawthorn",
+    "liveability_score": 0.64,
+    "average_rent": 400,
+    "ptv_stop_count": 78,
+    "openspace_count": 53,
+    "crash_count": 62,
+    "crime_count": 999
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Hawthorn East",
+    "liveability_score": 0.56,
+    "average_rent": 450,
+    "ptv_stop_count": 16,
+    "openspace_count": 7,
+    "crash_count": 9,
+    "crime_count": 553
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Heatherton",
+    "liveability_score": 0.56,
+    "average_rent": 482.5,
+    "ptv_stop_count": 33,
+    "openspace_count": 12,
+    "crash_count": 12,
+    "crime_count": 416
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Heathmont",
+    "liveability_score": 0.53,
+    "average_rent": 476.67,
+    "ptv_stop_count": 19,
+    "openspace_count": 14,
+    "crash_count": 10,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Heidelberg",
+    "liveability_score": 0.53,
+    "average_rent": 450,
+    "ptv_stop_count": 28,
+    "openspace_count": 7,
+    "crash_count": 20,
+    "crime_count": 1295
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Heidelberg Heights",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 40,
+    "openspace_count": 2,
+    "crash_count": 17,
+    "crime_count": 696
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Heidelberg West",
+    "liveability_score": 0.56,
+    "average_rent": 450,
+    "ptv_stop_count": 43,
+    "openspace_count": 5,
+    "crash_count": 24,
+    "crime_count": 640
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Highett",
+    "liveability_score": 0.46,
+    "average_rent": 653.6,
+    "ptv_stop_count": 48,
+    "openspace_count": 7,
+    "crash_count": 28,
+    "crime_count": 756
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Hillside",
+    "liveability_score": 0.62,
+    "average_rent": 410,
+    "ptv_stop_count": 47,
+    "openspace_count": 30,
+    "crash_count": 3,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Hoppers Crossing",
+    "liveability_score": 0.65,
+    "average_rent": 400,
+    "ptv_stop_count": 176,
+    "openspace_count": 53,
+    "crash_count": 63,
+    "crime_count": 2282
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Hughesdale",
+    "liveability_score": 0.57,
+    "average_rent": 450,
+    "ptv_stop_count": 34,
+    "openspace_count": 3,
+    "crash_count": 14,
+    "crime_count": 359
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Huntingdale",
+    "liveability_score": 0.51,
+    "average_rent": 496.88,
+    "ptv_stop_count": 8,
+    "openspace_count": 2,
+    "crash_count": 7,
+    "crime_count": 998
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Ivanhoe",
+    "liveability_score": 0.59,
+    "average_rent": 470,
+    "ptv_stop_count": 64,
+    "openspace_count": 19,
+    "crash_count": 16,
+    "crime_count": 604
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Ivanhoe East",
+    "liveability_score": 0.56,
+    "average_rent": 470,
+    "ptv_stop_count": 18,
+    "openspace_count": 2,
+    "crash_count": 7,
+    "crime_count": 78
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Jacana",
+    "liveability_score": 0.54,
+    "average_rent": 411,
+    "ptv_stop_count": 17,
+    "openspace_count": 2,
+    "crash_count": 9,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Junction Village",
+    "liveability_score": 0.52,
+    "average_rent": 442,
+    "ptv_stop_count": 8,
+    "openspace_count": 2,
+    "crash_count": 3,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Kalkallo",
+    "liveability_score": 0.53,
+    "average_rent": 411,
+    "ptv_stop_count": 4,
+    "openspace_count": 0,
+    "crash_count": 2,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Nillumbik Shire Council",
+    "suburb": "Kangaroo Ground",
+    "liveability_score": 0.54,
+    "average_rent": 500,
+    "ptv_stop_count": 12,
+    "openspace_count": 3,
+    "crash_count": 10,
+    "crime_count": 42
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Kealba",
+    "liveability_score": 0.56,
+    "average_rent": 410,
+    "ptv_stop_count": 20,
+    "openspace_count": 6,
+    "crash_count": 3,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor",
+    "liveability_score": 0.57,
+    "average_rent": 480,
+    "ptv_stop_count": 32,
+    "openspace_count": 14,
+    "crash_count": 16,
+    "crime_count": 161
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor Downs",
+    "liveability_score": 0.6,
+    "average_rent": 410,
+    "ptv_stop_count": 45,
+    "openspace_count": 26,
+    "crash_count": 16,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor East",
+    "liveability_score": 0.63,
+    "average_rent": 440,
+    "ptv_stop_count": 65,
+    "openspace_count": 31,
+    "crash_count": 20,
+    "crime_count": 428
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor Lodge",
+    "liveability_score": 0.55,
+    "average_rent": 410,
+    "ptv_stop_count": 7,
+    "openspace_count": 6,
+    "crash_count": 4,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor North",
+    "liveability_score": 0.54,
+    "average_rent": 410,
+    "ptv_stop_count": 1,
+    "openspace_count": 2,
+    "crash_count": 4,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Keilor Park",
+    "liveability_score": 0.55,
+    "average_rent": 410,
+    "ptv_stop_count": 13,
+    "openspace_count": 4,
+    "crash_count": 13,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Kensington",
+    "liveability_score": 0.62,
+    "average_rent": 450,
+    "ptv_stop_count": 23,
+    "openspace_count": 47,
+    "crash_count": 18,
+    "crime_count": 617
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Kew",
+    "liveability_score": 0.64,
+    "average_rent": 530,
+    "ptv_stop_count": 117,
+    "openspace_count": 76,
+    "crash_count": 60,
+    "crime_count": 944
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Kew East",
+    "liveability_score": 0.56,
+    "average_rent": 508,
+    "ptv_stop_count": 42,
+    "openspace_count": 19,
+    "crash_count": 13,
+    "crime_count": 563
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Keysborough",
+    "liveability_score": 0.59,
+    "average_rent": 396.25,
+    "ptv_stop_count": 103,
+    "openspace_count": 50,
+    "crash_count": 62,
+    "crime_count": 2671
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Kilsyth",
+    "liveability_score": 0.57,
+    "average_rent": 476.67,
+    "ptv_stop_count": 59,
+    "openspace_count": 23,
+    "crash_count": 10,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Kilsyth South",
+    "liveability_score": 0.53,
+    "average_rent": 476.67,
+    "ptv_stop_count": 18,
+    "openspace_count": 8,
+    "crash_count": 3,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Kings Park",
+    "liveability_score": 0.57,
+    "average_rent": 410,
+    "ptv_stop_count": 29,
+    "openspace_count": 12,
+    "crash_count": 8,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Kingsbury",
+    "liveability_score": 0.53,
+    "average_rent": 439.38,
+    "ptv_stop_count": 19,
+    "openspace_count": 5,
+    "crash_count": 7,
+    "crime_count": 1419
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Kingsville",
+    "liveability_score": 0.54,
+    "average_rent": 455,
+    "ptv_stop_count": 10,
+    "openspace_count": 4,
+    "crash_count": 5,
+    "crime_count": 947
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Knoxfield",
+    "liveability_score": 0.56,
+    "average_rent": 473.33,
+    "ptv_stop_count": 53,
+    "openspace_count": 7,
+    "crash_count": 12,
+    "crime_count": 851
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "Lalor",
+    "liveability_score": 0.62,
+    "average_rent": 385,
+    "ptv_stop_count": 77,
+    "openspace_count": 18,
+    "crash_count": 28,
+    "crime_count": 777
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Laverton",
+    "liveability_score": 0.54,
+    "average_rent": 505,
+    "ptv_stop_count": 22,
+    "openspace_count": 16,
+    "crash_count": 18,
+    "crime_count": 535
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Laverton North",
+    "liveability_score": 0.47,
+    "average_rent": 400,
+    "ptv_stop_count": 43,
+    "openspace_count": 4,
+    "crash_count": 43,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Lower Plenty",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 13,
+    "openspace_count": 8,
+    "crash_count": 6,
+    "crime_count": 696
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Lynbrook",
+    "liveability_score": 0.53,
+    "average_rent": 442,
+    "ptv_stop_count": 16,
+    "openspace_count": 16,
+    "crash_count": 21,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Lyndhurst",
+    "liveability_score": 0.52,
+    "average_rent": 442,
+    "ptv_stop_count": 15,
+    "openspace_count": 7,
+    "crash_count": 17,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Lysterfield",
+    "liveability_score": 0.55,
+    "average_rent": 473.33,
+    "ptv_stop_count": 25,
+    "openspace_count": 17,
+    "crash_count": 17,
+    "crime_count": 851
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Macleod",
+    "liveability_score": 0.58,
+    "average_rent": 465,
+    "ptv_stop_count": 38,
+    "openspace_count": 17,
+    "crash_count": 10,
+    "crime_count": 696
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Maidstone",
+    "liveability_score": 0.56,
+    "average_rent": 455,
+    "ptv_stop_count": 41,
+    "openspace_count": 10,
+    "crash_count": 17,
+    "crime_count": 947
+  },
+  {
+    "lga": "Stonnington City Council",
+    "suburb": "Malvern East",
+    "liveability_score": 0.61,
+    "average_rent": 445,
+    "ptv_stop_count": 108,
+    "openspace_count": 48,
+    "crash_count": 46,
+    "crime_count": 1843
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Manor Lakes",
+    "liveability_score": 0.5,
+    "average_rent": 400,
+    "ptv_stop_count": 33,
+    "openspace_count": 4,
+    "crash_count": 2,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Maribyrnong",
+    "liveability_score": 0.66,
+    "average_rent": 455,
+    "ptv_stop_count": 78,
+    "openspace_count": 61,
+    "crash_count": 29,
+    "crime_count": 947
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "McKinnon",
+    "liveability_score": 0.56,
+    "average_rent": 474.67,
+    "ptv_stop_count": 26,
+    "openspace_count": 7,
+    "crash_count": 3,
+    "crime_count": 533
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Meadow Heights",
+    "liveability_score": 0.58,
+    "average_rent": 411,
+    "ptv_stop_count": 59,
+    "openspace_count": 18,
+    "crash_count": 21,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Melbourne",
+    "liveability_score": 0.54,
+    "average_rent": 499.42,
+    "ptv_stop_count": 183,
+    "openspace_count": 79,
+    "crash_count": 244,
+    "crime_count": 1293
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Melbourne Airport",
+    "liveability_score": 0.53,
+    "average_rent": 411,
+    "ptv_stop_count": 14,
+    "openspace_count": 0,
+    "crash_count": 17,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Mentone",
+    "liveability_score": 0.58,
+    "average_rent": 470,
+    "ptv_stop_count": 60,
+    "openspace_count": 25,
+    "crash_count": 32,
+    "crime_count": 669
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Mickleham",
+    "liveability_score": 0.55,
+    "average_rent": 411,
+    "ptv_stop_count": 33,
+    "openspace_count": 1,
+    "crash_count": 11,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Middle Park",
+    "liveability_score": 0.52,
+    "average_rent": 545,
+    "ptv_stop_count": 22,
+    "openspace_count": 3,
+    "crash_count": 7,
+    "crime_count": 176
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "Mill Park",
+    "liveability_score": 0.67,
+    "average_rent": 410,
+    "ptv_stop_count": 150,
+    "openspace_count": 37,
+    "crash_count": 33,
+    "crime_count": 1216
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Mitcham",
+    "liveability_score": 0.64,
+    "average_rent": 460,
+    "ptv_stop_count": 93,
+    "openspace_count": 32,
+    "crash_count": 15,
+    "crime_count": 481
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Mont Albert",
+    "liveability_score": 0.54,
+    "average_rent": 550,
+    "ptv_stop_count": 24,
+    "openspace_count": 13,
+    "crash_count": 8,
+    "crime_count": 196
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Mont Albert North",
+    "liveability_score": 0.57,
+    "average_rent": 480,
+    "ptv_stop_count": 30,
+    "openspace_count": 23,
+    "crash_count": 12,
+    "crime_count": 639
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Montmorency",
+    "liveability_score": 0.57,
+    "average_rent": 500,
+    "ptv_stop_count": 31,
+    "openspace_count": 16,
+    "crash_count": 12,
+    "crime_count": 143
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Moonee Ponds",
+    "liveability_score": 0.55,
+    "average_rent": 460,
+    "ptv_stop_count": 82,
+    "openspace_count": 5,
+    "crash_count": 39,
+    "crime_count": 1061
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Moorabbin",
+    "liveability_score": 0.56,
+    "average_rent": 482.5,
+    "ptv_stop_count": 55,
+    "openspace_count": 8,
+    "crash_count": 22,
+    "crime_count": 416
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Moorabbin Airport",
+    "liveability_score": 0.53,
+    "average_rent": 482.5,
+    "ptv_stop_count": 9,
+    "openspace_count": 0,
+    "crash_count": 7,
+    "crime_count": 416
+  },
+  {
+    "lga": "Yarra Ranges Shire Council",
+    "suburb": "Mooroolbark",
+    "liveability_score": 0.62,
+    "average_rent": 478,
+    "ptv_stop_count": 67,
+    "openspace_count": 39,
+    "crash_count": 21,
+    "crime_count": 671
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Mordialloc",
+    "liveability_score": 0.58,
+    "average_rent": 470,
+    "ptv_stop_count": 45,
+    "openspace_count": 20,
+    "crash_count": 17,
+    "crime_count": 566
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Mount Waverley",
+    "liveability_score": 0.61,
+    "average_rent": 550,
+    "ptv_stop_count": 121,
+    "openspace_count": 73,
+    "crash_count": 70,
+    "crime_count": 1283
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Mulgrave",
+    "liveability_score": 0.58,
+    "average_rent": 550,
+    "ptv_stop_count": 111,
+    "openspace_count": 49,
+    "crash_count": 68,
+    "crime_count": 1018
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Murrumbeena",
+    "liveability_score": 0.59,
+    "average_rent": 450,
+    "ptv_stop_count": 52,
+    "openspace_count": 13,
+    "crash_count": 23,
+    "crime_count": 344
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Narre Warren",
+    "liveability_score": 0.61,
+    "average_rent": 440,
+    "ptv_stop_count": 109,
+    "openspace_count": 57,
+    "crash_count": 65,
+    "crime_count": 1885
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Narre Warren North",
+    "liveability_score": 0.53,
+    "average_rent": 442,
+    "ptv_stop_count": 22,
+    "openspace_count": 13,
+    "crash_count": 19,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Casey City Council",
+    "suburb": "Narre Warren South",
+    "liveability_score": 0.62,
+    "average_rent": 442,
+    "ptv_stop_count": 108,
+    "openspace_count": 36,
+    "crash_count": 26,
+    "crime_count": 1535
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Newport",
+    "liveability_score": 0.56,
+    "average_rent": 520,
+    "ptv_stop_count": 60,
+    "openspace_count": 13,
+    "crash_count": 11,
+    "crime_count": 556
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Niddrie",
+    "liveability_score": 0.55,
+    "average_rent": 446.25,
+    "ptv_stop_count": 31,
+    "openspace_count": 6,
+    "crash_count": 14,
+    "crime_count": 797
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Noble Park",
+    "liveability_score": 0.59,
+    "average_rent": 385,
+    "ptv_stop_count": 78,
+    "openspace_count": 28,
+    "crash_count": 34,
+    "crime_count": 2029
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Noble Park North",
+    "liveability_score": 0.51,
+    "average_rent": 396.25,
+    "ptv_stop_count": 40,
+    "openspace_count": 7,
+    "crash_count": 25,
+    "crime_count": 2671
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "North Melbourne",
+    "liveability_score": 0.53,
+    "average_rent": 450,
+    "ptv_stop_count": 51,
+    "openspace_count": 16,
+    "crash_count": 54,
+    "crime_count": 1302
+  },
+  {
+    "lga": "Nillumbik Shire Council",
+    "suburb": "North Warrandyte",
+    "liveability_score": 0.55,
+    "average_rent": 500,
+    "ptv_stop_count": 31,
+    "openspace_count": 1,
+    "crash_count": 7,
+    "crime_count": 42
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Northcote",
+    "liveability_score": 0.55,
+    "average_rent": 510,
+    "ptv_stop_count": 109,
+    "openspace_count": 17,
+    "crash_count": 49,
+    "crime_count": 1182
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Notting Hill",
+    "liveability_score": 0.52,
+    "average_rent": 496.88,
+    "ptv_stop_count": 17,
+    "openspace_count": 4,
+    "crash_count": 5,
+    "crime_count": 998
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Nunawading",
+    "liveability_score": 0.64,
+    "average_rent": 460,
+    "ptv_stop_count": 70,
+    "openspace_count": 46,
+    "crash_count": 25,
+    "crime_count": 507
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Oak Park",
+    "liveability_score": 0.6,
+    "average_rent": 415,
+    "ptv_stop_count": 20,
+    "openspace_count": 11,
+    "crash_count": 10,
+    "crime_count": 225
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Oakleigh",
+    "liveability_score": 0.54,
+    "average_rent": 475,
+    "ptv_stop_count": 61,
+    "openspace_count": 6,
+    "crash_count": 24,
+    "crime_count": 972
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Oakleigh East",
+    "liveability_score": 0.53,
+    "average_rent": 496.88,
+    "ptv_stop_count": 29,
+    "openspace_count": 7,
+    "crash_count": 11,
+    "crime_count": 998
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Oakleigh South",
+    "liveability_score": 0.58,
+    "average_rent": 482.5,
+    "ptv_stop_count": 74,
+    "openspace_count": 14,
+    "crash_count": 30,
+    "crime_count": 416
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "Ormond",
+    "liveability_score": 0.54,
+    "average_rent": 474.67,
+    "ptv_stop_count": 33,
+    "openspace_count": 2,
+    "crash_count": 16,
+    "crime_count": 533
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Park Orchards",
+    "liveability_score": 0.52,
+    "average_rent": 520,
+    "ptv_stop_count": 23,
+    "openspace_count": 4,
+    "crash_count": 9,
+    "crime_count": 509
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Parkdale",
+    "liveability_score": 0.59,
+    "average_rent": 470,
+    "ptv_stop_count": 39,
+    "openspace_count": 26,
+    "crash_count": 17,
+    "crime_count": 374
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Parkville",
+    "liveability_score": 0.63,
+    "average_rent": 400,
+    "ptv_stop_count": 58,
+    "openspace_count": 39,
+    "crash_count": 49,
+    "crime_count": 511
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Pascoe Vale",
+    "liveability_score": 0.63,
+    "average_rent": 445,
+    "ptv_stop_count": 67,
+    "openspace_count": 39,
+    "crash_count": 26,
+    "crime_count": 573
+  },
+  {
+    "lga": "Merri-bek City Council",
+    "suburb": "Pascoe Vale South",
+    "liveability_score": 0.57,
+    "average_rent": 475,
+    "ptv_stop_count": 45,
+    "openspace_count": 11,
+    "crash_count": 18,
+    "crime_count": 316
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Patterson Lakes",
+    "liveability_score": 0.6,
+    "average_rent": 482.5,
+    "ptv_stop_count": 29,
+    "openspace_count": 32,
+    "crash_count": 12,
+    "crime_count": 416
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Point Cook",
+    "liveability_score": 0.65,
+    "average_rent": 400,
+    "ptv_stop_count": 122,
+    "openspace_count": 77,
+    "crash_count": 41,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Port Melbourne",
+    "liveability_score": 0.52,
+    "average_rent": 650,
+    "ptv_stop_count": 103,
+    "openspace_count": 53,
+    "crash_count": 54,
+    "crime_count": 1674
+  },
+  {
+    "lga": "Stonnington City Council",
+    "suburb": "Prahran",
+    "liveability_score": 0.52,
+    "average_rent": 450,
+    "ptv_stop_count": 50,
+    "openspace_count": 13,
+    "crash_count": 30,
+    "crime_count": 1896
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Preston",
+    "liveability_score": 0.51,
+    "average_rent": 450,
+    "ptv_stop_count": 205,
+    "openspace_count": 21,
+    "crash_count": 122,
+    "crime_count": 3290
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Ravenhall",
+    "liveability_score": 0.5,
+    "average_rent": 467.93,
+    "ptv_stop_count": 7,
+    "openspace_count": 0,
+    "crash_count": 19,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Nillumbik Shire Council",
+    "suburb": "Research",
+    "liveability_score": 0.55,
+    "average_rent": 500,
+    "ptv_stop_count": 15,
+    "openspace_count": 5,
+    "crash_count": 1,
+    "crime_count": 42
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Reservoir",
+    "liveability_score": 0.66,
+    "average_rent": 405,
+    "ptv_stop_count": 316,
+    "openspace_count": 36,
+    "crash_count": 87,
+    "crime_count": 3290
+  },
+  {
+    "lga": "Yarra City Council",
+    "suburb": "Richmond",
+    "liveability_score": 0.45,
+    "average_rent": 550,
+    "ptv_stop_count": 66,
+    "openspace_count": 39,
+    "crash_count": 91,
+    "crime_count": 2827
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Ringwood",
+    "liveability_score": 0.55,
+    "average_rent": 450,
+    "ptv_stop_count": 121,
+    "openspace_count": 33,
+    "crash_count": 74,
+    "crime_count": 2382
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Ringwood East",
+    "liveability_score": 0.52,
+    "average_rent": 476.67,
+    "ptv_stop_count": 25,
+    "openspace_count": 10,
+    "crash_count": 17,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Ringwood North",
+    "liveability_score": 0.58,
+    "average_rent": 520,
+    "ptv_stop_count": 62,
+    "openspace_count": 20,
+    "crash_count": 6,
+    "crime_count": 509
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Ripponlea",
+    "liveability_score": 0.5,
+    "average_rent": 499.38,
+    "ptv_stop_count": 13,
+    "openspace_count": 3,
+    "crash_count": 5,
+    "crime_count": 1316
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Rockbank",
+    "liveability_score": 0.52,
+    "average_rent": 467.93,
+    "ptv_stop_count": 7,
+    "openspace_count": 4,
+    "crash_count": 6,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Rosanna",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 44,
+    "openspace_count": 6,
+    "crash_count": 18,
+    "crime_count": 696
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Rowville",
+    "liveability_score": 0.6,
+    "average_rent": 510,
+    "ptv_stop_count": 138,
+    "openspace_count": 33,
+    "crash_count": 46,
+    "crime_count": 1033
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Roxburgh Park",
+    "liveability_score": 0.61,
+    "average_rent": 395,
+    "ptv_stop_count": 54,
+    "openspace_count": 32,
+    "crash_count": 48,
+    "crime_count": 739
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Sandhurst",
+    "liveability_score": 0.53,
+    "average_rent": 450,
+    "ptv_stop_count": 5,
+    "openspace_count": 33,
+    "crash_count": 2,
+    "crime_count": 2549
+  },
+  {
+    "lga": "Bayside City Council",
+    "suburb": "Sandringham",
+    "liveability_score": 0.46,
+    "average_rent": 653.6,
+    "ptv_stop_count": 45,
+    "openspace_count": 5,
+    "crash_count": 14,
+    "crime_count": 756
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Scoresby",
+    "liveability_score": 0.58,
+    "average_rent": 490,
+    "ptv_stop_count": 53,
+    "openspace_count": 18,
+    "crash_count": 18,
+    "crime_count": 311
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Seabrook",
+    "liveability_score": 0.53,
+    "average_rent": 505,
+    "ptv_stop_count": 9,
+    "openspace_count": 4,
+    "crash_count": 4,
+    "crime_count": 535
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Seaford",
+    "liveability_score": 0.61,
+    "average_rent": 450,
+    "ptv_stop_count": 89,
+    "openspace_count": 33,
+    "crash_count": 26,
+    "crime_count": 1343
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Seaholme",
+    "liveability_score": 0.52,
+    "average_rent": 505,
+    "ptv_stop_count": 5,
+    "openspace_count": 4,
+    "crash_count": 3,
+    "crime_count": 535
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Seddon",
+    "liveability_score": 0.55,
+    "average_rent": 500,
+    "ptv_stop_count": 17,
+    "openspace_count": 8,
+    "crash_count": 8,
+    "crime_count": 201
+  },
+  {
+    "lga": "Frankston City Council",
+    "suburb": "Skye",
+    "liveability_score": 0.5,
+    "average_rent": 450,
+    "ptv_stop_count": 9,
+    "openspace_count": 21,
+    "crash_count": 18,
+    "crime_count": 2549
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Somerton",
+    "liveability_score": 0.53,
+    "average_rent": 411,
+    "ptv_stop_count": 11,
+    "openspace_count": 0,
+    "crash_count": 17,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "South Kingsville",
+    "liveability_score": 0.53,
+    "average_rent": 505,
+    "ptv_stop_count": 16,
+    "openspace_count": 0,
+    "crash_count": 2,
+    "crime_count": 535
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "South Melbourne",
+    "liveability_score": 0.5,
+    "average_rent": 540,
+    "ptv_stop_count": 46,
+    "openspace_count": 28,
+    "crash_count": 43,
+    "crime_count": 1805
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "South Morang",
+    "liveability_score": 0.71,
+    "average_rent": 397.5,
+    "ptv_stop_count": 94,
+    "openspace_count": 74,
+    "crash_count": 16,
+    "crime_count": 1358
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "South Yarra",
+    "liveability_score": 0.51,
+    "average_rent": 480,
+    "ptv_stop_count": 69,
+    "openspace_count": 27,
+    "crash_count": 56,
+    "crime_count": 2142
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "Southbank",
+    "liveability_score": 0.4,
+    "average_rent": 553,
+    "ptv_stop_count": 37,
+    "openspace_count": 11,
+    "crash_count": 64,
+    "crime_count": 2728
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Spotswood",
+    "liveability_score": 0.53,
+    "average_rent": 520,
+    "ptv_stop_count": 15,
+    "openspace_count": 6,
+    "crash_count": 18,
+    "crime_count": 184
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Springvale",
+    "liveability_score": 0.53,
+    "average_rent": 430,
+    "ptv_stop_count": 86,
+    "openspace_count": 22,
+    "crash_count": 74,
+    "crime_count": 2145
+  },
+  {
+    "lga": "Greater Dandenong City Council",
+    "suburb": "Springvale South",
+    "liveability_score": 0.53,
+    "average_rent": 396.25,
+    "ptv_stop_count": 47,
+    "openspace_count": 14,
+    "crash_count": 22,
+    "crime_count": 2671
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "St Albans",
+    "liveability_score": 0.58,
+    "average_rent": 370,
+    "ptv_stop_count": 130,
+    "openspace_count": 35,
+    "crash_count": 70,
+    "crime_count": 2937
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "St Helena",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 13,
+    "openspace_count": 9,
+    "crash_count": 3,
+    "crime_count": 696
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "St Kilda",
+    "liveability_score": 0.46,
+    "average_rent": 500,
+    "ptv_stop_count": 93,
+    "openspace_count": 22,
+    "crash_count": 68,
+    "crime_count": 3158
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "St Kilda",
+    "liveability_score": 0.5,
+    "average_rent": 420,
+    "ptv_stop_count": 93,
+    "openspace_count": 22,
+    "crash_count": 68,
+    "crime_count": 3158
+  },
+  {
+    "lga": "Glen Eira City Council",
+    "suburb": "St Kilda East",
+    "liveability_score": 0.55,
+    "average_rent": 450,
+    "ptv_stop_count": 34,
+    "openspace_count": 3,
+    "crash_count": 20,
+    "crime_count": 661
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "St Kilda West",
+    "liveability_score": 0.52,
+    "average_rent": 545,
+    "ptv_stop_count": 10,
+    "openspace_count": 6,
+    "crash_count": 9,
+    "crime_count": 231
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Strathmore",
+    "liveability_score": 0.61,
+    "average_rent": 446.25,
+    "ptv_stop_count": 44,
+    "openspace_count": 32,
+    "crash_count": 8,
+    "crime_count": 797
+  },
+  {
+    "lga": "Moonee Valley City Council",
+    "suburb": "Strathmore Heights",
+    "liveability_score": 0.54,
+    "average_rent": 446.25,
+    "ptv_stop_count": 8,
+    "openspace_count": 1,
+    "crash_count": 3,
+    "crime_count": 797
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Sunbury",
+    "liveability_score": 0.78,
+    "average_rent": 420,
+    "ptv_stop_count": 228,
+    "openspace_count": 95,
+    "crash_count": 60,
+    "crime_count": 1596
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Sunshine",
+    "liveability_score": 0.56,
+    "average_rent": 370,
+    "ptv_stop_count": 95,
+    "openspace_count": 14,
+    "crash_count": 48,
+    "crime_count": 2252
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Sunshine North",
+    "liveability_score": 0.55,
+    "average_rent": 410,
+    "ptv_stop_count": 44,
+    "openspace_count": 6,
+    "crash_count": 31,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Sunshine West",
+    "liveability_score": 0.63,
+    "average_rent": 410,
+    "ptv_stop_count": 88,
+    "openspace_count": 34,
+    "crash_count": 30,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Boroondara City Council",
+    "suburb": "Surrey Hills",
+    "liveability_score": 0.54,
+    "average_rent": 550,
+    "ptv_stop_count": 58,
+    "openspace_count": 9,
+    "crash_count": 19,
+    "crime_count": 298
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Sydenham",
+    "liveability_score": 0.61,
+    "average_rent": 420,
+    "ptv_stop_count": 31,
+    "openspace_count": 17,
+    "crash_count": 9,
+    "crime_count": 349
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Tarneit",
+    "liveability_score": 0.6,
+    "average_rent": 400,
+    "ptv_stop_count": 140,
+    "openspace_count": 40,
+    "crash_count": 40,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Taylors Hill",
+    "liveability_score": 0.58,
+    "average_rent": 467.93,
+    "ptv_stop_count": 31,
+    "openspace_count": 28,
+    "crash_count": 5,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Taylors Lakes",
+    "liveability_score": 0.63,
+    "average_rent": 410,
+    "ptv_stop_count": 65,
+    "openspace_count": 38,
+    "crash_count": 22,
+    "crime_count": 1128
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Templestowe",
+    "liveability_score": 0.66,
+    "average_rent": 520,
+    "ptv_stop_count": 114,
+    "openspace_count": 53,
+    "crash_count": 24,
+    "crime_count": 313
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Templestowe Lower",
+    "liveability_score": 0.58,
+    "average_rent": 520,
+    "ptv_stop_count": 64,
+    "openspace_count": 27,
+    "crash_count": 19,
+    "crime_count": 509
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "The Basin",
+    "liveability_score": 0.54,
+    "average_rent": 473.33,
+    "ptv_stop_count": 15,
+    "openspace_count": 8,
+    "crash_count": 7,
+    "crime_count": 851
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "Thomastown",
+    "liveability_score": 0.57,
+    "average_rent": 385,
+    "ptv_stop_count": 113,
+    "openspace_count": 18,
+    "crash_count": 89,
+    "crime_count": 1430
+  },
+  {
+    "lga": "Darebin City Council",
+    "suburb": "Thornbury",
+    "liveability_score": 0.58,
+    "average_rent": 430,
+    "ptv_stop_count": 82,
+    "openspace_count": 9,
+    "crash_count": 39,
+    "crime_count": 893
+  },
+  {
+    "lga": "Stonnington City Council",
+    "suburb": "Toorak",
+    "liveability_score": 0.51,
+    "average_rent": 550,
+    "ptv_stop_count": 50,
+    "openspace_count": 8,
+    "crash_count": 31,
+    "crime_count": 606
+  },
+  {
+    "lga": "Melton City Council",
+    "suburb": "Truganina",
+    "liveability_score": 0.55,
+    "average_rent": 467.93,
+    "ptv_stop_count": 67,
+    "openspace_count": 23,
+    "crash_count": 51,
+    "crime_count": 1084
+  },
+  {
+    "lga": "Brimbank City Council",
+    "suburb": "Tullamarine",
+    "liveability_score": 0.58,
+    "average_rent": 420,
+    "ptv_stop_count": 53,
+    "openspace_count": 12,
+    "crash_count": 27,
+    "crime_count": 757
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Vermont",
+    "liveability_score": 0.58,
+    "average_rent": 510,
+    "ptv_stop_count": 52,
+    "openspace_count": 19,
+    "crash_count": 15,
+    "crime_count": 214
+  },
+  {
+    "lga": "Whitehorse City Council",
+    "suburb": "Vermont South",
+    "liveability_score": 0.6,
+    "average_rent": 480,
+    "ptv_stop_count": 49,
+    "openspace_count": 33,
+    "crash_count": 18,
+    "crime_count": 639
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Viewbank",
+    "liveability_score": 0.56,
+    "average_rent": 465,
+    "ptv_stop_count": 26,
+    "openspace_count": 10,
+    "crash_count": 6,
+    "crime_count": 696
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Wantirna",
+    "liveability_score": 0.58,
+    "average_rent": 490,
+    "ptv_stop_count": 46,
+    "openspace_count": 32,
+    "crash_count": 36,
+    "crime_count": 467
+  },
+  {
+    "lga": "Knox City Council",
+    "suburb": "Wantirna South",
+    "liveability_score": 0.62,
+    "average_rent": 473.33,
+    "ptv_stop_count": 132,
+    "openspace_count": 26,
+    "crash_count": 39,
+    "crime_count": 851
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Warrandyte",
+    "liveability_score": 0.53,
+    "average_rent": 520,
+    "ptv_stop_count": 47,
+    "openspace_count": 5,
+    "crash_count": 18,
+    "crime_count": 509
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Warrandyte South",
+    "liveability_score": 0.51,
+    "average_rent": 520,
+    "ptv_stop_count": 4,
+    "openspace_count": 0,
+    "crash_count": 5,
+    "crime_count": 509
+  },
+  {
+    "lga": "Maroondah City Council",
+    "suburb": "Warranwood",
+    "liveability_score": 0.54,
+    "average_rent": 476.67,
+    "ptv_stop_count": 24,
+    "openspace_count": 15,
+    "crash_count": 3,
+    "crime_count": 1252
+  },
+  {
+    "lga": "Kingston City Council",
+    "suburb": "Waterways",
+    "liveability_score": 0.56,
+    "average_rent": 482.5,
+    "ptv_stop_count": 5,
+    "openspace_count": 18,
+    "crash_count": 2,
+    "crime_count": 416
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Watsonia",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 27,
+    "openspace_count": 6,
+    "crash_count": 4,
+    "crime_count": 696
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Watsonia North",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 22,
+    "openspace_count": 7,
+    "crash_count": 7,
+    "crime_count": 696
+  },
+  {
+    "lga": "Nillumbik Shire Council",
+    "suburb": "Wattle Glen",
+    "liveability_score": 0.55,
+    "average_rent": 500,
+    "ptv_stop_count": 3,
+    "openspace_count": 8,
+    "crash_count": 2,
+    "crime_count": 42
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Werribee",
+    "liveability_score": 0.67,
+    "average_rent": 400,
+    "ptv_stop_count": 227,
+    "openspace_count": 89,
+    "crash_count": 84,
+    "crime_count": 3843
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Werribee South",
+    "liveability_score": 0.48,
+    "average_rent": 400,
+    "ptv_stop_count": 14,
+    "openspace_count": 3,
+    "crash_count": 17,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "West Footscray",
+    "liveability_score": 0.59,
+    "average_rent": 420,
+    "ptv_stop_count": 56,
+    "openspace_count": 11,
+    "crash_count": 17,
+    "crime_count": 632
+  },
+  {
+    "lga": "Melbourne City Council",
+    "suburb": "West Melbourne",
+    "liveability_score": 0.56,
+    "average_rent": 450,
+    "ptv_stop_count": 40,
+    "openspace_count": 28,
+    "crash_count": 58,
+    "crime_count": 869
+  },
+  {
+    "lga": "Hume City Council",
+    "suburb": "Westmeadows",
+    "liveability_score": 0.59,
+    "average_rent": 411,
+    "ptv_stop_count": 37,
+    "openspace_count": 24,
+    "crash_count": 6,
+    "crime_count": 1353
+  },
+  {
+    "lga": "Monash City Council",
+    "suburb": "Wheelers Hill",
+    "liveability_score": 0.62,
+    "average_rent": 496.88,
+    "ptv_stop_count": 105,
+    "openspace_count": 52,
+    "crash_count": 45,
+    "crime_count": 998
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Williams Landing",
+    "liveability_score": 0.51,
+    "average_rent": 400,
+    "ptv_stop_count": 28,
+    "openspace_count": 10,
+    "crash_count": 6,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Williamstown",
+    "liveability_score": 0.54,
+    "average_rent": 550,
+    "ptv_stop_count": 63,
+    "openspace_count": 20,
+    "crash_count": 17,
+    "crime_count": 910
+  },
+  {
+    "lga": "Hobsons Bay City Council",
+    "suburb": "Williamstown North",
+    "liveability_score": 0.52,
+    "average_rent": 505,
+    "ptv_stop_count": 8,
+    "openspace_count": 2,
+    "crash_count": 3,
+    "crime_count": 535
+  },
+  {
+    "lga": "Port Phillip City Council",
+    "suburb": "Windsor",
+    "liveability_score": 0.55,
+    "average_rent": 450,
+    "ptv_stop_count": 24,
+    "openspace_count": 11,
+    "crash_count": 23,
+    "crime_count": 893
+  },
+  {
+    "lga": "Whittlesea City Council",
+    "suburb": "Wollert",
+    "liveability_score": 0.57,
+    "average_rent": 397.5,
+    "ptv_stop_count": 24,
+    "openspace_count": 25,
+    "crash_count": 38,
+    "crime_count": 1358
+  },
+  {
+    "lga": "Manningham City Council",
+    "suburb": "Wonga Park",
+    "liveability_score": 0.55,
+    "average_rent": 520,
+    "ptv_stop_count": 30,
+    "openspace_count": 19,
+    "crash_count": 9,
+    "crime_count": 509
+  },
+  {
+    "lga": "Wyndham City Council",
+    "suburb": "Wyndham Vale",
+    "liveability_score": 0.54,
+    "average_rent": 400,
+    "ptv_stop_count": 63,
+    "openspace_count": 20,
+    "crash_count": 8,
+    "crime_count": 3062
+  },
+  {
+    "lga": "Banyule City Council",
+    "suburb": "Yallambie",
+    "liveability_score": 0.55,
+    "average_rent": 465,
+    "ptv_stop_count": 15,
+    "openspace_count": 8,
+    "crash_count": 6,
+    "crime_count": 696
+  },
+  {
+    "lga": "Maribyrnong City Council",
+    "suburb": "Yarraville",
+    "liveability_score": 0.59,
+    "average_rent": 500,
+    "ptv_stop_count": 87,
+    "openspace_count": 33,
+    "crash_count": 33,
+    "crime_count": 792
+  }
+]

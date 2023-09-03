@@ -33,7 +33,7 @@ function Map() {
         {/* Liveability Index Information Section */}
         <div className="flex justify-center items-center w-full">
           <div
-            className="flex text-xl items-center font-semibold w-2/3 text-green-700 bg-MapHeadingGray shadow-2xl"
+            className="flex text-xl items-center font-semibold w-2/3 text-green-700 bg-MapHeadingGray"
             style={{
               width: "66.656%",
               height: "auto",
@@ -51,23 +51,31 @@ function Map() {
           </div>
         </div>
         {/* Map Section */}
-        <section className="flex-grow flex flex-col items-center justify-center mb-6">
-          <div className="w-2/3 h-full">
-            <DynamicBasicMap /> {/* Step 3: Use Dynamic Component */}
+        <section className="flex-grow flex flex-row items-center justify-center">
+          <div className="w-2/3 h-5/6 ml-12">
+            <DynamicBasicMap recommendations={false} />
           </div>
-        </section>
-        <section>
-          <div className="flex w-full justify-center items-center">
-            <div className="mt-auto flex items-center justify-center pb-16">
+
+          {/* New div for displaying info */}
+          <div className="w-1/3 h-5/6 flex flex-col justify-between p-4 bg-gray-200 shadow-md mr-12">
+            <div>
+              <h3 className="font-semibold">Lga:</h3>
+              <h3 className="font-semibold">Suburb:</h3>
+              <h3 className="font-semibold">Liveability Score:</h3>
+              <h3 className="font-semibold">Average rent:</h3>
+              <h3 className="font-semibold">No. of Ptv Stops:</h3>
+              <h3 className="font-semibold">Number of Park & Recreation:</h3>
+              <h3 className="font-semibold">Traffic incident count:</h3>
+              <h3 className="font-semibold">Crime count:</h3>
+            </div>
+            <div className="flex flex-col justify-between items-center space-y-4">
               <Link href="/questionnaire">
-                <button className="call-action-button text-NavTextGray font-bold bg-MainButtonYellow rounded-full text-center w-2/3">
+                <button className="call-action-button">
                   Get new recommendations
                 </button>
               </Link>
-            </div>
-            <div className="mt-auto flex items-center justify-center pb-16">
               <Link href="/recommendations">
-                <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-2/3">
+                <button className="call-action-button bg-FooterButtonYellow">
                   View my previous recommendations
                 </button>
               </Link>
