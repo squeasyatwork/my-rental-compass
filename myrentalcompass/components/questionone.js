@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
-import Questionstyle from "./Questionstyle";
+import Questionstyle from "./Questionstyleresponsive";
 
 const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
   const [showWarning, setShowWarning] = useState(false);

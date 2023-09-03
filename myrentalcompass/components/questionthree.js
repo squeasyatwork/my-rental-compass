@@ -1,6 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
-import Questionstyle from "./Questionstyle";
+import Questionstyle from "./Questionstyleresponsive";
 import TextField from '@mui/material/TextField';
 import Autocomplete from '@mui/material/Autocomplete';
 import Box from '@mui/material/Box';

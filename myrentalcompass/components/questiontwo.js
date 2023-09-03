@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Link from "next/link";
-import Questionstyle from "./Questionstyle";
+import Questionstyle from "./Questionstyleresponsive";
 import LikertScale from "../pages/helperpages/likertscale";
 import Image from "next/image";
 
