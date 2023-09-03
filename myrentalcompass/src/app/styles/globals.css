@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@700&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,7 +49,7 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-16 px-5 py-1 w-48 text-NavTextGray
+    @apply bg-MainButtonYellow rounded-2xl h-14 px-5 w-48 text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90;
   }
   .call-action-button:hover {
