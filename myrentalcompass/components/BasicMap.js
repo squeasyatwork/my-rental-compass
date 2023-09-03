@@ -1,7 +1,7 @@
 import 'leaflet/dist/leaflet.css'; // Importing Leaflet CSS
-import React, { useEffect } from 'react';
+import React from 'react';
 import { MapContainer, TileLayer, GeoJSON } from 'react-leaflet';
-import boundaryData from '../src/data/boundary.json'; // Make sure the path is correct
+import boundaryData from '../src/data/boundary.geojson'; // Updated path to GeoJSON
 
 // Function to style GeoJSON layer
 const geoJSONStyle = {
@@ -12,10 +12,6 @@ const geoJSONStyle = {
 };
 
 const BasicMap = () => {
-  useEffect(() => {
-    // Any side effects you want to run go here, like filtering the boundaryData
-  }, []);
-
   return (
     <MapContainer center={[-37.8136, 144.9631]} zoom={10} scrollWheelZoom={false} style={{ height: "100%", width: "100%" }}>
       <TileLayer

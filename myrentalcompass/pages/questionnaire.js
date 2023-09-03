@@ -135,7 +135,7 @@ function Questionnaire() {
                       src="/information-icon.svg"
                       alt="Hint"
                       width={22}
-                      height={"auto"}
+                      height={22}
                       className="rounded-xl"
                     />
                     <h2>1-Not at all</h2>

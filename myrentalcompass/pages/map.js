@@ -1,9 +1,13 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import dynamic from "next/dynamic";
 import Navbar from "~/pages/helperpages/navbar.js";
 import Footer from "~/pages/helperpages/footer.js";
-import BasicMap from "~/components/BasicMap";
+
+const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
+  ssr: false,
+});
 
 function Map() {
   return (
@@ -21,9 +25,9 @@ function Map() {
             Liveability index of Melbourne suburbs
           </h2>
           <h2 className="text-xl py-1 w-2/3">
-            The interactive map below shows each suburb's liveability index
-            based on 4 key criteria: safety, affordability, accessibility, and
-            wellness.
+            {
+              "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness."
+            }
           </h2>
         </section>
         {/* Liveability Index Information Section */}
@@ -49,20 +53,20 @@ function Map() {
         {/* Map Section */}
         <section className="flex-grow flex flex-col items-center justify-center mb-6">
           <div className="w-2/3 h-full">
-            <BasicMap />
+            <DynamicBasicMap /> {/* Step 3: Use Dynamic Component */}
           </div>
         </section>
         <section>
-        <div className="flex w-full justify-center items-center">
+          <div className="flex w-full justify-center items-center">
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="/questionnaire">
                 <button className="call-action-button text-NavTextGray font-bold bg-MainButtonYellow rounded-full text-center w-2/3">
                   Get new recommendations
                 </button>
               </Link>
             </div>
             <div className="mt-auto flex items-center justify-center pb-16">
-              <Link href="/recommendation">
+              <Link href="/recommendations">
                 <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-2/3">
                   View my previous recommendations
                 </button>
