@@ -8,7 +8,7 @@ const nextConfig = {
       use: {
         loader: 'json-loader', // Use 'json-loader' or a similar loader
       },
-    }); git
+    });
 
     return config;
   },
