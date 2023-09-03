@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@900&display=swap");
+/* @import url("https://fonts.googleapis.com/css2?family=Istok+Web:wght@700&display=swap"); */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -49,7 +49,7 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-16 px-5 py-1 w-48 text-NavTextGray
+    @apply bg-MainButtonYellow rounded-2xl h-14 px-5 w-48 text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90;
   }
   .call-action-button:hover {
@@ -63,15 +63,15 @@ body {
     @apply grid lg:grid-cols-3 md:grid-cols-3 gap-4 justify-center font-istok sm:grid-cols-1 sm:text-center sm:gap-0 mx-auto px-5;
   }
 }
-.yqa-subheading {
-  @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
-}
-.copywrite-content {
-  @apply font-istok text-NavTextGray;
-}
+  .yqa-subheading {
+    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
+  }
+  .copywrite-content {
+    @apply font-istok text-NavTextGray;
+  }
 
 /* For components used in questionnaire page */
-@layer components {
+@layer components{
   /*.fade-in{
     opacity: 1;
     transition: opacity 0.3s ease-in;
@@ -82,36 +82,39 @@ body {
     pointer-events: none;
     transition: opacity 0.3s ease-out;
   }*/
-  .likert-option {
+  
+  .likert-option{
     @apply space-x-4;
   }
+
   .likert-label {
     @apply cursor-pointer text-center px-1 py-2 bg-white border rounded-lg shadow-md w-32;
     transition: background-color 0.2s, transform 0.2s;
   }
+
   .yqa-subheading {
     @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
+  
   .likert-radio {
     @apply absolute h-0 w-0 opacity-0;
   }
+  
   .likert-label:hover {
     @apply bg-ResourceButtonYellow transform scale-105;
   }
+  
   .likert-radio:checked + .likert-label {
     @apply bg-ResourceButtonYellow transform scale-105;
   }
-  .speech-bubble {
-    @apply absolute bottom-full left-1/2 bg-red-500 text-white rounded-md p-2 w-48 text-center;
-    transform: translateX(-50%);
-    visibility: hidden;
-    opacity: 0;
-    transition: opacity 0.3s;
-  }
-  .speech-bubble.show {
-    @apply visible opacity-100;
-  }
-}
+  
   .likert-label.selected {
     @apply bg-ResourceButtonYellow transform scale-105;
   }
+  
+  .bet_time {
+    position:absolute;
+    bottom:0;
+    right:0;
+} 
+}

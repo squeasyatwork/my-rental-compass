@@ -137,7 +137,7 @@ export default function LandingPage() {
               know, because we have been there too. |||That is why we are driven
               to help young people like you to make an informed decision in
               finding a place to call home in Victoria."
-              link="/map"
+              link="/questionnaire"
               btnText="Use our AI tool to find where to live"
             />
             <Section
