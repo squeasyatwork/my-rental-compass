@@ -2,9 +2,9 @@ import Head from "next/head";
 import { useState } from "react";
 
 import Navbar from "./helperpages/navbar.js";
-import QuestionOne from "./helperpages/questionone.js";
-import QuestionTwo from "./helperpages/questiontwo.js";
-import QuestionThree from "./helperpages/questionthree.js";
+import QuestionOne from "../components/questionone.js";
+import QuestionTwo from "../components/questiontwo.js";
+import QuestionThree from "../components/questionthree.js";
 import Footer from "./helperpages/footer.js";
 import LikertScale from "./helperpages/likertscale.js";
 import ImageLoader from "~/components/ImageLoader.js";
