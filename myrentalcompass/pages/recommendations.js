@@ -1,10 +1,15 @@
 import * as React from "react";
 import Head from "next/head";
 import { Box } from "@mui/material";
+import dynamic from "next/dynamic";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 // import Mapone from "~/components/mapone.js";
 import PreferencesBar from "~/components/PreferencesBar";
+
+const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
+  ssr: false,
+});
 
 function Recommendations() {
   return (
@@ -34,7 +39,10 @@ function Recommendations() {
               <PreferencesBar />
             </div>
             <div style={{ flex: "1 0 66%", padding: "10px" }}>
-              {/* <Mapone /> */}
+              <DynamicBasicMap
+                recommendations={true}
+                // setSelectedFeature={setSelectedFeature}
+              />
             </div>
           </Box>
         </section>

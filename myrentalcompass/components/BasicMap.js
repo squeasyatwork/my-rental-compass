@@ -1,19 +1,30 @@
 import "leaflet/dist/leaflet.css";
-import React from "react";
+import React, { useState } from "react"; // Import useState hook
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
 import boundaryData from "../src/data/boundary.geojson";
 import { BaseLiveability } from "./BaseLiveability.js";
 
-const BasicMap = ({ recommendations }) => {
-  // Added recommendation prop
+const BasicMap = ({ recommendations, setSelectedFeature }) => {
+  // Add setSelectedFeature as a prop
   let mergedData;
-
   if (recommendations === false) {
-    mergedData = BaseLiveability({ boundaryData }); // Load the merged data
+    mergedData = BaseLiveability({ boundaryData });
   } else {
     // Database data retrieval here (commented out for now)
     // mergedData = yourOtherMethod();
   }
+
+  const [selectedBoundary, setSelectedBoundary] = useState(null); // Add this line
+
+  const onEachFeature = (feature, layer) => {
+    layer.on({
+      click: () => {
+        setSelectedFeature(feature.properties); // Update the selectedFeature state in the Map component
+        setSelectedBoundary(feature); // Update the selected boundary state in this component
+      },
+    });
+  };
+
   const geoJSONStyle = (feature) => {
     const liveability_score = feature.properties.liveability_score;
     return {
@@ -56,15 +67,16 @@ const BasicMap = ({ recommendations }) => {
       scrollWheelZoom={false}
       style={{ height: "100%", width: "100%" }}
     >
-      {/* Add TileLayer first */}
       <TileLayer
         attribution="&copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
         url="https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
         maxZoom={16}
       />
-
-      {/* Add GeoJSON layer */}
-      <GeoJSON data={mergedData} style={geoJSONStyle} />
+      <GeoJSON
+        data={mergedData}
+        style={geoJSONStyle}
+        onEachFeature={onEachFeature} // Add this prop
+      />
     </MapContainer>
   );
 };

@@ -1,7 +1,6 @@
-import React from "react";
+// import React from "react";
 import liveabilityData from "../src/data/liveability.json";
 
-// Function to load and merge liveability data into boundary data
 export const loadLiveabilityData = (boundaryData) => {
   if (boundaryData && boundaryData.features) {
     boundaryData.features.forEach((feature) => {
@@ -9,19 +8,15 @@ export const loadLiveabilityData = (boundaryData) => {
       const matchingRow = liveabilityData.find((row) => row.suburb === suburb);
 
       if (matchingRow) {
-        feature.properties.lga = matchingRow.lga;
-        feature.properties.liveability_score = matchingRow.liveability_score;  // Add the liveability_score directly
+        // Merge all properties
+        Object.assign(feature.properties, matchingRow);
       }
     });
   }
-
-  return boundaryData;  // return the enhanced boundaryData
+  return boundaryData;
 };
 
 export const BaseLiveability = ({ boundaryData }) => {
   const mergedData = loadLiveabilityData(boundaryData);
-
-  console.log("BaseLiveability mergedData:", mergedData);  // Log to debug
-
   return mergedData;
 };

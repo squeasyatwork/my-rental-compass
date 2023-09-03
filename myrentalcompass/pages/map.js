@@ -1,6 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
+import React, { useState } from "react"; // Import useState hook
 import dynamic from "next/dynamic";
 import Navbar from "~/pages/helperpages/navbar.js";
 import Footer from "~/pages/helperpages/footer.js";
@@ -10,6 +11,8 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 });
 
 function Map() {
+  const [selectedFeature, setSelectedFeature] = React.useState(null);
+
   return (
     <>
       <Head>
@@ -53,20 +56,46 @@ function Map() {
         {/* Map Section */}
         <section className="flex-grow flex flex-row items-center justify-center">
           <div className="w-2/3 h-5/6 ml-12">
-            <DynamicBasicMap recommendations={false} />
+            <DynamicBasicMap
+              recommendations={false}
+              setSelectedFeature={setSelectedFeature}
+            />
           </div>
 
           {/* New div for displaying info */}
           <div className="w-1/3 h-5/6 flex flex-col justify-between p-4 bg-gray-200 shadow-md mr-12">
             <div>
-              <h3 className="font-semibold">Lga:</h3>
-              <h3 className="font-semibold">Suburb:</h3>
-              <h3 className="font-semibold">Liveability Score:</h3>
-              <h3 className="font-semibold">Average rent:</h3>
-              <h3 className="font-semibold">No. of Ptv Stops:</h3>
-              <h3 className="font-semibold">Number of Park & Recreation:</h3>
-              <h3 className="font-semibold">Traffic incident count:</h3>
-              <h3 className="font-semibold">Crime count:</h3>
+              <h3 className="font-semibold">
+                LGA: {selectedFeature?.lga || "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Suburb: {selectedFeature?.suburb || "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Liveability Score:{" "}
+                {selectedFeature?.liveability_score
+                  ? `${(selectedFeature.liveability_score * 100).toFixed(0)}%`
+                  : "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Average Rent:{" "}
+                {selectedFeature?.average_rent
+                  ? `$${selectedFeature.average_rent.toFixed(2)} per week`
+                  : "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                No. of PTV Stops: {selectedFeature?.ptv_stop_count || "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Number of Park & Recreation Areas:{" "}
+                {selectedFeature?.openspace_count || "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Traffic Incident Count: {selectedFeature?.crash_count || "N/A"}
+              </h3>
+              <h3 className="font-semibold">
+                Crime Count: {selectedFeature?.crime_count || "N/A"}
+              </h3>
             </div>
             <div className="flex flex-col justify-between items-center space-y-4">
               <Link href="/questionnaire">
