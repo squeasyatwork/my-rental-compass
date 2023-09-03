@@ -52,21 +52,46 @@ const marks = [
 
 function valuetext(value) {
     return `A$${value}`;
-}
-
+  }
+  
 export default function RentSlider() {
     return (
-        <div className="ml-6">
-            <Box>
-                <Slider
-                    aria-label="Rental amount"
-                    defaultValue={50}
-                    getAriaValueText={valuetext}
-                    step={10}
-                    valueLabelDisplay="off"
-                    marks={marks}
-                />
-            </Box>
-        </div>
+      <div className="ml-6">
+        <Box>
+          <Slider
+            aria-label="Rental amount"
+            defaultValue={50}
+            getAriaValueText={valuetext}
+            step={10}
+            valueLabelDisplay="off"
+            marks={marks}
+            sx={{
+              '& .MuiSlider-thumb': {
+                backgroundColor: '#FFCD29',
+                height: 24, // Increase if you want a bigger thumb
+                width: 24, // Increase if you want a bigger thumb
+              },
+              '& .MuiSlider-track': {
+                backgroundColor: '#FFCD29',
+                height: 6, // Increase if you want a thicker track
+              },
+              '& .MuiSlider-rail': {
+                backgroundColor: 'grey',
+                height: 8, // Make sure this is the same as the track height to keep them aligned
+                position: 'relative',
+                '&::before': {
+                  content: '""',
+                  position: 'absolute',
+                  top: '50%',
+                  left: '0%',
+                  width: '5px', // Width of the line at the start
+                  height: '8px', // Height of the line at the start
+                  backgroundColor: '#FFCD29'
+                },
+              },
+            }}
+          />
+        </Box>
+      </div>
     );
-}
+  }
