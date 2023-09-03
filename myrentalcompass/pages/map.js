@@ -12,6 +12,8 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 
 function Map() {
   const [selectedFeature, setSelectedFeature] = React.useState(null);
+  // create a loading state
+  const [mapLoading, setMapLoading] = useState(true);
 
   return (
     <>
@@ -56,10 +58,17 @@ function Map() {
         {/* Map Section */}
         <section className="flex-grow flex flex-row items-center justify-center">
           <div className="w-2/3 h-5/6 ml-12">
-            <DynamicBasicMap
-              recommendations={false}
-              setSelectedFeature={setSelectedFeature}
-            />
+            {mapLoading ? (
+              <div className="w-full h-full flex items-center justify-center" style={{width: "100px", height: "100px"}}>
+                <img src="/loading.gif" alt="Loading" />
+              </div>
+            ) : (
+              <DynamicBasicMap
+                recommendations={false}
+                setSelectedFeature={setSelectedFeature}
+                onMapLoad={() => setMapLoading(false)} // Set loading to false when the map has loaded
+              />
+            )}
           </div>
 
           {/* New div for displaying info */}
