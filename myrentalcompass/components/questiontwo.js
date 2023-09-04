@@ -32,26 +32,25 @@ const QuestionTwo = ({
   return (
     <div
       id="q2"
-      className="flex flex-col items-center justify-between bg-BackgroundWhite rounded-xl p-8 h-full w-full"
-      // style={{ zIndex: 2}}
+      className="flex flex-col items-center justify-center bg-white rounded-xl"
+      style={{ width: '70%', padding: '2rem'}}
     >
       <div className="flex flex-grow">
-        <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
-          <h2> How much do you value these</h2>
-          <h2>liveability aspects?</h2>
-          <h2>(Please rate 1 to 5)</h2>
-          <br></br>
-          <br></br>
-          <br></br>
-          <Image
-            src="/forest-nature-park.svg"
-            alt="Park"
-            width={250}
-            height={250}
-            className="rounded-xl"
-          />
+        <div className="flex flex-col items-center justify-center text-4xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '40%', padding:'1rem'}}>
+          <h2 style={{fontSize:"1.8rem"}}> How much do you value </h2>
+          <h2 style={{fontSize:"1.8rem"}}> these liveability aspects? </h2>
+          <h2 style={{fontSize:"1.4rem"}}>( Please rate 1 to 5 )</h2>
+          <div className=" justify-center">
+            <Image
+              src="/forest-nature-park.svg"
+              alt="Park"
+              width={250}
+              height={250}
+              className="rounded-xl "
+            />
+          </div>
         </div>
-        <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
+        <div className="flex flex-col font-Inter font-normal text-3xl ml-6" style={{width: "60%", padding: "1rem"}}>
           <div className="flex flex-col font-bold">
             <div className=" flex text-lg font-normal space-x-2">
               <Image
@@ -112,31 +111,38 @@ const QuestionTwo = ({
               handleChoice={(e) => handleChoice("safeRoads", e.target.value)}
             />
           </div>
-          <br></br>
         </div>
       </div>
-      <div className="flex justify-center w-full mb-8 relative">
-        {" "}
+      <div className="flex justify-center w-full mb-8 relative" style={{
+          width: '100%',
+          display: 'flex',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          padding: '1rem'
+        }}>
         <button
-          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4"
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8 mx-4"
+          style={{ width: '20%'}}
           onClick={handlePrevious}
         >
           Go back
         </button>
         <button
-          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4 relative" /* Added 'relative' here */
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8 mx-4 relative" /* Added 'relative' here */
+          style={{ width: '20%'}}
           onClick={handleClickNext}
         >
           Final question
         </button>
-        {
-          error && (
-            <div className={`speech-bubble ${error ? "show" : ""}`}>
-              {error}
-            </div>
-          )
-        }
       </div>
+      {
+        error && (
+          <div className={`speech-bubble ${error ? "show" : ""}`} style={{color: "red"}}>
+            {error}
+          </div>
+        )
+      }
     </div>
   );
 };

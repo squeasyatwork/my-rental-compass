@@ -9,26 +9,32 @@ const QuestionThree = ({ handlePrevious }) => {
   return (
     <div
       id="q3"
-      className="flex flex-col items-center justify-center h-full w-full bg-white rounded-xl px-12"
+      className="flex flex-col items-center justify-center bg-white rounded-xl p-8"
+      style={{ width: '70%', padding: '2rem'}}
     >
-      <div className="text-5xl font-bold px-16 pt-4">
-        <h2>Do you prefer to live near your place of study?</h2>
-      </div>
-      <div className="flex flex-col md:flex-row items-center justify-center w-full pb-10 pt-24">
-        <div className="flex flex-col items-center mb-4 md:mb-0 md:mr-6 px-4">
-          <Image
-            src="/school.svg"
-            alt="School"
-            width={200}
-            height={200}
-            className="rounded-xl"
-          />
+      
+      <div className="flex md:flex-row items-center justify-center w-full pt-24" style={{marginBottom: "2rem"}}>
+        <div className="flex flex-col font-bold justify-center items-center" style={{ width: '40%'}}>
+          <div className="text-4xl px-16  text-center pt-4">
+            <h2 style={{fontSize:"1.8rem"}}>Do you prefer to live </h2>
+            <h2 style={{fontSize:"1.8rem",marginBottom:"1rem"}}>near your place of study? </h2>
+          </div>
+          <div className="flex flex-col items-center mb-4 md:mb-0 md:mr-6 px-4">
+            <Image
+              src="/school.svg"
+              alt="School"
+              width={200}
+              height={200}
+              className="rounded-xl "
+            />
+          </div>
         </div>
-        <div className="flex flex-col text-3xl ml-6 w-full md:max-w-2xl px-4 bg-white border-4 border-MainButtonYellow p-8">
+        <div className="flex flex-col text-3xl ml-6 w-full md:max-w-2xl px-4 bg-white border-4 border-MainButtonYellow p-8" style={{ width: '60%'}}>
           <div className="flex flex-col items-center text-2xl font-bold">
             <h2>If you want to live near your university,</h2>
             <h2>please select your university from the list below.</h2>
           </div>
+          <br></br><br></br>
           <select className="mt-4 p-2 rounded justify-center items-center bg-ResourceButtonYellow border-ResourceButtonYellow border-4">
             <option value="">No, I do not mind living far</option>
             <option value="Monash University, Clayton">
@@ -89,15 +95,23 @@ const QuestionThree = ({ handlePrevious }) => {
           </select>
         </div>
       </div>
-      <div className="flex justify-center w-full mb-6 pt-12 relative">
+      <div className="flex justify-center w-full m-8 relative" style={{
+          width: '100%',
+          flexDirection: 'row',
+          justifyContent: 'space-around',
+          alignItems: 'center',
+          padding: '1rem'
+        }}>
         <button
-          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4"
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8"
           onClick={handlePrevious}
         >
           Go back
         </button>
         <Link href="/map">
-          <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4">
+          <button 
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8"
+          >
             Show result
           </button>
         </Link>

@@ -51,10 +51,10 @@ function Questionnaire() {
         <meta name="description" content="Customize your liveability index." />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen" style={{ backgroundImage: 'url("/liveable-cities.jpeg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
+      <main className="font-inter flex flex-col h-screen justify-center" style={{ backgroundImage: 'url("/liveable-cities.jpeg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <Navbar activePage="Where to live" />
-
-        <div className="flex-grow flex items-center justify-center w-[80%] max-h-[60vh] mx-auto my-auto text-black">
+        
+        <div className="flex flex-grow items-center justify-center text-black">
           {currentQuestion === "q1" && (
             <QuestionOne 
               handleNext={handleNext}
