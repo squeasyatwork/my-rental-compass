@@ -45,10 +45,10 @@ function Map() {
         {/* Liveability Index Information Section */}
         
         {/* Map Section */}
-        <section className="flex-grow flex flex-col ">
+        <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
             <div
-              className="flex text-xl items-center w-3/4 h-3/4 font-semibold mr-4 text-green-700 bg-MapHeadingGray"
+              className="flex text-xl items-center w-3/4 h-3/4 font-semibold text-green-700 bg-MapHeadingGray"
               style={{
                 boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
               }}
@@ -63,9 +63,9 @@ function Map() {
               <span>Liveability Index</span>
             </div>
           </div>
-          <div className="flex justify-center ">
-            <div className="flex justify-center " >
-              <div className="flex justify-start items-center" style={{width:"75%"}}>
+          <div className="flex justify-center " style={{width:"100%", height: "100%"}}>
+            <div className="flex justify-center" style={{width:"75%", height:"90%"}}>
+              <div className="flex justify-center items-center" style={{flex: "1"}}>
                 {mapLoading ? (
                     <div>
                       <img
@@ -82,7 +82,7 @@ function Map() {
                   )}
               </div>
               {/* New div for displaying info */}
-              <div className="flex flex-col justify-between text-xl p-4 bg-gray-200 shadow-md mr-12" >
+              <div className="flex flex-col justify-between text-xl p-4 bg-gray-200 shadow-md " >
                 <div>
                   <h3 className="font-semibold">
                     LGA: {selectedFeature?.lga || "N/A"}
