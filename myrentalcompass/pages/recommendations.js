@@ -51,18 +51,16 @@ function Recommendations() {
               <PreferencesBar />
             </div>
             <div style={{ flex: "1 0 66%", padding: "10px" }}>
-            {mapLoading ? (
-              <div className="w-full h-full flex items-center justify-center">
-                <img
-                  src="/loading.gif"
-                  alt="Loading"
-                  style={{ width: "200px", height: "200px" }}
-                />
-              </div>
+              {mapLoading ? (
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="/loading.gif"
+                    alt="Loading"
+                    style={{ width: "200px", height: "200px" }}
+                  />
+                </div>
               ) : (
-                <DynamicBasicMap
-                  recommendations={false}
-                />
+                <DynamicBasicMap recommendations={true} />
               )}
             </div>
           </Box>
