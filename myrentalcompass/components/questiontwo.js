@@ -1,7 +1,7 @@
 import React, { useState } from "react";
+
 import Link from "next/link";
-import Questionstyle from "./Questionstyleresponsive";
-import LikertScale from "../pages/helperpages/likertscale";
+import LikertScale from "./likertscale";
 import Image from "next/image";
 
 const QuestionTwo = ({
@@ -32,14 +32,17 @@ const QuestionTwo = ({
   return (
     <div
       id="q2"
-      className="flex flex-col items-center justify-between bg-BackgroundWhite rounded-xl p-4 md:p-8 h-full w-full"
+      className="flex flex-col items-center justify-between bg-BackgroundWhite rounded-xl p-8 h-full w-full"
+      // style={{ zIndex: 2}}
     >
-      <div className="text-3xl md:text-5xl font-bold pt-4 md:pt-8">
-        <h2>How much do you value these liveability aspects?</h2>
-        <h2>(Please rate 1 to 5)</h2>
-      </div>
-      <div className="flex flex-col md:flex-row items-center justify-center w-full pb-6 md:pb-10 pt-4 md:pt-12">
-        <div className="flex items-center mb-4 md:mb-0 md:mr-6">
+      <div className="flex flex-grow">
+        <div className="flex flex-col items-center font-Inter font-bold text-3xl mr-6">
+          <h2> How much do you value these</h2>
+          <h2>liveability aspects?</h2>
+          <h2>(Please rate 1 to 5)</h2>
+          <br></br>
+          <br></br>
+          <br></br>
           <Image
             src="/forest-nature-park.svg"
             alt="Park"
@@ -48,16 +51,23 @@ const QuestionTwo = ({
             className="rounded-xl"
           />
         </div>
-        <div className="flex flex-col text-lg md:text-xl font-normal w-full md:max-w-2xl">
+        <div className="flex flex-col font-Inter font-normal text-3xl ml-6">
           <div className="flex flex-col font-bold">
-            <div className="flex text-md md:text-lg font-normal space-x-2">
+            <div className=" flex text-lg font-normal space-x-2">
+              <Image
+                src="/information-icon.svg"
+                alt="Hint"
+                width={22}
+                height={22}
+                className="rounded-xl"
+              />
               <h2>1-Not at all</h2>
               <h2>2-Low importance</h2>
               <h2>3-Neutral</h2>
               <h2>4-Important</h2>
               <h2>5-Very important</h2>
             </div>
-            <div className="text-md md:text-lg mt-4">
+            <div className="text-xl mt-4">
               <h2>Affordable housing</h2>
             </div>
             <LikertScale
@@ -67,7 +77,7 @@ const QuestionTwo = ({
                 handleChoice("affordableHousing", e.target.value)
               }
             />
-            <div className="text-md md:text-lg">
+            <div className="text-xl">
               <h2>Easy access to public transport</h2>
             </div>
             <LikertScale
@@ -77,15 +87,15 @@ const QuestionTwo = ({
                 handleChoice("publicTransport", e.target.value)
               }
             />
-            <div className="text-md md:text-lg">
-              <h2>Abundance of public open space e.g. gardens, parks</h2>
+            <div className="text-xl">
+              <h2>Abundance of public open space e.g. gradens, parks</h2>
             </div>
             <LikertScale
               name="openSpace"
               selectedChoice={selectedChoices.openSpace}
               handleChoice={(e) => handleChoice("openSpace", e.target.value)}
             />
-            <div className="text-md md:text-lg">
+            <div className="text-xl">
               <h2>Low crime rate</h2>
             </div>
             <LikertScale
@@ -93,7 +103,7 @@ const QuestionTwo = ({
               selectedChoice={selectedChoices.lowCrimeRate}
               handleChoice={(e) => handleChoice("lowCrimeRate", e.target.value)}
             />
-            <div className="text-md md:text-lg">
+            <div className="text-xl">
               <h2>Safe roads</h2>
             </div>
             <LikertScale
@@ -102,24 +112,31 @@ const QuestionTwo = ({
               handleChoice={(e) => handleChoice("safeRoads", e.target.value)}
             />
           </div>
+          <br></br>
         </div>
       </div>
-      <div className="flex justify-center w-full pt-4 md:pt-8">
+      <div className="flex justify-center w-full mb-8 relative">
+        {" "}
         <button
-          className="call-action-button text-NavTextGray text-xl md:text-2xl font-bold flex items-center justify-center w-40 md:w-56 p-4 md:p-8 mx-2 md:mx-4"
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4"
           onClick={handlePrevious}
         >
           Go back
         </button>
         <button
-          className="call-action-button text-NavTextGray text-xl md:text-2xl font-bold flex items-center justify-center w-40 md:w-56 p-4 md:p-8 mx-2 md:mx-4 relative"
+          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8 mx-4 relative" /* Added 'relative' here */
           onClick={handleClickNext}
         >
           Final question
         </button>
-        {error && <div className={`speech-bubble ${error ? "show" : ""}`}>{error}</div>}
+        {
+          error && (
+            <div className={`speech-bubble ${error ? "show" : ""}`}>
+              {error}
+            </div>
+          )
+        }
       </div>
-      <Questionstyle />
     </div>
   );
 };
