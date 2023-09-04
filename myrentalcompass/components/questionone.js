@@ -18,22 +18,22 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
   return (
     <div
       id="q1"
-      className="flex flex-col items-center justify-center bg-white rounded-xl px-24 w-full h-full"
+      className="flex flex-col items-center justify-center bg-white rounded-xl px-32 w-full h-full"
     >
-      <div className="flex flex-col md:flex-row items-center justify-center w-full">
-        <div className="flex flex-col items-center text-4xl font-bold mb-4 md:mb-0 md:mr-6">
+      <div className="flex md:flex-row items-center justify-center w-full">
+        <div className="flex flex-col items-center text-4xl w-1/3 font-bold mb-4 md:mb-0 md:mr-6">
           <h2>We are here to help you!</h2>
-          <div className="w-[250px] h-[250px] relative">
+          <div >
             <Image
               src="/questionnaire_person.svg"
               alt="Staff"
-              layout="fill"
-              objectFit="contain"
+              width={250}
+              height={250}
               className="rounded-xl"
             />
           </div>
         </div>
-        <div className="flex flex-col text-3xl ml-6 w-full md:max-w-2xl">
+        <div className="flex flex-col text-3xl ml-6 w-2/3 md:max-w-2xl">
           <h2>
             Finding a liveable home at an affordable rent in Melbourne can be
             difficult, but we know it is not impossible.
