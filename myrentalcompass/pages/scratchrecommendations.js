@@ -4,11 +4,9 @@ import * as React from 'react';
 import Head from "next/head";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import prisma from "~/lib/prisma";
 import PreferencesBar from "~/components/PreferencesBar";
 import { Box } from '@mui/material';
 import dynamic from "next/dynamic";
-import { getRankedLiveability } from '~/components/CustomLiveability.js';
 // import Mapone from "~/components/mapone.js";
 
 
@@ -29,7 +27,15 @@ export const getServerSideProps = async (context) => {
     let crime = contextQuery.crimeChoice;
     let road = contextQuery.roadChoice;
     let university = contextQuery.uniChoice;
-    let nearbyWithinRentRanked = await getRankedLiveability(rent, affordability, transport, park, crime, road, university);
+    // let nearbyWithinRentRanked = await getRankedLiveability(rent, affordability, transport, park, crime, road, university);
+    let reqQuery = new URLSearchParams({
+        rent, affordability, transport, park, crime, road, university
+    });
+    let dbResponse = await fetch(process.env.URL + "/api/liveablesuburbs?" + reqQuery, {
+        method: 'GET',
+    })
+    let nearbyWithinRentRanked = await dbResponse.json();
+    console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
     return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
 }
 
