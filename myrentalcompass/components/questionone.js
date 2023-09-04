@@ -40,7 +40,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             difficult, but we know it is not impossible.
           </h2>
           <h2>
-            Using our own AI tool backed by huge data on Melbourne's rental
+            Using our own AI tool backed by huge data on Melbourne&apos; rental
             market, we want to customize our recommendation for the place to
             live.
           </h2>

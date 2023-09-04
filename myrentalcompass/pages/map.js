@@ -59,8 +59,8 @@ function Map() {
         <section className="flex-grow flex flex-row items-center justify-center">
           <div className="w-2/3 h-5/6 ml-12">
             {mapLoading ? (
-              <div className="w-full h-full flex items-center justify-center" style={{width: "100px", height: "100px"}}>
-                <img src="/loading.gif" alt="Loading" />
+              <div className="w-full h-full flex items-center justify-center" >
+                <img src="/loading.gif" alt="Loading" style={{width: "200px", height: "200px"}}/>
               </div>
             ) : (
               <DynamicBasicMap
@@ -126,4 +126,4 @@ function Map() {
   );
 }
 
-export default Liveability;
+export default Map;

@@ -1,5 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 import Navbar from "./helperpages/navbar.js";
 import QuestionOne from "../components/questionone.js";
@@ -13,7 +15,8 @@ const questions = ["q1", "q2", "q3"];
 
 function Questionnaire() {
   const [currentQuestion, setCurrentQuestion] = useState("q1");
-  
+  const currentQuestionIndex = questions.indexOf(currentQuestion);
+
   const [selectedChoices, setSelectedChoices] = useState({
     // For QuestionOne
     someQuestionOne: null,
@@ -41,13 +44,17 @@ function Questionnaire() {
   };
 
   const handlePrevious = () => {
-    if (currentQuestion === "q2") {
-      setCurrentQuestion("q1");
-    } else if (currentQuestion === "q3") {
-      setCurrentQuestion("q2");
+    const previousQuestionIndex = currentQuestionIndex - 1;
+    if (previousQuestionIndex >= 0) {
+      const previousQuestionId = questions[previousQuestionIndex];
+      setCurrentQuestion(previousQuestionId);
     }
   };
-  const previousQuestionId = currentQuestionIndex > 0 ? questions[currentQuestionIndex - 1] : null;
+
+  let previousQuestionId = null;
+  if (currentQuestionIndex > 0) {
+    previousQuestionId = questions[currentQuestionIndex - 1];
+  }
 
 
   return (
