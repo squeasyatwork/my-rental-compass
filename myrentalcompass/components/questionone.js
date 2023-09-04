@@ -76,11 +76,6 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             onChange={(e) => handleChoice("someQuestionOne", e.target.value)}
             style={{width: '8rem', border: '2px solid #FFCD29'}}
           />
-          {showWarning && (
-            <p className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-full bg-red-600 text-white p-2 rounded">
-              Please enter a value between 0-2000.
-            </p>
-          )}
         </div>
         <div className="mx-8">
           <button
@@ -91,6 +86,11 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
           </button>
         </div>
       </div>
+      {showWarning && (
+          <p style={{color: "red"}}>
+            Please enter a value between 0-2000.
+          </p>
+        )}
     </div>
   );
 };

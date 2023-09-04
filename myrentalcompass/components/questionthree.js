@@ -30,12 +30,12 @@ const QuestionThree = ({ handlePrevious }) => {
           </div>
         </div>
         <div className="flex flex-col text-3xl ml-6 w-full md:max-w-2xl px-4 bg-white border-4 border-MainButtonYellow p-8" style={{ width: '60%'}}>
-          <div className="flex flex-col items-center text-2xl font-bold">
+          <div className="flex flex-col items-center text-2xl">
             <h2>If you want to live near your university,</h2>
             <h2>please select your university from the list below.</h2>
           </div>
-          <br></br><br></br>
-          <select className="mt-4 p-2 rounded justify-center items-center bg-ResourceButtonYellow border-ResourceButtonYellow border-4">
+          <br></br>
+          <select className="mt-4 p-2 bg-ResourceButtonYellow border-4">
             <option value="">No, I do not mind living far</option>
             <option value="Monash University, Clayton">
               Monash University, Clayton
@@ -93,6 +93,10 @@ const QuestionThree = ({ handlePrevious }) => {
               Victoria University, Werribee
             </option>
           </select>
+          <br></br>
+          <div className="flex flex-col items-center text-2xl font-bold">
+            <h2>Else, you may skip and click show result below</h2>
+          </div>
         </div>
       </div>
       <div className="flex justify-center w-full m-8 relative" style={{
