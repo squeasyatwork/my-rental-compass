@@ -80,7 +80,6 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
   );
 };
 
-
 export default function LandingPage() {
   return (
     <>
@@ -109,7 +108,7 @@ export default function LandingPage() {
               <h2 className="text-2xl font-medium text-center mt-16">
                 We are here to help you find the place you can call home
               </h2>
-              <Link href="/questionnaire">
+              <Link href="/map">
                 <button className="call-action-button text-lg width-52 p-2 mt-6">
                   Find where to live
                 </button>
