@@ -1,4 +1,5 @@
 import * as React from "react";
+import { useState, useEffect } from "react";
 import Head from "next/head";
 import { Box } from "@mui/material";
 import dynamic from "next/dynamic";
@@ -12,6 +13,17 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 });
 
 function Recommendations() {
+  const [selectedFeature, setSelectedFeature] = React.useState(null);
+  // create a loading state
+  const [mapLoading, setMapLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMapLoading(false);
+    }, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <>
       <Head>
@@ -39,10 +51,19 @@ function Recommendations() {
               <PreferencesBar />
             </div>
             <div style={{ flex: "1 0 66%", padding: "10px" }}>
-              <DynamicBasicMap
-                recommendations={true}
-                // setSelectedFeature={setSelectedFeature}
-              />
+            {mapLoading ? (
+              <div className="w-full h-full flex items-center justify-center">
+                <img
+                  src="/loading.gif"
+                  alt="Loading"
+                  style={{ width: "200px", height: "200px" }}
+                />
+              </div>
+              ) : (
+                <DynamicBasicMap
+                  recommendations={false}
+                />
+              )}
             </div>
           </Box>
         </section>

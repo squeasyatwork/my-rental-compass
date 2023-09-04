@@ -130,7 +130,7 @@ const QuestionTwo = ({
         </button>
         <button
           className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8 mx-4 relative" /* Added 'relative' here */
-          style={{ width: '30%'}}
+          style={{ width: '20%', fontSize: '1.2rem'}}
           onClick={handleClickNext}
         >
           Final question

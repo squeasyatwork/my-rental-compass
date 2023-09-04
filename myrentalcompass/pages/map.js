@@ -80,7 +80,6 @@ function Map() {
                 />
               )}
           </div>
-
           {/* New div for displaying info */}
           <div className="w-1/3 h-5/6 flex flex-col justify-between p-4 bg-gray-200 shadow-md mr-12">
             <div>
