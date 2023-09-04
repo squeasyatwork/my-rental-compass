@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react"; // Import useState hook
+import React, { useState, useEffect } from "react"; // Import useState hook
 import dynamic from "next/dynamic";
 import Navbar from "~/pages/helperpages/navbar.js";
 import Footer from "~/pages/helperpages/footer.js";
@@ -15,6 +15,13 @@ function Map() {
   // create a loading state
   const [mapLoading, setMapLoading] = useState(true);
 
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setMapLoading(false);
+    }, 1000);
+    return () => clearTimeout(timer);
+  }, []);
+  
   return (
     <>
       <Head>
@@ -59,16 +66,19 @@ function Map() {
         <section className="flex-grow flex flex-row items-center justify-center">
           <div className="w-2/3 h-5/6 ml-12">
             {mapLoading ? (
-              <div className="w-full h-full flex items-center justify-center" >
-                <img src="/loading.gif" alt="Loading" style={{width: "200px", height: "200px"}}/>
-              </div>
-            ) : (
-              <DynamicBasicMap
-                recommendations={false}
-                setSelectedFeature={setSelectedFeature}
-                onMapLoad={() => setMapLoading(false)} // Set loading to false when the map has loaded
-              />
-            )}
+                <div className="w-full h-full flex items-center justify-center">
+                  <img
+                    src="/loading.gif"
+                    alt="Loading"
+                    style={{ width: "200px", height: "200px" }}
+                  />
+                </div>
+              ) : (
+                <DynamicBasicMap
+                  recommendations={false}
+                  setSelectedFeature={setSelectedFeature}
+                />
+              )}
           </div>
 
           {/* New div for displaying info */}

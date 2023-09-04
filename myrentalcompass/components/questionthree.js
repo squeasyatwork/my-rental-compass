@@ -112,7 +112,7 @@ const QuestionThree = ({ handlePrevious }) => {
         >
           Go back
         </button>
-        <Link href="/map">
+        <Link href="/recommendations">
           <button 
           className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8"
           >
