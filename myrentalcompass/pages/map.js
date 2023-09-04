@@ -18,7 +18,7 @@ function Map() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setMapLoading(false);
-    }, 1000);
+    }, 1500);
     return () => clearTimeout(timer);
   }, []);
   
