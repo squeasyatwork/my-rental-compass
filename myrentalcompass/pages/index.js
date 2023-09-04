@@ -7,9 +7,8 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${
-    quality || 75
-  }`;
+  return `https://develop.d1f77h13nbf5uz.amplifyapp.com/${src}?w=${width}&q=${quality || 75
+    }`;
 };
 
 export const Section = ({
@@ -109,7 +108,7 @@ export default function LandingPage() {
               <h2 className="text-2xl font-medium text-center mt-16">
                 We are here to help you find the place you can call home
               </h2>
-              <Link href="/questionnaire">
+              <Link href="/scratchquestionnaire">
                 <button className="call-action-button text-lg width-52 p-2 mt-6">
                   Find where to live
                 </button>

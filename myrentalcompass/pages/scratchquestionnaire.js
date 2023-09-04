@@ -1,49 +1,68 @@
+"use client";
+
 import Head from "next/head";
 import Navbar from "./helperpages/navbar.js";
 import Image from "next/image.js";
 import Link from "next/link";
-import { useState } from "react";
+import React, { useState } from "react";
 
 import Footer from "./helperpages/footer.js";
-import LikertScale from "./helperpages/likertscale.js";
+import ScratchLikertScale from "./helperpages/scratchlikertscale.js";
 import ImageLoader from "~/components/ImageLoader.js";
+
 import Router from "next/router";
+import { useRouter } from "next/router";
 
 const questions = ["q1", "q2", "q3"];
 
-function Questionnaire() {
+export default function ScratchQuestionnaire() {
 
-    const [Q1Choice, setQ1Choice] = useState(null);
-    const [Q2Choice, setQ2Choice] = useState(null);
-    const [Q3Choice, setQ3Choice] = useState(null);
-    const [Q4Choice, setQ4Choice] = useState(null);
-    const [Q5Choice, setQ5Choice] = useState(null);
+    // Defining variables for slider
+    const [rentChoice, setRentChoice] = useState(null);
+    const [affordabilityChoice, setAffordabilityChoice] = useState(null);
+    const [transportChoice, setTransportChoice] = useState(null);
+    const [parkChoice, setParkChoice] = useState(null);
+    const [crimeChoice, setCrimeChoice] = useState(null);
+    const [roadChoice, setRoadChoice] = useState(null);
+    const [uniChoice, setUniChoice] = useState(null);
 
-    const handleChoice = (event) => {
-        const choiceValue = event.target.value;
-        eval('set' + questionTitle + 'Choice(choiceValue);');
-    };
+    const router = Router.useRouter();
 
-    function sendInput() {
-        Router.push({
-            pathname: "/recommendations",
-            query: {
-                aChoice,
-                bChoice,
-                cChoice,
-                dChoice,
-                eChoice
-            },
-        });
-    }
+    // const handleChoice = (event) => {
+    //     if current
+    //         const choiceValue = event.target.value;
+    //         eval('set' + questionTitle + 'Choice(choiceValue);');
+    // };
+
+    // function sendInput() {
+
+    // }
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const currentQuestion = questions[currentQuestionIndex];
 
-    const handleNext = () => {
+    const handleNext = (event) => {
+
         if (currentQuestionIndex < questions.length - 1) {
             setCurrentQuestionIndex(currentQuestionIndex + 1);
         }
+        else    // MEANING USER CLICKED ON "SHOW RESULT"
+        {
+            // setRentChoice(document.getElementById("rent-input"));
+            router.push({
+                pathname: "/scratchrecommendations",
+                query: {
+                    rentChoice,
+                    affordabilityChoice,
+                    transportChoice,
+                    parkChoice,
+                    crimeChoice,
+                    roadChoice,
+                    uniChoice
+                },
+            });
+        }
+
     };
 
     const handlePrevious = () => {
@@ -53,6 +72,10 @@ function Questionnaire() {
     };
     const previousQuestionId = currentQuestionIndex > 0 ? questions[currentQuestionIndex - 1] : null;
 
+    const handleChoice = (event) => {
+        const choiceValue = event.target.value;
+        setSelectedChoice(choiceValue);
+    };
 
     return (
         <>
@@ -121,9 +144,11 @@ function Questionnaire() {
                             </div>
                             <div className="mr-6">
                                 <input
-                                    type="text"
+                                    id="rent-input"
+                                    type="number"
                                     className="border-4 border-MainButtonYellow rounded-lg w-60 h-16 text-2xl text-NavTextGray font-bold text-center"
                                     placeholder="$400"
+                                    onChange={(e) => setRentChoice(e.target.value)}
                                 />
                             </div>
                             <div className="ml-6">
@@ -170,26 +195,141 @@ function Questionnaire() {
                                         <h2>4-Important</h2>
                                         <h2>5-Very important</h2>
                                     </div>
+
                                     <div className="text-xl mt-4">
                                         <h2>Affordable housing</h2>
                                     </div>
-                                    <LikertScale questionTitle="a" />
+                                    <div className="likert-options flex justify-center text-lg font-normal pt-4 pb-4">
+                                        <label className={`likert-label ${affordabilityChoice === '1' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="1" className="likert-radio" onClick={(e) => { setAffordabilityChoice(e.target.value) }} />
+                                            1
+                                        </label>
+                                        <label className={`likert-label ${affordabilityChoice === '2' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="2" className="likert-radio" onClick={(e) => { setAffordabilityChoice(e.target.value) }} />
+                                            2
+                                        </label>
+                                        <label className={`likert-label ${affordabilityChoice === '3' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="3" className="likert-radio" onClick={(e) => { setAffordabilityChoice(e.target.value) }} />
+                                            3
+                                        </label>
+                                        <label className={`likert-label ${affordabilityChoice === '4' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="4" className="likert-radio" onClick={(e) => { setAffordabilityChoice(e.target.value) }} />
+                                            4
+                                        </label>
+                                        <label className={`likert-label ${affordabilityChoice === '5' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="5" className="likert-radio" onClick={(e) => { setAffordabilityChoice(e.target.value) }} />
+                                            5
+                                        </label>
+                                    </div>
+
                                     <div className="text-xl">
                                         <h2>Easy access to public transport</h2>
                                     </div>
-                                    <LikertScale questionTitle="b" />
+                                    <div className="likert-options flex justify-center text-lg font-normal pt-4 pb-4">
+                                        <label className={`likert-label ${transportChoice === '1' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="1" className="likert-radio" onClick={(e) => { setTransportChoice(e.target.value) }} />
+                                            1
+                                        </label>
+                                        <label className={`likert-label ${transportChoice === '2' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="2" className="likert-radio" onClick={(e) => { setTransportChoice(e.target.value) }} />
+                                            2
+                                        </label>
+                                        <label className={`likert-label ${transportChoice === '3' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="3" className="likert-radio" onClick={(e) => { setTransportChoice(e.target.value) }} />
+                                            3
+                                        </label>
+                                        <label className={`likert-label ${transportChoice === '4' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="4" className="likert-radio" onClick={(e) => { setTransportChoice(e.target.value) }} />
+                                            4
+                                        </label>
+                                        <label className={`likert-label ${transportChoice === '5' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="5" className="likert-radio" onClick={(e) => { setTransportChoice(e.target.value) }} />
+                                            5
+                                        </label>
+                                    </div>
+
+
                                     <div className="text-xl">
                                         <h2>Abundance of public open space e.g. gardens, parks</h2>
                                     </div>
-                                    <LikertScale questionTitle="c" />
+                                    <div className="likert-options flex justify-center text-lg font-normal pt-4 pb-4">
+                                        <label className={`likert-label ${parkChoice === '1' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="1" className="likert-radio" onClick={(e) => { setParkChoice(e.target.value) }} />
+                                            1
+                                        </label>
+                                        <label className={`likert-label ${parkChoice === '2' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="2" className="likert-radio" onClick={(e) => { setParkChoice(e.target.value) }} />
+                                            2
+                                        </label>
+                                        <label className={`likert-label ${parkChoice === '3' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="3" className="likert-radio" onClick={(e) => { setParkChoice(e.target.value) }} />
+                                            3
+                                        </label>
+                                        <label className={`likert-label ${parkChoice === '4' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="4" className="likert-radio" onClick={(e) => { setParkChoice(e.target.value) }} />
+                                            4
+                                        </label>
+                                        <label className={`likert-label ${parkChoice === '5' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="5" className="likert-radio" onClick={(e) => { setParkChoice(e.target.value) }} />
+                                            5
+                                        </label>
+                                    </div>
+
+
                                     <div className="text-xl">
                                         <h2>Low crime rate</h2>
                                     </div>
-                                    <LikertScale questionTitle="d" />
+                                    <div className="likert-options flex justify-center text-lg font-normal pt-4 pb-4">
+                                        <label className={`likert-label ${crimeChoice === '1' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="1" className="likert-radio" onClick={(e) => { setCrimeChoice(e.target.value) }} />
+                                            1
+                                        </label>
+                                        <label className={`likert-label ${crimeChoice === '2' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="2" className="likert-radio" onClick={(e) => { setCrimeChoice(e.target.value) }} />
+                                            2
+                                        </label>
+                                        <label className={`likert-label ${crimeChoice === '3' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="3" className="likert-radio" onClick={(e) => { setCrimeChoice(e.target.value) }} />
+                                            3
+                                        </label>
+                                        <label className={`likert-label ${crimeChoice === '4' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="4" className="likert-radio" onClick={(e) => { setCrimeChoice(e.target.value) }} />
+                                            4
+                                        </label>
+                                        <label className={`likert-label ${crimeChoice === '5' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="5" className="likert-radio" onClick={(e) => { setCrimeChoice(e.target.value) }} />
+                                            5
+                                        </label>
+                                    </div>
+
+
                                     <div className="text-xl">
                                         <h2>Safe roads</h2>
                                     </div>
-                                    <LikertScale questionTitle="e" />
+                                    <div className="likert-options flex justify-center text-lg font-normal pt-4 pb-4">
+                                        <label className={`likert-label ${roadChoice === '1' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="1" className="likert-radio" onClick={(e) => { setRoadChoice(e.target.value) }} />
+                                            1
+                                        </label>
+                                        <label className={`likert-label ${roadChoice === '2' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="2" className="likert-radio" onClick={(e) => { setRoadChoice(e.target.value) }} />
+                                            2
+                                        </label>
+                                        <label className={`likert-label ${roadChoice === '3' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="3" className="likert-radio" onClick={(e) => { setRoadChoice(e.target.value) }} />
+                                            3
+                                        </label>
+                                        <label className={`likert-label ${roadChoice === '4' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="4" className="likert-radio" onClick={(e) => { setRoadChoice(e.target.value) }} />
+                                            4
+                                        </label>
+                                        <label className={`likert-label ${roadChoice === '5' ? 'selected' : ''}`}>
+                                            <input type="radio" name="likertScale" value="5" className="likert-radio" onClick={(e) => { setRoadChoice(e.target.value) }} />
+                                            5
+                                        </label>
+                                    </div>
+
+
                                 </div>
                                 <br></br>
                             </div>
@@ -234,8 +374,8 @@ function Questionnaire() {
                                     <h2>please select your university from the list below.</h2>
                                 </div>
                                 <div className="flex flex-col items-center text-xl pt-4">
-                                    <select className="mt-4 p-2 rounded justify-center items-center bg-ResourceButtonYellow border-ResourceButtonYellow border-4">
-                                        <option value="">No, I do not mind living far</option>
+                                    <select className="mt-4 p-2 rounded justify-center items-center bg-ResourceButtonYellow border-ResourceButtonYellow border-4" onChange={(e) => setUniChoice(e.target.value)}>
+                                        <option value="no-preferences">No, I do not mind living far</option>
                                         <option value="Monash University, Clayton">Monash University, Clayton</option>
                                         <option value="Monash University, Caulfield">Monash University, Caulfield</option>
                                         <option value="Monash University, Parkville">Monash University, Parkville</option>
@@ -273,12 +413,10 @@ function Questionnaire() {
                                 </Link>
                             </div>
                             <div className="ml-60">
-                                <Link href="/recommendations">
-                                    <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8">
-                                        {" "}
-                                        Show result{" "}
-                                    </button>
-                                </Link>
+                                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8" onClick={handleNext}>
+                                    {" "}
+                                    Show result{" "}
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -288,5 +426,3 @@ function Questionnaire() {
         </>
     );
 }
-
-export default Questionnaire;
