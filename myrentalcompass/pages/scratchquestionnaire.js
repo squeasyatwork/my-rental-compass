@@ -375,7 +375,7 @@ export default function ScratchQuestionnaire() {
                                 </div>
                                 <div className="flex flex-col items-center text-xl pt-4">
                                     <select className="mt-4 p-2 rounded justify-center items-center bg-ResourceButtonYellow border-ResourceButtonYellow border-4" onChange={(e) => setUniChoice(e.target.value)}>
-                                        <option value="no-preferences">No, I do not mind living far</option>
+                                        <option value="">No, I do not mind living far</option>
                                         <option value="Monash University, Clayton">Monash University, Clayton</option>
                                         <option value="Monash University, Caulfield">Monash University, Caulfield</option>
                                         <option value="Monash University, Parkville">Monash University, Parkville</option>
