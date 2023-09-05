@@ -4,9 +4,8 @@ const NavBar = ({ activePage }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center ${
-        isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
-      }`}
+      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center ${isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
+        }`}
     >
       <Link href="/">
         <div className="absolute left-20 top-2 bottom-1 w-16">
@@ -49,9 +48,8 @@ const NavBar = ({ activePage }) => {
 const NavBarButton = ({ text, special, href, isActive }) => (
   <Link href={href}>
     <div
-      className={`navbar-button ${special ? "call-action-button" : ""} ${
-        isActive ? "navbar-button-active" : ""
-      }`}
+      className={`navbar-button ${special ? "call-action-button" : ""} ${isActive ? "navbar-button-active" : ""
+        }`}
     >
       {text}
     </div>
