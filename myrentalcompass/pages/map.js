@@ -30,7 +30,6 @@ function Map() {
       </Head>
 
       <div className="font-inter flex flex-col h-screen bg-white text-black">
-      <div className="font-inter flex flex-col h-screen bg-white text-black">
         <Navbar activePage="Find where to live" /> {/* Navbar */}
         {/* Title and Text Section */}
         <section className="flex flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
@@ -40,29 +39,10 @@ function Map() {
           <h2 className="text-xl py-1 w-2/3">
             {
               "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness. Click on a suburb below to get more information!"
-              "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness. Click on a suburb below to get more information!"
             }
           </h2>
         </section>
         {/* Liveability Index Information Section */}
-        {/* Map Section */}
-        <section className="flex-grow flex flex-col h-full">
-          <div className="flex justify-center items-center">
-            <div
-              className="flex text-xl items-center w-3/4 h-3/4 font-semibold text-green-700 bg-MapHeadingGray"
-              style={{
-                boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
-              }}
-            >
-              <Image
-                src="/information-icon.svg"
-                alt="information:"
-                width={22}
-                height={22}
-                className="rounded-xl mx-2"
-              />
-              <span className=" py-1">Liveability Index</span>
-            </div>
         {/* Map Section */}
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
