@@ -29,8 +29,7 @@ function valuetext(value) {
   return `A$${value}`;
 }
 
-function InternalLiveabilitySlider({ criterion, selectedChoice, handleChoice }) {
-  c
+function InternalLiveabilitySlider({ criterion }) {
   return (
     <div className="mb-4 ml-6">
       <Box>
@@ -69,21 +68,20 @@ function InternalLiveabilitySlider({ criterion, selectedChoice, handleChoice }) 
               fontSize: '0.5rem',
             },
           }}
-          onChange={handleChoice}
         />
       </Box>
     </div>
   );
 }
 
-export default function LiveabilitySlider({ criterion, selectedChoice, handleChoice }) {
+export default function LiveabilitySlider({ criterion }) {
   return (
     <>
       <center>
         <div className="text-sm font-semibold text-left">{criterion}</div>
       </center>
       <div>
-        <InternalLiveabilitySlider criterion={criterion} selectedChoice={selectedChoice} handleChoice={handleChoice}></InternalLiveabilitySlider>
+        <InternalLiveabilitySlider></InternalLiveabilitySlider>
       </div>
     </>
   );

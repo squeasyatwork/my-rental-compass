@@ -207,7 +207,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar />
+                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (

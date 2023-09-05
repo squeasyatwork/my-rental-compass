@@ -20,11 +20,11 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
     <div
       id="q1"
       className="flex flex-col items-center justify-center bg-white rounded-xl "
-      style={{ width: '70%', padding: '2rem'}}
+      style={{ width: '70%', padding: '2rem' }}
     >
       <div className="flex md:flex-row items-center justify-center mb-6" >
-        <div className="flex flex-col items-center text-4xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '40%'}} >
-          <h2 style={{fontSize:"1.8rem", marginBottom:"1rem"}}>We are here to help you!</h2>
+        <div className="flex flex-col items-center text-4xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '40%' }} >
+          <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>We are here to help you!</h2>
           <div>
             <Image
               src="/questionnaire_person.svg"
@@ -35,7 +35,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center text-3xl ml-6 w-full md:max-w-2xl" style={{ width: '60%'}}>
+        <div className="flex flex-col justify-center text-3xl ml-6 w-full md:max-w-2xl" style={{ width: '60%' }}>
           <h2>
             Finding a liveable home at an affordable rent in Melbourne can be
             difficult, but we know it is not impossible.
@@ -67,14 +67,14 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             </button>
           </Link>
         </div>
-        <div className="mx-8 w-2/4"> 
+        <div className="mx-8 w-2/4">
           <input
             type="text"
             className="text-2xl font-bold p-4 rounded text-center"
             placeholder="$400"
             value={selectedChoices.someQuestionOne || ""}
             onChange={(e) => handleChoice("someQuestionOne", e.target.value)}
-            style={{width: '8rem', border: '2px solid #FFCD29'}}
+            style={{ width: '8rem', border: '2px solid #FFCD29' }}
           />
         </div>
         <div className="mx-8">
@@ -87,10 +87,10 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
         </div>
       </div>
       {showWarning && (
-          <p style={{color: "red"}}>
-            Please enter a value between 0-2000.
-          </p>
-        )}
+        <p style={{ color: "red" }}>
+          Please enter a value between 0-2000.
+        </p>
+      )}
     </div>
   );
 };
