@@ -21,7 +21,7 @@ function Map() {
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
-  
+
   return (
     <>
       <Head>
@@ -38,12 +38,11 @@ function Map() {
           </h2>
           <h2 className="text-xl py-1 w-2/3">
             {
-              "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness."
+              "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness. Click on a suburb below to get more information!"
             }
           </h2>
         </section>
         {/* Liveability Index Information Section */}
-        
         {/* Map Section */}
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
@@ -63,37 +62,49 @@ function Map() {
               <span className=" py-1">Liveability Index</span>
             </div>
           </div>
-          <div className="flex justify-center " style={{width:"100%", height: "100%"}}>
-            <div className="flex justify-center" style={{width:"75%", height:"90%"}}>
-              <div className="flex justify-center items-center" style={{flex: "1"}}>
+          <div
+            className="flex justify-center "
+            style={{ width: "100%", height: "100%" }}
+          >
+            <div
+              className="flex justify-center"
+              style={{ width: "75%", height: "90%" }}
+            >
+              <div
+                className="flex justify-center items-center"
+                style={{ flex: "1" }}
+              >
                 {mapLoading ? (
-                    <div>
-                      <img
-                        src="/loading.gif"
-                        alt="Loading"
-                        style={{ width: "200px", height: "200px" }}
-                      />
-                    </div>
-                  ) : (
-                    <DynamicBasicMap
-                      recommendations={false}
-                      setSelectedFeature={setSelectedFeature}
+                  <div>
+                    <img
+                      src="/loading.gif"
+                      alt="Loading"
+                      style={{ width: "200px", height: "200px" }}
                     />
-                  )}
+                  </div>
+                ) : (
+                  <DynamicBasicMap
+                    recommendations={false}
+                    setSelectedFeature={setSelectedFeature}
+                  />
+                )}
               </div>
               {/* New div for displaying info */}
-              <div className="flex flex-col justify-between text-xl p-4 bg-gray-200 shadow-md " >
+              <div className="flex flex-col justify-between text-md p-6 bg-MapHeadingGray shadow-md ">
                 <div>
-                  <h3 className="font-semibold">
-                    LGA: {selectedFeature?.lga || "N/A"}
-                  </h3>
                   <h3 className="font-semibold">
                     Suburb: {selectedFeature?.suburb || "N/A"}
                   </h3>
                   <h3 className="font-semibold">
+                    Council: {selectedFeature?.lga || "N/A"}
+                  </h3>
+
+                  <h3 className="font-semibold">
                     Liveability Score:{" "}
                     {selectedFeature?.liveability_score
-                      ? `${(selectedFeature.liveability_score * 100).toFixed(0)}%`
+                      ? `${(selectedFeature.liveability_score * 100).toFixed(
+                          0
+                        )}%`
                       : "N/A"}
                   </h3>
                   <h3 className="font-semibold">
@@ -103,17 +114,20 @@ function Map() {
                       : "N/A"}
                   </h3>
                   <h3 className="font-semibold">
-                    No. of PTV Stops: {selectedFeature?.ptv_stop_count || "N/A"}
+                    No. of Public Transport Stops:{" "}
+                    {selectedFeature?.ptv_stop_count || "N/A"}
                   </h3>
                   <h3 className="font-semibold">
-                    Number of Park & Recreation Areas:{" "}
+                    Number of Parks & Recreation Areas:{" "}
                     {selectedFeature?.openspace_count || "N/A"}
                   </h3>
                   <h3 className="font-semibold">
-                    Traffic Incident Count: {selectedFeature?.crash_count || "N/A"}
+                    Traffic Incident Count (past 12 months):{" "}
+                    {selectedFeature?.crash_count || "N/A"}
                   </h3>
                   <h3 className="font-semibold">
-                    Crime Count: {selectedFeature?.crime_count || "N/A"}
+                    Crime Count (past 12 months):{" "}
+                    {selectedFeature?.crime_count || "N/A"}
                   </h3>
                 </div>
                 <div className="flex flex-col justify-between text-lg items-center space-y-4">
