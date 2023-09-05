@@ -7,13 +7,21 @@ import QuestionTwo from "../components/questiontwo.js";
 import QuestionThree from "../components/questionthree.js";
 import Footer from "./helperpages/footer.js";
 
+import Router from "next/router";
+import { useRouter } from "next/router";
+
+
+
 function Questionnaire() {
+
+  const router = Router.useRouter();
+
   const [currentQuestion, setCurrentQuestion] = useState("q1");
-  
+
   const [selectedChoices, setSelectedChoices] = useState({
     // For QuestionOne
     someQuestionOne: null,
-    // For QuestionTwo
+    // For QuestionTwoAndThree
     affordableHousing: null,
     publicTransport: null,
     openSpace: null,
@@ -21,11 +29,17 @@ function Questionnaire() {
     safeRoads: null,
   });
 
+  const [university, setUniversity] = useState(null)
+
   const handleChoice = (question, choice) => {
     setSelectedChoices({
       ...selectedChoices,
       [question]: choice,
     });
+  };
+
+  const handleUniChoice = (choice) => {
+    setUniversity(choice);
   };
 
   const handleNext = () => {
@@ -44,6 +58,28 @@ function Questionnaire() {
     }
   };
 
+  function sendInput() {
+    let rentChoice = selectedChoices.someQuestionOne
+    let affordabilityChoice = selectedChoices.affordableHousing
+    let transportChoice = selectedChoices.publicTransport
+    let parkChoice = selectedChoices.openSpace
+    let crimeChoice = selectedChoices.lowCrimeRate
+    let roadChoice = selectedChoices.safeRoads
+    let uniChoice = university
+    router.push({
+      pathname: "/recommendations",
+      query: {
+        rentChoice,
+        affordabilityChoice,
+        transportChoice,
+        parkChoice,
+        crimeChoice,
+        roadChoice,
+        uniChoice
+      },
+    });
+  }
+
   return (
     <>
       <Head>
@@ -53,24 +89,24 @@ function Questionnaire() {
 
       <main className="font-inter flex flex-col h-screen justify-center" style={{ backgroundImage: 'url("/liveable-cities.jpeg")', backgroundSize: 'cover', backgroundRepeat: 'no-repeat' }}>
         <Navbar activePage="Where to live" />
-        
+
         <div className="flex flex-grow items-center justify-center text-black">
           {currentQuestion === "q1" && (
-            <QuestionOne 
+            <QuestionOne
               handleNext={handleNext}
               selectedChoices={selectedChoices}
               handleChoice={handleChoice}
             />
           )}
           {currentQuestion === "q2" && (
-            <QuestionTwo 
-              handleNext={handleNext} 
+            <QuestionTwo
+              handleNext={handleNext}
               handlePrevious={handlePrevious}
               selectedChoices={selectedChoices}
               handleChoice={handleChoice}
             />
           )}
-          {currentQuestion === "q3" && <QuestionThree handlePrevious={handlePrevious} />}
+          {currentQuestion === "q3" && <QuestionThree handlePrevious={handlePrevious} handleUniChoice={handleUniChoice} sendInput={sendInput} />}
         </div>
       </main>
       <Footer />

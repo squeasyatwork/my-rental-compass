@@ -1,7 +1,7 @@
 import prisma from "~/lib/prisma";
 
 export default async function getRankedLiveability(req, res) {
-    if (!req.query) {
+    if (req.query) {
         let contextQuery = req.query;
         let rent = eval(contextQuery.rent);
         let affordability = eval(contextQuery.affordability);
@@ -10,7 +10,9 @@ export default async function getRankedLiveability(req, res) {
         let crime = eval(contextQuery.crime);
         let road = eval(contextQuery.road);
         let university = contextQuery.university;
+        console.log("API DETECTED NON-EMPTY QUERY");
         if (req.method !== 'GET') {
+            console.log("ENTERED WRONG HTTP METHOD");
             return res.status(405).json({ message: "Method not allowded" });
         }
 
@@ -145,6 +147,7 @@ export default async function getRankedLiveability(req, res) {
         res.status(200).json(JSON.stringify(nearbyWithinRentRanked));
     }
     else {
+        console.log("API DID NOT DETECT NON-EMPTY QUERY");
         res.status(200).json(null);
     }
 }

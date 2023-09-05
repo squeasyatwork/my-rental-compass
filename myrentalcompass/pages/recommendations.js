@@ -23,43 +23,37 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 export const getServerSideProps = async (context) => {
 
   // SHIFTING DB LOGIC TO A COMPONENT FILE, CALLING IT FROM HERE (as getRankedLiveability).
-  // Preparing arguments for it by extracting URL params first.
-  let contextQuery = null;
-  let rent = null;
-  let affordability = null;
-  let transport = null;
-  let park = null;
-  let crime = null;
-  let road = null;
-  let university = null;
-  let nearbyWithinRentRanked = null;
-  // let nearbyWithinRentRanked = await getRankedLiveability(rent, affordability, transport, park, crime, road, university);
-  let reqQuery = new URLSearchParams({
-    rent, affordability, transport, park, crime, road, university
-  });
-  if (reqQuery.size !== 0) {
-    if (rent && affordability) {
-      rent = contextQuery.rentChoice;
-      affordability = contextQuery.affordabilityChoice;
-      transport = contextQuery.transportChoice
-      park = contextQuery.parkChoice;
-      crime = contextQuery.crimeChoice;
-      road = contextQuery.roadChoice;
-      university = contextQuery.uniChoice;
-      dbResponse = await fetch(process.env.URL + "/api/liveablesuburbs?" + reqQuery, {
+  if (context.query) {  // Preparing arguments for it by extracting URL params first.
+    let contextQuery = context.query;
+    let rent = contextQuery.rentChoice;
+    let affordability = contextQuery.affordabilityChoice;
+    let transport = contextQuery.transportChoice
+    let park = contextQuery.parkChoice;
+    let crime = contextQuery.crimeChoice;
+    let road = contextQuery.roadChoice;
+    let university = contextQuery.uniChoice;
+    // let nearbyWithinRentRanked = await getRankedLiveability(rent, affordability, transport, park, crime, road, university);
+    let reqQuery = new URLSearchParams({
+      rent, affordability, transport, park, crime, road, university
+    });
+    console.log("recos file --> reqQuery: " + reqQuery)
+    if (rent) {
+      let dbResponse = await fetch(process.env.API_URL + "/api/liveablesuburbs?" + reqQuery, {
         method: 'GET',
       })
-      nearbyWithinRentRanked = await dbResponse.json();
+      let nearbyWithinRentRanked = await dbResponse.json();
       console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
-      // return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
+      return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
     }
   }
-  return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
+  let dummyReturnValue = null;
+  return { props: { dummyReturnValue } };
+
 }
 
 
 function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, university = 0 }) {
-  // console.log("\n\nINSIDE SCRATCHRECO's component: " + nearbyWithinRentRanked + "\n\n\n\n");
+  console.log("\n\nINSIDE recos component --> nerbyWithinRentRanked: " + nearbyWithinRentRanked + "\n\n\n\n");
   let liveableSuburbs = nearbyWithinRentRanked === null ? null : JSON.parse(nearbyWithinRentRanked);
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   // create a loading state
@@ -71,72 +65,123 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
     }, 1500);
     return () => clearTimeout(timer);
   }, []);
+  if (liveableSuburbs) {
+    return (
+      <>
+        <Head>
+          <title>MyRentalCompass | Explore the Map</title>
+          <meta name="description" content="Discover potential suburbs." />
+        </Head>
 
-  return (
-    <>
-      <Head>
-        <title>MyRentalCompass | Explore the Map</title>
-        <meta name="description" content="Discover potential suburbs." />
-      </Head>
+        <main className="font-inter flex flex-col h-screen">
+          <Navbar activePage="Find where to live" />
 
-      <main className="font-inter flex flex-col h-screen">
-        <Navbar activePage="Find where to live" />
+          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+            <Box
+              my="14px"
+              bgcolor="#fff"
+              borderRadius="10px"
+              padding="10px"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "80%",
+                height: "80%",
+              }}
+            >
+              <div style={{ flex: "1 0 33%", padding: "10px" }}>
+                <PreferencesBar />
+              </div>
+              <div style={{ flex: "1 0 66%", padding: "10px" }}>
+                {mapLoading ? (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src="/loading.gif"
+                      alt="Loading"
+                      style={{ width: "200px", height: "200px" }}
+                    />
+                  </div>
+                ) : (
+                  // <DynamicBasicMap recommendations={true} />
+                  // Uncommemnt the above line to display the map
+                  <Card style={{ flex: "1 0 66%", padding: "10px" }}>
+                    <CardHeader className="flex gap-3">
+                      <div className="flex flex-col">
+                        <p className="text-lg">Here are your top suburb recommendations</p>
+                        <p className="text-small text-default-500">Adjust your preferences to update them</p>
+                      </div>
+                    </CardHeader>
+                    <Divider />
+                    <CardBody>
+                      {liveableSuburbs.length !== 0 ?
+                        (<ol>
+                          {liveableSuburbs.slice(0, 10).map((item, index) => (
+                            <li key={index} dangerouslySetInnerHTML={{ __html: (index + 1) + ". " + item.suburb + " with an average rent of A$" + item.average_rent }} />
+                          ))}
+                        </ol>) : (<h3>NO SUBURBS MATCHED</h3>)
+                      }
+                    </CardBody>
+                  </Card>
+                )}
+              </div>
+            </Box>
+          </section>
 
-        <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
-          <Box
-            my="14px"
-            bgcolor="#fff"
-            borderRadius="10px"
-            padding="10px"
-            sx={{
-              display: "flex",
-              flexDirection: "row",
-              width: "80%",
-              height: "80%",
-            }}
-          >
-            <div style={{ flex: "1 0 33%", padding: "10px" }}>
-              <PreferencesBar />
-            </div>
-            <div style={{ flex: "1 0 66%", padding: "10px" }}>
-              {mapLoading ? (
-                <div className="w-full h-full flex items-center justify-center">
-                  <img
-                    src="/loading.gif"
-                    alt="Loading"
-                    style={{ width: "200px", height: "200px" }}
-                  />
-                </div>
-              ) : (
-                // <DynamicBasicMap recommendations={true} />
-                // Uncommemnt the above line to display the map
-                <Card style={{ flex: "1 0 66%", padding: "10px" }}>
-                  <CardHeader className="flex gap-3">
-                    <div className="flex flex-col">
-                      <p className="text-lg">Here are your top suburb recommendations</p>
-                      <p className="text-small text-default-500">Adjust your preferences to update them</p>
-                    </div>
-                  </CardHeader>
-                  <Divider />
-                  <CardBody>
-                    {liveableSuburbs !== null ?
-                      (<ol>
-                        {liveableSuburbs.slice(0, 10).map((item, index) => (
-                          <li key={index} dangerouslySetInnerHTML={{ __html: (index + 1) + ". " + item.suburb + " with an average rent of A$" + item.average_rent }} />
-                        ))}
-                      </ol>) : (<h3>NO SUBURBS MATCHED</h3>)
-                    }
-                  </CardBody>
-                </Card>
-              )}
-            </div>
-          </Box>
-        </section>
+          <Footer />
+        </main>
+      </>
+    );
+  }
+  else {
+    return (
+      <>
+        <Head>
+          <title>MyRentalCompass | Explore the Map</title>
+          <meta name="description" content="Discover potential suburbs." />
+        </Head>
 
-        <Footer />
-      </main>
-    </>
-  );
+        <main className="font-inter flex flex-col h-screen">
+          <Navbar activePage="Find where to live" />
+
+          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+            <Box
+              my="14px"
+              bgcolor="#fff"
+              borderRadius="10px"
+              padding="10px"
+              sx={{
+                display: "flex",
+                flexDirection: "row",
+                width: "80%",
+                height: "80%",
+              }}
+            >
+              <div style={{ flex: "1 0 33%", padding: "10px" }}>
+                <PreferencesBar />
+              </div>
+              <div style={{ flex: "1 0 66%", padding: "10px" }}>
+                {mapLoading ? (
+                  <div className="w-full h-full flex items-center justify-center">
+                    <img
+                      src="/loading.gif"
+                      alt="Loading"
+                      style={{ width: "200px", height: "200px" }}
+                    />
+                  </div>
+                ) : (
+                  // <DynamicBasicMap recommendations={true} />
+                  // Uncomment the above line to display the map
+                  <h3 className="text-center">NO SUBURBS MATCHED</h3>
+                )}
+              </div>
+            </Box>
+          </section>
+
+          <Footer />
+        </main>
+      </>
+    );
+  }
 }
 
 export default Recommendations;
