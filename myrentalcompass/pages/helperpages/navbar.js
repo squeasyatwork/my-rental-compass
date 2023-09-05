@@ -1,11 +1,20 @@
 import Link from "next/link";
 
 const NavBar = ({ activePage }) => {
+  const isMapPageActive = activePage === "Find where to live";
   return (
-    <nav className="relative top-0 left-0 h-30 w-full px-2 py-4 bg-BackgroundWhite flex items-center justify-center">
+    <nav
+      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center ${
+        isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
+      }`}
+    >
       <Link href="/">
-        <div className="absolute left-20 top-1 bottom-1 w-24">
-          <img src="/mrc_logo.svg" alt="MRC Logo" className="w-full h-auto object-contain" />
+        <div className="absolute left-20 top-2 bottom-1 w-16">
+          <img
+            src="/mrc_logo.svg"
+            alt="MRC Logo"
+            className="w-full h-auto object-contain"
+          />
         </div>
       </Link>
 
@@ -36,6 +45,7 @@ const NavBar = ({ activePage }) => {
     </nav>
   );
 };
+
 const NavBarButton = ({ text, special, href, isActive }) => (
   <Link href={href}>
     <div
