@@ -29,7 +29,8 @@ function valuetext(value) {
   return `A$${value}`;
 }
 
-function InternalLiveabilitySlider({ criterion }) {
+function InternalLiveabilitySlider({ criterion, selectedChoice, handleChoice }) {
+  c
   return (
     <div className="mb-4 ml-6">
       <Box>
@@ -65,23 +66,24 @@ function InternalLiveabilitySlider({ criterion }) {
               },
             },
             "& .MuiSlider-markLabe": {
-              fontSize: '0.5rem', 
+              fontSize: '0.5rem',
             },
           }}
+          onChange={handleChoice}
         />
       </Box>
     </div>
   );
 }
 
-export default function LiveabilitySlider({ criterion }) {
+export default function LiveabilitySlider({ criterion, selectedChoice, handleChoice }) {
   return (
     <>
       <center>
         <div className="text-sm font-semibold text-left">{criterion}</div>
       </center>
       <div>
-        <InternalLiveabilitySlider></InternalLiveabilitySlider>
+        <InternalLiveabilitySlider criterion={criterion} selectedChoice={selectedChoice} handleChoice={handleChoice}></InternalLiveabilitySlider>
       </div>
     </>
   );

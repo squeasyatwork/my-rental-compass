@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function PreferencesBar() {
+export default function PreferencesBar({ selectedChoices, handleChoice, handleUniChoice, sendInput }) {
     let optionsList = [{ label: "Monash University" }]
     return (
         <Box flexDirection="column" justifyContent="left" alignItems="left">
@@ -29,34 +29,45 @@ export default function PreferencesBar() {
             <center>
                 <div className='text-md font-bold text-left'>Maximum Rent Per Week</div>
             </center>
-            <div><RentSlider></RentSlider></div>
+            <div><RentSlider handleChoice={(e) =>
+                handleChoice("someQuestionOne", e.target.value)
+            }></RentSlider></div>
             <br></br>
             <br></br>
             <center>
                 <div className='text-md font-bold text-left'>Liveability Factors Ranking</div>
             </center>
             <br></br>
-            <div><LiveabilitySlider criterion={"Affordable housing"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Public transport access"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Parks and greenery"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Crime rate"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Road safety"}></LiveabilitySlider></div>
+            <div><LiveabilitySlider criterion={"Affordable housing"} selectedChoice={selectedChoices.affordableHousing}
+                handleChoice={(e) =>
+                    handleChoice("affordableHousing", e.target.value)}></LiveabilitySlider></div>
+
+            <div><LiveabilitySlider criterion={"Public transport access"} selectedChoice={selectedChoices.publicTransport}
+                handleChoice={(e) =>
+                    handleChoice("publicTransport", e.target.value)}></LiveabilitySlider></div>
+
+            <div><LiveabilitySlider criterion={"Parks and greenery"} selectedChoice={selectedChoices.openSpace}
+                handleChoice={(e) => handleChoice("openSpace", e.target.value)}></LiveabilitySlider></div>
+
+            <div><LiveabilitySlider criterion={"Crime rate"} selectedChoice={selectedChoices.lowCrimeRate}
+                handleChoice={(e) => handleChoice("lowCrimeRate", e.target.value)}></LiveabilitySlider></div>
+
+            <div><LiveabilitySlider criterion={"Road safety"} selectedChoice={selectedChoices.safeRoads}
+                handleChoice={(e) => handleChoice("safeRoads", e.target.value)}></LiveabilitySlider></div>
             <br></br>
             <br></br>
             <center>
                 <div className='text-md font-bold text-left mb-6'>University Preference</div>
             </center>
             <div className="ml-6 mb-6">
-                <AutocompleteSearch optionsList={optionsList}></AutocompleteSearch>
+                <AutocompleteSearch optionsList={optionsList} handleUniChoice={handleUniChoice}></AutocompleteSearch>
             </div>
             <br></br>
             <div className="mt-auto flex items-center justify-center pb-4">
-                <Link href={'#'}>
-                    <button className="call-action-button rounded-full">
-                        Update results
-                    </button>
-                </Link>
+                <button className="call-action-button rounded-full" onClick={sendInput}>
+                    Update results
+                </button>
             </div>
-        </Box>
+        </Box >
     );
 }
