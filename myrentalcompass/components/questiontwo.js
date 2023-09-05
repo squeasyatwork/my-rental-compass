@@ -113,11 +113,11 @@ const QuestionTwo = ({
           </div>
         </div>
       </div>
-      <div className="flex justify-center w-full mb-8 relative" style={{
+      <div className="flex w-full mb-8 relative" style={{
           width: '100%',
           display: 'flex',
           flexDirection: 'row',
-          justifyContent: 'space-around',
+          justifyContent: 'space-between',
           alignItems: 'center',
           padding: '1rem'
         }}>
