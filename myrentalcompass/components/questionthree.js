@@ -102,7 +102,7 @@ const QuestionThree = ({ handlePrevious }) => {
       <div className="flex justify-center w-full m-8 relative" style={{
           width: '100%',
           flexDirection: 'row',
-          justifyContent: 'space-around',
+          justifyContent: 'space-between',
           alignItems: 'center',
           padding: '1rem'
         }}>

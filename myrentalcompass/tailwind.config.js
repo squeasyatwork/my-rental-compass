@@ -21,6 +21,7 @@ module.exports = {
         ResourceButtonYellow: "#fff5cc",
         MapNavGray: "#f5f5f5",
         MapHeadingGray: "#ffffff",
+        MapMintGreen: '#51c8ac',
       },
     },
   },
