@@ -60,7 +60,7 @@ function Map() {
                 height={22}
                 className="rounded-xl mx-2"
               />
-              <span>Liveability Index</span>
+              <span className=" py-1">Liveability Index</span>
             </div>
           </div>
           <div className="flex justify-center " style={{width:"100%", height: "100%"}}>
