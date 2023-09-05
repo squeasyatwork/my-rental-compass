@@ -1,4 +1,9 @@
+const { nextui } = require("@nextui-org/react");
+
 module.exports = {
+  content: [
+    "./node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}"
+  ],
   mode: "jit",
   purge: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -24,5 +29,6 @@ module.exports = {
       },
     },
   },
-  plugins: [],
+  darkMode: "class",
+  plugins: [nextui()],
 };

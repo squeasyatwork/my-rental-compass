@@ -117,4 +117,12 @@ body {
     bottom:0;
     right:0;
 } 
+
+  .error_message {
+    @apply font-istok;
+    justify-content: center;
+    color: darkred;
+    font-size: 1rem;
+    font-weight: semi-bold;
+  }
 }

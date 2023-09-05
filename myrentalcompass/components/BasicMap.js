@@ -6,6 +6,7 @@ import { BaseLiveability } from "./BaseLiveability.js";
 import { CustomLiveability } from "./CustomLiveability.js";
 
 
+
 const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability = 1, transport = 1, park = 1, crime = 1, road = 1, university = "" }) => {
   // Add setSelectedFeature as a prop
   let mergedData;
@@ -15,6 +16,8 @@ const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability
     // Database data retrieval here (commented out for now)
     // mergedData = yourOtherMethod();
     mergedData = CustomLiveability({ boundaryData, rent, affordability, transport, park, crime, road, university })
+    console.log("basicmap file --> mergedData random MATCH entry: " + mergedData);
+    // console.log("basicmap file --> mergedData random MATCH entry: " + JSON.parsemergedData.find((item) => item.features.properties.suburb === "Springvale"));
   }
 
   const [selectedBoundary, setSelectedBoundary] = useState(null); // Add this line

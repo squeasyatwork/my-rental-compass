@@ -25,6 +25,8 @@ export default function ScratchQuestionnaire() {
     const [crimeChoice, setCrimeChoice] = useState(null);
     const [roadChoice, setRoadChoice] = useState(null);
     const [uniChoice, setUniChoice] = useState(null);
+    const [inputCheck, setInputCheck] = useState("");
+
 
     const router = Router.useRouter();
 
@@ -49,18 +51,7 @@ export default function ScratchQuestionnaire() {
         else    // MEANING USER CLICKED ON "SHOW RESULT"
         {
             // setRentChoice(document.getElementById("rent-input"));
-            router.push({
-                pathname: "/scratchrecommendations",
-                query: {
-                    rentChoice,
-                    affordabilityChoice,
-                    transportChoice,
-                    parkChoice,
-                    crimeChoice,
-                    roadChoice,
-                    uniChoice
-                },
-            });
+            sendInput();
         }
 
     };
@@ -72,10 +63,44 @@ export default function ScratchQuestionnaire() {
     };
     const previousQuestionId = currentQuestionIndex > 0 ? questions[currentQuestionIndex - 1] : null;
 
-    const handleChoice = (event) => {
-        const choiceValue = event.target.value;
-        setSelectedChoice(choiceValue);
+    const checkInput = () => {
+        if (rentChoice === null || rentChoice === "" || isNaN(rentChoice) || eval(rentChoice) < 0) {
+            console.log("BAD RENT TRIGGERED")
+            setInputCheck("You might want to recheck your entered rent value.");
+            return;
+        }
+        if (affordabilityChoice === null || affordabilityChoice === "" || isNaN(affordabilityChoice) || transportChoice === null || transportChoice === "" || isNaN(transportChoice)) {
+            console.log("BAD AFFORDABILITY TRIGGERED")
+            setInputCheck("You might want to recheck your liveability values.");
+            return;
+        }
+        if (crimeChoice === null || crimeChoice === "" || isNaN(crimeChoice) || parkChoice === null || parkChoice === "" || isNaN(parkChoice)) {
+            console.log("BAD AFFORDABILITY TRIGGERED")
+            setInputCheck("You might want to recheck your liveability values.");
+            return;
+        }
+        if (uniChoice === null || uniChoice === "" || isNaN(uniChoice) || roadChoice === null || roadChoice === "" || isNaN(roadChoice)) {
+            console.log("BAD AFFORDABILITY TRIGGERED")
+            setInputCheck("You might want to recheck your liveability values.");
+            return;
+        }
+        sendInput();
     };
+
+    function sendInput() {
+        router.push({
+            pathname: "/scratchrecommendations",
+            query: {
+                rentChoice,
+                affordabilityChoice,
+                transportChoice,
+                parkChoice,
+                crimeChoice,
+                roadChoice,
+                uniChoice
+            },
+        });
+    }
 
     return (
         <>
@@ -413,11 +438,17 @@ export default function ScratchQuestionnaire() {
                                 </Link>
                             </div>
                             <div className="ml-60">
-                                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8" onClick={handleNext}>
+                                <button className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center w-56 p-8" onClick={checkInput}>
                                     {" "}
-                                    Show result{" "}
+                                    Show results{" "}
                                 </button>
                             </div>
+                            <br></br>
+                            <center>
+                                <div className="error_message">
+                                    {inputCheck && <p>{inputCheck}</p>}
+                                </div>
+                            </center>
                         </div>
                     </div>
                 </section>
