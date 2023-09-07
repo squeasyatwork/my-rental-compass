@@ -59,7 +59,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
         </div>
       </div>
       <div className="flex w-full sm:w-4/5 md:w-3/5 lg:w-2/5 items-center justify-between"
-        style={{width: "60%"}}>
+        style={{width: "80%"}}>
         <div>
           <Link href="/">
             <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">
@@ -74,7 +74,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             placeholder="$500"
             value={selectedChoices.someQuestionOne || ""}
             onChange={(e) => handleChoice("someQuestionOne", e.target.value)}
-            style={{ width: "8rem", border: "2px solid #FFCD29" }}
+            style={{ width: "12rem", border: "2px solid #FFCD29" }}
           />
         </div>
         <div>
