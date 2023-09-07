@@ -24,7 +24,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
     >
       <div className="flex md:flex-row items-center justify-center mb-6">
         <div
-          className="flex flex-col items-center text-4xl font-bold mb-4 md:mb-0 md:mr-6"
+          className="flex flex-col items-center justify-center text-4xl font-bold mb-4 md:mb-0 md:mr-6"
           style={{ width: "40%", height:"80%"}}
         >
           <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>
@@ -61,24 +61,19 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
         </div>
       </div>
       <div
-        className="flex w-4/5 mt-24 h-1/5"
+        className="flex w-4/5 h-1/5 items-center justify-between"
         style={{
-          width: "100%",
-          display: "flex",
-          flexDirection: "row",
-          justifyContent: "space-around",
-          alignItems: "center",
-          padding: "1rem",
+          width: "80%",
         }}
       >
-        <div className="mx-8 w-2/4">
+        <div className="w-2/4">
           <Link href="/">
             <button className="text-2xl font-bold call-action-button">
               Go back
             </button>
           </Link>
         </div>
-        <div className="mx-8 w-2/4">
+        <div className="w-2/4">
           <input
             type="text"
             className="text-2xl font-bold p-4 rounded text-center"
@@ -88,7 +83,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             style={{ width: "8rem", border: "2px solid #FFCD29" }}
           />
         </div>
-        <div className="mx-8">
+        <div className=" w-2/4">
           <button
             className="text-2xl font-bold call-action-button"
             onClick={validateInput}
