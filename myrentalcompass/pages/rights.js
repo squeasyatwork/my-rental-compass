@@ -9,7 +9,7 @@ function Rights() {
         <meta name="description" content="Know your rights as a renter." />
       </Head>
 
-      <main className="font-inter flex flex-col  h-screen">
+      <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Understand your rights" />
 
         <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">

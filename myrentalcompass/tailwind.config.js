@@ -24,6 +24,7 @@ module.exports = {
       },
       colors: {
         MainButtonYellow: "#FFCD29",
+        ButtonHoverYellow: "#FF7F03",
         NavTextGray: "#262626",
         HeadingTextGray: "#757575",
         FooterButtonYellow: "#F9DE89",
