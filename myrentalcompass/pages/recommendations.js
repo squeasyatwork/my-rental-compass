@@ -10,6 +10,8 @@ import PreferencesBar from "~/components/PreferencesBar";
 import { Box, List, ListItem, ListItemText } from '@mui/material';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { NextUIProvider } from "@nextui-org/react";
+import Router from "next/router";
+import { useRouter } from "next/router";
 
 // This is needed to make sure that the dbResponse parameter is correctly passed on to the page component.
 export const config = {
@@ -51,8 +53,57 @@ export const getServerSideProps = async (context) => {
 
 }
 
+function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, uniParam = 0 }) {
 
-function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, university = 0 }) {
+  const router = Router.useRouter();
+
+  const [selectedChoices, setSelectedChoices] = useState({
+    // For QuestionOne
+    someQuestionOne: 600,
+    // For QuestionTwoAndThree
+    affordableHousing: 3,
+    publicTransport: 3,
+    openSpace: 3,
+    lowCrimeRate: 3,
+    safeRoads: 3,
+  });
+
+  const [university, setUniversity] = useState("")
+
+  const handleChoice = (question, choice) => {
+    setSelectedChoices({
+      ...selectedChoices,
+      [question]: choice,
+    });
+  };
+
+  const handleUniChoice = (choice) => {
+    setUniversity(choice);
+  };
+
+  function sendInput() {
+    let rentChoice = selectedChoices.someQuestionOne
+    let affordabilityChoice = selectedChoices.affordableHousing
+    let transportChoice = selectedChoices.publicTransport
+    let parkChoice = selectedChoices.openSpace
+    let crimeChoice = selectedChoices.lowCrimeRate
+    let roadChoice = selectedChoices.safeRoads
+    let uniChoice = university
+    console.log("recos file, sendInput params --> uniChoice: " + university)
+    router.push({
+      pathname: "/recommendations",
+      query: {
+        rentChoice,
+        affordabilityChoice,
+        transportChoice,
+        parkChoice,
+        crimeChoice,
+        roadChoice,
+        uniChoice
+      },
+    });
+  }
+
   console.log("\n\nINSIDE recos component --> nerbyWithinRentRanked: " + nearbyWithinRentRanked + "\n\n\n\n");
   let liveableSuburbs = nearbyWithinRentRanked === null ? null : JSON.parse(nearbyWithinRentRanked);
   const [selectedFeature, setSelectedFeature] = React.useState(null);
@@ -90,7 +141,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar />
+                <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (
@@ -157,7 +208,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar />
+                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (

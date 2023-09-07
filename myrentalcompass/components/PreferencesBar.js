@@ -15,7 +15,7 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function PreferencesBar() {
+export default function PreferencesBar({ handleChoice, university, handleUniChoice, sendInput }) {
     let optionsList = [{ label: "Monash University" },
     { label: "University of Melbourne, Parkville" },
     { label: "Monash University, Clayton" },
@@ -35,7 +35,6 @@ export default function PreferencesBar() {
     { label: "Victoria University, St Albans" },
     { label: "Victoria University, Sunshine" },
     { label: "Victoria University, Werribee" }]
-
     return (
         <Box flexDirection="column" justifyContent="left" alignItems="left">
 
@@ -48,34 +47,45 @@ export default function PreferencesBar() {
             <center>
                 <div className='text-md font-bold text-left'>Maximum Rent Per Week</div>
             </center>
-            <div><RentSlider></RentSlider></div>
+            <div><RentSlider handleChoice={(e) =>
+                handleChoice("someQuestionOne", 400 + (50 * parseInt(e.target.value / 12.25)))
+            }></RentSlider></div>
             <br></br>
             <br></br>
             <center>
                 <div className='text-md font-bold text-left'>Liveability Factors Ranking</div>
             </center>
             <br></br>
-            <div><LiveabilitySlider criterion={"Affordable housing"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Public transport access"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Parks and greenery"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Crime rate"}></LiveabilitySlider></div>
-            <div><LiveabilitySlider criterion={"Road safety"}></LiveabilitySlider></div>
+            <div><LiveabilitySlider criterion={"Affordable housing"}
+                handleChoice={(e) =>
+                    handleChoice("affordableHousing", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div>
+
+            <div><LiveabilitySlider criterion={"Public transport access"}
+                handleChoice={(e) =>
+                    handleChoice("publicTransport", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div >
+
+            <div><LiveabilitySlider criterion={"Parks and greenery"}
+                handleChoice={(e) => handleChoice("openSpace", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div >
+
+            <div><LiveabilitySlider criterion={"Crime rate"}
+                handleChoice={(e) => handleChoice("lowCrimeRate", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div >
+
+            <div><LiveabilitySlider criterion={"Road safety"} se
+                handleChoice={(e) => handleChoice("safeRoads", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div>
             <br></br>
             <br></br>
             <center>
                 <div className='text-md font-bold text-left mb-6'>University Preference</div>
             </center>
             <div className="ml-6 mb-6">
-                <AutocompleteSearch optionsList={optionsList}></AutocompleteSearch>
+                <AutocompleteSearch optionsList={optionsList} university={university} handleUniChoice={handleUniChoice}></AutocompleteSearch>
             </div>
             <br></br>
             <div className="mt-auto flex items-center justify-center pb-4">
-                <Link href={'#'}>
-                    <button className="call-action-button rounded-full">
-                        Update results
-                    </button>
-                </Link>
+                <button className="call-action-button rounded-full" onClick={sendInput}>
+                    Update results
+                </button>
             </div>
-        </Box>
+        </Box >
     );
 }
