@@ -10,7 +10,7 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
     <div
       id="q3"
       className="flex flex-col items-center justify-center bg-white rounded-xl p-8"
-      style={{width: 'auto', height:"auto", padding: '2rem'}}
+      style={{width: "auto", height:"auto", padding: '2rem'}}
     >
       <div
         className="flex md:flex-row items-center justify-center w-full pt-24"
