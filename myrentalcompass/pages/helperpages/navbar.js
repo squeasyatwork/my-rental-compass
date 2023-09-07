@@ -4,11 +4,12 @@ const NavBar = ({ activePage }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center ${isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
-        }`}
+      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center mr-20 ${
+        isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
+      }`}
     >
       <Link href="/">
-        <div className="absolute left-20 top-2 bottom-1 w-16">
+        <div className="flex ml-10 sm:left-20 top-2 bottom-1 w-16">
           <img
             src="/mrc_logo.svg"
             alt="MRC Logo"
@@ -17,7 +18,7 @@ const NavBar = ({ activePage }) => {
         </div>
       </Link>
 
-      <div className="flex max-w-screen-lg w-full justify-between px-4 items-center">
+      <div className="flex justify-center max-w-screen-xl mx-auto w-full px-4 sm:px-8 items-center space-x-20"> 
         <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
         <NavBarButton
           text="Understand your rights"
@@ -48,8 +49,9 @@ const NavBar = ({ activePage }) => {
 const NavBarButton = ({ text, special, href, isActive }) => (
   <Link href={href}>
     <div
-      className={`navbar-button ${special ? "call-action-button" : ""} ${isActive ? "navbar-button-active" : ""
-        }`}
+      className={`navbar-button ${
+        special ? "call-action-button" : ""
+      } ${isActive ? "navbar-button-active" : ""}`}
     >
       {text}
     </div>

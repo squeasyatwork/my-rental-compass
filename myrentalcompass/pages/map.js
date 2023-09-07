@@ -103,8 +103,8 @@ function Map() {
                     Liveability Score:{" "}
                     {selectedFeature?.liveability_score
                       ? `${(selectedFeature.liveability_score * 100).toFixed(
-                        0
-                      )}%`
+                          0
+                        )}%`
                       : "N/A"}
                   </h3>
                   <h3 className="font-semibold">
