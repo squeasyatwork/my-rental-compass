@@ -19,15 +19,15 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
   return (
     <div
       id="q1"
-      className="flex flex-col items-center justify-center bg-white rounded-xl "
+      className="flex flex-col items-center justify-center bg-white rounded-xl text-sm md:text-md lg:text-lg"
       style={{ width: "70%", height:"60%", padding: "1rem" }}
     >
-      <div className="flex md:flex-row items-center justify-center mb-6">
+      <div className="flex md:flex-row items-center justify-center mb-6 md:text-md lg:text-lg">
         <div
-          className="flex flex-col items-center justify-center text-4xl font-bold mb-4 md:mb-0 md:mr-6"
+          className="flex flex-col items-center justify-center text-2xl font-bold mb-4 md:mb-0 md:mr-6 md:text-md lg:text-lg"
           style={{ width: "40%", height:"80%"}}
         >
-          <h2 style={{ fontSize: "1.8rem", marginBottom: "1rem" }}>
+          <h2 className=" text-3xl md:text-md lg:text-lg">
             We are here to help you!
           </h2>
           <div>
@@ -41,7 +41,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
           </div>
         </div>
         <div
-          className="flex flex-col justify-center text-2xl ml-6 w-full md:max-w-2xl"
+          className="flex flex-col justify-center text-2xl ml-6 w-full"
           style={{ width: "60%", height:"80%" }}
         >
           <h2>
@@ -77,13 +77,13 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
           <input
             type="text"
             className="text-2xl font-bold p-4 rounded text-center"
-            placeholder="$400"
+            placeholder="$500"
             value={selectedChoices.someQuestionOne || ""}
             onChange={(e) => handleChoice("someQuestionOne", e.target.value)}
             style={{ width: "8rem", border: "2px solid #FFCD29" }}
           />
         </div>
-        <div className=" w-2/4">
+        <div className="w-2/4">
           <button
             className="text-2xl font-bold call-action-button"
             onClick={validateInput}
