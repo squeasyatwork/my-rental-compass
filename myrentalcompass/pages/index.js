@@ -97,21 +97,25 @@ export default function LandingPage() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative z-10 flex flex-col justify-between h-full text-BackgroundWhite">
-            <div className="flex flex-col items-center space-y-6 mt-40">
-              <h1 className="text-5xl font-bold text-center">
-                Everyone has the right to
-              </h1>
-              <h1 className="text-5xl font-bold text-center">
-                affordable, safe and liveable housing
-              </h1>
-              <h2 className="text-2xl font-medium text-center mt-16">
-                We are here to help you find the place you can call home
-              </h2>
-              <Link href="/map">
-                <button className="call-action-button text-lg width-52 p-2 mt-6">
-                  Find where to live
-                </button>
-              </Link>
+            <div className="flex flex-col items-center space-y-6 mt-36">
+              <div className="flex flex-col justify-center">
+                <h1 className="text-5xl font-bold text-center">
+                  Everyone has the right to
+                </h1>
+                <h1 className="text-5xl font-bold text-center mt-4">
+                  affordable, safe and liveable housing
+                </h1>
+                <h2 className="text-2xl font-medium text-center mt-16">
+                  We are here to help you find the place you can call home
+                </h2>
+              </div>
+              <div className="flex items-center justify-center">
+                <Link href="/map">
+                  <button className="call-action-button text-lg width-52 p-2 mt-6">
+                    Find where to live
+                  </button>
+                </Link>
+              </div>
             </div>
             <div className="flex flex-col items-end pb-4 pr-4">
               <h2 className="text-xs font-normal">

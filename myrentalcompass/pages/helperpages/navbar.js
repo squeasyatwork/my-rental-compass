@@ -4,7 +4,7 @@ const NavBar = ({ activePage }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center ${
+      className={`relative top-0 left-0 h-20 w-full px-2 py-4 flex items-center justify-center mr-20 ${
         isMapPageActive ? "bg-MapNavGray" : "bg-BackgroundWhite"
       }`}
     >
