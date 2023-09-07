@@ -5,23 +5,23 @@ import Slider from "@mui/material/Slider";
 const marks = [
   {
     value: 0,
-    label: "Least",
+    label: "1",
   },
   {
     value: 25,
-    label: "",
+    label: "2",
   },
   {
     value: 50,
-    label: "",
+    label: "3",
   },
   {
     value: 75,
-    label: "",
+    label: "4",
   },
   {
     value: 100,
-    label: "Most",
+    label: "5",
   },
 ];
 
@@ -29,7 +29,7 @@ function valuetext(value) {
   return `A$${value}`;
 }
 
-function InternalLiveabilitySlider({ criterion }) {
+function InternalLiveabilitySlider({ criterion, handleChoice }) {
   return (
     <div className="mb-4 ml-6">
       <Box>
@@ -68,20 +68,21 @@ function InternalLiveabilitySlider({ criterion }) {
               fontSize: '0.5rem',
             },
           }}
+          onChange={handleChoice}
         />
       </Box>
     </div>
   );
 }
 
-export default function LiveabilitySlider({ criterion }) {
+export default function LiveabilitySlider({ criterion, handleChoice }) {
   return (
     <>
       <center>
         <div className="text-sm font-semibold text-left">{criterion}</div>
       </center>
       <div>
-        <InternalLiveabilitySlider></InternalLiveabilitySlider>
+        <InternalLiveabilitySlider criterion={criterion} handleChoice={handleChoice}></InternalLiveabilitySlider>
       </div>
     </>
   );

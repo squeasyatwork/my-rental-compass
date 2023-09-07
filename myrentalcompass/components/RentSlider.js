@@ -5,47 +5,23 @@ import Slider from '@mui/material/Slider';
 const marks = [
   {
     value: 0,
-    label: '',
+    label: 'A$400',
   },
   {
-    value: 10,
-    label: 'A$100',
-  },
-  {
-    value: 20,
-    label: '',
-  },
-  {
-    value: 30,
-    label: '200',
-  },
-  {
-    value: 40,
-    label: '',
+    value: 25,
+    label: 'A$500',
   },
   {
     value: 50,
-    label: '300',
+    label: 'A$600',
   },
   {
-    value: 60,
-    label: '',
-  },
-  {
-    value: 70,
-    label: '400',
-  },
-  {
-    value: 80,
-    label: '',
-  },
-  {
-    value: 90,
-    label: '500',
+    value: 75,
+    label: 'A$700',
   },
   {
     value: 100,
-    label: '',
+    label: 'A$800',
   },
 
 ];
@@ -62,7 +38,7 @@ export default function RentSlider({ handleChoice }) {
           aria-label="Rental amount"
           defaultValue={50}
           getAriaValueText={valuetext}
-          step={10}
+          step={12.25}
           valueLabelDisplay="off"
           marks={marks}
           sx={{

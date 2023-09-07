@@ -59,16 +59,16 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
 
   const [selectedChoices, setSelectedChoices] = useState({
     // For QuestionOne
-    someQuestionOne: null,
+    someQuestionOne: 600,
     // For QuestionTwoAndThree
-    affordableHousing: null,
-    publicTransport: null,
-    openSpace: null,
-    lowCrimeRate: null,
-    safeRoads: null,
+    affordableHousing: 3,
+    publicTransport: 3,
+    openSpace: 3,
+    lowCrimeRate: 3,
+    safeRoads: 3,
   });
 
-  const [university, setUniversity] = useState(null)
+  const [university, setUniversity] = useState("")
 
   const handleChoice = (question, choice) => {
     setSelectedChoices({
@@ -89,6 +89,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
     let crimeChoice = selectedChoices.lowCrimeRate
     let roadChoice = selectedChoices.safeRoads
     let uniChoice = university
+    console.log("recos file, sendInput params --> uniChoice: " + university)
     router.push({
       pathname: "/recommendations",
       query: {
@@ -140,7 +141,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} />
+                <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (
