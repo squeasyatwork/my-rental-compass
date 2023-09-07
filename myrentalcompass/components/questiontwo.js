@@ -35,9 +35,9 @@ const QuestionTwo = ({
       style={{width: 'auto', height:"auto", padding: '2rem'}}
     >
       <div className="flex md:flex-row items-center justify-center mb-6">
-        <div className="flex flex-col items-center justify-center text-2xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '100%', padding:'1rem'}}>
-          <h2 style={{fontSize:"1.8rem"}}> How much do you value </h2>
-          <h2 style={{fontSize:"1.8rem"}}> these liveability aspects? </h2>
+        <div className="flex flex-col items-center justify-center text-3xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '100%', padding:'1rem'}}>
+          <h2> How much do you value </h2>
+          <h2> these liveability aspects? </h2>
           <h2 style={{fontSize:"1.4rem"}}>( Please rate 1 to 5 )</h2>
           <div className=" justify-center">
             <Image
