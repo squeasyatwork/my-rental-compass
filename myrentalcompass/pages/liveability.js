@@ -9,7 +9,7 @@ function Liveability() {
         <meta name="description" content="Learn about liveability factors." />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen">
+      <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="What is liveability" />
 
         <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">

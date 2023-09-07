@@ -9,7 +9,7 @@ function Resources() {
         <meta name="description" content="Valuable resources for renters." />
       </Head>
 
-      <main className="font-inter flex flex-col m-1 h-screen">
+      <main className="font-inter flex flex-col h-screen bg-white text-black">
         <Navbar activePage="Other resources" />
 
         <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
