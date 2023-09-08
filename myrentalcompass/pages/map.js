@@ -42,12 +42,11 @@ function Map() {
             }
           </h2>
         </section>
-        {/* Liveability Index Information Section */}
         {/* Map Section */}
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
             <div
-              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-3/4 lg:w-3/4 md:w-3/4 sm:w-3/4 h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
+              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-4/5 lg:w-4/5 md:w-4/5 sm:w-4/5 h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
               style={{
                 boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
               }}
@@ -63,12 +62,11 @@ function Map() {
             </div>
           </div>
           <div
-            className="flex justify-center "
-            style={{ width: "100%", height: "100%" }}
+            className="flex justify-center w-full h-full"
           >
             <div
-              className="flex justify-center"
-              style={{ width: "75%", height: "90%" }}
+              className="flex justify-center w-4/5"
+              style={{ height: "90%" }}
             >
               <div
                 className="flex justify-center items-center"
@@ -89,7 +87,7 @@ function Map() {
                   />
                 )}
               </div>
-              {/* New div for displaying info */}
+              {/* Liveability Index Information Section */}
               <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md lg:w-1/3 md:w-1/3 sm:w-1/3">
                 <div className="mb-12">
                   <div className="mb-4">
