@@ -77,7 +77,7 @@ function Map() {
                 {mapLoading ? (
                   <div>
                     <img
-                      src="/loading.gif"
+                      src="/map-loading-animation-2.gif"
                       alt="Loading"
                       style={{ width: "200px", height: "200px" }}
                     />
