@@ -92,18 +92,13 @@ function Map() {
                 <div className="mb-12">
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
-                    <div className="flex flex-col p-2 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
+                    <div className="flex flex-col p-4 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
                       <h3 className="font-semibold">
                         Suburb: {selectedFeature?.suburb || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
                         Council: {selectedFeature?.lga || "N/A"}
                       </h3>
-                    </div>
-                  </div>
-                  <div>
-                    <h2 className=" font-bold text-lg mb-1">Selected indicator:</h2>
-                    <div className="flex flex-col p-2 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
                       <h3 className="font-semibold">
                         Liveability Score:{" "}
                         {selectedFeature?.liveability_score
@@ -112,6 +107,11 @@ function Map() {
                             )}%`
                           : "N/A"}
                       </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className=" font-bold text-lg mb-1">Selected indicator:</h2>
+                    <div className="flex flex-col p-4 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
                       <h3 className="font-semibold">
                         Average Rent:{" "}
                         {selectedFeature?.average_rent
