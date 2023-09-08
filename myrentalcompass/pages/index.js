@@ -106,13 +106,16 @@ export default function LandingPage() {
                   affordable, safe and liveable housing
                 </h1>
                 <h2 className="text-2xl font-medium text-center mt-16">
-                  We are here to help you find the place you can call home
+                  We are here to help students in Melbourne to
+                </h2>
+                <h2 className="text-2xl font-medium text-center">
+                  find the right suburb to live
                 </h2>
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
-                  <button className="call-action-button text-lg width-52 p-2 mt-6">
-                    Find where to live
+                  <button className="call-action-button text-xl w-auto p-4 mt-6">
+                    Find a suburb to live
                   </button>
                 </Link>
               </div>

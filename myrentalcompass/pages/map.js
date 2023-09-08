@@ -90,7 +90,7 @@ function Map() {
                 )}
               </div>
               {/* New div for displaying info */}
-              <div className="flex flex-col justify-between text-md p-6 bg-MapHeadingGray shadow-md ">
+              <div className="flex flex-col justify-between text-md p-10 bg-MapHeadingGray shadow-md ">
                 <div>
                   <h3 className="font-semibold">
                     Suburb: {selectedFeature?.suburb || "N/A"}

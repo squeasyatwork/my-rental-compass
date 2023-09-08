@@ -50,7 +50,7 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-14 px-5 w-48 text-NavTextGray
+    @apply bg-MainButtonYellow rounded-2xl h-auto p-4 w-56 text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90;
   }
   .call-action-button:hover {

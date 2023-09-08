@@ -36,7 +36,7 @@ const NavBar = ({ activePage }) => {
           isActive={activePage === "Other resources"}
         />
         <NavBarButton
-          text="Find where to live"
+          text="Find a suburb to live"
           special={true}
           href="/map"
           isActive={activePage === "Find where to live"}
