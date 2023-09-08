@@ -33,7 +33,7 @@ body {
     @apply relative flex items-center justify-center flex-grow
       h-16 mt-2 mb-1 text-NavTextGray font-istok font-semibold pb-1
       transition-transform transform active:scale-95 active:opacity-90
-      text-base sm:text-base md:text-base lg:text-lg;
+      text-sm sm:text-sm md:text-base lg:text-base;
   }
   .navbar-button:hover:not(.navbar-button-active) {
     @apply text-ButtonHoverYellow transform scale-110 opacity-80;
