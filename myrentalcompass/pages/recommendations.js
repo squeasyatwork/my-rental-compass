@@ -38,14 +38,14 @@ export const getServerSideProps = async (context) => {
     let reqQuery = new URLSearchParams({
       rent, affordability, transport, park, crime, road, university
     });
-    console.log("recos file --> reqQuery: " + reqQuery)
+    console.log("recos file --> contextQuery: " + JSON.stringify(contextQuery))
     if (rent) {
       let dbResponse = await fetch(process.env.API_URL + "/api/liveablesuburbs?" + reqQuery, {
         method: 'GET',
       })
       let nearbyWithinRentRanked = await dbResponse.json();
-      console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
-      return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
+      // console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
+      return { props: { nearbyWithinRentRanked, contextQuery, rent, affordability, transport, park, crime, road, university } };
     }
   }
   let dummyReturnValue = null;
@@ -53,9 +53,27 @@ export const getServerSideProps = async (context) => {
 
 }
 
-function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, uniParam = 0 }) {
+function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, uniParam = "" }) {
 
   const router = Router.useRouter();
+
+  console.log("recos file --> INSIDE COMPONENT contextQuery: " + JSON.stringify(contextQuery))
+
+  let defaultSliderValues = {};
+
+  if (rent !== 0) {
+    defaultSliderValues["rent"] = parseInt(contextQuery.rentChoice);
+    defaultSliderValues["affordability"] = parseInt(contextQuery.affordabilityChoice);
+    defaultSliderValues["transport"] = parseInt(contextQuery.transportChoice);
+    defaultSliderValues["park"] = parseInt(contextQuery.parkChoice);
+    defaultSliderValues["crime"] = parseInt(contextQuery.crimeChoice);
+    defaultSliderValues["road"] = parseInt(contextQuery.roadChoice);
+    defaultSliderValues["university"] = contextQuery.uniChoice;
+    console.log("recos file --> defaultSliderValues DETECTED: " + JSON.stringify(defaultSliderValues))
+  }
+  else {
+    console.log("recos file --> defaultSliderValues EMPTY: " + JSON.stringify(defaultSliderValues))
+  }
 
   const [selectedChoices, setSelectedChoices] = useState({
     // For QuestionOne
@@ -138,8 +156,6 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                 width: "80%",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px", width: "100%" }}>
-                <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px", width: "100%" }}>
                 {mapLoading ? (
@@ -201,8 +217,6 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                 width: "80%",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px", width: "100%" }}>
-                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px", width: "100%" }}>
                 {mapLoading ? (
