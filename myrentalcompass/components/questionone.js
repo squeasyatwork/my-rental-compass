@@ -23,7 +23,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
     >
       <div className="flex md:flex-row items-center justify-center mb-6 flex-wrap">
         <div className="flex flex-col items-center justify-center text-2xl font-bold mb-4 md:mb-0 md:mr-6">
-          <h2 className="text-3xl md:text-lg lg:text-lg">
+          <h2 className="text-3xl sm:text-lg md:text-2xl lg:text-3xl">
             We are here to help you!
           </h2>
           <div>
@@ -36,7 +36,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
             />
           </div>
         </div>
-        <div className="flex flex-col justify-center text-2xl text-sm sm:text-lg md:text-xl lg:text-2xl" style={{ marginLeft: "2rem" }}>
+        <div className="flex flex-col justify-center text-base sm:text-lg md:text-xl lg:text-2xl" style={{ marginLeft: "2rem" }}>
           <h2>
             Finding a liveable home at an affordable rent in Melbourne can be
           </h2>
@@ -57,7 +57,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
           </h2>
         </div>
       </div>
-      <div className="flex w-4/5 sm:w-full md:w-full lg:w-4/5 items-center justify-between flex-wrap">
+      <div className="flex w-full sm:w-full md:w-full lg:w-4/5 items-center justify-between flex-wrap">
         <div className="mb-2">
           <Link href="/">
             <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">

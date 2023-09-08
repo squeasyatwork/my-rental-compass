@@ -37,7 +37,7 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
           </div>
         </div>
         <div className="flex flex-col text-xl items-center ml-6 w-full md:max-w-2xl px-4 bg-white border-4 border-MainButtonYellow p-8">
-          <div className="flex flex-col text-2xl">
+          <div className="flex flex-col text-lg sm:text-lg md:text-xl lg:text-2xl">
             <h2>If you want to live near your university,</h2>
             <h2>please select your university from the list below.</h2>
           </div>
@@ -104,12 +104,12 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
             </option>
           </select>
           <br></br>
-          <div className="flex flex-col items-center text-2xl font-bold">
+          <div className="flex flex-col items-center text-xl sm:text-xl md:text-xl lg:text-2xl font-bold">
             <h2>Else, you may skip and click show result below</h2>
           </div>
         </div>
       </div>
-      <div className="flex sm:w-full md:4/5 items-center justify-between" >
+      <div className="flex w-full sm:w-full md:4/5 items-center justify-between" >
         <button
           className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
           onClick={handlePrevious}
