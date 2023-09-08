@@ -59,7 +59,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
       </div>
       <div className="flex w-full sm:w-full md:w-full lg:w-4/5 items-center justify-between flex-wrap">
         <div className="mb-2">
-          <Link href="/">
+          <Link href="/map">
             <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">
               Go back
             </button>
