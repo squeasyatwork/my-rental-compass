@@ -43,23 +43,23 @@ const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability
   };
 
   const getColor = (liveability_score) => {
-    if (liveability_score > 90) {
+    if (liveability_score > 0.75) {
       return "#326319";
-    } else if (liveability_score > 0.8) {
-      return "#579122";
     } else if (liveability_score > 0.7) {
+      return "#579122";
+    } else if (liveability_score > 0.65) {
       return "#87bb42";
     } else if (liveability_score > 0.6) {
       return "#bde086";
-    } else if (liveability_score > 0.5) {
+    } else if (liveability_score > 0.55) {
       return "#e7f4d0";
-    } else if (liveability_score > 0.4) {
+    } else if (liveability_score > 0.5) {
       return "#fae0ef";
-    } else if (liveability_score > 0.3) {
+    } else if (liveability_score > 0.45) {
       return "#d679ae";
-    } else if (liveability_score > 0.2) {
+    } else if (liveability_score > 0.4) {
       return "#bb247d";
-    } else if (liveability_score > 0.1) {
+    } else if (liveability_score > 0.35) {
       return "#870952";
     } else {
       return "#808080";

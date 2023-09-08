@@ -51,7 +51,7 @@ const QuestionTwo = ({
         </div>
         <div className="flex flex-col font-Inter font-normal text-2xl ml-6" style={{width: "100%", padding: "1rem"}}>
           <div className="flex flex-col font-bold">
-            <div className=" flex text-lg font-normal space-x-2">
+            <div className=" flex font-normal text-base sm:text-base md:text-base lg:text-xl">
               <Image
                 src="/information-icon.svg"
                 alt="Hint"
@@ -59,11 +59,13 @@ const QuestionTwo = ({
                 height={22}
                 className="rounded-xl"
               />
-              <h2>1-Not at all</h2>
-              <h2>2-Low importance</h2>
-              <h2>3-Neutral</h2>
-              <h2>4-Important</h2>
-              <h2>5-Very important</h2>
+              <div className="flex justify-between">
+                <h2>1-Not at all</h2>
+                <h2>2-Low importance</h2>
+                <h2>3-Neutral</h2>
+                <h2>4-Important</h2>
+                <h2>5-Very important</h2>
+              </div>
             </div>
             <div className="text-xl mt-4">
               <h2>Affordable housing</h2>
@@ -112,7 +114,7 @@ const QuestionTwo = ({
           </div>
         </div>
       </div>
-      <div className="flex w-full sm:w-4/5 md:w-3/5 lg:w-2/5 items-center justify-between" style={{width: "80%"}}>
+      <div className="flex w-full sm:w-full md:w-4/5 lg:w-full items-center justify-between">
         <div>
           <button
             className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"

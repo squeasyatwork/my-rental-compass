@@ -7,8 +7,7 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://develop.d2dfjeo605ve5o.amplifyapp.com/${src}?w=${width}&q=${quality || 75
-    }`;
+  return `https://develop.d2dfjeo605ve5o.amplifyapp.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const Section = ({
@@ -87,10 +86,10 @@ export default function LandingPage() {
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
-      <main className="font-inter flex flex-col h-screen text-black">
+      <main className="font-inter flex flex-col min-h-screen text-black">
         <Navbar activePage="Home" className="z-10" />
 
-        <div className="relative h-4/5-screen w-full">
+        <div className="relative h-3/5 w-full">
           <img
             src="/liveable-cities.jpeg"
             alt="Description of the image"
@@ -106,13 +105,16 @@ export default function LandingPage() {
                   affordable, safe and liveable housing
                 </h1>
                 <h2 className="text-2xl font-medium text-center mt-16">
-                  We are here to help you find the place you can call home
+                  We are here to help students in Melbourne to
+                </h2>
+                <h2 className="text-2xl font-medium text-center">
+                  find the right suburb to live
                 </h2>
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
-                  <button className="call-action-button text-lg width-52 p-2 mt-6">
-                    Find where to live
+                  <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl"> 
+                    Find a suburb to live
                   </button>
                 </Link>
               </div>
@@ -135,33 +137,25 @@ export default function LandingPage() {
               imageSrc="/looking-to-rent-icon.jpeg"
               altText="looking-to-rent-icon"
               subheading="Looking to rent?"
-              content="Finding a place to live in Victoria can be very frustrating. We
-              know, because we have been there too. |||That is why we are driven
-              to help young people like you to make an informed decision in
-              finding a place to call home in Victoria."
+              content="Finding a place to live in Victoria can be very frustrating. We know, because we have been there too. |||That is why we are driven to help young people like you to make an informed decision in finding a place to call home in Victoria."
               link="/questionnaire"
               btnText="Use our AI tool to find where to live"
             />
             <Section
-              id="yqa-section-1"
+              id="yqa-section-2"
               imageSrc="/curious-icon.jpeg"
               altText="curious-icon"
               subheading="Curious what it means?"
-              content="Not everyone is born to be a lawyer. 
-              Tenancy laws and contract can be very confusing, especially if it is your first time.|||
-              We have curate an easy-to-follow guide to help you understand your rights and responsibilities as a renter."
+              content="Not everyone is born to be a lawyer. Tenancy laws and contract can be very confusing, especially if it is your first time.|||We have curated an easy-to-follow guide to help you understand your rights and responsibilities as a renter."
               link="/rights"
               btnText="Get to know your rights as a renter"
             />
             <Section
-              id="yqa-section-1"
+              id="yqa-section-3"
               imageSrc="/liveability-icon.jpeg"
               altText="liveability-icon"
               subheading="What is liveability?"
-              content="Living in a safe and liveable neighbourhood is everyone's dream. But do you 
-              know what makes a suburb liveable? Researchers have done many studies on this, 
-              and we are putting them here to help you make an informed decision when renting 
-              in Melbourne."
+              content="Living in a safe and liveable neighborhood is everyone's dream. But do you know what makes a suburb liveable? Researchers have done many studies on this, and we are putting them here to help you make an informed decision when renting in Melbourne."
               link="/liveability"
               btnText="Read more about liveability"
             />
@@ -178,13 +172,13 @@ export default function LandingPage() {
               link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
             />
             <ResourceSection
-              id="or-section-1"
+              id="or-section-2"
               imageSrc="/or-unsdg-picture.jpeg"
               altText="or-unsdg-picture"
               link="https://sdgs.un.org/goals/goal11"
             />
             <ResourceSection
-              id="or-section-1"
+              id="or-section-3"
               imageSrc="/or-crt-logo.jpeg"
               altText="or-crt-picture"
               link="https://www.rentingcommissioner.vic.gov.au/"

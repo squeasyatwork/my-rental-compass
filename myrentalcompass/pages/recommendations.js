@@ -145,7 +145,7 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, ren
         <main className="font-inter flex flex-col h-screen">
           <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
               my="14px"
               bgcolor="#fff"
@@ -155,7 +155,6 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, ren
                 display: "flex",
                 flexDirection: "row",
                 width: "80%",
-                height: "80%",
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
@@ -212,7 +211,7 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, ren
         <main className="font-inter flex flex-col h-screen">
           <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
               my="14px"
               bgcolor="#fff"
@@ -222,7 +221,6 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, ren
                 display: "flex",
                 flexDirection: "row",
                 width: "80%",
-                height: "80%",
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
@@ -245,7 +243,6 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, ren
               </div>
             </Box>
           </section>
-
           <Footer />
         </main>
       </>

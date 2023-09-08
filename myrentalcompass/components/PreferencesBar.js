@@ -71,6 +71,7 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
                 <div><LiveabilitySlider criterion={"Crime rate"}
                     handleChoice={(e) => handleChoice("lowCrimeRate", parseInt(e.target.value / 25) + 1)} defaultArg={defaultSliderValues.crime}></LiveabilitySlider></div >
 
+
                 <div><LiveabilitySlider criterion={"Road safety"} se
                     handleChoice={(e) => handleChoice("safeRoads", parseInt(e.target.value / 25) + 1)} defaultArg={defaultSliderValues.road}></LiveabilitySlider></div>
                 <br></br>
