@@ -7,7 +7,7 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://www.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
+  return `localhost:3000/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const Section = ({
@@ -113,7 +113,7 @@ export default function LandingPage() {
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
-                  <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl"> 
+                  <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl">
                     Find a suburb to live
                   </button>
                 </Link>
