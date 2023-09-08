@@ -32,10 +32,11 @@ body {
   .navbar-button {
     @apply relative flex items-center justify-center flex-grow
       h-16 mt-2 mb-1 text-NavTextGray font-istok font-semibold pb-1
-      transition-transform transform active:scale-95 active:opacity-90;
+      transition-transform transform active:scale-95 active:opacity-90
+      text-sm sm:text-sm md:text-base lg:text-base;
   }
   .navbar-button:hover:not(.navbar-button-active) {
-    @apply text-MainButtonYellow transform scale-110 opacity-80;
+    @apply text-ButtonHoverYellow transform scale-110 opacity-80;
   }
   .navbar-button-active:not(.call-action-button)::after {
     content: "";
@@ -50,8 +51,10 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-14 px-5 w-48 text-NavTextGray
-      transition-transform transform font-bold active:scale-95 active:opacity-90;
+    @apply bg-MainButtonYellow rounded-2xl h-auto p-4 w-56 text-NavTextGray
+      transition-transform transform font-bold active:scale-95 active:opacity-90 
+      text-base sm:text-base md:text-base lg:text-lg 
+      sm:w-40 md:w-44 lg:w-56 sm:h-auto md:h-auto lg:h-auto;
   }
   .call-action-button:hover {
     @apply text-BackgroundWhite transform scale-110 opacity-100;

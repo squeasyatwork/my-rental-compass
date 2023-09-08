@@ -10,6 +10,8 @@ import PreferencesBar from "~/components/PreferencesBar";
 import { Box, List, ListItem, ListItemText } from '@mui/material';
 import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
 import { NextUIProvider } from "@nextui-org/react";
+import Router from "next/router";
+import { useRouter } from "next/router";
 
 // This is needed to make sure that the dbResponse parameter is correctly passed on to the page component.
 export const config = {
@@ -36,14 +38,14 @@ export const getServerSideProps = async (context) => {
     let reqQuery = new URLSearchParams({
       rent, affordability, transport, park, crime, road, university
     });
-    console.log("recos file --> reqQuery: " + reqQuery)
+    console.log("recos file --> contextQuery: " + JSON.stringify(contextQuery))
     if (rent) {
       let dbResponse = await fetch(process.env.API_URL + "/api/liveablesuburbs?" + reqQuery, {
         method: 'GET',
       })
       let nearbyWithinRentRanked = await dbResponse.json();
-      console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
-      return { props: { nearbyWithinRentRanked, rent, affordability, transport, park, crime, road, university } };
+      // console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
+      return { props: { nearbyWithinRentRanked, contextQuery, rent, affordability, transport, park, crime, road, university } };
     }
   }
   let dummyReturnValue = null;
@@ -51,8 +53,75 @@ export const getServerSideProps = async (context) => {
 
 }
 
+function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, uniParam = "" }) {
 
-function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, university = 0 }) {
+  const router = Router.useRouter();
+
+  console.log("recos file --> INSIDE COMPONENT contextQuery: " + JSON.stringify(contextQuery))
+
+  let defaultSliderValues = {};
+
+  if (rent !== 0) {
+    defaultSliderValues["rent"] = parseInt(contextQuery.rentChoice);
+    defaultSliderValues["affordability"] = parseInt(contextQuery.affordabilityChoice);
+    defaultSliderValues["transport"] = parseInt(contextQuery.transportChoice);
+    defaultSliderValues["park"] = parseInt(contextQuery.parkChoice);
+    defaultSliderValues["crime"] = parseInt(contextQuery.crimeChoice);
+    defaultSliderValues["road"] = parseInt(contextQuery.roadChoice);
+    defaultSliderValues["university"] = contextQuery.uniChoice;
+    console.log("recos file --> defaultSliderValues DETECTED: " + JSON.stringify(defaultSliderValues))
+  }
+  else {
+    console.log("recos file --> defaultSliderValues EMPTY: " + JSON.stringify(defaultSliderValues))
+  }
+
+  const [selectedChoices, setSelectedChoices] = useState({
+    // For QuestionOne
+    someQuestionOne: 600,
+    // For QuestionTwoAndThree
+    affordableHousing: 3,
+    publicTransport: 3,
+    openSpace: 3,
+    lowCrimeRate: 3,
+    safeRoads: 3,
+  });
+
+  const [university, setUniversity] = useState("")
+
+  const handleChoice = (question, choice) => {
+    setSelectedChoices({
+      ...selectedChoices,
+      [question]: choice,
+    });
+  };
+
+  const handleUniChoice = (choice) => {
+    setUniversity(choice);
+  };
+
+  function sendInput() {
+    let rentChoice = selectedChoices.someQuestionOne
+    let affordabilityChoice = selectedChoices.affordableHousing
+    let transportChoice = selectedChoices.publicTransport
+    let parkChoice = selectedChoices.openSpace
+    let crimeChoice = selectedChoices.lowCrimeRate
+    let roadChoice = selectedChoices.safeRoads
+    let uniChoice = university
+    console.log("recos file, sendInput params --> uniChoice: " + university)
+    router.push({
+      pathname: "/recommendations",
+      query: {
+        rentChoice,
+        affordabilityChoice,
+        transportChoice,
+        parkChoice,
+        crimeChoice,
+        roadChoice,
+        uniChoice
+      },
+    });
+  }
+
   console.log("\n\nINSIDE recos component --> nerbyWithinRentRanked: " + nearbyWithinRentRanked + "\n\n\n\n");
   let liveableSuburbs = nearbyWithinRentRanked === null ? null : JSON.parse(nearbyWithinRentRanked);
   const [selectedFeature, setSelectedFeature] = React.useState(null);
@@ -76,7 +145,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
         <main className="font-inter flex flex-col h-screen">
           <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
               my="14px"
               bgcolor="#fff"
@@ -86,11 +155,10 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                 display: "flex",
                 flexDirection: "row",
                 width: "80%",
-                height: "80%",
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar />
+                <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} defaultSliderValues={defaultSliderValues} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (
@@ -143,7 +211,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
         <main className="font-inter flex flex-col h-screen">
           <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
               my="14px"
               bgcolor="#fff"
@@ -153,11 +221,10 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                 display: "flex",
                 flexDirection: "row",
                 width: "80%",
-                height: "80%",
               }}
             >
               <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar />
+                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} defaultSliderValues={defaultSliderValues} />
               </div>
               <div style={{ flex: "1 0 66%", padding: "10px" }}>
                 {mapLoading ? (
@@ -176,7 +243,6 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               </div>
             </Box>
           </section>
-
           <Footer />
         </main>
       </>

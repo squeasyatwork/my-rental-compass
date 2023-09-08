@@ -5,23 +5,23 @@ import Slider from "@mui/material/Slider";
 const marks = [
   {
     value: 0,
-    label: "Least",
+    label: "1",
   },
   {
     value: 25,
-    label: "",
+    label: "2",
   },
   {
     value: 50,
-    label: "",
+    label: "3",
   },
   {
     value: 75,
-    label: "",
+    label: "4",
   },
   {
     value: 100,
-    label: "Most",
+    label: "5",
   },
 ];
 
@@ -29,13 +29,13 @@ function valuetext(value) {
   return `A$${value}`;
 }
 
-function InternalLiveabilitySlider({ criterion }) {
+function InternalLiveabilitySlider({ criterion, handleChoice, defaultArg = 0 }) {
   return (
     <div className="mb-4 ml-6">
       <Box>
         <Slider
           aria-label={criterion}
-          defaultValue={50}
+          defaultValue={defaultArg === 0 ? 50 : parseInt((defaultArg - 1) * 25)}
           getAriaValueText={valuetext}
           step={25}
           valueLabelDisplay="off"
@@ -65,23 +65,24 @@ function InternalLiveabilitySlider({ criterion }) {
               },
             },
             "& .MuiSlider-markLabe": {
-              fontSize: '0.5rem', 
+              fontSize: '0.5rem',
             },
           }}
+          onChange={handleChoice}
         />
       </Box>
     </div>
   );
 }
 
-export default function LiveabilitySlider({ criterion }) {
+export default function LiveabilitySlider({ defaultArg, criterion, handleChoice }) {
   return (
     <>
       <center>
         <div className="text-sm font-semibold text-left">{criterion}</div>
       </center>
       <div>
-        <InternalLiveabilitySlider></InternalLiveabilitySlider>
+        <InternalLiveabilitySlider defaultArg={defaultArg} criterion={criterion} handleChoice={handleChoice}></InternalLiveabilitySlider>
       </div>
     </>
   );

@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-
 import Link from "next/link";
 import LikertScale from "./likertscale";
 import Image from "next/image";
@@ -32,13 +31,13 @@ const QuestionTwo = ({
   return (
     <div
       id="q2"
-      className="flex flex-col items-center justify-center bg-white rounded-xl"
-      style={{ width: '70%', padding: '2rem'}}
+      className="flex flex-col items-center justify-center bg-white rounded-xl text-sm sm:text-md md:text-lg lg:text-xl"
+      style={{width: 'auto', height:"auto", padding: '2rem'}}
     >
-      <div className="flex flex-grow">
-        <div className="flex flex-col items-center justify-center text-4xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '40%', padding:'1rem'}}>
-          <h2 style={{fontSize:"1.8rem"}}> How much do you value </h2>
-          <h2 style={{fontSize:"1.8rem"}}> these liveability aspects? </h2>
+      <div className="flex md:flex-row items-center justify-center mb-6">
+        <div className="flex flex-col items-center justify-center text-3xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '100%', padding:'1rem'}}>
+          <h2> How much do you value </h2>
+          <h2> these liveability aspects? </h2>
           <h2 style={{fontSize:"1.4rem"}}>( Please rate 1 to 5 )</h2>
           <div className=" justify-center">
             <Image
@@ -46,13 +45,13 @@ const QuestionTwo = ({
               alt="Park"
               width={250}
               height={250}
-              className="rounded-xl "
+              className="rounded-xl"
             />
           </div>
         </div>
-        <div className="flex flex-col font-Inter font-normal text-3xl ml-6" style={{width: "60%", padding: "1rem"}}>
+        <div className="flex flex-col font-Inter font-normal text-2xl ml-6" style={{width: "100%", padding: "1rem"}}>
           <div className="flex flex-col font-bold">
-            <div className=" flex text-lg font-normal space-x-2">
+            <div className=" flex font-normal text-base sm:text-base md:text-base lg:text-xl">
               <Image
                 src="/information-icon.svg"
                 alt="Hint"
@@ -60,11 +59,13 @@ const QuestionTwo = ({
                 height={22}
                 className="rounded-xl"
               />
-              <h2>1-Not at all</h2>
-              <h2>2-Low importance</h2>
-              <h2>3-Neutral</h2>
-              <h2>4-Important</h2>
-              <h2>5-Very important</h2>
+              <div className="flex justify-between">
+                <h2>1-Not at all</h2>
+                <h2>2-Low importance</h2>
+                <h2>3-Neutral</h2>
+                <h2>4-Important</h2>
+                <h2>5-Very important</h2>
+              </div>
             </div>
             <div className="text-xl mt-4">
               <h2>Affordable housing</h2>
@@ -113,28 +114,23 @@ const QuestionTwo = ({
           </div>
         </div>
       </div>
-      <div className="flex w-full mb-8 relative" style={{
-          width: '100%',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center',
-          padding: '1rem'
-        }}>
-        <button
-          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8 mx-4"
-          style={{ width: '20%'}}
-          onClick={handlePrevious}
-        >
-          Go back
-        </button>
-        <button
-          className="call-action-button text-NavTextGray text-2xl font-bold flex items-center justify-center p-8 mx-4 relative" /* Added 'relative' here */
-          style={{ width: '20%', fontSize: '1.2rem'}}
-          onClick={handleClickNext}
-        >
-          Final question
-        </button>
+      <div className="flex w-full sm:w-full md:w-4/5 lg:w-full items-center justify-between">
+        <div>
+          <button
+            className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
+            onClick={handlePrevious}
+          >
+            Go back
+          </button>
+        </div>
+        <div>
+          <button
+            className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
+            onClick={handleClickNext}
+            >
+            Final question
+          </button>
+        </div>
       </div>
       {
         error && (
