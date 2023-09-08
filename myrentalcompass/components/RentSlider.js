@@ -30,13 +30,13 @@ function valuetext(value) {
   return `A$${value}`;
 }
 
-export default function RentSlider({ handleChoice }) {
+export default function RentSlider({ handleChoice, defaultArg = 0 }) {
   return (
     <div className="ml-6">
       <Box>
         <Slider
           aria-label="Rental amount"
-          defaultValue={50}
+          defaultValue={defaultArg === 0 ? 50 : (12.25 * (defaultArg - 400) / 50)}
           getAriaValueText={valuetext}
           step={12.25}
           valueLabelDisplay="off"
