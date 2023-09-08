@@ -47,7 +47,7 @@ function Map() {
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
             <div
-              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-full lg:w-3/4 md:w-full sm:w-full h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
+              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-full lg:w-3/4 md:w-3/4 sm:w-3/4 h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
               style={{
                 boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
               }}
@@ -90,7 +90,7 @@ function Map() {
                 )}
               </div>
               {/* New div for displaying info */}
-              <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md w-full lg:w-1/3 md:w-full sm:w-full">
+              <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md lg:w-1/3 md:w-1/3 sm:w-1/3">
                 <div className="mb-12">
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">Selected area:</h2>

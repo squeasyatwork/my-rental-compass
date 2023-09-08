@@ -9,7 +9,7 @@ const NavBar = ({ activePage }) => {
       }`}
     >
       <Link href="/">
-        <div className="flex ml-10 sm:left-20 top-2 bottom-1 w-16">
+        <div className="flex ml-4 sm:ml-8 sm:left-4 top-2 bottom-1 w-16">
           <img
             src="/mrc_logo.svg"
             alt="MRC Logo"
@@ -18,7 +18,7 @@ const NavBar = ({ activePage }) => {
         </div>
       </Link>
 
-      <div className="flex justify-center max-w-screen-xl mx-auto w-full px-4 sm:px-8 items-center space-x-20"> 
+      <div className="flex justify-center max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-20">
         <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
         <NavBarButton
           text="Understand your rights"

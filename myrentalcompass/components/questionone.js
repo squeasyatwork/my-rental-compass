@@ -57,7 +57,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
           </h2>
         </div>
       </div>
-      <div className="flex w-full sm:w-4/5 md:w-3/5 lg:w-2/5 items-center justify-between flex-wrap" style={{ width: "80%" }}>
+      <div className="flex sm:w-full md:w-4/5 items-center justify-between flex-wrap">
         <div className="mb-2">
           <Link href="/">
             <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">
