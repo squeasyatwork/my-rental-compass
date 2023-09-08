@@ -34,6 +34,7 @@ module.exports = {
         MapNavGray: "#f5f5f5",
         MapHeadingGray: "#ffffff",
         MapMintGreen: '#51c8ac',
+        BorderGreen: "#05FFD7",
       },
     },
   },

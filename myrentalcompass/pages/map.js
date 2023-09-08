@@ -29,10 +29,10 @@ function Map() {
         <meta name="description" content="Find the best places to live." />
       </Head>
 
-      <div className="font-inter flex flex-col h-screen bg-white text-black">
+      <div className="font-inter flex flex-col min-h-screen bg-white text-black">
         <Navbar activePage="Find where to live" /> {/* Navbar */}
         {/* Title and Text Section */}
-        <section className="flex flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
+        <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
           <h2 className="text-3xl font-bold pb-1">
             Liveability index of Melbourne suburbs
           </h2>
@@ -47,7 +47,7 @@ function Map() {
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
             <div
-              className="flex text-xl items-center w-3/4 h-3/4 font-semibold text-green-700 bg-MapHeadingGray"
+              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-full lg:w-3/4 md:w-full sm:w-full h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
               style={{
                 boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
               }}
@@ -90,45 +90,54 @@ function Map() {
                 )}
               </div>
               {/* New div for displaying info */}
-              <div className="flex flex-col justify-between text-md p-10 bg-MapHeadingGray shadow-md ">
-                <div>
-                  <h3 className="font-semibold">
-                    Suburb: {selectedFeature?.suburb || "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    Council: {selectedFeature?.lga || "N/A"}
-                  </h3>
-
-                  <h3 className="font-semibold">
-                    Liveability Score:{" "}
-                    {selectedFeature?.liveability_score
-                      ? `${(selectedFeature.liveability_score * 100).toFixed(
-                          0
-                        )}%`
-                      : "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    Average Rent:{" "}
-                    {selectedFeature?.average_rent
-                      ? `$${selectedFeature.average_rent.toFixed(2)} per week`
-                      : "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    No. of Public Transport Stops:{" "}
-                    {selectedFeature?.ptv_stop_count || "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    Number of Parks & Recreation Areas:{" "}
-                    {selectedFeature?.openspace_count || "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    Traffic Incident Count (past 12 months):{" "}
-                    {selectedFeature?.crash_count || "N/A"}
-                  </h3>
-                  <h3 className="font-semibold">
-                    Crime Count (past 12 months):{" "}
-                    {selectedFeature?.crime_count || "N/A"}
-                  </h3>
+              <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md w-full lg:w-1/3 md:w-full sm:w-full">
+                <div className="mb-12">
+                  <div className="mb-4">
+                    <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
+                    <div className="flex flex-col p-2 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
+                      <h3 className="font-semibold">
+                        Suburb: {selectedFeature?.suburb || "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        Council: {selectedFeature?.lga || "N/A"}
+                      </h3>
+                    </div>
+                  </div>
+                  <div>
+                    <h2 className=" font-bold text-lg mb-1">Selected indicator:</h2>
+                    <div className="flex flex-col p-2 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
+                      <h3 className="font-semibold">
+                        Liveability Score:{" "}
+                        {selectedFeature?.liveability_score
+                          ? `${(selectedFeature.liveability_score * 100).toFixed(
+                              0
+                            )}%`
+                          : "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        Average Rent:{" "}
+                        {selectedFeature?.average_rent
+                          ? `$${selectedFeature.average_rent.toFixed(2)} per week`
+                          : "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        No. of Public Transport Stops:{" "}
+                        {selectedFeature?.ptv_stop_count || "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        Number of Parks & Recreation Areas:{" "}
+                        {selectedFeature?.openspace_count || "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        Traffic Incident Count (past 12 months):{" "}
+                        {selectedFeature?.crash_count || "N/A"}
+                      </h3>
+                      <h3 className="font-semibold">
+                        Crime Count (past 12 months):{" "}
+                        {selectedFeature?.crime_count || "N/A"}
+                      </h3>
+                    </div>
+                  </div>
                 </div>
                 <div className="flex flex-col justify-between text-lg items-center space-y-4">
                   <Link href="/questionnaire">
