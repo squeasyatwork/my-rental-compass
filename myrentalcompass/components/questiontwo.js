@@ -112,7 +112,7 @@ const QuestionTwo = ({
           </div>
         </div>
       </div>
-      <div className="flex sm:w-full md:4/5 items-center justify-between">
+      <div className="flex w-full sm:w-full md:w-4/5 lg:w-full items-center justify-between">
         <div>
           <button
             className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"

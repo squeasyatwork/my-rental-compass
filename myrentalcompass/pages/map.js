@@ -47,7 +47,7 @@ function Map() {
         <section className="flex-grow flex flex-col h-full">
           <div className="flex justify-center items-center">
             <div
-              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-full lg:w-3/4 md:w-3/4 sm:w-3/4 h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
+              className="flex text-xl lg:text-2xl md:text-xl sm:text-xl items-center w-3/4 lg:w-3/4 md:w-3/4 sm:w-3/4 h-3/4 lg:h-3/4 md:h-auto sm:h-auto font-semibold text-green-700 bg-MapHeadingGray"
               style={{
                 boxShadow: "0 3px 10px rgb(0 0 0 / 0.2)",
               }}

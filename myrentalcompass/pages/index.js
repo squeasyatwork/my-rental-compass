@@ -113,7 +113,7 @@ export default function LandingPage() {
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
-                  <button className="call-action-button text-xl w-auto p-4 mt-6">
+                  <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl"> 
                     Find a suburb to live
                   </button>
                 </Link>
