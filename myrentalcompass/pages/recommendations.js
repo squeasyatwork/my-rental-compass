@@ -127,23 +127,21 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
         <main className="font-inter flex flex-col h-screen">
           <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-FooterButtonYellow flex items-center justify-center text-NavTextGray">
+          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
               my="14px"
               bgcolor="#fff"
               borderRadius="10px"
-              padding="10px"
+              padding="2rem"
               sx={{
                 display: "flex",
-                flexDirection: "row",
                 width: "80%",
-                height: "80%",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px" }}>
+              <div style={{ flex: "1 0 33%", padding: "10px", width: "100%" }}>
                 <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
-              <div style={{ flex: "1 0 66%", padding: "10px" }}>
+              <div style={{ flex: "1 0 66%", padding: "10px", width: "100%" }}>
                 {mapLoading ? (
                   <div className="w-full h-full flex items-center justify-center">
                     <img
@@ -153,9 +151,7 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                     />
                   </div>
                 ) : (
-                  // <DynamicBasicMap recommendations={true} />
-                  // Uncommemnt the above line to display the map
-                  <Card style={{ flex: "1 0 66%", padding: "10px" }}>
+                  <Card style={{ padding: "10px" }}>
                     <CardHeader className="flex gap-3">
                       <div className="flex flex-col">
                         <p className="text-lg">Here are your top suburb recommendations</p>
@@ -177,7 +173,6 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               </div>
             </Box>
           </section>
-
           <Footer />
         </main>
       </>
@@ -202,15 +197,15 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
               padding="10px"
               sx={{
                 display: "flex",
-                flexDirection: "row",
+                flexDirection: "row", // Keep it as "row" for side-by-side layout
                 width: "80%",
                 height: "80%",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px" }}>
+              <div style={{ flex: "1 0 33%", padding: "10px", width: "100%" }}>
                 <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} />
               </div>
-              <div style={{ flex: "1 0 66%", padding: "10px" }}>
+              <div style={{ flex: "1 0 66%", padding: "10px", width: "100%" }}>
                 {mapLoading ? (
                   <div className="w-full h-full flex items-center justify-center">
                     <img
@@ -220,14 +215,11 @@ function Recommendations({ nearbyWithinRentRanked = null, rent = 0, affordabilit
                     />
                   </div>
                 ) : (
-                  // <DynamicBasicMap recommendations={true} />
-                  // Uncomment the above line to display the map
                   <h3 className="text-center">NO SUBURBS MATCHED</h3>
                 )}
               </div>
             </Box>
           </section>
-
           <Footer />
         </main>
       </>

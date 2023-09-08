@@ -42,15 +42,12 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
                 <div className='text-2xl font-bold text-left pt-2'>Update Selections</div>
             </center>
             <br></br>
-            <br></br>
-            <br></br>
             <center>
                 <div className='text-md font-bold text-left'>Maximum Rent Per Week</div>
             </center>
             <div><RentSlider handleChoice={(e) =>
                 handleChoice("someQuestionOne", 400 + (50 * parseInt(e.target.value / 12.25)))
             }></RentSlider></div>
-            <br></br>
             <br></br>
             <center>
                 <div className='text-md font-bold text-left'>Liveability Factors Ranking</div>
@@ -73,14 +70,12 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
             <div><LiveabilitySlider criterion={"Road safety"} se
                 handleChoice={(e) => handleChoice("safeRoads", parseInt(e.target.value / 25) + 1)}></LiveabilitySlider></div>
             <br></br>
-            <br></br>
             <center>
                 <div className='text-md font-bold text-left mb-6'>University Preference</div>
             </center>
             <div className="ml-6 mb-6">
                 <AutocompleteSearch optionsList={optionsList} university={university} handleUniChoice={handleUniChoice}></AutocompleteSearch>
             </div>
-            <br></br>
             <div className="mt-auto flex items-center justify-center pb-4">
                 <button className="call-action-button rounded-full" onClick={sendInput}>
                     Update results
