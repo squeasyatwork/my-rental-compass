@@ -35,7 +35,7 @@ body {
       transition-transform transform active:scale-95 active:opacity-90;
   }
   .navbar-button:hover:not(.navbar-button-active) {
-    @apply text-MainButtonYellow transform scale-110 opacity-80;
+    @apply text-ButtonHoverYellow transform scale-110 opacity-80;
   }
   .navbar-button-active:not(.call-action-button)::after {
     content: "";
