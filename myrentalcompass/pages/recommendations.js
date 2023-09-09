@@ -70,7 +70,7 @@ function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {} }) {
   //   console.log("recos file --> defaultSliderValues EMPTY: " + JSON.stringify(defaultSliderValues))
   // }
 
-  // Storing state of all user inputs together
+  // Storing state of all user inputs together, and adjusting initial value based on URL
   const [selectedChoices, setSelectedChoices] = useState({
     someQuestionOne: Object.keys(contextQuery).length === 0
       ? 600 : defaultSliderValues.rent,
