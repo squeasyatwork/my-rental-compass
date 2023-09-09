@@ -4,9 +4,8 @@ import Autocomplete from "@mui/material/Autocomplete";
 
 export default function AutocompleteSearch({
   optionsList,
-  university,
-  handleUniChoice,
-  defaultArg,
+  handleChoice,
+  defaultArg
 }) {
   // function handleChoice(value) {
   //     handleUniChoice(value.label);
@@ -20,15 +19,15 @@ export default function AutocompleteSearch({
   return (
     <Autocomplete
       disablePortal
-      // defaultValue={defaultArg}
-      value={university}
+      defaultValue={defaultArg}
+      // value={currentValue}
       id="autocomplete-search"
       options={optionsList}
       renderInput={(params) => (
         <TextField {...params} label="Select a university" />
       )}
       onChange={(e, value) =>
-        value === null ? handleUniChoice("") : handleUniChoice(value.label)
+        value === null ? handleChoice("university", "") : handleChoice("university", value.label)
       }
     />
   );

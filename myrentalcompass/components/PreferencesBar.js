@@ -15,26 +15,26 @@ const Item = styled(Paper)(({ theme }) => ({
     color: theme.palette.text.secondary,
 }));
 
-export default function PreferencesBar({ handleChoice, university, handleUniChoice, sendInput, defaultSliderValues }) {
-    let optionsList = [{ label: "Monash University" },
-    { label: "University of Melbourne, Parkville" },
-    { label: "Monash University, Clayton" },
-    { label: "Monash University, Caulfield" },
-    { label: "Monash University, Parkville" },
-    { label: "RMIT University, CBD" },
-    { label: "RMIT University, Brunswick" },
-    { label: "RMIT University, Bundoora" },
-    { label: "Deakin University, Burwood" },
-    { label: "Swinburne University of Technology, Hawthorn" },
-    { label: "Swinburne University of Technology, Croydon" },
-    { label: "Swinburne University of Technology, Wantirna" },
-    { label: "La Trobe University, CBD" },
-    { label: "La Trobe University, Bundoora" },
-    { label: "Victoria University, CBD" },
-    { label: "Victoria University, Footscray" },
-    { label: "Victoria University, St Albans" },
-    { label: "Victoria University, Sunshine" },
-    { label: "Victoria University, Werribee" }]
+export default function PreferencesBar({ handleChoice, sendInput, defaultSliderValues }) {
+    let optionsList = [
+        { label: "University of Melbourne, Parkville" },
+        { label: "Monash University, Clayton" },
+        { label: "Monash University, Caulfield" },
+        { label: "Monash University, Parkville" },
+        { label: "RMIT University, CBD" },
+        { label: "RMIT University, Brunswick" },
+        { label: "RMIT University, Bundoora" },
+        { label: "Deakin University, Burwood" },
+        { label: "Swinburne University of Technology, Hawthorn" },
+        { label: "Swinburne University of Technology, Croydon" },
+        { label: "Swinburne University of Technology, Wantirna" },
+        { label: "La Trobe University, CBD" },
+        { label: "La Trobe University, Bundoora" },
+        { label: "Victoria University, CBD" },
+        { label: "Victoria University, Footscray" },
+        { label: "Victoria University, St Albans" },
+        { label: "Victoria University, Sunshine" },
+        { label: "Victoria University, Werribee" }]
     if (Object.keys(defaultSliderValues).length > 0) {
         return (
             <Box flexDirection="column" justifyContent="left" alignItems="left">
@@ -72,7 +72,7 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
                     handleChoice={(e) => handleChoice("lowCrimeRate", parseInt(e.target.value / 25) + 1)} defaultArg={defaultSliderValues.crime}></LiveabilitySlider></div >
 
 
-                <div><LiveabilitySlider criterion={"Road safety"} se
+                <div><LiveabilitySlider criterion={"Road safety"}
                     handleChoice={(e) => handleChoice("safeRoads", parseInt(e.target.value / 25) + 1)} defaultArg={defaultSliderValues.road}></LiveabilitySlider></div>
                 <br></br>
                 <br></br>
@@ -80,7 +80,7 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
                     <div className='text-md font-bold text-left mb-6'>University Preference</div>
                 </center>
                 <div className="ml-6 mb-6">
-                    <AutocompleteSearch optionsList={optionsList} university={university} handleUniChoice={handleUniChoice} defaultArg={defaultSliderValues.university}></AutocompleteSearch>
+                    <AutocompleteSearch optionsList={optionsList} handleChoice={handleChoice} defaultArg={defaultSliderValues.university}></AutocompleteSearch>
                 </div>
                 <br></br>
                 <div className="mt-auto flex items-center justify-center pb-4">
@@ -135,7 +135,7 @@ export default function PreferencesBar({ handleChoice, university, handleUniChoi
                     <div className='text-md font-bold text-left mb-6'>University Preference</div>
                 </center>
                 <div className="ml-6 mb-6">
-                    <AutocompleteSearch optionsList={optionsList} university={university} handleUniChoice={handleUniChoice}></AutocompleteSearch>
+                    <AutocompleteSearch optionsList={optionsList} handleChoice={handleChoice}></AutocompleteSearch>
                 </div>
                 <br></br>
                 <div className="mt-auto flex items-center justify-center pb-4">
