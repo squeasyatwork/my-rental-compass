@@ -21,7 +21,7 @@ const NavBar = ({ activePage }) => {
       <div className="flex justify-center max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-20">
         <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
         <NavBarButton
-          text="Understand your rights"
+          text="What you need to do"
           href="/rights"
           isActive={activePage === "Understand your rights"}
         />
