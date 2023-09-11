@@ -7,20 +7,10 @@ export default function AutocompleteSearch({
   handleChoice,
   defaultArg
 }) {
-  // function handleChoice(value) {
-  //     handleUniChoice(value.label);
-  //     console.log("AutocompleteSearch --> value: " + value.label);
-  // }
-
-  // const defaultProps = {
-  //     options: { optionsList },
-  //     getOptionLabel: (option) => option.label,
-  // };
   return (
     <Autocomplete
       disablePortal
       defaultValue={defaultArg}
-      // value={currentValue}
       id="autocomplete-search"
       options={optionsList}
       renderInput={(params) => (
