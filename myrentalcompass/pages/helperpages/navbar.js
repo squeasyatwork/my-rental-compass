@@ -21,9 +21,9 @@ const NavBar = ({ activePage }) => {
       <div className="flex justify-center max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-20">
         <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
         <NavBarButton
-          text="Resources"
-          href="/resoucres"
-          isActive={activePage === "Resources"}
+          text="Understand your rights"
+          href="/rights"
+          isActive={activePage === "Understand your rights"}
         />
         <NavBarButton
           text="What is liveability"
@@ -31,9 +31,9 @@ const NavBar = ({ activePage }) => {
           isActive={activePage === "What is liveability"}
         />
         <NavBarButton
-          text="Other resources"
-          href="/otherresources"
-          isActive={activePage === "Other resources"}
+          text="What you need to do"
+          href="/resources"
+          isActive={activePage === "What you need to do"}
         />
         <NavBarButton
           text="Find a suburb to live"
@@ -49,9 +49,9 @@ const NavBar = ({ activePage }) => {
 const NavBarButton = ({ text, special, href, isActive }) => (
   <Link href={href}>
     <div
-      className={`navbar-button ${
-        special ? "call-action-button" : ""
-      } ${isActive ? "navbar-button-active" : ""}`}
+      className={`navbar-button ${special ? "call-action-button" : ""} ${
+        isActive ? "navbar-button-active" : ""
+      }`}
     >
       {text}
     </div>
