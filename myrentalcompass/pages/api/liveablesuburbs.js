@@ -1,153 +1,126 @@
 import prisma from "~/lib/prisma";
 
 export default async function getRankedLiveability(req, res) {
-    if (req.query) {
-        let contextQuery = req.query;
-        let rent = eval(contextQuery.rent);
-        let affordability = eval(contextQuery.affordability);
-        let transport = eval(contextQuery.transport);
-        let park = eval(contextQuery.park);
-        let crime = eval(contextQuery.crime);
-        let road = eval(contextQuery.road);
-        let university = contextQuery.university;
-        console.log("API DETECTED NON-EMPTY QUERY");
-        if (req.method !== 'GET') {
-            console.log("ENTERED WRONG HTTP METHOD");
-            return res.status(405).json({ message: "Method not allowded" });
+  // Check if the request has a valid query and HTTP method
+  if (!req.query) {
+    return res.status(200).json(null);
+  }
+  if (req.method !== "GET") {
+    return res.status(405).json({ message: "Method not allowed" });
+  }
+
+  const contextQuery = req.query;
+
+  // Extract and safely parse query parameters
+  const rent = parseFloat(contextQuery.rent);
+  const affordability = parseFloat(contextQuery.affordability);
+  const transport = parseFloat(contextQuery.transport);
+  const park = parseFloat(contextQuery.park);
+  const crime = parseFloat(contextQuery.crime);
+  const road = parseFloat(contextQuery.road);
+  const university = contextQuery.university;
+
+  // Get nearby suburbs based on university or get all suburbs
+  let nearbySuburbs = university
+    ? (await prisma.uni_suburbs.findMany({ where: { university } }))
+        .map((suburb) => suburb.nearby_suburbs)
+        .flat()
+        .map((item) => item.replace(/['\[\]]/g, "").trim())
+        .flatMap((item) => item.split(",").map((suburb) => suburb.trim()))
+    : (await prisma.liveability_data.findMany()).map((item) => item.suburb);
+
+  // Map ratings to weightages
+  const ratingArray = [1, 2, 3, 4, 5];
+  const weightageArray = [1.0, 1.5, 2.0, 2.5, 3.0];
+  const rentWeightage = weightageArray[ratingArray.indexOf(affordability)];
+  const transportWeightage = weightageArray[ratingArray.indexOf(transport)];
+  const parkWeightage = weightageArray[ratingArray.indexOf(park)];
+  const crimeWeightage = weightageArray[ratingArray.indexOf(crime)];
+  const roadWeightage = weightageArray[ratingArray.indexOf(road)];
+
+  // Function to rank suburbs based on different criteria
+  const rankSuburbs = (array) => {
+    return array
+      .map((item) => {
+        let totalPenalty = 0;
+        let boost = 0;
+
+        if (item.average_rent <= rent && nearbySuburbs.includes(item.suburb)) {
+          boost = 3;
         }
 
-        console.log("api query contents: " + rent + " " + affordability + " " + transport + " " + park + " " + crime + " " + road + " " + university);
-        let nearbySuburbs = [];
-        // First, we need to find out if suburbs should be all Melbourne suburbs, or near to a specific university.
-        if (university != "") {
-            nearbySuburbs = await prisma.uni_suburbs.findMany({
-                where: {
-                    university: university
-                }
-            })
-            nearbySuburbs = JSON.parse(JSON.stringify(nearbySuburbs));
-            // console.log("backend UNIchoice: " + JSON.stringify(nearbySuburbs));
-            nearbySuburbs = eval(nearbySuburbs[0].nearby_suburbs);
-        }
-        else {
-            nearbySuburbs = await prisma.liveability_data.findMany({
-                where: {
-                },
-                // select: {
-                //     nearby_suburbs: true
-                // }
-            })
-            nearbySuburbs = JSON.parse(JSON.stringify(nearbySuburbs));
-            let nearbySuburbNames = [];
-            nearbySuburbs.forEach(getSuburb)
-            function getSuburb(item) {
-                nearbySuburbNames.push(item.suburb);
-            }
-            nearbySuburbs = nearbySuburbNames;
-            // console.log("No UNIchoice, all suburbs retrieved: " + nearbySuburbs);
-        }
+        // if (item.average_rent < rent) totalPenalty += -2.0;
+        // if (!nearbySuburbs.includes(item.suburb)) totalPenalty += -2.0;
 
+        const baseScore =
+          item.rent_score * rentWeightage +
+          item.transport_score * transportWeightage +
+          item.openspace_score * parkWeightage +
+          item.crime_score * crimeWeightage +
+          item.saferoads_score * roadWeightage +
+          totalPenalty;
 
-        console.log("\nACTUAL  NEARBY  SUBURBS: " + nearbySuburbs);
+        const score = baseScore + boost;
 
-        let withinRent = await prisma.liveability_data.findMany({
-            where: {
-                average_rent: {
-                    lte: rent,
-                }
-            },
-            // select: {
-            //     suburb: true,
-            //     average_rent: true
-            // }
-        });
-        withinRent = JSON.parse(JSON.stringify(withinRent));
-        // console.log("\nbackend WITHINRENTchoice: " + JSON.stringify(withinRent));
+        return {
+          suburb: item.suburb,
+          liveability_score: score,
+          meetsCriteria:
+            item.average_rent <= rent && nearbySuburbs.includes(item.suburb),
+        };
+      })
+      .sort((a, b) => {
+        if (a.meetsCriteria && !b.meetsCriteria) return -1;
+        if (!a.meetsCriteria && b.meetsCriteria) return 1;
+        return b.liveability_score - a.liveability_score;
+      });
+  };
 
-        // Now, find the overlap in nearbySuburbs and withinRent suburbs.
-        let nearbyWithinRent = [];
-        withinRent.forEach(findNearbyWithinRent);
+  const liveabilityData = await prisma.liveability_data.findMany();
+  let rankedSuburbs = rankSuburbs(liveabilityData);
 
-        function findNearbyWithinRent(item) {
-            function isWithinRent(element, index, array) {
-                if (element === item.suburb) {
-                    nearbyWithinRent.push(item)
-                }
-                else {
-                    // console.log("SUBURB" + element + "NOT FOUND IN WITHINRENT ARRAY" + nearbyWithinRent)
-                }
-            }
-            nearbySuburbs.some(isWithinRent)
-        }
+  for (let item of rankedSuburbs) {
+    const dbResponse = await prisma.data_by_suburb.findFirst({
+      where: { suburb: item.suburb },
+      select: {
+        lga: true,
+        average_rent: true,
+        ptv_stop_count: true,
+        openspace_count: true,
+        crash_count: true,
+        crime_count: true,
+      },
+    });
 
-        console.log("\n\tNEARBY WITHIN RENT: " + JSON.stringify(nearbyWithinRent));
-
-        // Before ranking the filtered suburbs, define weightage of criteria based on user input of relevance.
-        let ratingArray = [1, 2, 3, 4, 5];
-        let weightageArray = [1.0, 1.5, 2.0, 2.5, 3.0];
-
-        // Map ratings to weightages for each criterion
-        let rentWeightage = weightageArray[ratingArray.indexOf(affordability)]
-        let transportWeightage = weightageArray[ratingArray.indexOf(eval(transport))]
-        let parkWeightage = weightageArray[ratingArray.indexOf(eval(park))]
-        let crimeWeightage = weightageArray[ratingArray.indexOf(eval(crime))]
-        let roadWeightage = weightageArray[ratingArray.indexOf(eval(road))]
-        console.log("\n\tRENT  WEIGHTAGE: " + affordability);
-
-        // Now, a ranking function is defined and applied to get the final ranked array.
-        let nearbyWithinRentRanked = rankSuburbs(nearbyWithinRent);
-        function rankSuburbs(array) {
-            let finalArray = [];
-            array.forEach(calculateLiveability);
-            function calculateLiveability(item) {
-                let rentNumerator = eval(item.rent_score) * rentWeightage;
-                let transportNumerator = eval(item.transport_score) * transportWeightage;
-                let parkNumerator = eval(item.openspace_score) * parkWeightage;
-                let crimeNumerator = eval(item.crime_score) * crimeWeightage;
-                let roadNumerator = eval(item.saferoads_score) * roadWeightage;
-                let denominator = rentWeightage + transportWeightage + parkWeightage + crimeWeightage + roadWeightage;
-                let score = ((rentNumerator + transportNumerator + parkNumerator + crimeNumerator + roadNumerator) / denominator).toFixed(2);
-                // console.log("\n\tFINAL SCORE of " + item.suburb + ": " + JSON.stringify(score));
-                finalArray.push({ "suburb": item.suburb, "liveability_score": eval(score) })
-            }
-            //Now, sort this array in descending order.
-            function comparator(score1, score2) {
-                return Math.trunc(eval(score2.liveability_score) * 1000 - eval(score1.liveability_score) * 1000);
-            }
-            return finalArray.sort(comparator);
-        }
-
-        let index = 0;
-        while (index < nearbyWithinRentRanked.length) {
-            let dbResponse = await prisma.data_by_suburb.findFirst({
-                where: {
-                    suburb: nearbyWithinRentRanked[index].suburb
-                },
-                select: {
-                    lga: true,
-                    average_rent: true,
-                    ptv_stop_count: true,
-                    openspace_count: true,
-                    crash_count: true,
-                    crime_count: true
-                }
-            })
-            dbResponse = JSON.parse(JSON.stringify(dbResponse));
-            nearbyWithinRentRanked[index].lga = dbResponse.lga;
-            nearbyWithinRentRanked[index].average_rent = eval(dbResponse.average_rent);
-            nearbyWithinRentRanked[index].ptv_stop_count = dbResponse.ptv_stop_count;
-            nearbyWithinRentRanked[index].openspace_count = dbResponse.openspace_count;
-            nearbyWithinRentRanked[index].crash_count = dbResponse.crash_count;
-            nearbyWithinRentRanked[index].crime_count = dbResponse.crime_count;
-            index++;
-        }
-
-        console.log("\n\tapi file --> RANKED  FINAL  ARRAY: " + JSON.stringify(nearbyWithinRentRanked));
-
-        res.status(200).json(JSON.stringify(nearbyWithinRentRanked));
+    if (dbResponse) {
+      item.lga = dbResponse.lga;
+      item.average_rent = parseFloat(dbResponse.average_rent);
+      item.ptv_stop_count = dbResponse.ptv_stop_count;
+      item.openspace_count = dbResponse.openspace_count;
+      item.crash_count = dbResponse.crash_count;
+      item.crime_count = dbResponse.crime_count;
     }
-    else {
-        console.log("API DID NOT DETECT NON-EMPTY QUERY");
-        res.status(200).json(null);
-    }
+  }
+
+  // Normalize the scores
+  const maxScore = Math.max(
+    ...rankedSuburbs.map((item) => item.liveability_score)
+  );
+  const minScore = Math.min(
+    ...rankedSuburbs.map((item) => item.liveability_score)
+  );
+  rankedSuburbs = rankedSuburbs.map((item) => ({
+    ...item,
+    liveability_score:
+      (item.liveability_score - minScore) / (maxScore - minScore),
+  }));
+
+  res.status(200).json(
+    rankedSuburbs.map((item) => ({
+      suburb: item.suburb,
+      liveability_score: item.liveability_score,
+      lga: item.lga,
+      average_rent: item.average_rent,
+    }))
+  );
 }
