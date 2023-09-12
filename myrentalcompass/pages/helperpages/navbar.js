@@ -31,9 +31,9 @@ const NavBar = ({ activePage }) => {
           isActive={activePage === "What is liveability"}
         />
         <NavBarButton
-          text="Other resources"
+          text="What you need to do"
           href="/resources"
-          isActive={activePage === "Other resources"}
+          isActive={activePage === "What you need to do"}
         />
         <NavBarButton
           text="Find a suburb to live"
@@ -49,9 +49,9 @@ const NavBar = ({ activePage }) => {
 const NavBarButton = ({ text, special, href, isActive }) => (
   <Link href={href}>
     <div
-      className={`navbar-button ${
-        special ? "call-action-button" : ""
-      } ${isActive ? "navbar-button-active" : ""}`}
+      className={`navbar-button ${special ? "call-action-button" : ""} ${
+        isActive ? "navbar-button-active" : ""
+      }`}
     >
       {text}
     </div>
