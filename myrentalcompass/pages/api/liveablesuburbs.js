@@ -26,7 +26,7 @@ export default async function getRankedLiveability(req, res) {
         .map((suburb) => suburb.nearby_suburbs)
         .flat()
         .map((item) => item.replace(/['\[\]]/g, "").trim())
-        .flatMap(item => item.split(',').map(suburb => suburb.trim())) 
+        .flatMap((item) => item.split(",").map((suburb) => suburb.trim()))
     : (await prisma.liveability_data.findMany()).map((item) => item.suburb);
 
   // Map ratings to weightages
@@ -40,7 +40,8 @@ export default async function getRankedLiveability(req, res) {
 
   // Function to rank suburbs based on different criteria
   const rankSuburbs = (array) => {
-    return array.map((item) => {
+    return array
+      .map((item) => {
         let totalPenalty = 0;
         let boost = 0;
 
@@ -102,11 +103,16 @@ export default async function getRankedLiveability(req, res) {
   }
 
   // Normalize the scores
-  const maxScore = Math.max(...rankedSuburbs.map(item => item.liveability_score));
-  const minScore = Math.min(...rankedSuburbs.map(item => item.liveability_score));
-  rankedSuburbs = rankedSuburbs.map(item => ({
+  const maxScore = Math.max(
+    ...rankedSuburbs.map((item) => item.liveability_score)
+  );
+  const minScore = Math.min(
+    ...rankedSuburbs.map((item) => item.liveability_score)
+  );
+  rankedSuburbs = rankedSuburbs.map((item) => ({
     ...item,
-    liveability_score: (item.liveability_score - minScore) / (maxScore - minScore)
+    liveability_score:
+      (item.liveability_score - minScore) / (maxScore - minScore),
   }));
 
   res.status(200).json(
