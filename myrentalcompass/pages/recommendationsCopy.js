@@ -1,12 +1,17 @@
-"use client";
-
 import * as React from "react";
 import Router from "next/router";
-import { Box, Button, TextField } from "@mui/material";
+import { Box, Button, Slider, TextField } from "@mui/material";
 import Head from "next/head";
+import dynamic from "next/dynamic";
 
+import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
+import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+
+const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
+  ssr: false,
+});
 
 export const config = {
   runtime: "nodejs",
@@ -23,27 +28,35 @@ export const getServerSideProps = async (context) => {
         method: "GET",
       }
     );
-    let rankedSuburbs = await dbResponse.json();
 
-    return { props: { rankedSuburbs, contextQuery } };
+    // Check if the response is valid and is JSON before attempting to parse
+    if (dbResponse.ok && dbResponse.headers.get("content-type").includes("application/json")) {
+      let rankedSuburbs = await dbResponse.json();
+      return { props: { rankedSuburbs, contextQuery } };
+    }
   }
 
-  let dummyReturnValue = null;
-  return { props: { dummyReturnValue } };
+  return { props: { rankedSuburbs: null, contextQuery: {} } };
 };
 
-function Recommendations({ rankedSuburbs = null, contextQuery = {} }) {
+export default function Recommendations({
+  rankedSuburbs = null,
+  contextQuery = {},
+}) {
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || "",
-    affordability: contextQuery.affordabilityChoice || "",
-    transport: contextQuery.transportChoice || "",
-    park: contextQuery.parkChoice || "",
-    crime: contextQuery.crimeChoice || "",
-    road: contextQuery.roadChoice || "",
+    rent: contextQuery.rentChoice || 50,
+    affordability: contextQuery.affordabilityChoice || 3,
+    transport: contextQuery.transportChoice || 3,
+    park: contextQuery.parkChoice || 3,
+    crime: contextQuery.crimeChoice || 3,
+    road: contextQuery.roadChoice || 3,
     university: contextQuery.uniChoice || "",
   });
+
+  const [selectedFeature, setSelectedFeature] = React.useState(null);
+  const [isPanelOpen, setIsPanelOpen] = React.useState(false);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -52,12 +65,21 @@ function Recommendations({ rankedSuburbs = null, contextQuery = {} }) {
     });
   };
 
+  const handleSliderChange = (name) => (e, value) => {
+    setInputValues({
+      ...inputValues,
+      [name]: value,
+    });
+  };
+
   const sendInput = () => {
     router.push({
-      pathname: "/recommendationsCopy", // Updated pathname to reroute to /recommendationsCopy
+      pathname: "/recommendationsCopy",
       query: inputValues,
     });
   };
+
+  const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
   return (
     <>
@@ -73,72 +95,105 @@ function Recommendations({ rankedSuburbs = null, contextQuery = {} }) {
             bgcolor="#fff"
             borderRadius="10px"
             padding="10px"
-            sx={{ display: "flex", flexDirection: "column", width: "80%" }}
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              width: "80%",
+              justifyContent: "space-between",
+            }}
           >
-            <TextField
-              name="rent"
-              label="Rent"
-              variant="outlined"
-              value={inputValues.rent}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="affordability"
-              label="Affordability"
-              variant="outlined"
-              value={inputValues.affordability}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="transport"
-              label="Public Transport"
-              variant="outlined"
-              value={inputValues.transport}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="park"
-              label="Parks"
-              variant="outlined"
-              value={inputValues.park}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="crime"
-              label="Crime Rate"
-              variant="outlined"
-              value={inputValues.crime}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="road"
-              label="Safety Roads"
-              variant="outlined"
-              value={inputValues.road}
-              onChange={handleInputChange}
-            />
-            <TextField
-              name="university"
-              label="University"
-              variant="outlined"
-              value={inputValues.university}
-              onChange={handleInputChange}
-            />
+            <Box
+              sx={{
+                width: "33%",
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+              }}
+            >
+              {/* Rental and liveability sliders */}
+              <RentSlider
+                handleChoice={handleSliderChange("rent")}
+                defaultArg={inputValues.rent}
+              />
+              <LiveabilitySliders
+                inputValues={inputValues}
+                handleSliderChange={handleSliderChange}
+              />
 
-            <Button onClick={sendInput}>Get Recommendations</Button>
+              {/* University dropdown */}
+              <UniversityDropdown
+                value={{ label: inputValues.university }}
+                onChange={(event, newValue) =>
+                  handleInputChange({
+                    target: {
+                      name: "university",
+                      value: newValue ? newValue.label : "",
+                    },
+                  })
+                }
+              />
+              <Button onClick={sendInput}>Get Recommendations</Button>
+            </Box>
+            <Box
+              sx={{
+                width: "65%",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
+              }}
+            >
+              {/* Dynamic map rendering */}
+              <DynamicBasicMap
+                recommendations={true}
+                data={rankedSuburbs}
+                setSelectedFeature={setSelectedFeature}
+              />
 
-            {rankedSuburbs && rankedSuburbs.length !== 0 && (
-              <ol>
-                {rankedSuburbs.map((item, index) => (
-                  <li key={index}>
-                    {index + 1}. {item.suburb}, {item.liveability_score}%
-                  </li>
-                ))}
-              </ol>
-            )}
-            {rankedSuburbs && rankedSuburbs.length === 0 && (
-              <h3>NO SUBURBS MATCHED</h3>
-            )}
+              {/* Panel toggle button */}
+              <Button onClick={() => setIsPanelOpen(!isPanelOpen)}>
+                Toggle Panel
+              </Button>
+
+              {/* Top 10 Suburbs panel */}
+              {isPanelOpen && (
+                <Box
+                  bgcolor="#fff"
+                  padding="10px"
+                  borderRadius="10px"
+                  sx={{
+                    position: "absolute",
+                    right: 0,
+                    top: "10px",
+                    width: "250px",
+                    maxHeight: "70vh",
+                    overflowY: "scroll",
+                    zIndex: 1000,
+                  }}
+                >
+                  <h3>Top 10 Suburbs</h3>
+                  {topTenSuburbs.map((suburb, index) => (
+                    <p key={suburb.suburb}>
+                      {index + 1}. {suburb.suburb},{" "}
+                      {(suburb.liveability_score * 100).toFixed(2)}% - $
+                      {suburb.average_rent}/week
+                    </p>
+                  ))}
+                </Box>
+              )}
+
+              {/* Selected feature details */}
+              {selectedFeature && (
+                <Box>
+                  <p>Name: {selectedFeature.suburb}</p>
+                  <p>Council: {selectedFeature.lga}</p>
+                  <p>
+                    Liveability Score:{" "}
+                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                  </p>
+                </Box>
+              )}
+            </Box>
           </Box>
         </section>
         <Footer />
@@ -146,5 +201,3 @@ function Recommendations({ rankedSuburbs = null, contextQuery = {} }) {
     </>
   );
 }
-
-export default Recommendations;

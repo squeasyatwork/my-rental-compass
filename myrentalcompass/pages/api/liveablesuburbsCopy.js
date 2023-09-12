@@ -45,11 +45,11 @@ export default async function getRankedLiveability(req, res) {
         let boost = 0;
 
         if (item.average_rent <= rent && nearbySuburbs.includes(item.suburb)) {
-          boost = 2;
+          boost = 3;
         }
 
-        if (item.average_rent < rent) totalPenalty += -2.0;
-        if (!nearbySuburbs.includes(item.suburb)) totalPenalty += -2.0;
+        // if (item.average_rent < rent) totalPenalty += -2.0;
+        // if (!nearbySuburbs.includes(item.suburb)) totalPenalty += -2.0;
 
         const baseScore =
           item.rent_score * rentWeightage +
@@ -112,7 +112,8 @@ export default async function getRankedLiveability(req, res) {
   res.status(200).json(
     rankedSuburbs.map((item) => ({
       suburb: item.suburb,
-      liveability_score: item.liveability_score * 100,
+      liveability_score: item.liveability_score,
+      lga: item.lga,  // added this line to include the lga in the response
     }))
   );
 }

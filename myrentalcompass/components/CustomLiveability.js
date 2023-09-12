@@ -1,10 +1,10 @@
 import React from "react";
 
-export const loadCustomLiveabilityData = (boundaryData, suburbData) => {
+const loadCustomLiveabilityData = (boundaryData, suburbData) => {
   if (boundaryData && boundaryData.features && suburbData) {
     boundaryData.features.forEach((feature) => {
       const suburb = feature.properties.suburb;
-      const matchingRow = suburbData.find((row) => row.suburb === suburb); // changed customData to suburbData
+      const matchingRow = suburbData.find((row) => row.suburb === suburb);
 
       if (matchingRow) {
         // Merge all properties
@@ -15,7 +15,7 @@ export const loadCustomLiveabilityData = (boundaryData, suburbData) => {
   return boundaryData;
 };
 
-export const CustomLiveability = ({ boundaryData, suburbData }) => {
-  const mergedData = loadCustomLiveabilityData(boundaryData, suburbData);
-  return mergedData;
-};
+export const CustomLiveability = (boundaryData, suburbData) => {
+    return loadCustomLiveabilityData(boundaryData, suburbData);
+  };
+  

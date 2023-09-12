@@ -4,12 +4,9 @@ import LiveabilitySlider from "~/components/LiveabilitySlider";
 import AutocompleteSearch from "./AutocompleteSearch";
 import Box from "@mui/material/Box";
 
-export default function PreferencesBar({
-  handleChoice,
-  sendInput,
-  defaultSliderValues,
-}) {
-  let optionsList = [
+const PreferencesBar = ({ handleChoice, sendInput }) => {
+
+    const universities = [
     { label: "University of Melbourne, Parkville" },
     { label: "Monash University, Clayton" },
     { label: "Monash University, Caulfield" },
@@ -28,86 +25,49 @@ export default function PreferencesBar({
     { label: "Victoria University, St Albans" },
     { label: "Victoria University, Sunshine" },
     { label: "Victoria University, Werribee" },
-  ];
+];
 
-  const hasDefaults = Object.keys(defaultSliderValues).length > 0;
+return (
+    <div>
+        {/* Rent Slider */}
+        <RentSlider handleChoice={(e, value) => handleChoice("rent", value)} defaultArg={600} />
 
-  return (
-    <Box flexDirection="column" justifyContent="left" alignItems="left">
-      <center>
-        <div className="text-2xl font-bold text-left pt-2">
-          Update Selections
-        </div>
-      </center>
-      <Box mt={4}>
-        <center>
-          <div className="text-md font-bold text-left">
-            Maximum Rent Per Week
-          </div>
-        </center>
-        <RentSlider
-          handleChoice={(e) =>
-            handleChoice(
-              "someQuestionOne",
-              400 + 50 * parseInt(e.target.value / 12.25)
-            )
-          }
-          defaultArg={hasDefaults ? defaultSliderValues.rent : undefined}
+        {/* Liveability Sliders */}
+        <LiveabilitySlider 
+            criterion="Affordable housing"
+            handleChoice={(e, value) => handleChoice("affordableHousing", value)}
+            defaultArg={3}
         />
-        <center className="mt-4">
-          <div className="text-md font-bold text-left">
-            Liveability Factors Ranking
-          </div>
-        </center>
-      </Box>
-
-      {/* You can map through an array to generate the sliders and avoid repetitive code */}
-      {[
-        {
-          criterion: "Affordable housing",
-          key: "affordability",
-          questionKey: "affordableHousing",
-        },
-        {
-          criterion: "Public transport access",
-          key: "transport",
-          questionKey: "publicTransport",
-        },
-        {
-          criterion: "Parks and greenery",
-          key: "park",
-          questionKey: "openSpace",
-        },
-        { criterion: "Crime rate", key: "crime", questionKey: "lowCrimeRate" },
-        { criterion: "Road safety", key: "road", questionKey: "safeRoads" },
-      ].map(({ criterion, key, questionKey }) => (
-        <LiveabilitySlider
-          key={key}
-          criterion={criterion}
-          handleChoice={(e) =>
-            handleChoice(questionKey, parseInt(e.target.value / 25) + 1)
-          }
-          defaultArg={hasDefaults ? defaultSliderValues[key] : undefined}
+        <LiveabilitySlider 
+            criterion="Public transport access"
+            handleChoice={(e, value) => handleChoice("publicTransport", value)}
+            defaultArg={3}
         />
-      ))}
-
-      <center className="mt-4">
-        <div className="text-md font-bold text-left mb-6">
-          University Preference
-        </div>
-      </center>
-      <Box className="ml-6 mb-6">
-        <AutocompleteSearch
-          optionsList={optionsList}
-          handleChoice={handleChoice}
-          defaultArg={hasDefaults ? defaultSliderValues.university : undefined}
+        <LiveabilitySlider 
+            criterion="Crime rate"
+            handleChoice={(e, value) => handleChoice("crimeRate", value)}
+            defaultArg={3}
         />
-      </Box>
-      <Box className="mt-auto flex items-center justify-center pb-4">
-        <button className="call-action-button rounded-full" onClick={sendInput}>
-          Update results
-        </button>
-      </Box>
-    </Box>
-  );
-}
+        <LiveabilitySlider 
+            criterion="Road safety"
+            handleChoice={(e, value) => handleChoice("roadSafety", value)}
+            defaultArg={3}
+        />
+        <LiveabilitySlider 
+            criterion="Parks and greenery"
+            handleChoice={(e, value) => handleChoice("parksGreenery", value)}
+            defaultArg={3}
+        />
+
+        {/* University Autocomplete */}
+        <AutocompleteSearch 
+            optionsList={universities}
+            handleChoice={(key, value) => handleChoice("university", value)}
+        />
+
+        <Button variant="contained" onClick={sendInput}>Search</Button>
+    </div>
+);
+};
+
+export default PreferencesBar;

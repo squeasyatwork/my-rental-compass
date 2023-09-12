@@ -26,7 +26,7 @@ export default async function getRankedLiveability(req, res) {
         .map((suburb) => suburb.nearby_suburbs)
         .flat()
         .map((item) => item.replace(/['\[\]]/g, "").trim())
-        .flatMap((item) => item.split(",").map((suburb) => suburb.trim()))
+        .flatMap(item => item.split(',').map(suburb => suburb.trim())) 
     : (await prisma.liveability_data.findMany()).map((item) => item.suburb);
 
   // Map ratings to weightages
@@ -40,17 +40,16 @@ export default async function getRankedLiveability(req, res) {
 
   // Function to rank suburbs based on different criteria
   const rankSuburbs = (array) => {
-    return array
-      .map((item) => {
+    return array.map((item) => {
         let totalPenalty = 0;
         let boost = 0;
 
         if (item.average_rent <= rent && nearbySuburbs.includes(item.suburb)) {
-          boost = 2;
+          boost = 3;
         }
 
-        if (item.average_rent < rent) totalPenalty += -2.0;
-        if (!nearbySuburbs.includes(item.suburb)) totalPenalty += -2.0;
+        // if (item.average_rent < rent) totalPenalty += -2.0;
+        // if (!nearbySuburbs.includes(item.suburb)) totalPenalty += -2.0;
 
         const baseScore =
           item.rent_score * rentWeightage +
@@ -103,22 +102,19 @@ export default async function getRankedLiveability(req, res) {
   }
 
   // Normalize the scores
-  const maxScore = Math.max(
-    ...rankedSuburbs.map((item) => item.liveability_score)
-  );
-  const minScore = Math.min(
-    ...rankedSuburbs.map((item) => item.liveability_score)
-  );
-  rankedSuburbs = rankedSuburbs.map((item) => ({
+  const maxScore = Math.max(...rankedSuburbs.map(item => item.liveability_score));
+  const minScore = Math.min(...rankedSuburbs.map(item => item.liveability_score));
+  rankedSuburbs = rankedSuburbs.map(item => ({
     ...item,
-    liveability_score:
-      (item.liveability_score - minScore) / (maxScore - minScore),
+    liveability_score: (item.liveability_score - minScore) / (maxScore - minScore)
   }));
 
   res.status(200).json(
     rankedSuburbs.map((item) => ({
       suburb: item.suburb,
-      liveability_score: item.liveability_score * 100,
+      liveability_score: item.liveability_score,
+      lga: item.lga,
+      average_rent: item.average_rent,
     }))
   );
 }
