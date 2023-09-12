@@ -22,8 +22,8 @@ const NavBar = ({ activePage }) => {
         <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
         <NavBarButton
           text="What you need to do"
-          href="/rights"
-          isActive={activePage === "Understand your rights"}
+          href="/youneedtodo"
+          isActive={activePage === "What you need to do"}
         />
         <NavBarButton
           text="What is liveability"
