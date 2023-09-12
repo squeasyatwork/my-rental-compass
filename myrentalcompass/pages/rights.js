@@ -3,7 +3,7 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 import UserguideBar from "~/components/UserguideBar.js";
 
-export default function Youneedtodo() {
+export default function Resources() {
   return (
     <>
       <Head>
