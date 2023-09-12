@@ -40,7 +40,7 @@ export default function Youneedtodo() {
         <div className=" flex flex-col bg-white px-6 pb-20 items-center p-8">
           <div className="relative flex flex-col justify-between h-full text-HeadingTextGray">
             <h1 className="text-5xl font-bold text-center">
-              Follow our steop-by-step guide below to help you
+              Follow our step-by-step guide below to help you
             </h1>
             <h1 className="text-5xl font-bold text-center mt-4">
               understand the rental process

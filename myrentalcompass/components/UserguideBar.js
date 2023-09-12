@@ -26,34 +26,18 @@ const UserguideBar = () => {
   return (
     <div className="mx-auto flex flex-col">
         <div className="flex flex-col justify-between items-center">
-            <div className='flex'>
+            <div className='flex w-full'>
                 <Image
-                src="/information-icon.svg"
-                alt="information"
-                width={100}
-                height={100}
-                className="rounded-xl"
+                    src="/chat-bubble.png"
+                    alt="chat"
+                    width={300}
+                    height={300}
                 />
-                <button
-                onClick={toggleDetails1}
-                className=" font-medium text-2xl px-3 py-1 rounded-md"
-                >
-                1.Before you leave...
-                </button>
-            </div>
-            <div className='flex'>
-                <button
-                onClick={toggleDetails2}
-                className=" font-medium text-2xl px-3 py-1 rounded-md"
-                >
-                2.When you arrive...
-                </button>
                 <Image
-                src="/information-icon.svg"
-                alt="information"
-                width={100}
-                height={100}
-                className="rounded-xl"
+                    src="/woman.gif"
+                    alt="woman"
+                    width={300}
+                    height={300}
                 />
             </div>
             <div className='flex'>
@@ -62,14 +46,91 @@ const UserguideBar = () => {
                 alt="information"
                 width={100}
                 height={100}
+                />
+                <div className='w-2/5 h-8 border-4 border-black'></div>
+                <div className='flex flex-col'>
+                    <button
+                    onClick={toggleDetails1}
+                    className=" font-medium text-2xl px-3 py-1 rounded-md"
+                    >
+                    1.Before you leave...
+                    </button>
+                    {showDetails1 && (
+                        <div className="mt-4">
+                        <div className="cursor-pointer">
+                            <h2 className="text-lg font-semibold">Section 1</h2>
+                            <p>Details about Section 1...</p>
+                        </div>
+                        <div className="cursor-pointer mt-2">
+                            <h2 className="text-lg font-semibold">Section 2</h2>
+                            <p>Details about Section 2...</p>
+                        </div>
+                        {/* Add more sections as needed */}
+                        </div>
+                    )}
+                </div>
+            </div>
+            <div className=' w-3/4 h-full border-28 bg-black'></div>
+            <div className='flex'>
+                <div className='flex flex-col items-center justify-center'>
+                    <button
+                        onClick={toggleDetails2}
+                        className=" font-medium text-2xl px-3 py-1 rounded-md"
+                        >
+                        2.When you arrive...
+                    </button>
+                    {showDetails2 && (
+                        <div className="mt-4">
+                        <div className="cursor-pointer">
+                            <h2 className="text-lg font-semibold">Section 1</h2>
+                            <p>Details about Section 1...</p>
+                        </div>
+                        <div className="cursor-pointer mt-2">
+                            <h2 className="text-lg font-semibold">Section 2</h2>
+                            <p>Details about Section 2...</p>
+                        </div>
+                        {/* Add more sections as needed */}
+                        </div>
+                    )}
+                </div>
+                <Image
+                src="/information-icon.svg"
+                alt="information"
+                width={100}
+                height={100}
                 className="rounded-xl"
                 />
-                <button
-                onClick={toggleDetails3}
-                className=" font-medium text-2xl px-3 py-1 rounded-md"
-                >
-                3.Found a property...
-                </button>
+            </div>
+            <div className='flex'>
+                <Image
+                src="/information-icon.svg"
+                alt="information"
+                width={100}
+                height={100}
+                className="rounded-xl"
+                />
+                <div className='flex flex-col'>
+                    <button
+                        onClick={toggleDetails3}
+                        className=" font-medium text-2xl px-3 py-1 rounded-md"
+                        >
+                        3.Found a property...
+                    </button>
+                    {showDetails3 && (
+                        <div className="mt-4">
+                        <div className="cursor-pointer">
+                            <h2 className="text-lg font-semibold">Section 1</h2>
+                            <p>Details about Section 1...</p>
+                        </div>
+                        <div className="cursor-pointer mt-2">
+                            <h2 className="text-lg font-semibold">Section 2</h2>
+                            <p>Details about Section 2...</p>
+                        </div>
+                        {/* Add more sections as needed */}
+                        </div>
+                    )}
+                </div>
+                
             </div>
             <div className='flex flex-col'>
                 <div className='flex'>
@@ -94,60 +155,21 @@ const UserguideBar = () => {
                 >
                 4. Making an appointment...
                 </button>
+                {showDetails4 && (
+                    <div className="mt-4">
+                    <div className="cursor-pointer">
+                        <h2 className="text-lg font-semibold">Section 1</h2>
+                        <p>Details about Section 1...</p>
+                    </div>
+                    <div className="cursor-pointer mt-2">
+                        <h2 className="text-lg font-semibold">Section 2</h2>
+                        <p>Details about Section 2...</p>
+                    </div>
+                    {/* Add more sections as needed */}
+                    </div>
+                )}
             </div>
         </div>
-        {showDetails1 && (
-            <div className="mt-4">
-            <div className="cursor-pointer">
-                <h2 className="text-lg font-semibold">Section 1</h2>
-                <p>Details about Section 1...</p>
-            </div>
-            <div className="cursor-pointer mt-2">
-                <h2 className="text-lg font-semibold">Section 2</h2>
-                <p>Details about Section 2...</p>
-            </div>
-            {/* Add more sections as needed */}
-            </div>
-        )}
-        {showDetails2 && (
-            <div className="mt-4">
-            <div className="cursor-pointer">
-                <h2 className="text-lg font-semibold">Section 1</h2>
-                <p>Details about Section 1...</p>
-            </div>
-            <div className="cursor-pointer mt-2">
-                <h2 className="text-lg font-semibold">Section 2</h2>
-                <p>Details about Section 2...</p>
-            </div>
-            {/* Add more sections as needed */}
-            </div>
-        )}
-        {showDetails3 && (
-            <div className="mt-4">
-            <div className="cursor-pointer">
-                <h2 className="text-lg font-semibold">Section 1</h2>
-                <p>Details about Section 1...</p>
-            </div>
-            <div className="cursor-pointer mt-2">
-                <h2 className="text-lg font-semibold">Section 2</h2>
-                <p>Details about Section 2...</p>
-            </div>
-            {/* Add more sections as needed */}
-            </div>
-        )}
-        {showDetails4 && (
-            <div className="mt-4">
-            <div className="cursor-pointer">
-                <h2 className="text-lg font-semibold">Section 1</h2>
-                <p>Details about Section 1...</p>
-            </div>
-            <div className="cursor-pointer mt-2">
-                <h2 className="text-lg font-semibold">Section 2</h2>
-                <p>Details about Section 2...</p>
-            </div>
-            {/* Add more sections as needed */}
-            </div>
-        )}
     </div>
   );
 };
