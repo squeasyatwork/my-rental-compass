@@ -92,10 +92,13 @@ export default function Recommendations({
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
-        <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
-          <div className="font-bold text-4xl">
+        
+        <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
+          <div className="font-bold text-4xl text-black">
             <h1>Here are the Melbourne surburbs that we think is suitable for you</h1>
           </div>
+        </section>
+        <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
           <Box
             my="14px"
             bgcolor="#fff"
@@ -144,7 +147,8 @@ export default function Recommendations({
                   })
                 }
               />
-              <Button onClick={sendInput}>Get Recommendations</Button>
+              <Button className=" font-inter text-lg md:text-lg lg:text-lg font-bold call-action-button" 
+                      onClick={sendInput} >Update Result</Button>
             </Box>
             <Box
               sx={{
