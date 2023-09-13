@@ -96,21 +96,23 @@ export default function Recommendations({
           <Box
             my="14px"
             bgcolor="#fff"
-            borderRadius="10px"
-            padding="10px"
+            borderRadius="12px"
+            padding="1rem"
             sx={{
               display: "flex",
               flexDirection: "row",
-              width: "80%",
+              width: "90%",
               justifyContent: "space-between",
             }}
           >
             <Box
               sx={{
-                width: "33%",
+                width: "20%",
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px",
+                marginRight: "2rem",
+                padding: "1rem",
               }}
             >
               {/* Rental and liveability sliders */}
@@ -139,7 +141,7 @@ export default function Recommendations({
             </Box>
             <Box
               sx={{
-                width: "65%",
+                width: "80%",
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",

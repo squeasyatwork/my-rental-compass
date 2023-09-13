@@ -32,7 +32,7 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
         defaultValue={defaultValue}
         getAriaValueText={rentValueText}
         step={12.25}
-        valueLabelDisplay="off"
+        valueLabelDisplay="auto"
         marks={rentMarks}
         sx={{
           "& .MuiSlider-thumb, & .MuiSlider-track": {
@@ -44,6 +44,9 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
           },
           "& .MuiSlider-track": {
             height: 6,
+          },
+          "& .MuiSlider-markLabel": {
+            fontSize: 12,
           },
           "& .MuiSlider-rail": {
             backgroundColor: "grey",
@@ -81,6 +84,49 @@ export const LiveabilitySliders = ({ handleSliderChange, inputValues }) => {
 };
 
 const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
+  const valueLabelFormat = (value) => {
+    const labels = ["1", "2", "3", "4", "5"];
+    return labels[value - 1];
+  };
+
+  const sliderMarks = {
+    affordability: [
+      { value: 1, label: "1" },
+      { value: 2, label: "2" },
+      { value: 3, label: "3" },
+      { value: 4, label: "4" },
+      { value: 5, label: "5" },
+    ],
+    transport: [
+      { value: 1, label: "1" },
+      { value: 2, label: "2" },
+      { value: 3, label: "3" },
+      { value: 4, label: "4" },
+      { value: 5, label: "5" },
+    ],
+    park: [
+      { value: 1, label: "1" },
+      { value: 2, label: "2" },
+      { value: 3, label: "3" },
+      { value: 4, label: "4" },
+      { value: 5, label: "5" },
+    ],
+    crime: [
+      { value: 1, label: "1" },
+      { value: 2, label: "2" },
+      { value: 3, label: "3" },
+      { value: 4, label: "4" },
+      { value: 5, label: "5" },
+    ],
+    road: [
+      { value: 1, label: "1" },
+      { value: 2, label: "2" },
+      { value: 3, label: "3" },
+      { value: 4, label: "4" },
+      { value: 5, label: "5" },
+    ],
+  };
+
   return (
     <div className="ml-6">
       <Typography gutterBottom>
@@ -90,10 +136,13 @@ const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
         defaultValue={defaultArg}
         onChange={handleChoice}
         aria-labelledby={`${criterion}-slider`}
+        aria-valuetext={valueLabelFormat(defaultArg)}
         step={1}
-        marks
+        marks={sliderMarks[criterion]}
         min={1}
         max={5}
+        valueLabelDisplay="off"
+        valueLabelFormat={valueLabelFormat}
         sx={{
           "& .MuiSlider-thumb, & .MuiSlider-track": {
             backgroundColor: "#FFCD29",
@@ -101,6 +150,9 @@ const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
           "& .MuiSlider-thumb": {
             height: 24,
             width: 24,
+          },
+          "& .MuiSlider-markLabel": {
+            fontSize: 14,
           },
           "& .MuiSlider-track": {
             height: 6,
