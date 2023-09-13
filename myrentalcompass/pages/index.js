@@ -7,7 +7,7 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
+  return `https://develop.d2dfjeo605ve5o.amplifyapp.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const Section = ({
