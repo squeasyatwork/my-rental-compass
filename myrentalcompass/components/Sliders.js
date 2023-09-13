@@ -24,6 +24,12 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
     handleChoice(event, rentValue);
   };
 
+  const valueLabelFormat = (value) => {
+    const calculatedValue = value / 25 * 100 + 400;
+    const valueLabel = `A$${calculatedValue}`;
+    return valueLabel;
+  } 
+
   return (
     <div className="ml-6">
       <Typography gutterBottom>Rent</Typography>
@@ -33,6 +39,8 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
         getAriaValueText={rentValueText}
         step={12.25}
         valueLabelDisplay="auto"
+        valueLabelFormat={valueLabelFormat}
+        //ValueLabelComponent={ValueLabelComponent}
         marks={rentMarks}
         sx={{
           "& .MuiSlider-thumb, & .MuiSlider-track": {
@@ -141,7 +149,7 @@ const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
         marks={sliderMarks[criterion]}
         min={1}
         max={5}
-        valueLabelDisplay="off"
+        valueLabelDisplay="auto"
         valueLabelFormat={valueLabelFormat}
         sx={{
           "& .MuiSlider-thumb, & .MuiSlider-track": {

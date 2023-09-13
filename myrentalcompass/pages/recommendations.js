@@ -93,6 +93,7 @@ export default function Recommendations({
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
         <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
+          
           <Box
             my="14px"
             bgcolor="#fff"
@@ -105,6 +106,7 @@ export default function Recommendations({
               justifyContent: "space-between",
             }}
           >
+            
             <Box
               sx={{
                 width: "20%",
@@ -115,6 +117,9 @@ export default function Recommendations({
                 padding: "1rem",
               }}
             >
+              <div className=" font-bold text-2xl">
+                <h1>Updated Selection</h1>
+              </div>
               {/* Rental and liveability sliders */}
               <RentSlider
                 handleChoice={handleSliderChange("rent")}
