@@ -92,8 +92,10 @@ export default function Recommendations({
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
-        <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
-          
+        <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
+          <div className="font-bold text-4xl">
+            <h1>Here are the Melbourne surburbs that we think is suitable for you</h1>
+          </div>
           <Box
             my="14px"
             bgcolor="#fff"
@@ -158,6 +160,7 @@ export default function Recommendations({
                 recommendations={true}
                 data={rankedSuburbs}
                 setSelectedFeature={setSelectedFeature}
+                //defaultZoom={12}
               />
 
               {/* Panel toggle button */}
