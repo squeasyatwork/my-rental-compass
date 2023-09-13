@@ -1,15 +1,15 @@
 import * as React from "react";
 import Router from "next/router";
-import { Box, Button, Slider, TextField, 
-  Table, TableBody, TableCell, TableContainer, 
-  TableHead, TableRow, Paper} from "@mui/material";
+import { Box} from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+import { style } from "d3";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -62,6 +62,8 @@ export default function Recommendations({
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
+  // initialize mouse position
+  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -85,6 +87,13 @@ export default function Recommendations({
   };
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
+
+  const handleMouseClick = (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+
+    setBoxPosition({ x: mouseX, y: mouseY });
+  };
 
   return (
     <>
@@ -150,20 +159,10 @@ export default function Recommendations({
                   })
                 }
               />
-              <Button 
-                sx={{ 
-                  width: "100%",
-                  backgroundColor: "#FFCD29",
-                  color: "#262626",
-                  rounded: "12px",
-                  fontWeight: "bold",
-                  '&:hover': {
-                    transform: "scale(1.05)",
-                    transition: "all 0.3s ease-in-out",
-                    backgroundColor: "#FFCD29",}
-                }}
-                      onClick={sendInput} >Update Result
-                </Button>
+              
+              <button className="text-lg md:text-lg lg:text-lg font-bold call-action-button" onClick={sendInput}>
+                Update Result
+              </button>
             </Box>
 
             <Box
@@ -180,10 +179,9 @@ export default function Recommendations({
                 recommendations={true}
                 data={rankedSuburbs}
                 setSelectedFeature={setSelectedFeature}
-                //defaultZoom={12}
+                onMouseEnter={(feature) => setSelectedFeature(feature)}
+                onMouseLeave={() => setSelectedFeature(null)}
               />
-
-              
 
               {/* Top 10 Suburbs panel */}
               <Box
@@ -191,12 +189,14 @@ export default function Recommendations({
                   padding="1rem"
                   borderRadius="10px"
                   sx={{
+                    display: "flex",
+                    flexDirection: "column",
                     position: "absolute",
                     justifyContent: "center",
                     alignItems: "center",
                     right: 0,
                     top: "10px",
-                    width: "40%",
+                    width: "37%",
                     boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
                     maxHeight: "70vh",
                     //overflowY: "scroll",
@@ -204,22 +204,12 @@ export default function Recommendations({
                   }}
                 >
                 {/* Panel toggle button */}
-                <Button 
-                  sx={{ 
-                    width: "100%",
-                    backgroundColor: "#FFCD29",
-                    color: "#262626",
-                    rounded: "12px",
-                    fontWeight: "bold",
-                    '&:hover': {
-                      transform: "scale(1.05)",
-                      transition: "all 0.3s ease-in-out",
-                      backgroundColor: "#FFCD29",}
-                  }}
-                  onClick={() => setIsPanelOpen(!isPanelOpen)}
+                <button className=" text-base md:text-base lg:text-base font-bold call-action-button"
+                 onClick={() => setIsPanelOpen(!isPanelOpen)
+                  }
                 >
-                  {isPanelOpen ? '▼ Close Panel' : '▶ Open Panel'} 
-                </Button>
+                  {isPanelOpen ? '▼ Hide Top 10 Suburbs' : '▶ See Top 10 Suburbs'} 
+                </button>
 
                 {isPanelOpen && (
                   <><h3 className=" font-istok text-lg text-center font-bold mt-2">Suburb Recommendations For You</h3><table className="mx-auto">
@@ -244,17 +234,32 @@ export default function Recommendations({
                   </table></>)}
                 </Box>
               
-
+              
               {/* Selected feature details */}
               {selectedFeature && (
-                <Box>
-                  <p>Name: {selectedFeature.suburb}</p>
-                  <p>Council: {selectedFeature.lga}</p>
-                  <p>
-                    Liveability Score:{" "}
-                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
-                  </p>
-                </Box>
+                <div onClick={handleMouseClick}>
+                  <div style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        backgroundColor: "#fff",
+                        padding: "1rem",
+                        borderRadius: "12px",
+                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                        zIndex: 1000,
+                        left: `${boxPosition.x}px`,
+                        top: `${boxPosition.y}px`, 
+                      }}
+                    >
+                      <p>Name: {selectedFeature.suburb}</p>
+                      <p>Council: {selectedFeature.lga}</p>
+                      <p>
+                        Liveability Score:{" "}
+                        {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                      </p>
+                    </div>
+                  </div>
+                </div>
               )}
             </Box>
           </Box>
