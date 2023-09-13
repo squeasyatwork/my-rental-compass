@@ -1,6 +1,8 @@
 import * as React from "react";
 import Router from "next/router";
-import { Box, Button, Slider, TextField } from "@mui/material";
+import { Box, Button, Slider, TextField, 
+  Table, TableBody, TableCell, TableContainer, 
+  TableHead, TableRow, Paper} from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 
@@ -107,8 +109,9 @@ export default function Recommendations({
             sx={{
               display: "flex",
               flexDirection: "row",
-              width: "90%",
+              width: "80%",
               justifyContent: "space-between",
+              boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
             }}
           >
             
@@ -147,9 +150,22 @@ export default function Recommendations({
                   })
                 }
               />
-              <Button className=" font-inter text-lg md:text-lg lg:text-lg font-bold call-action-button" 
-                      onClick={sendInput} >Update Result</Button>
+              <Button 
+                sx={{ 
+                  width: "100%",
+                  backgroundColor: "#FFCD29",
+                  color: "#262626",
+                  rounded: "12px",
+                  fontWeight: "bold",
+                  '&:hover': {
+                    transform: "scale(1.05)",
+                    transition: "all 0.3s ease-in-out",
+                    backgroundColor: "#FFCD29",}
+                }}
+                      onClick={sendInput} >Update Result
+                </Button>
             </Box>
+
             <Box
               sx={{
                 width: "80%",
@@ -167,37 +183,67 @@ export default function Recommendations({
                 //defaultZoom={12}
               />
 
-              {/* Panel toggle button */}
-              <Button onClick={() => setIsPanelOpen(!isPanelOpen)}>
-                Toggle Panel
-              </Button>
+              
 
               {/* Top 10 Suburbs panel */}
-              {isPanelOpen && (
-                <Box
+              <Box
                   bgcolor="#fff"
-                  padding="10px"
+                  padding="1rem"
                   borderRadius="10px"
                   sx={{
                     position: "absolute",
+                    justifyContent: "center",
+                    alignItems: "center",
                     right: 0,
                     top: "10px",
-                    width: "250px",
+                    width: "40%",
+                    boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
                     maxHeight: "70vh",
-                    overflowY: "scroll",
+                    //overflowY: "scroll",
                     zIndex: 1000,
                   }}
                 >
-                  <h3>Top 10 Suburbs</h3>
-                  {topTenSuburbs.map((suburb, index) => (
-                    <p key={suburb.suburb}>
-                      {index + 1}. {suburb.suburb},{" "}
-                      {(suburb.liveability_score * 100).toFixed(2)}% - $
-                      {suburb.average_rent}/week
-                    </p>
-                  ))}
+                {/* Panel toggle button */}
+                <Button 
+                  sx={{ 
+                    width: "100%",
+                    backgroundColor: "#FFCD29",
+                    color: "#262626",
+                    rounded: "12px",
+                    fontWeight: "bold",
+                    '&:hover': {
+                      transform: "scale(1.05)",
+                      transition: "all 0.3s ease-in-out",
+                      backgroundColor: "#FFCD29",}
+                  }}
+                  onClick={() => setIsPanelOpen(!isPanelOpen)}
+                >
+                  {isPanelOpen ? '▼ Close Panel' : '▶ Open Panel'} 
+                </Button>
+
+                {isPanelOpen && (
+                  <><h3 className=" font-istok text-lg text-center font-bold mt-2">Suburb Recommendations For You</h3><table className="mx-auto">
+                    <thead>
+                      <tr>
+                        <th className=" text-sm font-medium px-2 border-b-2">Rank</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Score</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Suburbs</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Rent ($/week)</th>
+                      </tr>
+                    </thead>
+                    <tbody className=" text-sm font-normal items-center justify-center text-center">
+                      {topTenSuburbs.map((suburb, index) => (
+                        <tr key={suburb.suburb} style={{ margin: "1rem" }}>
+                          <td className="px-2 py-2">{index + 1}</td>
+                          <td className="px-2 py-2">{(suburb.liveability_score * 100).toFixed(2)}</td>
+                          <td className="px-2 py-2">{suburb.suburb}</td>
+                          <td className="px-2 py-2">${suburb.average_rent}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table></>)}
                 </Box>
-              )}
+              
 
               {/* Selected feature details */}
               {selectedFeature && (
