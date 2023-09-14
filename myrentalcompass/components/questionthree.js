@@ -110,7 +110,7 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
           </div>
         </div>
       </div>
-      <div className="flex w-full sm:w-full md:4/5 items-center justify-between" >
+      <div className="flex w-4/5 sm:w-full md:4/5 items-center justify-between" >
         <button
           className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
           onClick={handlePrevious}

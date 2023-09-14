@@ -1,13 +1,15 @@
 import * as React from "react";
 import Router from "next/router";
-import { Box, Button, Slider, TextField } from "@mui/material";
+import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useState } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+import { style } from "d3";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -60,6 +62,8 @@ export default function Recommendations({
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
+  // initialize mouse position
+  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -84,6 +88,15 @@ export default function Recommendations({
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
+  // The following code is for the selected feature details box
+  const handleMouseClick = (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    console.log(`[${mouseX}, ${mouseY}]`)
+
+    setBoxPosition({ x: mouseX, y: mouseY });
+  };
+
   return (
     <>
       <Head>
@@ -92,27 +105,40 @@ export default function Recommendations({
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
-        <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
+
+        <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
+          <div className="font-bold text-4xl text-black">
+            <h1>Here are the Melbourne surburbs that we think is suitable for you</h1>
+          </div>
+        </section>
+        <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
           <Box
             my="14px"
             bgcolor="#fff"
-            borderRadius="10px"
-            padding="10px"
+            borderRadius="12px"
+            padding="1rem"
             sx={{
               display: "flex",
               flexDirection: "row",
               width: "80%",
               justifyContent: "space-between",
+              boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
             }}
           >
+
             <Box
               sx={{
-                width: "33%",
+                width: "20%",
                 display: "flex",
                 flexDirection: "column",
                 gap: "20px",
+                marginRight: "2rem",
+                padding: "1rem",
               }}
             >
+              <div className=" font-bold text-2xl">
+                <h1>Updated Selection</h1>
+              </div>
               {/* Rental and liveability sliders */}
               <RentSlider
                 handleChoice={handleSliderChange("rent")}
@@ -135,11 +161,15 @@ export default function Recommendations({
                   })
                 }
               />
-              <Button onClick={sendInput}>Get Recommendations</Button>
+
+              <button className="text-lg md:text-lg lg:text-lg font-bold call-action-button" onClick={sendInput}>
+                Update Result
+              </button>
             </Box>
+
             <Box
               sx={{
-                width: "65%",
+                width: "80%",
                 position: "relative",
                 display: "flex",
                 flexDirection: "column",
@@ -151,50 +181,85 @@ export default function Recommendations({
                 recommendations={true}
                 data={rankedSuburbs}
                 setSelectedFeature={setSelectedFeature}
+                onMouseEnter={(feature) => setSelectedFeature(feature)}
+                onMouseLeave={() => setSelectedFeature(null)}
+                onClick={handleMouseClick}
               />
 
-              {/* Panel toggle button */}
-              <Button onClick={() => setIsPanelOpen(!isPanelOpen)}>
-                Toggle Panel
-              </Button>
-
               {/* Top 10 Suburbs panel */}
-              {isPanelOpen && (
-                <Box
-                  bgcolor="#fff"
-                  padding="10px"
-                  borderRadius="10px"
-                  sx={{
-                    position: "absolute",
-                    right: 0,
-                    top: "10px",
-                    width: "250px",
-                    maxHeight: "70vh",
-                    overflowY: "scroll",
+              <Box
+                bgcolor="#fff"
+                padding="1rem"
+                borderRadius="10px"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  position: "absolute",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  right: 0,
+                  top: "10px",
+                  width: "37%",
+                  boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
+                  maxHeight: "70vh",
+                  //overflowY: "scroll",
+                  zIndex: 1000,
+                }}
+              >
+                {/* Panel toggle button */}
+                <button className=" text-base md:text-base lg:text-base font-bold call-action-button"
+                  onClick={() => setIsPanelOpen(!isPanelOpen)
+                  }
+                >
+                  {isPanelOpen ? '▼ Hide Top 10 Suburbs' : '▶ See Top 10 Suburbs'}
+                </button>
+
+                {isPanelOpen && (
+                  <><h3 className=" font-istok text-lg text-center font-bold mt-2">Suburb Recommendations For You</h3><table className="mx-auto">
+                    <thead>
+                      <tr>
+                        <th className=" text-sm font-medium px-2 border-b-2">Rank</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Score</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Suburbs</th>
+                        <th className=" text-sm font-medium px-2 border-b-2">Rent ($/week)</th>
+                      </tr>
+                    </thead>
+                    <tbody className=" text-sm font-normal items-center justify-center text-center">
+                      {topTenSuburbs.map((suburb, index) => (
+                        <tr key={suburb.suburb} style={{ margin: "1rem" }}>
+                          <td className="px-2 py-2">{index + 1}</td>
+                          <td className="px-2 py-2">{(suburb.liveability_score * 100).toFixed(2)}</td>
+                          <td className="px-2 py-2">{suburb.suburb}</td>
+                          <td className="px-2 py-2">${suburb.average_rent}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table></>)}
+              </Box>
+
+
+              {/* Selected feature details 
+                cannot the box cannot be displayed near the mouse*/}
+              {selectedFeature && (
+                <div
+                  style={{
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                    borderRadius: "12px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     zIndex: 1000,
+                    position: 'absolute',
+                    left: `${boxPosition.x}px`,
+                    top: `${boxPosition.y}px`,
                   }}
                 >
-                  <h3>Top 10 Suburbs</h3>
-                  {topTenSuburbs.map((suburb, index) => (
-                    <p key={suburb.suburb}>
-                      {index + 1}. {suburb.suburb},{" "}
-                      {(suburb.liveability_score * 100).toFixed(2)}% - $
-                      {suburb.average_rent}/week
-                    </p>
-                  ))}
-                </Box>
-              )}
-
-              {/* Selected feature details */}
-              {selectedFeature && (
-                <Box>
                   <p>Name: {selectedFeature.suburb}</p>
                   <p>Council: {selectedFeature.lga}</p>
                   <p>
                     Liveability Score:{" "}
                     {(selectedFeature.liveability_score * 100).toFixed(2)}%
                   </p>
-                </Box>
+                </div>
               )}
             </Box>
           </Box>

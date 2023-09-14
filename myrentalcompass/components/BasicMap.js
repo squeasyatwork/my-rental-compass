@@ -63,7 +63,7 @@ const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
   return (
     <MapContainer
       center={[-37.8136, 144.9631]}
-      zoom={10}
+      zoom={11}
       scrollWheelZoom={false}
       style={{ height: "100%", width: "100%" }}
     >
