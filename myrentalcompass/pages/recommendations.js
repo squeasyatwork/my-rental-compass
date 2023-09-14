@@ -1,6 +1,6 @@
 import * as React from "react";
 import Router from "next/router";
-import { Box} from "@mui/material";
+import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
 import { useState } from "react";
@@ -91,6 +91,7 @@ export default function Recommendations({
   const handleMouseClick = (event) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
+    console.log(`[${mouseX}, ${mouseY}]`)
 
     setBoxPosition({ x: mouseX, y: mouseY });
   };
@@ -103,7 +104,7 @@ export default function Recommendations({
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
-        
+
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
           <div className="font-bold text-4xl text-black">
             <h1>Here are the Melbourne surburbs that we think is suitable for you</h1>
@@ -123,7 +124,7 @@ export default function Recommendations({
               boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
             }}
           >
-            
+
             <Box
               sx={{
                 width: "20%",
@@ -159,7 +160,7 @@ export default function Recommendations({
                   })
                 }
               />
-              
+
               <button className="text-lg md:text-lg lg:text-lg font-bold call-action-button" onClick={sendInput}>
                 Update Result
               </button>
@@ -181,34 +182,35 @@ export default function Recommendations({
                 setSelectedFeature={setSelectedFeature}
                 onMouseEnter={(feature) => setSelectedFeature(feature)}
                 onMouseLeave={() => setSelectedFeature(null)}
+                onClick={handleMouseClick}
               />
 
               {/* Top 10 Suburbs panel */}
               <Box
-                  bgcolor="#fff"
-                  padding="1rem"
-                  borderRadius="10px"
-                  sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    position: "absolute",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    right: 0,
-                    top: "10px",
-                    width: "37%",
-                    boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
-                    maxHeight: "70vh",
-                    //overflowY: "scroll",
-                    zIndex: 1000,
-                  }}
-                >
+                bgcolor="#fff"
+                padding="1rem"
+                borderRadius="10px"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  position: "absolute",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  right: 0,
+                  top: "10px",
+                  width: "37%",
+                  boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
+                  maxHeight: "70vh",
+                  //overflowY: "scroll",
+                  zIndex: 1000,
+                }}
+              >
                 {/* Panel toggle button */}
                 <button className=" text-base md:text-base lg:text-base font-bold call-action-button"
-                 onClick={() => setIsPanelOpen(!isPanelOpen)
+                  onClick={() => setIsPanelOpen(!isPanelOpen)
                   }
                 >
-                  {isPanelOpen ? '▼ Hide Top 10 Suburbs' : '▶ See Top 10 Suburbs'} 
+                  {isPanelOpen ? '▼ Hide Top 10 Suburbs' : '▶ See Top 10 Suburbs'}
                 </button>
 
                 {isPanelOpen && (
@@ -232,33 +234,29 @@ export default function Recommendations({
                       ))}
                     </tbody>
                   </table></>)}
-                </Box>
-              
-              
+              </Box>
+
+
               {/* Selected feature details */}
               {selectedFeature && (
-                <div onClick={handleMouseClick}>
-                  <div style={{ position: "relative" }}>
-                    <div
-                      style={{
-                        position: "absolute",
-                        backgroundColor: "#fff",
-                        padding: "1rem",
-                        borderRadius: "12px",
-                        boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                        zIndex: 1000,
-                        left: `${boxPosition.x}px`,
-                        top: `${boxPosition.y}px`, 
-                      }}
-                    >
-                      <p>Name: {selectedFeature.suburb}</p>
-                      <p>Council: {selectedFeature.lga}</p>
-                      <p>
-                        Liveability Score:{" "}
-                        {(selectedFeature.liveability_score * 100).toFixed(2)}%
-                      </p>
-                    </div>
-                  </div>
+                <div
+                  style={{
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                    borderRadius: "12px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    zIndex: 1000,
+                    position: 'absolute',
+                    left: `${boxPosition.x}px`,
+                    top: `${boxPosition.y}px`,
+                  }}
+                >
+                  <p>Name: {selectedFeature.suburb}</p>
+                  <p>Council: {selectedFeature.lga}</p>
+                  <p>
+                    Liveability Score:{" "}
+                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                  </p>
                 </div>
               )}
             </Box>
