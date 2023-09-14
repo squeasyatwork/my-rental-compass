@@ -88,6 +88,7 @@ export default function Recommendations({
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
+  // The following code is for the selected feature details box
   const handleMouseClick = (event) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
@@ -237,7 +238,8 @@ export default function Recommendations({
               </Box>
 
 
-              {/* Selected feature details */}
+              {/* Selected feature details 
+                cannot the box cannot be displayed near the mouse*/}
               {selectedFeature && (
                 <div
                   style={{
