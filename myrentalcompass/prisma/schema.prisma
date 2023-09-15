@@ -7,8 +7,9 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model data_by_suburb {
-  suburb          String   @id(map: "data_by_suburb_pk")
+  suburb          String?
   lga             String?
   postcode        Int?
   average_rent    Decimal? @db.Decimal
@@ -19,10 +20,13 @@ model data_by_suburb {
   bus_stop        Int?
   tram_stop       Int?
   train_station   Int?
+
+  @@ignore
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model liveability_data {
-  suburb            String   @id(map: "liveability_data_pk")
+  suburb            String?
   rent_score        Decimal? @db.Decimal
   transport_score   Decimal? @db.Decimal
   openspace_score   Decimal? @db.Decimal
@@ -34,10 +38,15 @@ model liveability_data {
   openspace_count   Int?
   crash_count       Int?
   crime_count       Int?
+
+  @@ignore
 }
 
+/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
 model uni_suburbs {
-  university     String  @id(map: "uni_suburbs_pk")
+  university     String?
   uni_suburb     String?
   nearby_suburbs String?
+
+  @@ignore
 }
