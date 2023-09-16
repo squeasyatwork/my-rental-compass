@@ -288,7 +288,7 @@ export default function Rights() {
           </div>
           
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 className="mr-96">2. Your responsibilities as renters</h2>
+            <h2 style={{marginRight: "26rem"}}>2. Your responsibilities as renters</h2>
             <Image
                 src="/alert.gif"
                 alt="repair"
@@ -309,16 +309,15 @@ export default function Rights() {
                 <video id="video1" src="your-video.mp4" class="hidden absolute inset-0"></video>
               </div>
               <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to live in a property that is</h2>
-                <h2>clean, and meets minium rental standards.</h2>
-                <h2>This is measured with a condition report</h2>
+                <h2>You have a responsibility to maintain the</h2>
+                <h2>house to a reasonable standard</h2>
               </div>
               <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails5}
                   className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray"
                   >
-                  Condition reports
+                  Maintenance
                   </button>
                   {showDetails5 && (
                     <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
@@ -343,16 +342,15 @@ export default function Rights() {
                 <video id="video2" src="your-video.mp4" class="hidden absolute inset-0"></video>
               </div>
               <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to live in a property that is</h2>
-                <h2>clean, and meets minium rental standards.</h2>
-                <h2>This is measured with a condition report</h2>
+                <h2>You have several responsibilities to follow</h2>
+                <h2>when ending your tenancy agreement</h2>
               </div>
               <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails6}
                   className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray"
                   >
-                  Condition reports
+                  End of your lease
                   </button>
                   {showDetails6 && (
                     <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
