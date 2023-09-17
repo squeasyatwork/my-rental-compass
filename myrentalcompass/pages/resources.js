@@ -8,6 +8,7 @@ import Link from 'next/link';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
+import QuizModal from "~/components/QuizModal.js";
 
 
 const UserguideBar = () => {
@@ -29,7 +30,7 @@ const UserguideBar = () => {
 
   return (
     <div className="mx-auto flex flex-col w-full space-y-12 timeline">
-      <div className='flex justify-center items-center'>
+      <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
             src="/resources_item1.svg"
@@ -40,7 +41,7 @@ const UserguideBar = () => {
           />
           <hr className="w-64 h-1 ml-5 my-4 bg-MerciPurple border-10 rounded md:my-10" />
         </div>
-        <div className='ml-12 flex flex-col items-start w-2/5'>
+        <div className='mt-12 ml-12 flex flex-col items-start w-2/5'>
           <button
             onClick={toggleDetails1}
             className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
@@ -51,7 +52,16 @@ const UserguideBar = () => {
             <div className="flex flex-col items-center">
               <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
                 <div>
-                  <h2 className="text-lg font-semibold">Do your research</h2>
+                  <div className="flex w-full justify-between items-end">
+                    <h2 className="text-lg font-semibold">Do your research</h2>
+                    {/* <button onClick={ }> */}
+                    {/* <Image src="/resources_quiz_icon.gif"
+                      alt="information"
+                      width={50}
+                      height={50} style={{ border: '1px solid #6864F7' }} /> */}
+                    {/* </button> */}
+                    {/* <QuizModal></QuizModal> */}
+                  </div>
                   <ul className="list-disc pl-5">
                     <li>Understand the typical rent costs of the area</li>
                     <li>Research lease terms and other legal requirements to protect your rights as a tenant</li>
@@ -72,8 +82,10 @@ const UserguideBar = () => {
           )}
         </div>
       </div>
-      <div className='flex justify-center items-center'>
-        <div className='mr-12 flex flex-col items-end w-2/5 text-LongContentGray'>
+      <br></br>
+      <br></br>
+      <div className='flex justify-center items-start'>
+        <div className='mt-12 mr-12 flex flex-col items-end w-2/5 text-LongContentGray'>
           <button
             onClick={toggleDetails2}
             className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
@@ -126,7 +138,9 @@ const UserguideBar = () => {
           />
         </div>
       </div>
-      <div className='flex justify-center items-center'>
+      <br></br>
+      <br></br>
+      <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
             src="/resources_item3.svg"
@@ -137,7 +151,7 @@ const UserguideBar = () => {
           />
           <hr className="w-64 h-1 ml-5 my-4 bg-MerciPurple border-10 rounded md:my-10" />
         </div>
-        <div className='ml-12 flex flex-col items-start w-2/5'>
+        <div className='mt-12 ml-12 flex flex-col items-start w-2/5'>
           <button
             onClick={toggleDetails3}
             className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
@@ -174,6 +188,7 @@ const UserguideBar = () => {
         </div>
 
       </div>
+      <br></br>
       <div className='flex flex-col'>
         <div className='flex justify-center items-center'>
           <Image
