@@ -185,7 +185,7 @@ export default function Rights() {
                     {showDetails1 && (
                       <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                         <h2> ● A condition report is a&nbsp;
-                          <span className="font-bold">record of a property's condition </span>
+                          <span className="font-bold">record of a property&apos;s condition </span>
                           when a rental agreement(lease) is signed
                         </h2>
                         <h2> ● Anything that is&nbsp;
@@ -468,7 +468,7 @@ export default function Rights() {
                     <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                       <h2 className="font-bold">There are three main ways to end a tenancy:  </h2>
                       <h2> 1. All the parties can agree to end the tenancy. </h2>
-                      <h2> 2. Your landlord or agent gives you a valid 'Notice to Vacate'. </h2>
+                      <h2> 2. Your landlord or agent gives you a valid &apos;Notice to Vacate&apos;. </h2>
                       <h2> 3. You give valid notice to your landlord or agent that you intend to vacate.</h2>
                       <br></br>
                       <h2> When ending your lease, make sure you:</h2>
@@ -487,7 +487,7 @@ export default function Rights() {
                       <h2> ● take all your&nbsp;
                         <span className="font-bold">belongings </span>with you</h2>
                       <h2> ●&nbsp;
-                        <span className="font-bold">keep the 'Condition Report' </span>
+                        <span className="font-bold">keep the &apos;Condition Report&apos; </span>
                         in case of a dispute</h2>
                       <h2> ● try to agree with your landlord or agent on the&nbsp;
                         <span className="font-bold">return of the bond</span></h2>
