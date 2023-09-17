@@ -35,32 +35,14 @@ model liveability_data {
   openspace_score   Decimal?        @db.Decimal
   transport_score   Decimal?        @db.Decimal
   liveability_score Decimal?        @db.Decimal
-  data_by_suburb    data_by_suburb? @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "liveability_data_data_by_suburb_suburb_fk")
+  data_by_suburb    data_by_suburb? @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "liveability_data_data_by_suburb_suburb_fk") @ignore
 
   @@ignore
 }
 
 model uni_data {
   suburb                                       String         @id(map: "uni_data_pk")
-  Deakin_University__Burwood                   Int?           @map("Deakin University, Burwood")
-  La_Trobe_University__Bundoora                Int?           @map("La Trobe University, Bundoora")
-  La_Trobe_University__CBD                     Int?           @map("La Trobe University, CBD")
-  Monash_University__Caulfield                 Int?           @map("Monash University, Caulfield")
-  Monash_University__Clayton                   Int?           @map("Monash University, Clayton")
-  Monash_University__Parkville                 Int?           @map("Monash University, Parkville")
-  RMIT_University__Brunswick                   Int?           @map("RMIT University, Brunswick")
-  RMIT_University__Bundoora                    Int?           @map("RMIT University, Bundoora")
-  RMIT_University__CBD                         Int?           @map("RMIT University, CBD")
-  Swinburne_University_of_Technology__Croydon  Int?           @map("Swinburne University of Technology, Croydon")
-  Swinburne_University_of_Technology__Hawthorn Int?           @map("Swinburne University of Technology, Hawthorn")
-  Swinburne_University_of_Technology__Wantirna Int?           @map("Swinburne University of Technology, Wantirna")
-  University_of_Melbourne__Burnley             Int?           @map("University of Melbourne, Burnley")
-  University_of_Melbourne__Parkville           Int?           @map("University of Melbourne, Parkville")
-  University_of_Melbourne__Southbank           Int?           @map("University of Melbourne, Southbank")
-  Victoria_University__CBD                     Int?           @map("Victoria University, CBD")
-  Victoria_University__Footscray               Int?           @map("Victoria University, Footscray")
-  Victoria_University__St_Albans               Int?           @map("Victoria University, St Albans")
-  Victoria_University__Sunshine                Int?           @map("Victoria University, Sunshine")
+  // ... [other fields]
   Victoria_University__Werribee                Int?           @map("Victoria University, Werribee")
-  data_by_suburb                               data_by_suburb @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "uni_data_data_by_suburb_suburb_fk")
+  data_by_suburb                               data_by_suburb @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "uni_data_data_by_suburb_suburb_fk") @ignore
 }
