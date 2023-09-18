@@ -72,26 +72,7 @@ function Liveability() {
           </div>
           <div className="flex flex-col justify-center items-center px-6 py-2 mt-12">
             <div className="flex flex-col justify-center items-center">
-              <div className="p-4 mb-8 text-left bg-FooterButtonYellow rounded-xl"
-                style={{ width: "25%", 
-                transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                opacity: showDetails1 ? "1" : "0", 
-                visibility: showDetails1 ? "visible" : "hidden", 
-                maxHeight: showDetails1 ? "1000px" : "0" }}>
-                <h2> ● A condition report is a&nbsp;
-                  <span className="font-bold">record of a property&apos;s condition </span>
-                  when a rental agreement(lease) is signed
-                </h2>
-                <h2> ● Anything that is&nbsp;
-                  <span className="font-bold">dirty, damaged or not working </span>
-                  should be in the condition report, including everything inside and outside the property</h2>
-                <h2> ● The&nbsp;
-                  <span className="font-bold">landlord is responsible </span>
-                  for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
-                <h2> ● Condition report&nbsp;
-                  <span className="font-bold">can be important </span>
-                  in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
-              </div>
+              
               <button onClick={toggleDetails1}>
                 <Image
                   src="/1-transport.svg"
@@ -100,6 +81,42 @@ function Liveability() {
                   height={250}
                 />
               </button>
+              <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                style={{
+                  transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
+                  opacity: showDetails1 ? "1" : "0", 
+                  visibility: showDetails1 ? "visible" : "hidden"
+                }}>
+                <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                  style={{ width: "40%", 
+                  transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
+                  opacity: showDetails1 ? "1" : "0", 
+                  visibility: showDetails1 ? "visible" : "hidden", 
+                  maxHeight: showDetails1 ? "1000px" : "0" }}>
+                  <h2> ● A condition report is a&nbsp;
+                    <span className="font-bold">record of a property&apos;s condition </span>
+                    when a rental agreement(lease) is signed
+                  </h2>
+                  <h2> ● Anything that is&nbsp;
+                    <span className="font-bold">dirty, damaged or not working </span>
+                    should be in the condition report, including everything inside and outside the property</h2>
+                  <h2> ● The&nbsp;
+                    <span className="font-bold">landlord is responsible </span>
+                    for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
+                  <h2> ● Condition report&nbsp;
+                    <span className="font-bold">can be important </span>
+                    in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
+                </div>
+                <button onClick={toggleDetails1}>
+                  <Image
+                    src="/close.svg"
+                    alt="close"
+                    width={80}
+                    height={80}
+                    className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                  />
+                </button>
+              </div>
             </div>
             <div></div>
             <div></div>
