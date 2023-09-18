@@ -134,9 +134,9 @@ function Liveability() {
                       we use the open data by Public Transport Victoria (PTV) 
                       to count the number of public transport stops that exist in every suburb. 
                     </h2>
-                    <h2 className=" text-justify">Source: </h2>
+                    <h2 className=" text-justify mb-2">Source: </h2>
                     <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2"
-                    className=" hover:underline hover:text-ButtonHoverYellow"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
+                    className=" flex justify-center hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
                   </div>
                   <div className="flex justify-between items-center mt-8 px-6">
                     <Image
@@ -204,11 +204,11 @@ function Liveability() {
                         We measure liveability based on the crime rate recorded in a particular suburb. 
                         We used crime statistics data that has been recorded in the year 2019.
                       </h2>
-                      <h2 className=" justify-start text-justify">Source: </h2>
+                      <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data"
-                      className=" hover:underline hover:text-ButtonHoverYellow"> 1. https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data</a>
+                      className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data</a>
                       <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023"
-                      className=" hover:underline hover:text-ButtonHoverYellow"> 2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023</a>
+                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023</a>
                     </div>
                     <div className="flex justify-around items-center mt-8 px-6">
                       <Image
@@ -275,9 +275,9 @@ function Liveability() {
                       <h2 className=" text-justify">
                         We count the number of road crashes and traffic incidents that have been recorded in each suburbs in the year 2022 and 2023.
                       </h2>
-                      <h2 className=" justify-start text-justify">Source: </h2>
+                      <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract"
-                      className=" hover:underline hover:text-ButtonHoverYellow"> 1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract</a>
+                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract</a>
                     </div>
                     <div className="flex justify-between items-center mt-8 px-6">
                       <Image
@@ -345,11 +345,11 @@ function Liveability() {
                       <h2 className=" text-justify">
                         We count the number of parks and gardens that exists within the geographical boundary of each suburb in 2023.
                       </h2>
-                      <h2 className=" justify-start text-justify">Source: </h2>
+                      <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://discover.data.vic.gov.au/dataset/open-space"
-                      className=" hover:underline hover:text-ButtonHoverYellow"> 1. https://discover.data.vic.gov.au/dataset/open-space</a>
+                      className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/open-space</a>
                       <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie"
-                      className=" hover:underline hover:text-ButtonHoverYellow"> 2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie</a>
+                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie</a>
                     </div>
                     <div className="flex justify-between items-center mt-8 px-6">
                       <Image
