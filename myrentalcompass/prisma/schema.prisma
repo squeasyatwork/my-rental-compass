@@ -7,38 +7,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model data_by_suburb {
-  suburb           String             @id
+model suburb {
+  suburb           String       @id
   postcode         Int?
   lga              String?
   region           String?
-  area_sqkm        Decimal?           @db.Decimal
+  area_sqkm        Decimal?
   population       Int?
-  average_rent     Decimal?           @db.Decimal
+  average_rent     Decimal?
   ptv_stops_count  Int?
-  openspace_rate   Decimal?           @db.Decimal
-  crime_rate       Decimal?           @db.Decimal
+  openspace_rate   Decimal?
+  crime_rate       Decimal?
   crash_count      Int?
-  liveability_data liveability_data[]
-  suburb_uni_score suburb_uni_score[]
+  liveabilities    liveability[]
 }
 
-model liveability_data {
-  liveability_id    String         @id
-  suburb            String
-  saferoads_score   Decimal?       @db.Decimal
-  crime_score       Decimal?       @db.Decimal
-  openspace_score   Decimal?       @db.Decimal
-  transport_score   Decimal?       @db.Decimal
-  liveability_score Decimal?       @db.Decimal
-  data_by_suburb    data_by_suburb @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
+model liveability {
+  liveability_id     String  @id
+  liveability_suburb String
+  liveability_lga    String?
+  ptv_score          Decimal?
+  openspace_score    Decimal?
+  crime_score        Decimal?
+  crash_score        Decimal?
+  liveability_score  Decimal?
+  suburb             suburb  @relation(fields: [liveability_suburb], references: [suburb])
 }
 
-model suburb_uni_score {
-  uni_dis_id     String         @id
-  university     String
-  suburb_uni     String
-  distance_km    Decimal?       @db.Decimal
+model university {
+  uni_dis_id     String  @id
+  university     String?
+  uni_to_suburb  String? // Assuming there's no relation to suburb here as per your DDL
+  distance_km    Decimal?
   distance_score Int?
-  data_by_suburb data_by_suburb @relation(fields: [suburb_uni], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
 }
