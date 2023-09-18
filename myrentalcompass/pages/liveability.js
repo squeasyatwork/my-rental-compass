@@ -80,7 +80,7 @@ function Liveability() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-               Liveability is what a place like to live in
+               Liveability is what a place is like to live in
               </h1>
               <h1 className="text-5xl font-bold text-center mt-4">
                 - a liveable place is a healthy place
