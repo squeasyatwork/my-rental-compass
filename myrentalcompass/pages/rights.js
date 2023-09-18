@@ -402,7 +402,7 @@ export default function Rights() {
                   >
                   {showDetails5 ? "⇱ Maintenance" : "⇲ Maintenance"}
                   </button>
-                  <div className="p-4 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{ maxWidth: "28rem", 
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
                     opacity: showDetails5 ? "1" : "0", 
@@ -449,7 +449,7 @@ export default function Rights() {
                   >
                   {showDetails6 ? "⇱ End of your lease" : "⇲ End of your lease"}
                   </button>
-                  <div className="p-4 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{ maxWidth: "28rem", 
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
                     opacity: showDetails6 ? "1" : "0", 
