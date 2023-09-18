@@ -54,7 +54,7 @@ const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
       return "#d679ae";
     } else if (liveability_score > 0.15) {
       return "#bb247d";
-    } else if (liveability_score >= 0.0) {
+    } else if (liveability_score > 0.0) {
       return "#870952";
     } else {
       return "#808080";

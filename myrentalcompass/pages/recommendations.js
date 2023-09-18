@@ -48,13 +48,14 @@ export default function Recommendations({
 }) {
   const router = Router.useRouter();
 
-  // Load from sessionStorage on mount if available, else use contextQuery
+  // Check if we're initializing from the contextQuery values or not.
+  const [initializedFromContext, setInitializedFromContext] = useState(() => {
+    return Object.values(contextQuery).some((v) => v !== undefined);
+  });
+
+  // Initialize from contextQuery, if available. If not, fall back to sessionStorage.
   const [inputValues, setInputValues] = useState(() => {
-    const savedValues = sessionStorage.getItem("recommendationsInputValues");
-    if (savedValues) {
-      return JSON.parse(savedValues);
-    }
-    return {
+    const contextValues = {
       rent: contextQuery.rentChoice || 400,
       transport: contextQuery.transportChoice || 3,
       park: contextQuery.parkChoice || 3,
@@ -62,6 +63,13 @@ export default function Recommendations({
       road: contextQuery.roadChoice || 3,
       university: contextQuery.uniChoice || "",
     };
+
+    const savedValues = sessionStorage.getItem("recommendationsInputValues");
+    if (savedValues) {
+      return { ...contextValues, ...JSON.parse(savedValues) };
+    }
+
+    return contextValues;
   });
 
   const [selectedFeature, setSelectedFeature] = useState(null);
@@ -69,6 +77,12 @@ export default function Recommendations({
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
+    // Store the current input values into sessionStorage whenever they change
+    sessionStorage.setItem(
+      "recommendationsInputValues",
+      JSON.stringify(inputValues)
+    );
+
     const handleRouteChange = (url) => {
       sessionStorage.setItem(
         "recommendationsInputValues",
@@ -84,11 +98,30 @@ export default function Recommendations({
   }, [inputValues]);
 
   useEffect(() => {
-    const savedValues = sessionStorage.getItem("recommendationsInputValues");
+    if (initializedFromContext) {
+      // Ensure components get updated based on contextQuery values
+      setInputValues((prevValues) => ({
+        ...prevValues,
+        rent: contextQuery.rentChoice || 400,
+        transport: contextQuery.transportChoice || 3,
+        park: contextQuery.parkChoice || 3,
+        crime: contextQuery.crimeChoice || 3,
+        road: contextQuery.roadChoice || 3,
+        university: contextQuery.uniChoice || "",
+      }));
 
-    // If values were retrieved from sessionStorage, auto-trigger update
-    if (savedValues) {
-      sendInput();
+      // Once updated, set the initializedFromContext to false
+      setInitializedFromContext(false);
+    } else if (!contextQuery || Object.keys(contextQuery).length === 0) {
+      const savedValues = sessionStorage.getItem("recommendationsInputValues");
+
+      if (savedValues) {
+        setInputValues(JSON.parse(savedValues));
+        sendInput();
+      } else {
+        // If there's no saved values in sessionStorage, redirect to "/questionnaire"
+        router.push("/questionnaire");
+      }
     }
   }, []); // Empty dependency array ensures this useEffect runs once on component mount
 
