@@ -88,24 +88,48 @@ function Liveability() {
                   visibility: showDetails1 ? "visible" : "hidden"
                 }}>
                 <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                  style={{ width: "40%", 
-                  transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                  opacity: showDetails1 ? "1" : "0", 
-                  visibility: showDetails1 ? "visible" : "hidden", 
-                  maxHeight: showDetails1 ? "1000px" : "0" }}>
-                  <h2> ● A condition report is a&nbsp;
-                    <span className="font-bold">record of a property&apos;s condition </span>
-                    when a rental agreement(lease) is signed
-                  </h2>
-                  <h2> ● Anything that is&nbsp;
-                    <span className="font-bold">dirty, damaged or not working </span>
-                    should be in the condition report, including everything inside and outside the property</h2>
-                  <h2> ● The&nbsp;
-                    <span className="font-bold">landlord is responsible </span>
-                    for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
-                  <h2> ● Condition report&nbsp;
-                    <span className="font-bold">can be important </span>
-                    in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
+                  style={{ width: "35%"}}>
+                  <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
+                    <Image
+                      src="/subway-map.png"
+                      alt="subway"
+                      width={200}
+                      height={200}
+                    />
+                    <h2>Good transport</h2>
+                    <h2>connectivity</h2>
+                  </div>
+                  <div className=" flex flex-col justify-center items-center px-6 text-lg font-medium mt-4">
+                    <h2 className=" text-justify">
+                      In measuring how well connected a suburb is to the public transportation system, 
+                      we use the open data by Public Transport Victoria (PTV) 
+                      to count the number of public transport stops that exist in every suburb. 
+                    </h2>
+                    <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2"
+                    className=" hover:underline hover:text-ButtonHoverYellow"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
+                  </div>
+                  <div className="flex justify-between items-center mt-8 px-6">
+                    <Image
+                      src="/train.png"
+                      alt="train"
+                      width={100}
+                      height={100}
+                      //className="mr-12"
+                    />
+                    <Image
+                      src="/bus.png"
+                      alt="bus"
+                      width={100}
+                      height={100}
+                      
+                    />
+                    <Image
+                      src="/tram.png"
+                      alt="tram"
+                      width={100}
+                      height={100}
+                    />
+                  </div>
                 </div>
                 <button onClick={toggleDetails1}>
                   <Image
