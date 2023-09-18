@@ -107,6 +107,7 @@ function Liveability() {
                   alt="transport"
                   width={300}
                   height={300}
+                  className=" hover:scale-110 transition duration-1000 ease-in-out"
                 />
               </button>
               <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
@@ -178,6 +179,7 @@ function Liveability() {
                     alt="crime"
                     width={300}
                     height={300}
+                    className=" hover:scale-110 transition duration-1000 ease-in-out"
                   />
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
@@ -249,6 +251,7 @@ function Liveability() {
                     alt="roads"
                     width={300}
                     height={300}
+                    className=" hover:scale-110 transition duration-1000 ease-in-out"
                   />
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
@@ -317,6 +320,7 @@ function Liveability() {
                     alt="openspace"
                     width={300}
                     height={300}
+                    className=" hover:scale-110 transition duration-1000 ease-in-out"
                   />
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
