@@ -8,37 +8,37 @@ datasource db {
 }
 
 model data_by_suburb {
-  suburb          String             @id
-  postcode        Int?
-  lga             String?
-  region          String?
-  area_sqkm       Decimal?           @db.Decimal
-  population      Int?
-  average_rent    Decimal?           @db.Decimal
-  ptv_stops_count Int?
-  openspace_rate  Decimal?           @db.Decimal
-  crime_rate      Decimal?           @db.Decimal
-  crash_count     Int?
+  suburb           String             @id
+  postcode         Int?
+  lga              String?
+  region           String?
+  area_sqkm        Decimal?           @db.Decimal
+  population       Int?
+  average_rent     Decimal?           @db.Decimal
+  ptv_stops_count  Int?
+  openspace_rate   Decimal?           @db.Decimal
+  crime_rate       Decimal?           @db.Decimal
+  crash_count      Int?
   liveability_data liveability_data[]
   suburb_uni_score suburb_uni_score[]
 }
 
 model liveability_data {
-  liveability_id   String           @id
-  suburb           String
-  saferoads_score  Decimal?         @db.Decimal
-  crime_score      Decimal?         @db.Decimal
-  openspace_score  Decimal?         @db.Decimal
-  transport_score  Decimal?         @db.Decimal
-  liveability_score Decimal?        @db.Decimal
-  data_by_suburb   data_by_suburb   @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
+  liveability_id    String         @id
+  suburb            String
+  saferoads_score   Decimal?       @db.Decimal
+  crime_score       Decimal?       @db.Decimal
+  openspace_score   Decimal?       @db.Decimal
+  transport_score   Decimal?       @db.Decimal
+  liveability_score Decimal?       @db.Decimal
+  data_by_suburb    data_by_suburb @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
 }
 
 model suburb_uni_score {
-  uni_dis_id       String            @id
-  university      String
-  suburb_uni      String
-  distance_km     Decimal?           @db.Decimal
-  distance_score  Int?
-  data_by_suburb  data_by_suburb    @relation(fields: [suburb_uni], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
+  uni_dis_id     String         @id
+  university     String
+  suburb_uni     String
+  distance_km    Decimal?       @db.Decimal
+  distance_score Int?
+  data_by_suburb data_by_suburb @relation(fields: [suburb_uni], references: [suburb], onDelete: NoAction, onUpdate: NoAction)
 }
