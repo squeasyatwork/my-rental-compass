@@ -99,7 +99,7 @@ function Liveability() {
             <br></br>
             <h2 className="text-2xl">Click on each aspect to know more.</h2>
           </div>
-          <div className="flex flex-col justify-center items-center px-6 py-2 mt-12">
+          <div className="flex flex-col justify-center items-center px-6 py-2 mt-8">
             <div className="flex flex-col justify-center items-center">
               <button onClick={toggleDetails1}>
                 <Image
