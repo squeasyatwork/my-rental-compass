@@ -68,35 +68,6 @@ export default function Rights() {
     setShowDetails6(!showDetails6);
   };
 
-  useEffect(() => {
-    const playButton = document.getElementById('play-button');
-    const video1 = document.getElementById('video1');
-    const video2 = document.getElementById('video2');
-
-    if (playButton && video1 && video2) {
-      playButton.addEventListener('click', () => {
-        if (video1.paused) {
-          video1.play();
-          playButton.style.display = 'none';
-        } else {
-          video1.pause();
-          playButton.style.display = 'block';
-        }
-      });
-
-      playButton.addEventListener('click', () => {
-        if (video2.paused) {
-          video2.play();
-          playButton.style.display = 'none';
-        } else {
-          video2.pause();
-          playButton.style.display = 'block';
-        }
-      });
-    }
-  }, []);
-
-
   return (
     <>
       <Head>
@@ -118,7 +89,7 @@ export default function Rights() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-               As a tenant, you have rights and to live in a
+               As a tenant, you have the right to live in a
               </h1>
               <h1 className="text-5xl font-bold text-center mt-4">
                 safe, secure and quiet environment
@@ -178,27 +149,27 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mb-6">
                   <button
                     onClick={toggleDetails1}
-                    className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                    className="font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                     >
-                    Condition reports
-                    </button>
-                    {showDetails1 && (
-                      <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
-                        <h2> ● A condition report is a&nbsp;
-                          <span className="font-bold">record of a property&apos;s condition </span>
-                          when a rental agreement(lease) is signed
-                        </h2>
-                        <h2> ● Anything that is&nbsp;
-                          <span className="font-bold">dirty, damaged or not working </span>
-                          should be in the condition report, including everything inside and outside the property</h2>
-                        <h2> ● The&nbsp;
-                          <span className="font-bold">landlord is responsible </span>
-                          for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
-                        <h2> ● Condition report&nbsp;
-                          <span className="font-bold">can be important </span>
-                          in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
-                      </div>
-                    )}
+                    {showDetails1 ? "⇱ Condition reports" : "⇲ Condition reports"}
+                  </button>
+                  {showDetails1 && (
+                    <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                      <h2> ● A condition report is a&nbsp;
+                        <span className="font-bold">record of a property&apos;s condition </span>
+                        when a rental agreement(lease) is signed
+                      </h2>
+                      <h2> ● Anything that is&nbsp;
+                        <span className="font-bold">dirty, damaged or not working </span>
+                        should be in the condition report, including everything inside and outside the property</h2>
+                      <h2> ● The&nbsp;
+                        <span className="font-bold">landlord is responsible </span>
+                        for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
+                      <h2> ● Condition report&nbsp;
+                        <span className="font-bold">can be important </span>
+                        in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
+                    </div>
+                  )}
                 </div>
               </div>
               <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray pb-6">
@@ -217,12 +188,12 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok">
                   <button
                     onClick={toggleDetails3}
-                    className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                    className=" font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                     >
-                    Unlawful discrimination
+                    {showDetails3 ? "⇱ Unlawful discrimination" : "⇲ Unlawful discrimination"}
                     </button>
                     {showDetails3 && (
-                      <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                      <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                         <h2>In Victoria, it is&nbsp;
                           <span className=" font-bold">against the law </span>
                           to stop somebody from renting a property because of certain&nbsp;
@@ -265,12 +236,12 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mb-6">
                   <button
                     onClick={toggleDetails2}
-                    className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                    className=" font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                     >
-                    Minimum rental standards
+                    {showDetails2 ? "⇱ Minimum rental standards" : "⇲ Minimum rental standards"}
                     </button>
                     {showDetails2 && (
-                      <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                      <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                       style={{ maxWidth: "24rem" }}>
                         <h2> 
                           ● A 
@@ -336,12 +307,12 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok">
                   <button
                     onClick={toggleDetails4}
-                    className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                    className=" font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                     >
-                    Inspection
+                    {showDetails4 ? "⇱ Inspection" : "⇲ Inspection"}
                     </button>
                     {showDetails4 && (
-                      <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                      <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                         <h2> ● Your landlord can enter the property at a date and time that you have&nbsp;
                           <span className="font-bold">both agreed on.</span>
                         </h2>
@@ -390,7 +361,7 @@ export default function Rights() {
           </div>
           
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 style={{marginRight: "26rem"}}>2. Your responsibilities as renters</h2>
+            <h2 style={{marginRight: "28rem"}}>2. Your responsibilities as renters</h2>
             <Image
                 src="/alert.gif"
                 alt="repair"
@@ -398,7 +369,7 @@ export default function Rights() {
                 height={100}
             />
           </div>
-          <div className="flex">
+          <div className="flex mr-7">
             <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
@@ -416,12 +387,12 @@ export default function Rights() {
               <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails5}
-                  className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                  className=" font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                   >
-                  Maintenance
+                  {showDetails5 ? "⇱ Maintenance" : "⇲ Maintenance"}
                   </button>
                   {showDetails5 && (
-                    <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                    <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                       <h2>It is your job as tenant to maintain the property, and keep it up to a reasonable standard. </h2>
                       <br></br>
                       <h2>This includes:</h2>
@@ -460,12 +431,12 @@ export default function Rights() {
               <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails6}
-                  className=" font-bold text-4xl px-3 my-4 text-HeadingTextGray hover:underline"
+                  className=" font-bold text-4xl px-3 mt-4 text-HeadingTextGray hover:underline"
                   >
-                  End of your lease
+                  {showDetails6 ? "⇱ End of your lease" : "⇲ End of your lease"}
                   </button>
                   {showDetails6 && (
-                    <div className="p-6 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                    <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
                       <h2 className="font-bold">There are three main ways to end a tenancy:  </h2>
                       <h2> 1. All the parties can agree to end the tenancy. </h2>
                       <h2> 2. Your landlord or agent gives you a valid &apos;Notice to Vacate&apos;. </h2>
