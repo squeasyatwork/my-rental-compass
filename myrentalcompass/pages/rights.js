@@ -154,7 +154,9 @@ export default function Rights() {
                     {showDetails1 ? "⇱ Condition reports" : "⇲ Condition reports"}
                   </button>
                   {showDetails1 && (
-                    <div className="p-6 mt-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" style={{maxWidth: "24rem"}}>
+                    <div className="p-6 mt-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
+                      style={{maxWidth: "24rem", 
+                              transition: "0.3s ease-in-out"}}>
                       <h2> ● A condition report is a&nbsp;
                         <span className="font-bold">record of a property&apos;s condition </span>
                         when a rental agreement(lease) is signed

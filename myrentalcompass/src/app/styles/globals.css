@@ -149,3 +149,11 @@ body {
     margin-left: -3px;
   }   
 }
+
+@layer rights{
+  .transition-expand 
+  {
+    max-height: 1000px;
+    transition: max-height 0.3s ease-in-out;
+  }
+}
