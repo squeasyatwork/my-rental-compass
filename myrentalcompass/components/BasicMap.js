@@ -46,15 +46,15 @@ const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
       return "#87bb42";
     } else if (liveability_score > 0.6) {
       return "#bde086";
-    } else if (liveability_score > 0.5) {
+    } else if (liveability_score > 0.45) {
       return "#e7f4d0";
-    } else if (liveability_score > 0.4) {
+    } else if (liveability_score > 0.35) {
       return "#fae0ef";
-    } else if (liveability_score > 0.3) {
+    } else if (liveability_score > 0.25) {
       return "#d679ae";
-    } else if (liveability_score > 0.2) {
+    } else if (liveability_score > 0.15) {
       return "#bb247d";
-    } else if (liveability_score > 0.1) {
+    } else if (liveability_score >= 0.0) {
       return "#870952";
     } else {
       return "#808080";

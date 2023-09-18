@@ -3,23 +3,22 @@ import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import { style } from "d3";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
 });
 
-export const config = {
-  runtime: "nodejs",
-};
-
 export const getServerSideProps = async (context) => {
+  if (context.req.session && context.req.session.recommendationsInputValues) {
+    contextQuery = JSON.parse(context.req.session.recommendationsInputValues);
+  }
+
   if (context.query) {
     let contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
@@ -31,7 +30,6 @@ export const getServerSideProps = async (context) => {
       }
     );
 
-    // Check if the response is valid and is JSON before attempting to parse
     if (
       dbResponse.ok &&
       dbResponse.headers.get("content-type").includes("application/json")
@@ -50,19 +48,49 @@ export default function Recommendations({
 }) {
   const router = Router.useRouter();
 
-  const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 400,
-    // affordability: contextQuery.affordabilityChoice || 3,
-    transport: contextQuery.transportChoice || 3,
-    park: contextQuery.parkChoice || 3,
-    crime: contextQuery.crimeChoice || 3,
-    road: contextQuery.roadChoice || 3,
-    university: contextQuery.uniChoice || "",
+  // Load from sessionStorage on mount if available, else use contextQuery
+  const [inputValues, setInputValues] = useState(() => {
+    const savedValues = sessionStorage.getItem("recommendationsInputValues");
+    if (savedValues) {
+      return JSON.parse(savedValues);
+    }
+    return {
+      rent: contextQuery.rentChoice || 400,
+      transport: contextQuery.transportChoice || 3,
+      park: contextQuery.parkChoice || 3,
+      crime: contextQuery.crimeChoice || 3,
+      road: contextQuery.roadChoice || 3,
+      university: contextQuery.uniChoice || "",
+    };
   });
 
-  const [selectedFeature, setSelectedFeature] = React.useState(null);
-  const [isPanelOpen, setIsPanelOpen] = React.useState(false);
+  const [selectedFeature, setSelectedFeature] = useState(null);
+  const [isPanelOpen, setIsPanelOpen] = useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleRouteChange = (url) => {
+      sessionStorage.setItem(
+        "recommendationsInputValues",
+        JSON.stringify(inputValues)
+      );
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [inputValues]);
+
+  useEffect(() => {
+    const savedValues = sessionStorage.getItem("recommendationsInputValues");
+
+    // If values were retrieved from sessionStorage, auto-trigger update
+    if (savedValues) {
+      sendInput();
+    }
+  }, []); // Empty dependency array ensures this useEffect runs once on component mount
 
   const handleInputChange = (e) => {
     setInputValues({
