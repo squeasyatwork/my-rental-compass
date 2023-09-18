@@ -89,7 +89,7 @@ function Liveability() {
           </div>
         </div>
         <div className="flex flex-col justify-center bg-white font-istok p-6 ">
-          <div className=" font-bold text-5xl text-HeadingTextGray mb-4">
+          <div className=" font-bold text-5xl text-HeadingTextGray mt-4 mb-4">
             <h1>What is liveability?</h1>
           </div>
           <div className=" px-6 py-2">
