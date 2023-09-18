@@ -7,42 +7,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model data_by_suburb {
-  suburb           String             @id(map: "data_by_suburb_1_pk")
+model suburb {
+  suburb           String       @id
   postcode         Int?
   lga              String?
   region           String?
-  area_sqkm        Decimal?           @db.Decimal
+  area_sqkm        Decimal?
   population       Int?
-  average_rent     Decimal?           @db.Decimal
+  average_rent     Decimal?
   ptv_stops_count  Int?
-  openspace_rate   Decimal?           @db.Decimal
-  crime_rate       Decimal?           @db.Decimal
+  openspace_rate   Decimal?
+  crime_rate       Decimal?
   crash_count      Int?
-  liveability_data liveability_data[]
-  uni_data         uni_data?
-
-  @@ignore
+  liveabilities    liveability[]
 }
 
-/// The underlying table does not contain a valid unique identifier and can therefore currently not be handled by Prisma Client.
-model liveability_data {
-  liveability_id    String          @id(map: "liveability_data_pk")
-  suburb            String?
-  saferoads_score   Decimal?        @db.Decimal
-  crime_score       Decimal?        @db.Decimal
-  openspace_score   Decimal?        @db.Decimal
-  transport_score   Decimal?        @db.Decimal
-  liveability_score Decimal?        @db.Decimal
-  data_by_suburb    data_by_suburb? @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "liveability_data_data_by_suburb_suburb_fk") @ignore
-
-  @@ignore
+model liveability {
+  liveability_id     String  @id
+  liveability_suburb String
+  liveability_lga    String?
+  ptv_score          Decimal?
+  openspace_score    Decimal?
+  crime_score        Decimal?
+  crash_score        Decimal?
+  liveability_score  Decimal?
+  suburb             suburb  @relation(fields: [liveability_suburb], references: [suburb])
 }
 
-model uni_data {
-  suburb                                       String         @id(map: "uni_data_pk")
-  // ... [other fields]
-  Victoria_University__Werribee                Int?           @map("Victoria University, Werribee")
-  data_by_suburb                               data_by_suburb @relation(fields: [suburb], references: [suburb], onDelete: NoAction, onUpdate: NoAction, map: "uni_data_data_by_suburb_suburb_fk") @ignore
+model university {
+  uni_dis_id     String  @id
+  university     String?
+  uni_to_suburb  String? // Assuming there's no relation to suburb here as per your DDL
+  distance_km    Decimal?
+  distance_score Int?
 }

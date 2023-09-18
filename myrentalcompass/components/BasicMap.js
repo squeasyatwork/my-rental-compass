@@ -1,6 +1,7 @@
 import "leaflet/dist/leaflet.css";
 import React, { useState } from "react"; // Import useState hook
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+// import boundaryData from "../src/data/boundary.geojson";
 import boundaryData from "../src/data/boundary.geojson";
 import { BaseLiveability } from "./BaseLiveability.js";
 import { CustomLiveability } from "./CustomLiveability.js";

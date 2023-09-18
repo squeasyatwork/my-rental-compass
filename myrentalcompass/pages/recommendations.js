@@ -51,8 +51,8 @@ export default function Recommendations({
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 50,
-    affordability: contextQuery.affordabilityChoice || 3,
+    rent: contextQuery.rentChoice || 400,
+    // affordability: contextQuery.affordabilityChoice || 3,
     transport: contextQuery.transportChoice || 3,
     park: contextQuery.parkChoice || 3,
     crime: contextQuery.crimeChoice || 3,
@@ -62,7 +62,6 @@ export default function Recommendations({
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
-  // initialize mouse position
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
   const handleInputChange = (e) => {
@@ -88,12 +87,9 @@ export default function Recommendations({
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
-  // The following code is for the selected feature details box
   const handleMouseClick = (event) => {
     const mouseX = event.clientX;
     const mouseY = event.clientY;
-    console.log(`[${mouseX}, ${mouseY}]`)
-
     setBoxPosition({ x: mouseX, y: mouseY });
   };
 
@@ -108,7 +104,9 @@ export default function Recommendations({
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
           <div className="font-bold text-4xl text-black">
-            <h1>Here are the Melbourne surburbs that we think is suitable for you</h1>
+            <h1>
+              Here are the Melbourne suburbs that we think are suitable for you
+            </h1>
           </div>
         </section>
         <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
@@ -125,7 +123,6 @@ export default function Recommendations({
               boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
             }}
           >
-
             <Box
               sx={{
                 width: "20%",
@@ -162,7 +159,10 @@ export default function Recommendations({
                 }
               />
 
-              <button className="text-lg md:text-lg lg:text-lg font-bold call-action-button" onClick={sendInput}>
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button"
+                onClick={sendInput}
+              >
                 Update Result
               </button>
             </Box>
@@ -207,36 +207,55 @@ export default function Recommendations({
                 }}
               >
                 {/* Panel toggle button */}
-                <button className=" text-base md:text-base lg:text-base font-bold call-action-button"
-                  onClick={() => setIsPanelOpen(!isPanelOpen)
-                  }
+                <button
+                  className=" text-base md:text-base lg:text-base font-bold call-action-button"
+                  onClick={() => setIsPanelOpen(!isPanelOpen)}
                 >
-                  {isPanelOpen ? '▼ Hide Top 10 Suburbs' : '▶ See Top 10 Suburbs'}
+                  {isPanelOpen
+                    ? "▼ Hide Top 10 Suburbs"
+                    : "▶ See Top 10 Suburbs"}
                 </button>
 
                 {isPanelOpen && (
-                  <><h3 className=" font-istok text-lg text-center font-bold mt-2">Suburb Recommendations For You</h3><table className="mx-auto">
-                    <thead>
-                      <tr>
-                        <th className=" text-sm font-medium px-2 border-b-2">Rank</th>
-                        <th className=" text-sm font-medium px-2 border-b-2">Score</th>
-                        <th className=" text-sm font-medium px-2 border-b-2">Suburbs</th>
-                        <th className=" text-sm font-medium px-2 border-b-2">Rent ($/week)</th>
-                      </tr>
-                    </thead>
-                    <tbody className=" text-sm font-normal items-center justify-center text-center">
-                      {topTenSuburbs.map((suburb, index) => (
-                        <tr key={suburb.suburb} style={{ margin: "1rem" }}>
-                          <td className="px-2 py-2">{index + 1}</td>
-                          <td className="px-2 py-2">{(suburb.liveability_score * 100).toFixed(2)}</td>
-                          <td className="px-2 py-2">{suburb.suburb}</td>
-                          <td className="px-2 py-2">${suburb.average_rent}</td>
+                  <>
+                    <h3 className=" font-istok text-lg text-center font-bold mt-2">
+                      Suburb Recommendations For You
+                    </h3>
+                    <table className="mx-auto">
+                      <thead>
+                        <tr>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Rank
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Score
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Suburbs
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Rent ($/week)
+                          </th>
                         </tr>
-                      ))}
-                    </tbody>
-                  </table></>)}
+                      </thead>
+                      <tbody className=" text-sm font-normal items-center justify-center text-center">
+                        {topTenSuburbs.map((suburb, index) => (
+                          <tr key={suburb.suburb} style={{ margin: "1rem" }}>
+                            <td className="px-2 py-2">{index + 1}</td>
+                            <td className="px-2 py-2">
+                              {(suburb.liveability_score * 100).toFixed(2)}
+                            </td>
+                            <td className="px-2 py-2">{suburb.suburb}</td>
+                            <td className="px-2 py-2">
+                              ${suburb.average_rent}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </>
+                )}
               </Box>
-
 
               {/* Selected feature details 
                 cannot the box cannot be displayed near the mouse*/}
@@ -248,7 +267,7 @@ export default function Recommendations({
                     borderRadius: "12px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     zIndex: 1000,
-                    position: 'absolute',
+                    position: "absolute",
                     left: `${boxPosition.x}px`,
                     top: `${boxPosition.y}px`,
                   }}

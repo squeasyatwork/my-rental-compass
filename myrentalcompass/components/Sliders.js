@@ -25,10 +25,10 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
   };
 
   const valueLabelFormat = (value) => {
-    const calculatedValue = value / 25 * 100 + 400;
+    const calculatedValue = (value / 25) * 100 + 400;
     const valueLabel = `A$${calculatedValue}`;
     return valueLabel;
-  } 
+  };
 
   return (
     <div className="ml-6">
@@ -78,7 +78,13 @@ export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
 };
 
 // Liveability Sliders
-const criteria = ["affordability", "transport", "park", "crime", "road"];
+const criteria = [
+  // "affordability",
+  "transport",
+  "park",
+  "crime",
+  "road",
+];
 
 export const LiveabilitySliders = ({ handleSliderChange, inputValues }) => {
   return criteria.map((criterion) => (
@@ -98,13 +104,13 @@ const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
   };
 
   const sliderMarks = {
-    affordability: [
-      { value: 1, label: "1" },
-      { value: 2, label: "2" },
-      { value: 3, label: "3" },
-      { value: 4, label: "4" },
-      { value: 5, label: "5" },
-    ],
+    // affordability: [
+    //   { value: 1, label: "1" },
+    //   { value: 2, label: "2" },
+    //   { value: 3, label: "3" },
+    //   { value: 4, label: "4" },
+    //   { value: 5, label: "5" },
+    // ],
     transport: [
       { value: 1, label: "1" },
       { value: 2, label: "2" },
