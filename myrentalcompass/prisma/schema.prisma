@@ -7,37 +7,37 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model data_by_suburb {
-  suburb          String   @id(map: "data_by_suburb_pk")
-  lga             String?
-  postcode        Int?
-  average_rent    Decimal? @db.Decimal
-  ptv_stop_count  Int?
-  openspace_count Int?
-  crash_count     Int?
-  crime_count     Int?
-  bus_stop        Int?
-  tram_stop       Int?
-  train_station   Int?
+model suburb {
+  suburb           String       @id
+  postcode         Int?
+  lga              String?
+  region           String?
+  area_sqkm        Decimal?
+  population       Int?
+  average_rent     Decimal?
+  ptv_stops_count  Int?
+  openspace_rate   Decimal?
+  crime_rate       Decimal?
+  crash_count      Int?
+  liveabilities    liveability[]
 }
 
-model liveability_data {
-  suburb            String   @id(map: "liveability_data_pk")
-  rent_score        Decimal? @db.Decimal
-  transport_score   Decimal? @db.Decimal
-  openspace_score   Decimal? @db.Decimal
-  saferoads_score   Decimal? @db.Decimal
-  crime_score       Decimal? @db.Decimal
-  liveability_score String?
-  average_rent      Decimal? @db.Decimal
-  ptv_stop_count    Int?
-  openspace_count   Int?
-  crash_count       Int?
-  crime_count       Int?
+model liveability {
+  liveability_id     String  @id
+  liveability_suburb String
+  liveability_lga    String?
+  ptv_score          Decimal?
+  openspace_score    Decimal?
+  crime_score        Decimal?
+  crash_score        Decimal?
+  liveability_score  Decimal?
+  suburb             suburb  @relation(fields: [liveability_suburb], references: [suburb])
 }
 
-model uni_suburbs {
-  university     String  @id(map: "uni_suburbs_pk")
-  uni_suburb     String?
-  nearby_suburbs String?
+model university {
+  uni_dis_id     String  @id
+  university     String?
+  uni_to_suburb  String? // Assuming there's no relation to suburb here as per your DDL
+  distance_km    Decimal?
+  distance_score Int?
 }

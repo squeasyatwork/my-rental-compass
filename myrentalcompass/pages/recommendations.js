@@ -1,253 +1,308 @@
-"use client";
-
 import * as React from "react";
-import { useState, useEffect } from "react";
+import Router from "next/router";
+import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
+import { useState } from "react";
+
+import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
+import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import PreferencesBar from "~/components/PreferencesBar";
-import { Box, List, ListItem, ListItemText } from '@mui/material';
-import { Card, CardHeader, CardBody, CardFooter, Divider, Link, Image } from "@nextui-org/react";
-import { NextUIProvider } from "@nextui-org/react";
-import Router from "next/router";
-import { useRouter } from "next/router";
-
-// This is needed to make sure that the dbResponse parameter is correctly passed on to the page component.
-export const config = {
-  runtime: "nodejs", // or "edge"
-};
+import { style } from "d3";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
 });
 
-export const getServerSideProps = async (context) => {
+export const config = {
+  runtime: "nodejs",
+};
 
-  // SHIFTING DB LOGIC TO A COMPONENT FILE, CALLING IT FROM HERE (as getRankedLiveability).
-  if (context.query) {  // Preparing arguments for it by extracting URL params first.
+export const getServerSideProps = async (context) => {
+  if (context.query) {
     let contextQuery = context.query;
-    let rent = contextQuery.rentChoice;
-    let affordability = contextQuery.affordabilityChoice;
-    let transport = contextQuery.transportChoice
-    let park = contextQuery.parkChoice;
-    let crime = contextQuery.crimeChoice;
-    let road = contextQuery.roadChoice;
-    let university = contextQuery.uniChoice;
-    // let nearbyWithinRentRanked = await getRankedLiveability(rent, affordability, transport, park, crime, road, university);
-    let reqQuery = new URLSearchParams({
-      rent, affordability, transport, park, crime, road, university
-    });
-    console.log("recos file --> contextQuery: " + JSON.stringify(contextQuery))
-    if (rent) {
-      let dbResponse = await fetch(process.env.API_URL + "/api/liveablesuburbs?" + reqQuery, {
-        method: 'GET',
-      })
-      let nearbyWithinRentRanked = await dbResponse.json();
-      // console.log("\n\trecos file --> RANKED  FINAL  ARRAY: " + nearbyWithinRentRanked);
-      return { props: { nearbyWithinRentRanked, contextQuery, rent, affordability, transport, park, crime, road, university } };
+    let reqQuery = new URLSearchParams(contextQuery);
+
+    let dbResponse = await fetch(
+      process.env.API_URL + "/api/liveablesuburbs?" + reqQuery,
+      {
+        method: "GET",
+      }
+    );
+
+    // Check if the response is valid and is JSON before attempting to parse
+    if (
+      dbResponse.ok &&
+      dbResponse.headers.get("content-type").includes("application/json")
+    ) {
+      let rankedSuburbs = await dbResponse.json();
+      return { props: { rankedSuburbs, contextQuery } };
     }
   }
-  let dummyReturnValue = null;
-  return { props: { dummyReturnValue } };
 
-}
+  return { props: { rankedSuburbs: null, contextQuery: {} } };
+};
 
-function Recommendations({ nearbyWithinRentRanked = null, contextQuery = {}, rent = 0, affordability = 0, transport = 0, park = 0, crime = 0, road = 0, uniParam = "" }) {
-
+export default function Recommendations({
+  rankedSuburbs = null,
+  contextQuery = {},
+}) {
   const router = Router.useRouter();
 
-  console.log("recos file --> INSIDE COMPONENT contextQuery: " + JSON.stringify(contextQuery))
-
-  let defaultSliderValues = {};
-
-  if (rent !== 0) {
-    defaultSliderValues["rent"] = parseInt(contextQuery.rentChoice);
-    defaultSliderValues["affordability"] = parseInt(contextQuery.affordabilityChoice);
-    defaultSliderValues["transport"] = parseInt(contextQuery.transportChoice);
-    defaultSliderValues["park"] = parseInt(contextQuery.parkChoice);
-    defaultSliderValues["crime"] = parseInt(contextQuery.crimeChoice);
-    defaultSliderValues["road"] = parseInt(contextQuery.roadChoice);
-    defaultSliderValues["university"] = contextQuery.uniChoice;
-    console.log("recos file --> defaultSliderValues DETECTED: " + JSON.stringify(defaultSliderValues))
-  }
-  else {
-    console.log("recos file --> defaultSliderValues EMPTY: " + JSON.stringify(defaultSliderValues))
-  }
-
-  const [selectedChoices, setSelectedChoices] = useState({
-    // For QuestionOne
-    someQuestionOne: 600,
-    // For QuestionTwoAndThree
-    affordableHousing: 3,
-    publicTransport: 3,
-    openSpace: 3,
-    lowCrimeRate: 3,
-    safeRoads: 3,
+  const [inputValues, setInputValues] = React.useState({
+    rent: contextQuery.rentChoice || 400,
+    // affordability: contextQuery.affordabilityChoice || 3,
+    transport: contextQuery.transportChoice || 3,
+    park: contextQuery.parkChoice || 3,
+    crime: contextQuery.crimeChoice || 3,
+    road: contextQuery.roadChoice || 3,
+    university: contextQuery.uniChoice || "",
   });
 
-  const [university, setUniversity] = useState("")
+  const [selectedFeature, setSelectedFeature] = React.useState(null);
+  const [isPanelOpen, setIsPanelOpen] = React.useState(false);
+  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
-  const handleChoice = (question, choice) => {
-    setSelectedChoices({
-      ...selectedChoices,
-      [question]: choice,
+  const handleInputChange = (e) => {
+    setInputValues({
+      ...inputValues,
+      [e.target.name]: e.target.value,
     });
   };
 
-  const handleUniChoice = (choice) => {
-    setUniversity(choice);
+  const handleSliderChange = (name) => (e, value) => {
+    setInputValues({
+      ...inputValues,
+      [name]: value,
+    });
   };
 
-  function sendInput() {
-    let rentChoice = selectedChoices.someQuestionOne
-    let affordabilityChoice = selectedChoices.affordableHousing
-    let transportChoice = selectedChoices.publicTransport
-    let parkChoice = selectedChoices.openSpace
-    let crimeChoice = selectedChoices.lowCrimeRate
-    let roadChoice = selectedChoices.safeRoads
-    let uniChoice = university
-    console.log("recos file, sendInput params --> uniChoice: " + university)
+  const sendInput = () => {
     router.push({
       pathname: "/recommendations",
-      query: {
-        rentChoice,
-        affordabilityChoice,
-        transportChoice,
-        parkChoice,
-        crimeChoice,
-        roadChoice,
-        uniChoice
-      },
+      query: inputValues,
     });
-  }
+  };
 
-  console.log("\n\nINSIDE recos component --> nerbyWithinRentRanked: " + nearbyWithinRentRanked + "\n\n\n\n");
-  let liveableSuburbs = nearbyWithinRentRanked === null ? null : JSON.parse(nearbyWithinRentRanked);
-  const [selectedFeature, setSelectedFeature] = React.useState(null);
-  // create a loading state
-  const [mapLoading, setMapLoading] = useState(true);
+  const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setMapLoading(false);
-    }, 1500);
-    return () => clearTimeout(timer);
-  }, []);
-  if (liveableSuburbs) {
-    return (
-      <>
-        <Head>
-          <title>MyRentalCompass | Explore the Map</title>
-          <meta name="description" content="Discover potential suburbs." />
-        </Head>
+  const handleMouseClick = (event) => {
+    const mouseX = event.clientX;
+    const mouseY = event.clientY;
+    setBoxPosition({ x: mouseX, y: mouseY });
+  };
 
-        <main className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Find where to live" />
+  return (
+    <>
+      <Head>
+        <title>MyRentalCompass | Recommendations</title>
+        <meta name="description" content="Discover potential suburbs." />
+      </Head>
+      <main className="font-inter flex flex-col h-screen">
+        <Navbar activePage="Find where to live" />
 
-          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
+        <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
+          <div className="font-bold text-4xl text-black">
+            <h1>
+              Here are the Melbourne suburbs that we think are suitable for you
+            </h1>
+            <br />
+          </div>
+          <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
+            <h2>● How we calculated your score</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
+              score that ranks the suburbs based on your responses to the
+              questionnaire you just finished.
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
+              our page &apos;What is Liveability&apos;.
+            </p>
+            <h2>● How to read the map</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
+              highest liveability score) are in dark green. Those with the
+              lowest are dark pink.
+            </p>
+          </div>
+        </section>
+        <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
+          <Box
+            my="14px"
+            bgcolor="#fff"
+            borderRadius="12px"
+            padding="1rem"
+            sx={{
+              display: "flex",
+              flexDirection: "row",
+              width: "80%",
+              justifyContent: "space-between",
+              boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
+            }}
+          >
             <Box
-              my="14px"
-              bgcolor="#fff"
-              borderRadius="10px"
-              padding="10px"
               sx={{
+                width: "20%",
                 display: "flex",
-                flexDirection: "row",
-                width: "80%",
+                flexDirection: "column",
+                gap: "20px",
+                marginRight: "2rem",
+                padding: "1rem",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar handleChoice={handleChoice} university={university} handleUniChoice={handleUniChoice} sendInput={sendInput} defaultSliderValues={defaultSliderValues} />
+              <div className=" font-bold text-2xl">
+                <h1>Updated Selection</h1>
               </div>
-              <div style={{ flex: "1 0 66%", padding: "10px" }}>
-                {mapLoading ? (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="/loading.gif"
-                      alt="Loading"
-                      style={{ width: "200px", height: "200px" }}
-                    />
-                  </div>
-                ) : (
-                  // <DynamicBasicMap recommendations={true} />
-                  // Uncommemnt the above line to display the map
-                  <Card style={{ flex: "1 0 66%", padding: "10px" }}>
-                    <CardHeader className="flex gap-3">
-                      <div className="flex flex-col">
-                        <p className="text-lg">Here are your top suburb recommendations</p>
-                        <p className="text-small text-default-500">Adjust your preferences to update them</p>
-                      </div>
-                    </CardHeader>
-                    <Divider />
-                    <CardBody>
-                      {liveableSuburbs.length !== 0 ?
-                        (<ol>
-                          {liveableSuburbs.slice(0, 10).map((item, index) => (
-                            <li key={index} dangerouslySetInnerHTML={{ __html: (index + 1) + ". " + item.suburb + " with an average rent of A$" + item.average_rent }} />
-                          ))}
-                        </ol>) : (<h3>NO SUBURBS MATCHED</h3>)
-                      }
-                    </CardBody>
-                  </Card>
-                )}
-              </div>
+              {/* Rental and liveability sliders */}
+              <RentSlider
+                handleChoice={handleSliderChange("rent")}
+                defaultArg={inputValues.rent}
+              />
+              <LiveabilitySliders
+                inputValues={inputValues}
+                handleSliderChange={handleSliderChange}
+              />
+
+              {/* University dropdown */}
+              <UniversityDropdown
+                value={{ label: inputValues.university }}
+                onChange={(event, newValue) =>
+                  handleInputChange({
+                    target: {
+                      name: "university",
+                      value: newValue ? newValue.label : "",
+                    },
+                  })
+                }
+              />
+
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button"
+                onClick={sendInput}
+              >
+                Update Result
+              </button>
             </Box>
-          </section>
 
-          <Footer />
-        </main>
-      </>
-    );
-  }
-  else {
-    return (
-      <>
-        <Head>
-          <title>MyRentalCompass | Explore the Map</title>
-          <meta name="description" content="Discover potential suburbs." />
-        </Head>
-
-        <main className="font-inter flex flex-col h-screen">
-          <Navbar activePage="Find where to live" />
-
-          <section className="flex-grow w-full bg-ResourceButtonYellow flex items-center justify-center text-NavTextGray">
             <Box
-              my="14px"
-              bgcolor="#fff"
-              borderRadius="10px"
-              padding="10px"
               sx={{
-                display: "flex",
-                flexDirection: "row",
                 width: "80%",
+                position: "relative",
+                display: "flex",
+                flexDirection: "column",
+                gap: "20px",
               }}
             >
-              <div style={{ flex: "1 0 33%", padding: "10px" }}>
-                <PreferencesBar selectedChoices={selectedChoices} handleChoice={handleChoice} handleUniChoice={handleUniChoice} sendInput={sendInput} defaultSliderValues={defaultSliderValues} />
-              </div>
-              <div style={{ flex: "1 0 66%", padding: "10px" }}>
-                {mapLoading ? (
-                  <div className="w-full h-full flex items-center justify-center">
-                    <img
-                      src="/loading.gif"
-                      alt="Loading"
-                      style={{ width: "200px", height: "200px" }}
-                    />
-                  </div>
-                ) : (
-                  // <DynamicBasicMap recommendations={true} />
-                  // Uncomment the above line to display the map
-                  <h3 className="text-center">NO SUBURBS MATCHED</h3>
+              {/* Dynamic map rendering */}
+              <DynamicBasicMap
+                recommendations={true}
+                data={rankedSuburbs}
+                setSelectedFeature={setSelectedFeature}
+                onMouseEnter={(feature) => setSelectedFeature(feature)}
+                onMouseLeave={() => setSelectedFeature(null)}
+                onClick={handleMouseClick}
+              />
+
+              {/* Top 10 Suburbs panel */}
+              <Box
+                bgcolor="#fff"
+                padding="1rem"
+                borderRadius="10px"
+                sx={{
+                  display: "flex",
+                  flexDirection: "column",
+                  position: "absolute",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  right: 0,
+                  top: "10px",
+                  width: "37%",
+                  boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
+                  maxHeight: "70vh",
+                  //overflowY: "scroll",
+                  zIndex: 1000,
+                }}
+              >
+                {/* Panel toggle button */}
+                <button
+                  className=" text-base md:text-base lg:text-base font-bold call-action-button"
+                  onClick={() => setIsPanelOpen(!isPanelOpen)}
+                >
+                  {isPanelOpen
+                    ? "▼ Hide Top 10 Suburbs"
+                    : "▶ See Top 10 Suburbs"}
+                </button>
+
+                {isPanelOpen && (
+                  <>
+                    <h3 className=" font-istok text-lg text-center font-bold mt-2">
+                      Suburb Recommendations For You
+                    </h3>
+                    <table className="mx-auto">
+                      <thead>
+                        <tr>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Rank
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Score
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Suburbs
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            Rent ($/week)
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className=" text-sm font-normal items-center justify-center text-center">
+                        {topTenSuburbs.map((suburb, index) => (
+                          <tr key={suburb.suburb} style={{ margin: "1rem" }}>
+                            <td className="px-2 py-2">{index + 1}</td>
+                            <td className="px-2 py-2">
+                              {(suburb.liveability_score * 100).toFixed(2)}
+                            </td>
+                            <td className="px-2 py-2">{suburb.suburb}</td>
+                            <td className="px-2 py-2">
+                              ${suburb.average_rent}
+                            </td>
+                          </tr>
+                        ))}
+                      </tbody>
+                    </table>
+                  </>
                 )}
-              </div>
+              </Box>
+
+              {/* Selected feature details 
+                cannot the box cannot be displayed near the mouse*/}
+              {selectedFeature && (
+                <div
+                  style={{
+                    backgroundColor: "#fff",
+                    padding: "1rem",
+                    borderRadius: "12px",
+                    boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                    zIndex: 1000,
+                    position: "absolute",
+                    left: `${boxPosition.x}px`,
+                    top: `${boxPosition.y}px`,
+                  }}
+                >
+                  <p>Name: {selectedFeature.suburb}</p>
+                  <p>Council: {selectedFeature.lga}</p>
+                  <p>
+                    Liveability Score:{" "}
+                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                  </p>
+                </div>
+              )}
             </Box>
-          </section>
-          <Footer />
-        </main>
-      </>
-    );
-  }
+          </Box>
+        </section>
+        <Footer />
+      </main>
+    </>
+  );
 }
-
-export default Recommendations;

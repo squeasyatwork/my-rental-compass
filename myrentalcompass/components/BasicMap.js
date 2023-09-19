@@ -1,23 +1,18 @@
 import "leaflet/dist/leaflet.css";
 import React, { useState } from "react"; // Import useState hook
 import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
+// import boundaryData from "../src/data/boundary.geojson";
 import boundaryData from "../src/data/boundary.geojson";
 import { BaseLiveability } from "./BaseLiveability.js";
 import { CustomLiveability } from "./CustomLiveability.js";
 
-
-
-const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability = 1, transport = 1, park = 1, crime = 1, road = 1, university = "" }) => {
+const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
   // Add setSelectedFeature as a prop
   let mergedData;
   if (recommendations === false) {
     mergedData = BaseLiveability({ boundaryData });
   } else {
-    // Database data retrieval here (commented out for now)
-    // mergedData = yourOtherMethod();
-    mergedData = CustomLiveability({ boundaryData, rent, affordability, transport, park, crime, road, university })
-    console.log("basicmap file --> mergedData random MATCH entry: " + mergedData);
-    // console.log("basicmap file --> mergedData random MATCH entry: " + JSON.parsemergedData.find((item) => item.features.properties.suburb === "Springvale"));
+    mergedData = CustomLiveability(boundaryData, data);
   }
 
   const [selectedBoundary, setSelectedBoundary] = useState(null); // Add this line
@@ -43,23 +38,23 @@ const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability
   };
 
   const getColor = (liveability_score) => {
-    if (liveability_score > 0.75) {
+    if (liveability_score > 0.9) {
       return "#326319";
-    } else if (liveability_score > 0.7) {
+    } else if (liveability_score > 0.8) {
       return "#579122";
-    } else if (liveability_score > 0.65) {
+    } else if (liveability_score > 0.7) {
       return "#87bb42";
     } else if (liveability_score > 0.6) {
       return "#bde086";
-    } else if (liveability_score > 0.55) {
-      return "#e7f4d0";
     } else if (liveability_score > 0.5) {
-      return "#fae0ef";
-    } else if (liveability_score > 0.45) {
-      return "#d679ae";
+      return "#e7f4d0";
     } else if (liveability_score > 0.4) {
+      return "#fae0ef";
+    } else if (liveability_score > 0.3) {
+      return "#d679ae";
+    } else if (liveability_score > 0.2) {
       return "#bb247d";
-    } else if (liveability_score > 0.35) {
+    } else if (liveability_score > 0.1) {
       return "#870952";
     } else {
       return "#808080";
@@ -69,7 +64,7 @@ const BasicMap = ({ recommendations, setSelectedFeature, rent = 1, affordability
   return (
     <MapContainer
       center={[-37.8136, 144.9631]}
-      zoom={10}
+      zoom={11}
       scrollWheelZoom={false}
       style={{ height: "100%", width: "100%" }}
     >

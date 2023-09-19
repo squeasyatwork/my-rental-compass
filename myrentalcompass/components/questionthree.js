@@ -10,11 +10,11 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
     <div
       id="q3"
       className="flex flex-col items-center justify-center bg-white rounded-xl p-8"
-      style={{width: "auto", height:"auto", padding: '2rem'}}
+      style={{ width: "auto", height: "auto", padding: '2rem' }}
     >
       <div
         className="flex md:flex-row items-center justify-center w-full pt-24"
-        style={{ marginBottom: "2rem"}}
+        style={{ marginBottom: "2rem" }}
       >
         <div
           className="flex flex-col font-bold justify-center items-center"
@@ -56,9 +56,10 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
             <option value="Monash University, Parkville">
               Monash University, Parkville
             </option>
-            <option value="University of Melbourne">
+            {/* SKIPPING UNIMELB BECAUSE DATABASE DOESN'T HAVE ITS DATA. */}
+            {/* <option value="University of Melbourne">
               University of Melbourne
-            </option>
+            </option> */}
             <option value="University of Melbourne, Parkville">
               University of Melbourne, Parkville
             </option>
@@ -109,7 +110,7 @@ const QuestionThree = ({ handlePrevious, handleUniChoice, sendInput }) => {
           </div>
         </div>
       </div>
-      <div className="flex w-full sm:w-full md:4/5 items-center justify-between" >
+      <div className="flex w-4/5 sm:w-full md:4/5 items-center justify-between" >
         <button
           className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
           onClick={handlePrevious}
