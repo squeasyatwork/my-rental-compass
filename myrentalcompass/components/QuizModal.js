@@ -50,7 +50,7 @@ export default function QuizModal() {
                 <Box sx={style}>
                     {pageNumber === 1 && (<div>
                         <Typography id="modal-modal-title" variant="h4" component="h2" >
-                            The average weekly rental in Melbourne is..
+
                         </Typography>
                         <FormControl>
                             <RadioGroup

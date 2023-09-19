@@ -15,10 +15,36 @@ const UserguideBar = () => {
   const [showDetails1, setShowDetails1] = useState(false);
   const [showDetails2, setShowDetails2] = useState(false);
   const [showDetails3, setShowDetails3] = useState(false);
+  const [showQuizQuestion, setShowQuizQuestion] = useState(false);
+  const [showQuizRightAnswer, setShowQuizRightAnswer] = useState(false);
+  const [showQuizWrongAnswer, setShowQuizWrongAnswer] = useState(false);
+
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
   };
+
+  const toggleShowQuizQuestion = () => {
+    setShowQuizQuestion(!showQuizQuestion);
+  };
+
+  const toggleShowQuizRightAnswer = () => {
+    setShowQuizRightAnswer(!showQuizRightAnswer);
+  };
+
+  const toggleShowQuizWrongAnswer = () => {
+    setShowQuizWrongAnswer(!showQuizWrongAnswer);
+  };
+
+  const displayRightAnswer = () => {
+    toggleShowQuizQuestion;
+    toggleShowQuizRightAnswer;
+  }
+
+  const displayWrongAnswer = () => {
+    toggleShowQuizQuestion;
+    toggleShowQuizWrongAnswer;
+  }
 
   const toggleDetails2 = () => {
     setShowDetails2(!showDetails2);
@@ -62,6 +88,84 @@ const UserguideBar = () => {
                 <div>
                   <div className="flex w-full justify-between items-end">
                     <h2 className="text-lg font-semibold">Do your research</h2>
+                    <button onClick={toggleShowQuizQuestion}>
+                      <Image
+                        src="/resources_quiz_icon.gif"
+                        alt="information"
+                        width={40}
+                        height={40}
+                        className="rounded-md shadow-md"
+                      />
+                    </button>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizQuestion ? "1" : "0",
+                        visibility: showQuizQuestion ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "36%" }}>
+                        <div className="text-3xl p-5">The average weekly rental in Melbourne is.. <br></br>
+                          <div>
+                            <input type="radio" value="350" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 350 <br></br>
+                            <input type="radio" value="500" name="gender" className="py-6" onClick={toggleShowQuizRightAnswer} /> 500 <br></br>
+                            <input type="radio" value="750" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 750
+                          </div>
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizQuestion}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizRightAnswer ? "1" : "0",
+                        visibility: showQuizRightAnswer ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "36%" }}>
+                        <div className="text-3xl p-5"><center>Spot On!</center>
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizRightAnswer}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizWrongAnswer ? "1" : "0",
+                        visibility: showQuizWrongAnswer ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "36%" }}>
+                        <div className="text-3xl p-5"><center>Nice try</center>
+
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizWrongAnswer}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <ul className="list-disc pl-5">
                     <li>Understand the typical rent costs of the area</li>
