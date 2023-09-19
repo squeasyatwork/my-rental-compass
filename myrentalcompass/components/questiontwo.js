@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Link from "next/link";
+// import Link from "next/link";
 import LikertScale from "./likertscale";
 import Image from "next/image";
 
@@ -32,13 +32,16 @@ const QuestionTwo = ({
     <div
       id="q2"
       className="flex flex-col items-center justify-center bg-white rounded-xl text-sm sm:text-md md:text-lg lg:text-xl"
-      style={{width: 'auto', height:"auto", padding: '2rem'}}
+      style={{ width: "auto", height: "auto", padding: "2rem" }}
     >
       <div className="flex md:flex-row items-center justify-center mb-6">
-        <div className="flex flex-col items-center justify-center text-3xl font-bold mb-4 md:mb-0 md:mr-6" style={{ width: '100%', padding:'1rem'}}>
+        <div
+          className="flex flex-col items-center justify-center text-3xl font-bold mb-4 md:mb-0 md:mr-6"
+          style={{ width: "100%", padding: "1rem" }}
+        >
           <h2> How much do you value </h2>
           <h2> these liveability aspects? </h2>
-          <h2 style={{fontSize:"1.4rem"}}>( Please rate 1 to 5 )</h2>
+          <h2 style={{ fontSize: "1.4rem" }}>( Please rate 1 to 5 )</h2>
           <div className=" justify-center">
             <Image
               src="/forest-nature-park.svg"
@@ -49,7 +52,10 @@ const QuestionTwo = ({
             />
           </div>
         </div>
-        <div className="flex flex-col font-Inter font-normal text-2xl ml-6" style={{width: "100%", padding: "1rem"}}>
+        <div
+          className="flex flex-col font-Inter font-normal text-2xl ml-6"
+          style={{ width: "100%", padding: "1rem" }}
+        >
           <div className="flex flex-col font-bold">
             <div className=" flex font-normal text-base sm:text-base md:text-base lg:text-xl">
               <Image
@@ -67,7 +73,7 @@ const QuestionTwo = ({
                 <h2>5-Very important</h2>
               </div>
             </div>
-            <div className="text-xl mt-4">
+            {/* <div className="text-xl mt-4">
               <h2>Affordable housing</h2>
             </div>
             <LikertScale
@@ -76,7 +82,7 @@ const QuestionTwo = ({
               handleChoice={(e) =>
                 handleChoice("affordableHousing", e.target.value)
               }
-            />
+            /> */}
             <div className="text-xl">
               <h2>Easy access to public transport</h2>
             </div>
@@ -127,18 +133,19 @@ const QuestionTwo = ({
           <button
             className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
             onClick={handleClickNext}
-            >
+          >
             Final question
           </button>
         </div>
       </div>
-      {
-        error && (
-          <div className={`speech-bubble ${error ? "show" : ""}`} style={{color: "red"}}>
-            {error}
-          </div>
-        )
-      }
+      {error && (
+        <div
+          className={`speech-bubble ${error ? "show" : ""}`}
+          style={{ color: "red" }}
+        >
+          {error}
+        </div>
+      )}
     </div>
   );
 };

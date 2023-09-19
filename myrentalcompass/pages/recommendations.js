@@ -109,7 +109,7 @@ export default function Recommendations({
             </h1>
             <br />
           </div>
-          <div className="font-bold text-2xl text-HeadingTextGray bg-ResourceButtonYellow p-6 rounded-xl">
+          <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
             <h2>● How we calculated your score</h2>
             <p className="text-xl font-normal">
               &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
