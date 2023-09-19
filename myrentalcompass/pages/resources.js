@@ -104,11 +104,23 @@ const UserguideBar = () => {
                         visibility: showQuizQuestion ? "visible" : "hidden"
                       }}>
                       <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                        style={{ width: "36%" }}>
-                        <div className="text-3xl p-5">The average weekly rental in Melbourne is.. <br></br>
-                          <input type="radio" value="350" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 350 <br></br>
-                          <input type="radio" value="500" name="gender" className="py-6" onClick={toggleShowQuizRightAnswer} /> 500 <br></br>
-                          <input type="radio" value="750" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 750
+                        style={{ width: "38%" }}>
+                        <div className="text-3xl p-5">
+                          <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                            How much do you think the average rent in Melbourne is?
+                          </div>
+                          <br></br>
+                          <div className="flex flex-col items-center justify-center font-medium">
+                            <div className="flex">
+                              <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={toggleShowQuizWrongAnswer} /> A. $350 per week
+                            </div>
+                            <div className="flex">
+                              <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={toggleShowQuizRightAnswer} /> B. $500 per week
+                            </div>
+                            <div className="flex">
+                              <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={toggleShowQuizWrongAnswer} /> C. $750 per week
+                            </div>
+                          </div>
                         </div>
                       </div>
                       <button onClick={toggleShowQuizQuestion}>
