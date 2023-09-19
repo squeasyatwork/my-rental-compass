@@ -80,7 +80,7 @@ function Liveability() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-               Liveability is what a place like to live in
+               Liveability is what a place is like to live in
               </h1>
               <h1 className="text-5xl font-bold text-center mt-4">
                 - a liveable place is a healthy place
@@ -99,8 +99,8 @@ function Liveability() {
             <br></br>
             <h2 className="text-2xl">Click on each aspect to know more.</h2>
           </div>
-          <div className="flex flex-col justify-center items-center px-6 py-2 mt-8">
-            <div className="flex flex-col justify-center items-center">
+          <div className="flex flex-col justify-center items-center px-6 py-2 w-full">
+            <div className="relative flex flex-col justify-center items-center" style={{ top: "12vh" }}>
               <button onClick={toggleDetails1}>
                 <Image
                   src="/1-transport.svg"
@@ -172,7 +172,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="flex flex-col justify-center items-center">
+              <div className="relative justify-center items-center" style={{left:"12vh"}}>
                 <button onClick={toggleDetails2}>
                   <Image
                     src="/4-crime.svg"
@@ -236,15 +236,15 @@ function Liveability() {
                   </button>
                 </div>
               </div>
-              <div>
+              <div className=" z-10">
                 <Image
                   src="/centre-liveability.svg"
                   alt="centre-liveability"
-                  width={300}
-                  height={300}
+                  width={350}
+                  height={350}
                 />
               </div>
-              <div className="flex flex-col justify-center items-center">
+              <div className="relative flex flex-col justify-center items-center" style={{right:"12vh"}}>
                 <button onClick={toggleDetails3}>
                   <Image
                     src="/2-roads.svg"
@@ -313,7 +313,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="flex flex-col justify-center items-center">
+              <div className="relative flex flex-col justify-center items-center" style={{top:"-12vh"}}>
                 <button onClick={toggleDetails4}>
                   <Image
                     src="/3-openspace.svg"
@@ -385,7 +385,7 @@ function Liveability() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center px-6 py-2 mt-12">
+          <div className="flex justify-center items-center px-6 py-2">
             <Link href="https://auo.org.au/">
               <button className="text-sm md:text-sm lg:text-sm font-bold call-action-button mr-16">
                 Read more at the Australian Urban Observatory website
@@ -405,31 +405,31 @@ function Liveability() {
             </a>
           </div>
         </div>
-          <div className="bg-white px-4 pb-12">
-            <h1 className="index-page-section-heading pt-6 pb-6">
-              Other Resources
-            </h1>
-            <div className="yqa-cross-section-container">
-              <ResourceSection
-                id="or-section-1"
-                imageSrc="/or-plan-melb-picture.jpeg"
-                altText="or-plan-melb-picture"
-                link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
-              />
-              <ResourceSection
-                id="or-section-2"
-                imageSrc="/or-unsdg-picture.jpeg"
-                altText="or-unsdg-picture"
-                link="https://sdgs.un.org/goals/goal11"
-              />
-              <ResourceSection
-                id="or-section-3"
-                imageSrc="/or-crt-logo.jpeg"
-                altText="or-crt-picture"
-                link="https://www.rentingcommissioner.vic.gov.au/"
-              />
-            </div>
+        <div className="bg-white px-4 pb-12">
+          <h1 className="index-page-section-heading pt-6 pb-6">
+            Other Resources
+          </h1>
+          <div className="yqa-cross-section-container">
+            <ResourceSection
+              id="or-section-1"
+              imageSrc="/or-plan-melb-picture.jpeg"
+              altText="or-plan-melb-picture"
+              link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
+            />
+            <ResourceSection
+              id="or-section-2"
+              imageSrc="/or-unsdg-picture.jpeg"
+              altText="or-unsdg-picture"
+              link="https://sdgs.un.org/goals/goal11"
+            />
+            <ResourceSection
+              id="or-section-3"
+              imageSrc="/or-crt-logo.jpeg"
+              altText="or-crt-picture"
+              link="https://www.rentingcommissioner.vic.gov.au/"
+            />
           </div>
+        </div>
         <Footer />
       </main>
     </>

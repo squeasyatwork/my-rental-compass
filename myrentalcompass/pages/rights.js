@@ -390,7 +390,7 @@ export default function Rights() {
                     height={100}
                 />
               </div>
-              <a href="https://www.youtube.com/watch?v=oX6usi7Rgn0" class=" text-HeadingTextGray hover:underline text-center items-center">Condition reports</a>
+              <a href="https://www.youtube.com/watch?v=oX6usi7Rgn0" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Condition reports</a>
               <div className=" flex flex-col font-bold text-xl items-center mt-2">
                 <h2>You have a responsibility to maintain the</h2>
                 <h2>house to a reasonable standard</h2>
@@ -428,7 +428,7 @@ export default function Rights() {
               </div>
             </div>
             <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
-            <div className="font-istok flex flex-col items-center justify-center ml-24 border-b-2 border-HeadingTextGray pb-4">
+            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
                     src="/home-repair.png"
@@ -437,7 +437,7 @@ export default function Rights() {
                     height={100}
                 />
               </div>
-              <a href="https://www.youtube.com/watch?v=IJCRr6OYm4U&list=PLyJsWesP-0qmL3r2uf7ddID-LaDIy0Y7F" class=" text-HeadingTextGray hover:underline text-center items-center">Starting and ending a lease</a>
+              <a href="https://www.youtube.com/watch?v=IJCRr6OYm4U&list=PLyJsWesP-0qmL3r2uf7ddID-LaDIy0Y7F" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Starting and ending a lease</a>
               <div className=" flex flex-col font-bold text-xl items-center mt-2">
                 <h2>You have several responsibilities to follow</h2>
                 <h2>when ending your tenancy agreement</h2>
