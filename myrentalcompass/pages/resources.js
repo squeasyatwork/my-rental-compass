@@ -15,10 +15,36 @@ const UserguideBar = () => {
   const [showDetails1, setShowDetails1] = useState(false);
   const [showDetails2, setShowDetails2] = useState(false);
   const [showDetails3, setShowDetails3] = useState(false);
+  const [showQuizQuestion, setShowQuizQuestion] = useState(false);
+  const [showQuizRightAnswer, setShowQuizRightAnswer] = useState(false);
+  const [showQuizWrongAnswer, setShowQuizWrongAnswer] = useState(false);
+
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
   };
+
+  const toggleShowQuizQuestion = () => {
+    setShowQuizQuestion(!showQuizQuestion);
+  };
+
+  const toggleShowQuizRightAnswer = () => {
+    setShowQuizRightAnswer(!showQuizRightAnswer);
+  };
+
+  const toggleShowQuizWrongAnswer = () => {
+    setShowQuizWrongAnswer(!showQuizWrongAnswer);
+  };
+
+  const displayRightAnswer = () => {
+    toggleShowQuizQuestion;
+    toggleShowQuizRightAnswer;
+  }
+
+  const displayWrongAnswer = () => {
+    toggleShowQuizQuestion;
+    toggleShowQuizWrongAnswer;
+  }
 
   const toggleDetails2 = () => {
     setShowDetails2(!showDetails2);
@@ -62,6 +88,94 @@ const UserguideBar = () => {
                 <div>
                   <div className="flex w-full justify-between items-end">
                     <h2 className="text-lg font-semibold">Do your research</h2>
+                    <button onClick={toggleShowQuizQuestion}>
+                      <Image
+                        src="/resources_quiz_icon.gif"
+                        alt="information"
+                        width={40}
+                        height={40}
+                        className="rounded-md shadow-md"
+                      />
+                    </button>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizQuestion ? "1" : "0",
+                        visibility: showQuizQuestion ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "38%" }}>
+                        <div className="text-3xl p-5">
+                          <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                            How much do you think the average rent in Melbourne is?
+                          </div>
+                          <br></br>
+                          <div className="flex flex-col items-center justify-center font-medium">
+                            <div className="flex">
+                              <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={toggleShowQuizWrongAnswer} /> A. $350 per week
+                            </div>
+                            <div className="flex">
+                              <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={toggleShowQuizRightAnswer} /> B. $500 per week
+                            </div>
+                            <div className="flex">
+                              <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={toggleShowQuizWrongAnswer} /> C. $750 per week
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizQuestion}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizRightAnswer ? "1" : "0",
+                        visibility: showQuizRightAnswer ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "36%" }}>
+                        <div className="text-3xl p-5"><center>Spot On!</center>
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizRightAnswer}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
+                    <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                      style={{
+                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                        opacity: showQuizWrongAnswer ? "1" : "0",
+                        visibility: showQuizWrongAnswer ? "visible" : "hidden"
+                      }}>
+                      <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                        style={{ width: "36%" }}>
+                        <div className="text-3xl p-5"><center>Nice try</center>
+
+                        </div>
+                      </div>
+                      <button onClick={toggleShowQuizWrongAnswer}>
+                        <Image
+                          src="/close.svg"
+                          alt="close"
+                          width={80}
+                          height={80}
+                          className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                        />
+                      </button>
+                    </div>
                   </div>
                   <ul className="list-disc pl-5">
                     <li>Understand the typical rent costs of the area</li>
@@ -243,16 +357,25 @@ export default function Resources() {
 
         <div className="relative h-3/5 w-full">
           <img
-            src="/liveable-cities.jpeg"
+            src="/resources_page_banner.png"
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-center ">
-            <div className="flex flex-col justify-center my-44">
-              <h1 className="text-5xl font-bold text-center text-gray-100/90 leading-relaxed	">
+            <div className="flex flex-col justify-center my-44 text-gray-100/90">
+
+
+
+              <h1 className="text-5xl font-bold text-center">
                 Knowing what to do to apply for a rental can be
-                confusing!<br></br>
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
+                confusing!
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
                 Follow our guide to take you on the journey of
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
                 applying for a property
               </h1>
             </div>
