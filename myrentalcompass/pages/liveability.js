@@ -99,8 +99,8 @@ function Liveability() {
             <br></br>
             <h2 className="text-2xl">Click on each aspect to know more.</h2>
           </div>
-          <div className="flex flex-col justify-center items-center px-6 py-2">
-            <div className="relative flex flex-col justify-center items-center" style={{ top: "7rem" }}>
+          <div className="flex flex-col justify-center items-center px-6 py-2 w-full">
+            <div className="relative flex flex-col justify-center items-center" style={{ top: "12vh" }}>
               <button onClick={toggleDetails1}>
                 <Image
                   src="/1-transport.svg"
@@ -172,7 +172,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="relative justify-center items-center" style={{left:"7rem"}}>
+              <div className="relative justify-center items-center" style={{left:"12vh"}}>
                 <button onClick={toggleDetails2}>
                   <Image
                     src="/4-crime.svg"
@@ -244,7 +244,7 @@ function Liveability() {
                   height={350}
                 />
               </div>
-              <div className="relative flex flex-col justify-center items-center" style={{right:"7rem"}}>
+              <div className="relative flex flex-col justify-center items-center" style={{right:"12vh"}}>
                 <button onClick={toggleDetails3}>
                   <Image
                     src="/2-roads.svg"
@@ -313,7 +313,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="relative flex flex-col justify-center items-center" style={{top:"-7rem"}}>
+              <div className="relative flex flex-col justify-center items-center" style={{top:"-12vh"}}>
                 <button onClick={toggleDetails4}>
                   <Image
                     src="/3-openspace.svg"
