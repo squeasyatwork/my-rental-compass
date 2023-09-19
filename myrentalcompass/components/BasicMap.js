@@ -1,13 +1,21 @@
 import "leaflet/dist/leaflet.css";
-import React, { useState } from "react"; // Import useState hook
-import { MapContainer, TileLayer, GeoJSON } from "react-leaflet";
-// import boundaryData from "../src/data/boundary.geojson";
+import L from 'leaflet';
+
+delete L.Icon.Default.prototype._getIconUrl;
+
+L.Icon.Default.mergeOptions({
+    iconRetinaUrl: '/marker-icon-2x.png',
+    iconUrl: '/marker-icon.png',
+    shadowUrl: '/marker-shadow.png'
+});
+
+import React, { useState, useEffect } from "react";
+import { MapContainer, TileLayer, GeoJSON, Marker, Popup } from "react-leaflet";
 import boundaryData from "../src/data/boundary.geojson";
 import { BaseLiveability } from "./BaseLiveability.js";
 import { CustomLiveability } from "./CustomLiveability.js";
 
 const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
-  // Add setSelectedFeature as a prop
   let mergedData;
   if (recommendations === false) {
     mergedData = BaseLiveability({ boundaryData });
@@ -15,13 +23,19 @@ const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
     mergedData = CustomLiveability(boundaryData, data);
   }
 
-  const [selectedBoundary, setSelectedBoundary] = useState(null); // Add this line
+  const top10Suburbs = mergedData.features
+    .sort(
+      (a, b) => b.properties.liveability_score - a.properties.liveability_score
+    )
+    .slice(0, 10);
+
+  const [selectedBoundary, setSelectedBoundary] = useState(null);
 
   const onEachFeature = (feature, layer) => {
     layer.on({
       click: () => {
-        setSelectedFeature(feature.properties); // Update the selectedFeature state in the Map component
-        setSelectedBoundary(feature); // Update the selected boundary state in this component
+        setSelectedFeature(feature.properties);
+        setSelectedBoundary(feature);
       },
     });
   };
@@ -76,10 +90,30 @@ const BasicMap = ({ recommendations, setSelectedFeature, data }) => {
       <GeoJSON
         data={mergedData}
         style={geoJSONStyle}
-        onEachFeature={onEachFeature} // Add this prop
+        onEachFeature={onEachFeature}
       />
+      {top10Suburbs.map((suburb) => {
+        // Estimate coordinates as the centroid of the suburb's polygon
+        const centroid = getCentroid(suburb.geometry.coordinates[0]);
+        return (
+          <Marker position={centroid} key={suburb.properties.suburb}>
+            <Popup>
+              {suburb.properties.suburb} - {suburb.properties.liveability_score}
+            </Popup>
+          </Marker>
+        );
+      })}
     </MapContainer>
   );
 };
+
+// Function to compute the centroid of a polygon
+function getCentroid(coords) {
+  let center = coords.reduce(
+    (c, v) => [c[0] + v[0] / coords.length, c[1] + v[1] / coords.length],
+    [0, 0]
+  );
+  return center;
+}
 
 export default BasicMap;

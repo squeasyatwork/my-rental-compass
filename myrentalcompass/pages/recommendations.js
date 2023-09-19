@@ -15,10 +15,20 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 });
 
 export const getServerSideProps = async (context) => {
+  let contextQuery = {};
   if (context.req.session && context.req.session.recommendationsInputValues) {
     contextQuery = JSON.parse(context.req.session.recommendationsInputValues);
   }
 
+  if (!contextQuery && typeof window === "undefined") {
+    // If on server side and no session data, do a server-side redirect
+    return {
+      redirect: {
+        destination: "/questionnaire",
+        permanent: false,
+      },
+    };
+  }
   if (context.query) {
     let contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
@@ -53,6 +63,13 @@ export default function Recommendations({
     return Object.values(contextQuery).some((v) => v !== undefined);
   });
 
+  const getSessionStorageItem = (key) => {
+    if (typeof window !== "undefined") {
+      return window.sessionStorage.getItem(key);
+    }
+    return null;
+  };
+
   // Initialize from contextQuery, if available. If not, fall back to sessionStorage.
   const [inputValues, setInputValues] = useState(() => {
     const contextValues = {
@@ -64,7 +81,7 @@ export default function Recommendations({
       university: contextQuery.uniChoice || "",
     };
 
-    const savedValues = sessionStorage.getItem("recommendationsInputValues");
+    const savedValues = getSessionStorageItem("recommendationsInputValues");
     if (savedValues) {
       return { ...contextValues, ...JSON.parse(savedValues) };
     }
@@ -77,24 +94,26 @@ export default function Recommendations({
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
   useEffect(() => {
-    // Store the current input values into sessionStorage whenever they change
-    sessionStorage.setItem(
-      "recommendationsInputValues",
-      JSON.stringify(inputValues)
-    );
-
-    const handleRouteChange = (url) => {
-      sessionStorage.setItem(
+    if (typeof window !== "undefined") {
+      // Store the current input values into sessionStorage whenever they change
+      window.sessionStorage.setItem(
         "recommendationsInputValues",
         JSON.stringify(inputValues)
       );
-    };
 
-    router.events.on("routeChangeStart", handleRouteChange);
+      const handleRouteChange = (url) => {
+        window.sessionStorage.setItem(
+          "recommendationsInputValues",
+          JSON.stringify(inputValues)
+        );
+      };
 
-    return () => {
-      router.events.off("routeChangeStart", handleRouteChange);
-    };
+      router.events.on("routeChangeStart", handleRouteChange);
+
+      return () => {
+        router.events.off("routeChangeStart", handleRouteChange);
+      };
+    }
   }, [inputValues]);
 
   useEffect(() => {
@@ -168,24 +187,23 @@ export default function Recommendations({
             <h1>
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
-            <br/>
+            <br />
           </div>
-          <div className="font-bold text-4xl text-HeadingTextGray bg-MapHeadingGray">
-            <h2>
-              How we calculated your score
-            </h2>
-            <p className="text-2xl font-normal">
-              This website grenerates a liveablity index score that ranks the suburbs based on your responses to the questionnaire
-              you just finished.
-              <br/>
-              To find out more about liveability, see our page &apos;What is Liveability&apos;.
+          <div className="font-bold text-2xl text-HeadingTextGray bg-MapHeadingGray p-6 rounded-xl">
+            <h2>● How we calculated your score</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
+              score that ranks the suburbs based on your responses to the
+              questionnaire you just finished.
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
+              our page &apos;What is Liveability&apos;.
             </p>
-            <br/>
-            <h2>
-              How to read the map
-            </h2>
-            <p className="text-2xl font-normal">
-              The suburbs that are your best match (i.e. highest liveability score) are in dark green. Those with the lowest are dark pink.
+            <h2>● How to read the map</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
+              highest liveability score) are in dark green. Those with the
+              lowest are dark pink.
             </p>
           </div>
         </section>
