@@ -106,11 +106,9 @@ const UserguideBar = () => {
                       <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
                         style={{ width: "36%" }}>
                         <div className="text-3xl p-5">The average weekly rental in Melbourne is.. <br></br>
-                          <div>
-                            <input type="radio" value="350" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 350 <br></br>
-                            <input type="radio" value="500" name="gender" className="py-6" onClick={toggleShowQuizRightAnswer} /> 500 <br></br>
-                            <input type="radio" value="750" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 750
-                          </div>
+                          <input type="radio" value="350" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 350 <br></br>
+                          <input type="radio" value="500" name="gender" className="py-6" onClick={toggleShowQuizRightAnswer} /> 500 <br></br>
+                          <input type="radio" value="750" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 750
                         </div>
                       </div>
                       <button onClick={toggleShowQuizQuestion}>
@@ -347,7 +345,7 @@ export default function Resources() {
 
         <div className="relative h-3/5 w-full">
           <img
-            src="/liveable-cities.jpeg"
+            src="/resources_page_banner.png"
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
