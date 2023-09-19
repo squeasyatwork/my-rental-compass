@@ -350,11 +350,20 @@ export default function Resources() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-center ">
-            <div className="flex flex-col justify-center my-44">
-              <h1 className="text-5xl font-bold text-center text-gray-100/90 leading-relaxed	">
+            <div className="flex flex-col justify-center my-44 text-gray-100/90">
+
+
+
+              <h1 className="text-5xl font-bold text-center">
                 Knowing what to do to apply for a rental can be
-                confusing!<br></br>
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
+                confusing!
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
                 Follow our guide to take you on the journey of
+              </h1>
+              <h1 className="text-5xl font-bold text-center mt-4">
                 applying for a property
               </h1>
             </div>
