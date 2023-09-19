@@ -1,18 +1,20 @@
 import Link from "next/link";
+import Image from "next/image";
 
 const NavBar = ({ activePage }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-white`}
+      className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-MapNavGray shadow-md z-50`}
     >
       <div className="flex justify-between max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-24">
         <Link href="/">
           <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
-            <img
-              src="/mrc-logov2.svg"
+            <Image
+              src="/mrc-logov3.png"
               alt="MRC Logo"
-              className="w-64 h-24 object-contain mr-4"
+              width={200}
+              height={200}
             />
           </div>
         </Link>
