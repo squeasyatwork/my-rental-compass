@@ -7,7 +7,7 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `${process.env.API_URL}/${src}?w=${width}&q=${quality || 75}`;
+  return `https://www.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const Section = ({
