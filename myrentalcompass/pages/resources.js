@@ -279,7 +279,7 @@ export default function Resources() {
             <div className="flex justify-center">
               <button
                 onClick={toggleDetails4}
-                className={showDetails4 ? "font-medium text-2xl p-6 w-full border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
+                className={showDetails4 ? "font-medium text-2xl p-6 w-10/12 border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-10/12 hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
                 <div className="flex justify-between" id="applicationButton">
                   <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Making an application</h1>
@@ -295,7 +295,7 @@ export default function Resources() {
             </div>
             {showDetails4 && (
               <div className="flex flex-col items-center">
-                <div className=" p-5 bg-FooterButtonYellow w-full">
+                <div className="p-8 bg-FooterButtonYellow w-10/12">
                   <div>
                     <h2 className="text-lg font-semibold text-LongContentGray">Follow the checklist to make sure that you have everything you need to make a rental application</h2>
                     <FormGroup>
