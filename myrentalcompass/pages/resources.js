@@ -37,7 +37,6 @@ const UserguideBar = () => {
             alt="information"
             width={200}
             height={200}
-          // className="mr-12"
           />
           <hr className="w-64 h-1 ml-5 my-4 bg-MerciPurple border-10 rounded md:my-10" />
         </div>
@@ -46,7 +45,16 @@ const UserguideBar = () => {
             onClick={toggleDetails1}
             className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Before you leave..</h1>
+            <div className="flex justify-evenly">
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Before you leave</h1>
+              {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>)}
+              {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+              )}
+            </div>
           </button>
           {showDetails1 && (
             <div className="flex flex-col items-center">
@@ -54,13 +62,6 @@ const UserguideBar = () => {
                 <div>
                   <div className="flex w-full justify-between items-end">
                     <h2 className="text-lg font-semibold">Do your research</h2>
-                    {/* <button onClick={ }> */}
-                    {/* <Image src="/resources_quiz_icon.gif"
-                      alt="information"
-                      width={50}
-                      height={50} style={{ border: '1px solid #6864F7' }} /> */}
-                    {/* </button> */}
-                    {/* <QuizModal></QuizModal> */}
                   </div>
                   <ul className="list-disc pl-5">
                     <li>Understand the typical rent costs of the area</li>
@@ -90,7 +91,16 @@ const UserguideBar = () => {
             onClick={toggleDetails2}
             className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <h1 className="text-5xl font-bold text-center text-HeadingTextGray">When you arrive..</h1>
+            <div className="flex justify-evenly">
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">When you arrive</h1>
+              {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>)}
+              {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+              )}
+            </div>
           </button>
           {showDetails2 && (
             <div className="flex flex-col items-center">
@@ -156,7 +166,16 @@ const UserguideBar = () => {
             onClick={toggleDetails3}
             className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Found a property..</h1>
+            <div className="flex justify-evenly">
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Found a property</h1>
+              {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>)}
+              {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+              )}
+            </div>
           </button>
           {showDetails3 && (
             <div className="flex flex-col items-center">
@@ -262,7 +281,16 @@ export default function Resources() {
                 onClick={toggleDetails4}
                 className={showDetails4 ? "font-medium text-2xl p-6 w-full border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
-                <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Making an application...</h1>
+                <div className="flex justify-between" id="applicationButton">
+                  <h1 className="text-5xl font-bold text-center text-HeadingTextGray">Making an application</h1>
+                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>)}
+                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                  </svg>
+                  )}
+                </div>
               </button>
             </div>
             {showDetails4 && (
