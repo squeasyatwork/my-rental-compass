@@ -1,9 +1,9 @@
 import * as React from "react";
-import Router from "next/router";
+import { useRouter } from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react"; // Added useRef
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
@@ -16,36 +16,32 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 
 export const getServerSideProps = async (context) => {
   let contextQuery = {};
+
   if (context.req.session && context.req.session.recommendationsInputValues) {
     contextQuery = JSON.parse(context.req.session.recommendationsInputValues);
   }
 
-  if (!contextQuery && typeof window === "undefined") {
-    // If on server side and no session data, do a server-side redirect
-    return {
-      redirect: {
-        destination: "/questionnaire",
-        permanent: false,
-      },
-    };
-  }
   if (context.query) {
-    let contextQuery = context.query;
+    contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
 
-    let dbResponse = await fetch(
-      process.env.API_URL + "/api/liveablesuburbs?" + reqQuery,
-      {
-        method: "GET",
-      }
-    );
+    try {
+      let dbResponse = await fetch(
+        process.env.API_URL + "/api/liveablesuburbs?" + reqQuery,
+        {
+          method: "GET",
+        }
+      );
 
-    if (
-      dbResponse.ok &&
-      dbResponse.headers.get("content-type").includes("application/json")
-    ) {
-      let rankedSuburbs = await dbResponse.json();
-      return { props: { rankedSuburbs, contextQuery } };
+      if (
+        dbResponse.ok &&
+        dbResponse.headers.get("content-type").includes("application/json")
+      ) {
+        let rankedSuburbs = await dbResponse.json();
+        return { props: { rankedSuburbs, contextQuery } };
+      }
+    } catch (error) {
+      console.error("Error fetching suburbs:", error);
     }
   }
 
@@ -56,93 +52,75 @@ export default function Recommendations({
   rankedSuburbs = null,
   contextQuery = {},
 }) {
-  const router = Router.useRouter();
+  const router = useRouter();
 
-  // Check if we're initializing from the contextQuery values or not.
-  const [initializedFromContext, setInitializedFromContext] = useState(() => {
-    return Object.values(contextQuery).some((v) => v !== undefined);
+  const inputValuesRef = useRef(); // Added useRef
+
+  const [initializedFromContext, setInitializedFromContext] = useState(false);
+
+  const [inputValues, setInputValues] = useState({
+    rent: contextQuery.rentChoice || 400,
+    transport: contextQuery.transportChoice || 3,
+    park: contextQuery.parkChoice || 3,
+    crime: contextQuery.crimeChoice || 3,
+    road: contextQuery.roadChoice || 3,
+    university: contextQuery.uniChoice || "",
   });
 
-  const getSessionStorageItem = (key) => {
-    if (typeof window !== "undefined") {
-      return window.sessionStorage.getItem(key);
-    }
-    return null;
-  };
-
-  // Initialize from contextQuery, if available. If not, fall back to sessionStorage.
-  const [inputValues, setInputValues] = useState(() => {
-    const contextValues = {
-      rent: contextQuery.rentChoice || 400,
-      transport: contextQuery.transportChoice || 3,
-      park: contextQuery.parkChoice || 3,
-      crime: contextQuery.crimeChoice || 3,
-      road: contextQuery.roadChoice || 3,
-      university: contextQuery.uniChoice || "",
-    };
-
-    const savedValues = getSessionStorageItem("recommendationsInputValues");
-    if (savedValues) {
-      return { ...contextValues, ...JSON.parse(savedValues) };
-    }
-
-    return contextValues;
-  });
-
-  const [selectedFeature, setSelectedFeature] = useState(null);
-  const [isPanelOpen, setIsPanelOpen] = useState(false);
-  const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
-
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Store the current input values into sessionStorage whenever they change
-      window.sessionStorage.setItem(
-        "recommendationsInputValues",
-        JSON.stringify(inputValues)
-      );
-
-      const handleRouteChange = (url) => {
-        window.sessionStorage.setItem(
-          "recommendationsInputValues",
-          JSON.stringify(inputValues)
-        );
-      };
-
-      router.events.on("routeChangeStart", handleRouteChange);
-
-      return () => {
-        router.events.off("routeChangeStart", handleRouteChange);
-      };
-    }
-  }, [inputValues]);
-
-  useEffect(() => {
-    if (initializedFromContext) {
-      // Ensure components get updated based on contextQuery values
-      setInputValues((prevValues) => ({
-        ...prevValues,
+    if (Object.values(contextQuery).some((v) => v !== undefined)) {
+      setInputValues({
         rent: contextQuery.rentChoice || 400,
         transport: contextQuery.transportChoice || 3,
         park: contextQuery.parkChoice || 3,
         crime: contextQuery.crimeChoice || 3,
         road: contextQuery.roadChoice || 3,
         university: contextQuery.uniChoice || "",
-      }));
+      });
 
-      // Once updated, set the initializedFromContext to false
-      setInitializedFromContext(false);
-    } else if (!contextQuery || Object.keys(contextQuery).length === 0) {
-      const savedValues = sessionStorage.getItem("recommendationsInputValues");
+      setInitializedFromContext(true);
+    }
 
-      if (savedValues) {
-        setInputValues(JSON.parse(savedValues));
-        sendInput();
-      } else {
-        // If there's no saved values in sessionStorage, redirect to "/questionnaire"
-        router.push("/questionnaire");
+    if (!initializedFromContext) {
+      if (typeof window !== "undefined") {
+        const savedValues = window.sessionStorage.getItem(
+          "recommendationsInputValues"
+        );
+
+        if (savedValues) {
+          setInputValues(JSON.parse(savedValues));
+        } else {
+          router.push("/questionnaire");
+        }
       }
     }
-  }, []); // Empty dependency array ensures this useEffect runs once on component mount
+  }, [contextQuery, initializedFromContext]);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      window.sessionStorage.setItem(
+        "recommendationsInputValues",
+        JSON.stringify(inputValues)
+      );
+    }
+
+    inputValuesRef.current = inputValues;
+
+    const handleRouteChange = () => {
+      if (typeof window !== "undefined") {
+        window.sessionStorage.setItem(
+          "recommendationsInputValues",
+          JSON.stringify(inputValuesRef.current)
+        );
+      }
+    };
+
+    router.events.on("routeChangeStart", handleRouteChange);
+
+    return () => {
+      router.events.off("routeChangeStart", handleRouteChange);
+    };
+  }, [inputValues]);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -189,21 +167,21 @@ export default function Recommendations({
             </h1>
             <br />
           </div>
-          <div className="font-bold text-2xl text-HeadingTextGray bg-FooterButtonYellow p-6 rounded-xl">
-              <h2>
-                ● How we calculated your score
-              </h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index score that ranks the suburbs based on your responses to the questionnaire
-              you just finished.
-              <br/>
-              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see our page &apos;What is Liveability&apos;.
+          <div className="font-bold text-4xl text-HeadingTextGray bg-MapHeadingGray">
+            <h2>How we calculated your score</h2>
+            <p className="text-2xl font-normal">
+              This website grenerates a liveablity index score that ranks the
+              suburbs based on your responses to the questionnaire you just
+              finished.
+              <br />
+              To find out more about liveability, see our page &apos;What is
+              Liveability&apos;.
             </p>
-            <h2>
-              ● How to read the map
-            </h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e. highest liveability score) are in dark green. Those with the lowest are dark pink.
+            <br />
+            <h2>How to read the map</h2>
+            <p className="text-2xl font-normal">
+              The suburbs that are your best match (i.e. highest liveability
+              score) are in dark green. Those with the lowest are dark pink.
             </p>
           </div>
         </section>
