@@ -170,22 +170,21 @@ export default function Recommendations({
             </h1>
             <br/>
           </div>
-          <div className="font-bold text-4xl text-HeadingTextGray bg-MapHeadingGray">
-            <h2>
-              How we calculated your score
-            </h2>
-            <p className="text-2xl font-normal">
-              This website grenerates a liveablity index score that ranks the suburbs based on your responses to the questionnaire
+          <div className="font-bold text-2xl text-HeadingTextGray bg-FooterButtonYellow p-6 rounded-xl">
+              <h2>
+                ● How we calculated your score
+              </h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index score that ranks the suburbs based on your responses to the questionnaire
               you just finished.
               <br/>
-              To find out more about liveability, see our page &apos;What is Liveability&apos;.
+              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see our page &apos;What is Liveability&apos;.
             </p>
-            <br/>
             <h2>
-              How to read the map
+              ● How to read the map
             </h2>
-            <p className="text-2xl font-normal">
-              The suburbs that are your best match (i.e. highest liveability score) are in dark green. Those with the lowest are dark pink.
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e. highest liveability score) are in dark green. Those with the lowest are dark pink.
             </p>
           </div>
         </section>
