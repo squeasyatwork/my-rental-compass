@@ -107,6 +107,24 @@ export default function Recommendations({
             <h1>
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
+            <br />
+          </div>
+          <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
+            <h2>● How we calculated your score</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
+              score that ranks the suburbs based on your responses to the
+              questionnaire you just finished.
+              <br />
+              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
+              our page &apos;What is Liveability&apos;.
+            </p>
+            <h2>● How to read the map</h2>
+            <p className="text-xl font-normal">
+              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
+              highest liveability score) are in dark green. Those with the
+              lowest are dark pink.
+            </p>
           </div>
         </section>
         <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
