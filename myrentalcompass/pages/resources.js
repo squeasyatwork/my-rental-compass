@@ -24,27 +24,27 @@ const UserguideBar = () => {
     setShowDetails1(!showDetails1);
   };
 
-  const toggleShowQuizQuestion = () => {
-    setShowQuizQuestion(!showQuizQuestion);
-  };
-
-  const toggleShowQuizRightAnswer = () => {
-    setShowQuizRightAnswer(!showQuizRightAnswer);
-  };
-
-  const toggleShowQuizWrongAnswer = () => {
-    setShowQuizWrongAnswer(!showQuizWrongAnswer);
-  };
-
-  const displayRightAnswer = () => {
-    toggleShowQuizQuestion;
-    toggleShowQuizRightAnswer;
+  function displayRightAnswer() {
+    setShowQuizQuestion(false);
+    setShowQuizRightAnswer(true);
   }
 
-  const displayWrongAnswer = () => {
-    toggleShowQuizQuestion;
-    toggleShowQuizWrongAnswer;
+  function displayWrongAnswer() {
+    setShowQuizQuestion(false);
+    setShowQuizWrongAnswer(true);
   }
+
+  function retryQuiz() {
+    setShowQuizQuestion(true);
+    setShowQuizWrongAnswer(false);
+  }
+
+  function closeQuiz() {
+    setShowQuizQuestion(false);
+    setShowQuizRightAnswer(false);
+    setShowQuizWrongAnswer(false);
+  }
+
 
   const toggleDetails2 = () => {
     setShowDetails2(!showDetails2);
@@ -91,7 +91,7 @@ const UserguideBar = () => {
             <div>
               <div className="flex w-full justify-between items-end">
                 <h2 className="text-lg font-semibold">Do your research</h2>
-                <button onClick={toggleShowQuizQuestion}>
+                <button onClick={() => setShowQuizQuestion(true)}>
                   <Image
                     src="/resources_quiz_icon.gif"
                     alt="information"
@@ -100,21 +100,33 @@ const UserguideBar = () => {
                     className="rounded-md shadow-md"
                   />
                 </button>
-                <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+                <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-md z-50"
                   style={{
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showQuizQuestion ? "1" : "0",
                     visibility: showQuizQuestion ? "visible" : "hidden"
                   }}>
-                  <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ width: "36%" }}>
-                    <div className="text-3xl p-5">The average weekly rental in Melbourne is.. <br></br>
-                      <input type="radio" value="350" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 350 <br></br>
-                      <input type="radio" value="500" name="gender" className="py-6" onClick={toggleShowQuizRightAnswer} /> 500 <br></br>
-                      <input type="radio" value="750" name="gender" className="py-6" onClick={toggleShowQuizWrongAnswer} /> 750
+                  <div className="p-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl"
+                    style={{ width: "38%" }}>
+                    <div className="text-3xl p-5 space-y-4">
+                      <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                        How much do you think the average weekly rent in Melbourne is?
+                      </div>
+                      <br></br>
+                      <div className="flex flex-col items-center justify-center font-medium">
+                        <div className="flex">
+                          <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> A. $350 per week
+                        </div>
+                        <div className="flex">
+                          <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={() => displayRightAnswer()} /> B. $500 per week
+                        </div>
+                        <div className="flex">
+                          <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> C. $750 per week
+                        </div>
+                      </div>
                     </div>
                   </div>
-                  <button onClick={toggleShowQuizQuestion}>
+                  <button onClick={() => closeQuiz()}>
                     <Image
                       src="/close.svg"
                       alt="close"
@@ -130,12 +142,16 @@ const UserguideBar = () => {
                     opacity: showQuizRightAnswer ? "1" : "0",
                     visibility: showQuizRightAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
                     style={{ width: "36%" }}>
-                    <div className="text-3xl p-5"><center>Spot On!</center>
+                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                      Spot On!
                     </div>
+                    <div className="text-center font-medium text-3xl">The average weekly rent in Melbourne is A$500.</div>
+                    <div className="text-center text-HeadingTextGray">Source: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
                   </div>
-                  <button onClick={toggleShowQuizRightAnswer}>
+
+                  <button onClick={() => closeQuiz()}>
                     <Image
                       src="/close.svg"
                       alt="close"
@@ -151,21 +167,31 @@ const UserguideBar = () => {
                     opacity: showQuizWrongAnswer ? "1" : "0",
                     visibility: showQuizWrongAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
                     style={{ width: "36%" }}>
-                    <div className="text-3xl p-5"><center>Nice try, the answer is A$500</center>
-
+                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                      Not quite.
                     </div>
+                    <div className="text-center font-medium text-3xl">Try again</div>
+
                   </div>
-                  <button onClick={toggleShowQuizWrongAnswer}>
-                    <Image
-                      src="/close.svg"
-                      alt="close"
-                      width={80}
-                      height={80}
-                      className=" hover:opacity-70 transition duration-1000 ease-in-out"
-                    />
-                  </button>
+                  <div className="flex items-center justify-evenly w-2/5">
+                    <button onClick={() => retryQuiz()}>
+                      <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} opacity="90%" stroke="white" className="w-20 h-20 hover:opacity-70 transition duration-1000 ease-in-out">
+                        <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 9l-3 3m0 0l3 3m-3-3h7.5M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+
+                    </button>
+                    <button onClick={() => closeQuiz()}>
+                      <Image
+                        src="/close.svg"
+                        alt="close"
+                        width={75}
+                        height={75}
+                        className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                      />
+                    </button>
+                  </div>
                 </div>
               </div>
               <ul className="list-disc pl-5">
