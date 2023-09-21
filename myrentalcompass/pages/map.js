@@ -92,7 +92,7 @@ function Map() {
                 <div className="mb-12">
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
-                    <div className="flex flex-col p-4 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
+                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3" >
                       <h3 className="font-semibold">
                         Suburb: {selectedFeature?.suburb || "N/A"}
                       </h3>
@@ -103,15 +103,15 @@ function Map() {
                         Liveability Score:{" "}
                         {selectedFeature?.liveability_score
                           ? `${(selectedFeature.liveability_score * 100).toFixed(
-                              0
-                            )}%`
+                            0
+                          )}%`
                           : "N/A"}
                       </h3>
                     </div>
                   </div>
                   <div>
                     <h2 className=" font-bold text-lg mb-1">Selected indicator:</h2>
-                    <div className="flex flex-col p-4 rounded-2xl w-auto" style={{border: "3px solid #05FFD7"}}>
+                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3" >
                       <h3 className="font-semibold">
                         Average Rent:{" "}
                         {selectedFeature?.average_rent
@@ -140,7 +140,7 @@ function Map() {
                 <div className="flex flex-col justify-between text-lg items-center space-y-4">
                   <Link href="/questionnaire">
                     <button className="call-action-button">
-                      Get new recommendations
+                      Get customised recommendations
                     </button>
                   </Link>
                   <Link href="/recommendations">

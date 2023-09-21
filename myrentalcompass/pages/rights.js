@@ -89,7 +89,7 @@ export default function Rights() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-               As a tenant, you have the right to live in a
+                As a tenant, you have the right to live in a
               </h1>
               <h1 className="text-5xl font-bold text-center mt-4">
                 safe, secure and quiet environment
@@ -135,10 +135,10 @@ export default function Rights() {
                 </div>
                 <div className="my-8">
                   <Image
-                      src="/interior-design.png"
-                      alt="interior"
-                      width={100}
-                      height={100}
+                    src="/interior-design.png"
+                    alt="interior"
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
@@ -150,15 +150,17 @@ export default function Rights() {
                   <button
                     onClick={toggleDetails1}
                     className="font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
-                    >
+                  >
                     {showDetails1 ? "⇱ Condition reports" : "⇲ Condition reports"}
                   </button>
                   <div className="p-4 mt-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ maxWidth: "28rem", 
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails1 ? "1" : "0", 
-                    visibility: showDetails1 ? "visible" : "hidden", 
-                    maxHeight: showDetails1 ? "1000px" : "0" }}>
+                    style={{
+                      maxWidth: "28rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails1 ? "1" : "0",
+                      visibility: showDetails1 ? "visible" : "hidden",
+                      maxHeight: showDetails1 ? "1000px" : "0"
+                    }}>
                     <h2> ● A condition report is a&nbsp;
                       <span className="font-bold">record of a property&apos;s condition </span>
                       when a rental agreement(lease) is signed
@@ -178,10 +180,10 @@ export default function Rights() {
               <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4 pb-4">
                 <div className="my-8">
                   <Image
-                      src="/chat.png"
-                      alt="chat"
-                      width={100}
-                      height={100}
+                    src="/chat.png"
+                    alt="chat"
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
@@ -192,34 +194,36 @@ export default function Rights() {
                   <button
                     onClick={toggleDetails3}
                     className=" font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
-                    >
+                  >
                     {showDetails3 ? "⇱ Unlawful discrimination" : "⇲ Unlawful discrimination"}
-                    </button>
-                    <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl" 
-                    style={{ maxWidth: "28rem", 
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails3 ? "1" : "0", 
-                    visibility: showDetails3 ? "visible" : "hidden", 
-                    maxHeight: showDetails3 ? "1000px" : "0" }}>
-                      <h2>In Victoria, it is&nbsp;
-                        <span className=" font-bold">against the law </span>
-                        to stop somebody from renting a property because of certain&nbsp;
-                        <span className="font-bold">personal characteristics.</span>
-                      </h2>
-                      <h2>These include:</h2>
-                      <h2> ● age</h2>
-                      <h2> ● carer status, family responsibilities, parental status</h2>
-                      <h2> ● disability</h2>
-                      <h2> ● employment</h2>
-                      <h2> ● gender identity, lawful sexual activity, sexual orientation (e.g. gay, lesbian, transgender, etc)</h2>
-                      <h2> ● marital status</h2>
-                      <h2> ● physical features</h2>
-                      <h2> ● pregnancy, breastfeeding</h2>
-                      <h2> ● profession, trade or occupation, including being a sex worker</h2>
-                      <h2> ● race (including colour, nationality, ethnicity and ethnic origin)</h2>
-                      <h2> ● religious belief or activity</h2>
-                      <h2> ● sex</h2>
-                    </div>
+                  </button>
+                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                    style={{
+                      maxWidth: "28rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails3 ? "1" : "0",
+                      visibility: showDetails3 ? "visible" : "hidden",
+                      maxHeight: showDetails3 ? "1000px" : "0"
+                    }}>
+                    <h2>In Victoria, it is&nbsp;
+                      <span className=" font-bold">against the law </span>
+                      to stop somebody from renting a property because of certain&nbsp;
+                      <span className="font-bold">personal characteristics.</span>
+                    </h2>
+                    <h2>These include:</h2>
+                    <h2> ● age</h2>
+                    <h2> ● carer status, family responsibilities, parental status</h2>
+                    <h2> ● disability</h2>
+                    <h2> ● employment</h2>
+                    <h2> ● gender identity, lawful sexual activity, sexual orientation (e.g. gay, lesbian, transgender, etc)</h2>
+                    <h2> ● marital status</h2>
+                    <h2> ● physical features</h2>
+                    <h2> ● pregnancy, breastfeeding</h2>
+                    <h2> ● profession, trade or occupation, including being a sex worker</h2>
+                    <h2> ● race (including colour, nationality, ethnicity and ethnic origin)</h2>
+                    <h2> ● religious belief or activity</h2>
+                    <h2> ● sex</h2>
+                  </div>
                 </div>
               </div>
             </div>
@@ -228,10 +232,10 @@ export default function Rights() {
               <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray mt-4 pb-4">
                 <div className="my-8">
                   <Image
-                      src="/agreement.png"
-                      alt="agreement"
-                      width={100}
-                      height={100}
+                    src="/agreement.png"
+                    alt="agreement"
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
@@ -243,69 +247,71 @@ export default function Rights() {
                   <button
                     onClick={toggleDetails2}
                     className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
-                    >
+                  >
                     {showDetails2 ? "⇱ Minimum rental standards" : "⇲ Minimum rental standards"}
-                    </button>
-                    <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ maxWidth: "28rem", 
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails2 ? "1" : "0", 
-                    visibility: showDetails2 ? "visible" : "hidden", 
-                    maxHeight: showDetails2 ? "1000px" : "0" }}>
-                      <h2> 
-                        ● A 
-                        <span className="font-bold"> doors and windows&nbsp;</span>
-                        that access the outside must have
-                        <span className="font-bold"> functioning locks</span>
-                      </h2>
-                      <h2> ● Landlords must provide
-                        <span className="font-bold">&nbsp;a general rubbish and recycling bin</span>
-                      </h2>
-                      <h2> ● There must be a&nbsp;
-                        <span className="font-bold">working toilet</span>
-                      </h2>
-                      <h2> ● The bathroom must have a&nbsp;
-                        <span className="font-bold">washbasin </span>
-                        (sink) and a&nbsp;
-                        <span className="font-bold">shower or bath, </span> 
-                        and be connected to hot and cold water.
-                      </h2>
-                      <h2>
-                        ● There must be a kitchen with a&nbsp;
-                        <span className="font-bold">dedicated cooking and food preparation </span>
-                        area, and a&nbsp;
-                        <span className="font-bold">stovetop </span>
-                        and&nbsp;
-                        <span className="font-bold">sink </span> 
-                        in good working order, connected to hot and cold water.
-                      </h2>
-                      <h2>
-                        ● The property must be&nbsp;
-                        <span className="font-bold">structurally sound and weatherproof. </span>
-                      </h2>
-                      <h2>
-                        ● All rooms must be&nbsp;
-                        <span className="font-bold">free from mould and damp.</span>
-                      </h2>
-                      <h2>
-                        ● There must be a&nbsp;
-                        <span className="font-bold">fixed heater </span>
-                        (not portable) in good working order in the main living area.
-                      </h2>
-                      <br></br>
-                      <h2 className="font-bold">
-                        If the property does not meet minimum standards, the renter can request that the rental provider make repairs or changes before signing the agreement or before they move in.
-                      </h2>
-                    </div>
+                  </button>
+                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                    style={{
+                      maxWidth: "28rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails2 ? "1" : "0",
+                      visibility: showDetails2 ? "visible" : "hidden",
+                      maxHeight: showDetails2 ? "1000px" : "0"
+                    }}>
+                    <h2>
+                      ● A
+                      <span className="font-bold"> doors and windows&nbsp;</span>
+                      that access the outside must have
+                      <span className="font-bold"> functioning locks</span>
+                    </h2>
+                    <h2> ● Landlords must provide
+                      <span className="font-bold">&nbsp;a general rubbish and recycling bin</span>
+                    </h2>
+                    <h2> ● There must be a&nbsp;
+                      <span className="font-bold">working toilet</span>
+                    </h2>
+                    <h2> ● The bathroom must have a&nbsp;
+                      <span className="font-bold">washbasin </span>
+                      (sink) and a&nbsp;
+                      <span className="font-bold">shower or bath, </span>
+                      and be connected to hot and cold water.
+                    </h2>
+                    <h2>
+                      ● There must be a kitchen with a&nbsp;
+                      <span className="font-bold">dedicated cooking and food preparation </span>
+                      area, and a&nbsp;
+                      <span className="font-bold">stovetop </span>
+                      and&nbsp;
+                      <span className="font-bold">sink </span>
+                      in good working order, connected to hot and cold water.
+                    </h2>
+                    <h2>
+                      ● The property must be&nbsp;
+                      <span className="font-bold">structurally sound and weatherproof. </span>
+                    </h2>
+                    <h2>
+                      ● All rooms must be&nbsp;
+                      <span className="font-bold">free from mould and damp.</span>
+                    </h2>
+                    <h2>
+                      ● There must be a&nbsp;
+                      <span className="font-bold">fixed heater </span>
+                      (not portable) in good working order in the main living area.
+                    </h2>
+                    <br></br>
+                    <h2 className="font-bold">
+                      If the property does not meet minimum standards, the renter can request that the rental provider make repairs or changes before signing the agreement or before they move in.
+                    </h2>
+                  </div>
                 </div>
               </div>
               <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4 pb-4">
                 <div className="my-8">
                   <Image
-                      src="/village.png"
-                      alt="village"
-                      width={100}
-                      height={100}
+                    src="/village.png"
+                    alt="village"
+                    width={100}
+                    height={100}
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
@@ -316,78 +322,80 @@ export default function Rights() {
                   <button
                     onClick={toggleDetails4}
                     className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
-                    >
+                  >
                     {showDetails4 ? "⇱ Inspection" : "⇲ Inspection"}
-                    </button>
-                    <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
-                      style={{ maxWidth: "28rem", 
-                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                      opacity: showDetails4 ? "1" : "0", 
-                      visibility: showDetails4 ? "visible" : "hidden", 
-                      maxHeight: showDetails4 ? "1000px" : "0" }}>
-                      <h2> ● Your landlord can enter the property at a date and time that you have&nbsp;
-                        <span className="font-bold">both agreed on.</span>
-                      </h2>
-                      <h2> ● This agreement&nbsp;
-                        <span className="font-bold">must </span>
-                        be made&nbsp;
-                        <span className="font-bold">within 7 days </span>
-                        before they enter.
-                      </h2>
-                      <h2> ● Unless agreed with you, the rental provider or agent can only enter&nbsp;
-                        <span className="font-bold">between 8am and 6pm, </span>
-                        and&nbsp;<span className=" font-bold">not on public holidays.</span></h2>
-                      <h2> ● If you have agreed, they can enter when you are not home.</h2>
-                      <h2> ● A general inspection&nbsp;
-                        <span className=" font-bold">may only be made </span>
-                        after the&nbsp;
-                        <span className=" font-bold">first 3 months </span>of the rental agreement. They can be&nbsp;
-                        <span className=" font-bold">done every 6 months </span>at the most.</h2>
-                      <h2> ● You are&nbsp;
-                        <span className="font-bold">not required to leave </span>
-                        if the landlord is doing an inspection or showing the property the prospective buyers.
-                      </h2>
-                      <br></br>
-                      <h2>
-                        Reasons for entering your home:
-                      </h2>
-                      <h2>● General inspection</h2>
-                      <h2>● Repairs or other legal responsibilities</h2>
-                      <h2>● Showing the property to renters, buyers or lenders</h2>
-                      <h2>● Having the property valued</h2>
-                      <h2>● Taking photos or videos to advertise the property</h2>
-                      <h2>● Renter has not met their obligations </h2>
-                      <h2>● Family violence proceedings in VCAT</h2>
-                      <br></br>
-                      <h2>Each of these has different days notice required. Read more at&nbsp;
-                        <span>
-                          <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
+                  </button>
+                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                    style={{
+                      maxWidth: "28rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails4 ? "1" : "0",
+                      visibility: showDetails4 ? "visible" : "hidden",
+                      maxHeight: showDetails4 ? "1000px" : "0"
+                    }}>
+                    <h2> ● Your landlord can enter the property at a date and time that you have&nbsp;
+                      <span className="font-bold">both agreed on.</span>
+                    </h2>
+                    <h2> ● This agreement&nbsp;
+                      <span className="font-bold">must </span>
+                      be made&nbsp;
+                      <span className="font-bold">within 7 days </span>
+                      before they enter.
+                    </h2>
+                    <h2> ● Unless agreed with you, the rental provider or agent can only enter&nbsp;
+                      <span className="font-bold">between 8am and 6pm, </span>
+                      and&nbsp;<span className=" font-bold">not on public holidays.</span></h2>
+                    <h2> ● If you have agreed, they can enter when you are not home.</h2>
+                    <h2> ● A general inspection&nbsp;
+                      <span className=" font-bold">may only be made </span>
+                      after the&nbsp;
+                      <span className=" font-bold">first 3 months </span>of the rental agreement. They can be&nbsp;
+                      <span className=" font-bold">done every 6 months </span>at the most.</h2>
+                    <h2> ● You are&nbsp;
+                      <span className="font-bold">not required to leave </span>
+                      if the landlord is doing an inspection or showing the property the prospective buyers.
+                    </h2>
+                    <br></br>
+                    <h2>
+                      Reasons for entering your home:
+                    </h2>
+                    <h2>● General inspection</h2>
+                    <h2>● Repairs or other legal responsibilities</h2>
+                    <h2>● Showing the property to renters, buyers or lenders</h2>
+                    <h2>● Having the property valued</h2>
+                    <h2>● Taking photos or videos to advertise the property</h2>
+                    <h2>● Renter has not met their obligations </h2>
+                    <h2>● Family violence proceedings in VCAT</h2>
+                    <br></br>
+                    <h2>Each of these has different days notice required. Read more at&nbsp;
+                      <span>
+                        <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
                           /resources-and-guides-for-renters/renters-guide" class="text-ButtonHoverYellow font-semibold hover:underline ">Consumer Affairs Victoria</a>
-                        </span>
-                      </h2>
-                    </div>
-              </div>
+                      </span>
+                    </h2>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
-          
+
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 style={{marginRight: "28rem"}}>2. Your responsibilities as renters</h2>
+            <h2 style={{ marginRight: "28rem" }}>2. Your responsibilities as renters</h2>
             <Image
-                src="/alert.gif"
-                alt="repair"
-                width={100}
-                height={100}
+              src="/alert.gif"
+              alt="repair"
+              width={100}
+              height={100}
             />
           </div>
           <div className="flex mr-7">
             <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
-                    src="/house.png"
-                    alt="house"
-                    width={100}
-                    height={100}
+                  src="/house.png"
+                  alt="house"
+                  width={100}
+                  height={100}
                 />
               </div>
               <a href="https://www.youtube.com/watch?v=oX6usi7Rgn0" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Condition reports</a>
@@ -399,42 +407,44 @@ export default function Rights() {
                 <button
                   onClick={toggleDetails5}
                   className=" font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
-                  >
+                >
                   {showDetails5 ? "⇱ Maintenance" : "⇲ Maintenance"}
-                  </button>
-                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ maxWidth: "28rem", 
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails5 ? "1" : "0", 
-                    visibility: showDetails5 ? "visible" : "hidden", 
-                    maxHeight: showDetails5 ? "1000px" : "0" }}>
-                    <h2>It is your job as tenant to maintain the property, and keep it up to a reasonable standard. </h2>
-                    <br></br>
-                    <h2>This includes:</h2>
-                    <h2> ● keeping the premises&nbsp;
-                      <span className="font-bold">clean</span></h2>
-                    <h2> ● not causing any&nbsp;
-                      <span className="font-bold">damage </span>damage 
-                      to the property</h2>
-                    <h2> ● if damage is caused,&nbsp;
-                      <span className="font-bold">notifying the landlord </span>
-                      or agent as soon as possible.
-                    </h2>
-                    <h2> ●&nbsp;
-                      <span className="font-bold">obtain consent </span>from the landlord before installing any fixtures, or making any alterations/ renovations, if these were not agreed up-front and included in your written lease.</h2>
-                    <h2> ● ensure the property is not used for any&nbsp;
-                      <span className="font-bold">illegal purpose.</span></h2>
-                  </div>
+                </button>
+                <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  style={{
+                    maxWidth: "28rem",
+                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                    opacity: showDetails5 ? "1" : "0",
+                    visibility: showDetails5 ? "visible" : "hidden",
+                    maxHeight: showDetails5 ? "1000px" : "0"
+                  }}>
+                  <h2>It is your job as tenant to maintain the property, and keep it up to a reasonable standard. </h2>
+                  <br></br>
+                  <h2>This includes:</h2>
+                  <h2> ● keeping the premises&nbsp;
+                    <span className="font-bold">clean</span></h2>
+                  <h2> ● not causing any&nbsp;
+                    <span className="font-bold">damage </span>damage
+                    to the property</h2>
+                  <h2> ● if damage is caused,&nbsp;
+                    <span className="font-bold">notifying the landlord </span>
+                    or agent as soon as possible.
+                  </h2>
+                  <h2> ●&nbsp;
+                    <span className="font-bold">obtain consent </span>from the landlord before installing any fixtures, or making any alterations/ renovations, if these were not agreed up-front and included in your written lease.</h2>
+                  <h2> ● ensure the property is not used for any&nbsp;
+                    <span className="font-bold">illegal purpose.</span></h2>
+                </div>
               </div>
             </div>
             <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
             <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
-                    src="/home-repair.png"
-                    alt="repair"
-                    width={100}
-                    height={100}
+                  src="/home-repair.png"
+                  alt="repair"
+                  width={100}
+                  height={100}
                 />
               </div>
               <a href="https://www.youtube.com/watch?v=IJCRr6OYm4U&list=PLyJsWesP-0qmL3r2uf7ddID-LaDIy0Y7F" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Starting and ending a lease</a>
@@ -446,61 +456,63 @@ export default function Rights() {
                 <button
                   onClick={toggleDetails6}
                   className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
-                  >
+                >
                   {showDetails6 ? "⇱ End of your lease" : "⇲ End of your lease"}
-                  </button>
-                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ maxWidth: "28rem", 
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails6 ? "1" : "0", 
-                    visibility: showDetails6 ? "visible" : "hidden", 
-                    maxHeight: showDetails6 ? "1000px" : "0" }}>
-                    <h2 className="font-bold">There are three main ways to end a tenancy:  </h2>
-                    <h2> 1. All the parties can agree to end the tenancy. </h2>
-                    <h2> 2. Your landlord or agent gives you a valid &apos;Notice to Vacate&apos;. </h2>
-                    <h2> 3. You give valid notice to your landlord or agent that you intend to vacate.</h2>
-                    <br></br>
-                    <h2> When ending your lease, make sure you:</h2>
-                    <h2> ●&nbsp;
-                      <span className="font-bold">give adequate notice </span>
-                      when planning to leave; the notice period will depend on your reason for leaving </h2>
-                    <h2> ● pay any&nbsp;
-                      <span className="font-bold">outstanding rent</span></h2>
-                    <h2> ●&nbsp;
-                      <span className="font-bold">clean </span>
-                      the property</h2>
-                    <h2> ● consider taking&nbsp;
-                      <span className="font-bold">photos </span>
-                      after you move your furniture out to&nbsp;
-                      <span className="font-bold">show the condition </span>of the property </h2>
-                    <h2> ● take all your&nbsp;
-                      <span className="font-bold">belongings </span>with you</h2>
-                    <h2> ●&nbsp;
-                      <span className="font-bold">keep the &apos;Condition Report&apos; </span>
-                      in case of a dispute</h2>
-                    <h2> ● try to agree with your landlord or agent on the&nbsp;
-                      <span className="font-bold">return of the bond</span></h2>
-                  </div>
+                </button>
+                <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  style={{
+                    maxWidth: "28rem",
+                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                    opacity: showDetails6 ? "1" : "0",
+                    visibility: showDetails6 ? "visible" : "hidden",
+                    maxHeight: showDetails6 ? "1000px" : "0"
+                  }}>
+                  <h2 className="font-bold">There are three main ways to end a tenancy:  </h2>
+                  <h2> 1. All the parties can agree to end the tenancy. </h2>
+                  <h2> 2. Your landlord or agent gives you a valid &apos;Notice to Vacate&apos;. </h2>
+                  <h2> 3. You give valid notice to your landlord or agent that you intend to vacate.</h2>
+                  <br></br>
+                  <h2> When ending your lease, make sure you:</h2>
+                  <h2> ●&nbsp;
+                    <span className="font-bold">give adequate notice </span>
+                    when planning to leave; the notice period will depend on your reason for leaving </h2>
+                  <h2> ● pay any&nbsp;
+                    <span className="font-bold">outstanding rent</span></h2>
+                  <h2> ●&nbsp;
+                    <span className="font-bold">clean </span>
+                    the property</h2>
+                  <h2> ● consider taking&nbsp;
+                    <span className="font-bold">photos </span>
+                    after you move your furniture out to&nbsp;
+                    <span className="font-bold">show the condition </span>of the property </h2>
+                  <h2> ● take all your&nbsp;
+                    <span className="font-bold">belongings </span>with you</h2>
+                  <h2> ●&nbsp;
+                    <span className="font-bold">keep the &apos;Condition Report&apos; </span>
+                    in case of a dispute</h2>
+                  <h2> ● try to agree with your landlord or agent on the&nbsp;
+                    <span className="font-bold">return of the bond</span></h2>
+                </div>
               </div>
             </div>
           </div>
           <div className="flex justify-center items-center">
             <div className="flex flex-col items-center justify-center">
               <Image
-                  src="/chat_bubble_rights2.png"
-                  alt="chatb2"
-                  width={450}
-                  height={450}
+                src="/chat_bubble_rights2.png"
+                alt="chatb2"
+                width={450}
+                height={450}
               />
               <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
               /resources-and-guides-for-renters/renters-guide" class="text-ButtonHoverYellow text-2xl font-semibold hover:underline ">▶ Consumer Affairs Victoria</a>
             </div>
             <div className="mt-48 mr-32">
               <Image
-                  src="/woman.gif"
-                  alt="woman"
-                  width={200}
-                  height={200}
+                src="/woman.gif"
+                alt="woman"
+                width={200}
+                height={200}
               />
             </div>
             <div>
