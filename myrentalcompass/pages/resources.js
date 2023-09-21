@@ -316,7 +316,7 @@ const UserguideBar = () => {
       </div>
       <br></br>
       <div className='flex flex-col'>
-        <div className='flex justify-center items-center mt-28'>
+        <div className='flex justify-center items-center mt-8'>
           <Image
             src="/resources_item4.svg"
             alt="information"
@@ -373,11 +373,11 @@ export default function Resources() {
             <h1>
               applying for a property
             </h1>
-            <hr className="h-1 bg-MainButtonYellow border-10 rounded md:my-10" />
+            <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" />
 
           </div>
           <div className="relative h-full w-11/12">
-            <div className='flex justify-center mb-6'>
+            <div className='flex justify-center'>
               <Image className="object-contain"
                 src="/resources_dialog_cloud.svg"
                 alt="chat"
