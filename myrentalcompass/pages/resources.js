@@ -296,7 +296,7 @@ const UserguideBar = () => {
             onClick={toggleDetails3}
             className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <div className="flex justify-evenly">
+            <div className="flex items-center justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">3. Found a property</h1>
               {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -307,12 +307,7 @@ const UserguideBar = () => {
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center" style={{
-            transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-            opacity: showDetails3 ? "1" : "0",
-            visibility: showDetails3 ? "visible" : "hidden",
-            maxHeight: showDetails3 ? "1000px" : "0"
-          }}>
+          {showDetails3 && (<div className="flex flex-col items-center">
             <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">Inspecting a property</h2>
@@ -336,7 +331,7 @@ const UserguideBar = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div>)}
         </div>
 
       </div>
@@ -402,7 +397,7 @@ export default function Resources() {
             <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" />
 
           </div>
-          <div className="relative h-full w-11/12">
+          <div className="relative h-full w-full">
             <div className='flex justify-center'>
               <Image className="object-contain"
                 src="/resources_dialog_cloud.svg"
