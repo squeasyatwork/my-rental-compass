@@ -8,7 +8,6 @@ import Link from 'next/link';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
-import QuizModal from "~/components/QuizModal.js";
 
 
 const UserguideBar = () => {
@@ -55,7 +54,7 @@ const UserguideBar = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col w-full timeline">
+    <div className="mx-auto flex flex-col w-full timeline -space-y-12">
       <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
@@ -64,19 +63,19 @@ const UserguideBar = () => {
             width={200}
             height={200}
           />
-          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
         </div>
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5' >
           <button
             onClick={toggleDetails1}
             className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <div className="flex justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">1. Before you leave</h1>
-              {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+            <div className="flex justify-between items-center">
+              <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">1. Before you leave</h1>
+              {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
@@ -220,12 +219,12 @@ const UserguideBar = () => {
             onClick={toggleDetails2}
             className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <div className="flex justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">2. When you arrive</h1>
-              {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+            <div className="flex justify-between items-center">
+              <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">2. When you arrive</h1>
+              {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
@@ -268,7 +267,7 @@ const UserguideBar = () => {
           </div>
         </div>
         <div className="flex justify-start items-center w-2/5">
-          <hr class="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr class="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
           <Image
             src="/resources_item2.svg"
             alt="information"
@@ -289,19 +288,19 @@ const UserguideBar = () => {
             height={200}
             className="rounded-xl"
           />
-          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
         </div>
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5'>
           <button
             onClick={toggleDetails3}
             className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
-            <div className="flex items-center justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">3. Found a property</h1>
-              {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+            <div className="flex justify-between items-center">
+              <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">3. Found a property</h1>
+              {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
@@ -369,61 +368,54 @@ export default function Resources() {
       <main className="font-inter flex flex-col min-h-screen text-black">
         <Navbar activePage="What you need to do" className="z-10" />
 
-        <div className="relative h-60 w-full">
+        <div className="relative h-6/12 w-full">
           <img
             src="/resources_page_banner.png"
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-center ">
-            <div className="flex flex-col justify-center mt-24 text-gray-100/90">
-              <h2 className="text-4xl font-bold text-center">
+            <div className="flex flex-col justify-center my-40 text-gray-100/90">
+              <h2 className="text-5xl font-bold text-center">
                 Knowing the steps to apply for a rental can be confusing!
               </h2>
-              {/* <h2 className="text-4xl font-bold text-center mt-4">
-                  
-                </h2> */}
             </div>
           </div>
         </div>
         <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
-          <div className="flex flex-col justify-center text-center font-bold text-3xl text-HeadingTextGray">
+          <div className="flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
             <h1>
-              Follow our guide to take you on the journey of
+              Follow our guide to take you on the journey of applying for a property
             </h1>
-            <h1>
-              applying for a property
-            </h1>
-            <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" />
 
+            {/* <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" /> */}
+            <Image className="object-contain"
+              src="/resources_dialog_cloud.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />
+            <Image className="object-contain"
+              src="/woman.gif"
+              alt="woman"
+              width={150}
+              height={75}
+            />
           </div>
           <div className="relative h-full w-full">
-            <div className='flex justify-center'>
-              <Image className="object-contain"
-                src="/resources_dialog_cloud.svg"
-                alt="chat"
-                width={200}
-                height={100}
-              />
-              <Image className="object-contain"
-                src="/woman.gif"
-                alt="woman"
-                width={200}
-                height={100}
-              />
-            </div>
+
             <UserguideBar />
             <div className="flex justify-center">
               <button
                 onClick={toggleDetails4}
                 className={showDetails4 ? "font-medium text-2xl p-6 w-10/12 border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-10/12 hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
-                <div className="flex justify-between" id="applicationButton">
-                  <h1 className="text-5xl font-bold text-center text-HeadingTextGray">4. Making an application</h1>
-                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <div className="flex justify-between items-center" id="applicationButton">
+                  <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">4. Making an application</h1>
+                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>)}
-                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="#757575" className="w-12 h-12">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                   </svg>
                   )}

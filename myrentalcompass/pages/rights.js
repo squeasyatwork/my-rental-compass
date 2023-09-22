@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://iterationtwo.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
+  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const ResourceSection = ({ id, imageSrc, altText, link }) => {
@@ -127,7 +127,7 @@ export default function Rights() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
+          <div className="flex justify-end divider_rights items-start">
             <div className="font-istok flex flex-col items-center justify-center pb-4 mr-24">
               <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray pb-4">
                 <div className="font-bold text-4xl">
@@ -227,7 +227,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
+            {/* <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div> */}
             <div className="font-istok flex flex-col items-center justify-center ml-24">
               <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray mt-4 pb-4">
                 <div className="my-8">
@@ -388,7 +388,7 @@ export default function Rights() {
               height={100}
             />
           </div>
-          <div className="flex mr-7">
+          <div className="flex divider_rights">
             <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
@@ -437,7 +437,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
+            {/* <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div> */}
             <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
