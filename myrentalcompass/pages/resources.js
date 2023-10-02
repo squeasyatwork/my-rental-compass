@@ -17,19 +17,34 @@ const UserguideBar = () => {
   const [showQuizQuestion, setShowQuizQuestion] = useState(false);
   const [showQuizRightAnswer, setShowQuizRightAnswer] = useState(false);
   const [showQuizWrongAnswer, setShowQuizWrongAnswer] = useState(false);
+  const [choice1Selected, setChoice1Selected] = useState(false);
+  const [choice2Selected, setChoice2Selected] = useState(false);
+  const [choice3Selected, setChoice3Selected] = useState(false);
 
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
   };
 
-  function displayRightAnswer() {
+  function processChoice1() {
     setShowQuizQuestion(false);
+    setChoice1Selected(true);
+    setChoice2Selected(false);
+    setChoice3Selected(false);
+    setShowQuizWrongAnswer(true);
+  }
+  function processChoice2() {
+    setShowQuizQuestion(false);
+    setChoice2Selected(true);
+    setChoice1Selected(false);
+    setChoice3Selected(false);
     setShowQuizRightAnswer(true);
   }
-
-  function displayWrongAnswer() {
+  function processChoice3() {
     setShowQuizQuestion(false);
+    setChoice3Selected(true);
+    setChoice1Selected(false);
+    setChoice2Selected(false);
     setShowQuizWrongAnswer(true);
   }
 
@@ -40,6 +55,9 @@ const UserguideBar = () => {
 
   function closeQuiz() {
     setShowQuizQuestion(false);
+    setChoice1Selected(false);
+    setChoice2Selected(false);
+    setChoice3Selected(false);
     setShowQuizRightAnswer(false);
     setShowQuizWrongAnswer(false);
   }
@@ -54,7 +72,7 @@ const UserguideBar = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col w-full timeline -space-y-12">
+    <div className="mx-auto flex flex-col w-4/5 timeline -space-y-12">
       <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
@@ -68,7 +86,7 @@ const UserguideBar = () => {
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5' >
           <button
             onClick={toggleDetails1}
-            className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-between items-center">
               <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">1. Before you leave</h1>
@@ -81,13 +99,13 @@ const UserguideBar = () => {
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center p-5 bg-FooterButtonYellow w-full text-LongContentGray " style={{
+          <div className="flex flex-col items-center px-1 p-5 bg-FooterButtonYellow w-full text-LongContentGray" style={{
             transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
             opacity: showDetails1 ? "1" : "0",
             visibility: showDetails1 ? "visible" : "hidden",
             maxHeight: showDetails1 ? "1000px" : "0"
           }}>
-            <div>
+            <div className="flex flex-col w-4/5">
               <div className="flex w-full justify-between items-end">
                 <h2 className="text-lg font-semibold">Do your research</h2>
                 <button onClick={() => setShowQuizQuestion(true)}>
@@ -105,23 +123,50 @@ const UserguideBar = () => {
                     opacity: showQuizQuestion ? "1" : "0",
                     visibility: showQuizQuestion ? "visible" : "hidden"
                   }}>
-                  <div className="p-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl"
+                  <div className="pt-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl h-2/5"
                     style={{ width: "38%" }}>
-                    <div className="text-3xl p-5 space-y-4">
-                      <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                    <div className="flex flex-col justify-center text-3xl p-5 px-12">
+                      <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-6">
                         How much do you think the average weekly rent in Melbourne is?
                       </div>
                       <br></br>
-                      <div className="flex flex-col items-center justify-center font-medium">
-                        <div className="flex">
-                          <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> A. $350 per week
-                        </div>
-                        <div className="flex">
-                          <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={() => displayRightAnswer()} /> B. $500 per week
-                        </div>
-                        <div className="flex">
-                          <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> C. $750 per week
-                        </div>
+                      <div className="flex flex-col items-center justify-center -mt-2 space-y-3">
+                        <button onClick={() => processChoice1()}>
+                          <div className="flex justify-between items-center">
+                            {!choice1Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>)}
+                            {choice1Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                            </svg>
+                            )}
+                            <div className="text-3xl">A$350 per week</div>
+                          </div>
+                        </button>
+                        <button onClick={() => processChoice2()}>
+                          <div className="flex justify-between items-center">
+                            {!choice2Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>)}
+                            {choice2Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                            </svg>
+                            )}
+                            <div className="text-3xl">A$500 per week</div>
+                          </div>
+                        </button>
+                        <button onClick={() => processChoice3()}>
+                          <div className="flex justify-between items-center">
+                            {!choice3Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                              <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>)}
+                            {choice3Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                              <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                            </svg>
+                            )}
+                            <div className="text-3xl">A$750 per week</div>
+                          </div>
+                        </button>
                       </div>
                     </div>
                   </div>
@@ -141,13 +186,13 @@ const UserguideBar = () => {
                     opacity: showQuizRightAnswer ? "1" : "0",
                     visibility: showQuizRightAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
-                    style={{ width: "36%" }}>
-                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                  <div className="flex flex-col justify-between px-12 py-8 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-2/5"
+                    style={{ width: "38%" }}>
+                    <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-6 pt-2">
                       Spot On!
                     </div>
                     <div className="text-center font-medium text-3xl">The average weekly rent in Melbourne is A$500.</div>
-                    <div className="text-center text-HeadingTextGray">Source: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
+                    <div className="text-center text-HeadingTextGray pb-4">Source: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness and Housing </Link></div>
                   </div>
 
                   <button onClick={() => closeQuiz()}>
@@ -166,12 +211,12 @@ const UserguideBar = () => {
                     opacity: showQuizWrongAnswer ? "1" : "0",
                     visibility: showQuizWrongAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
-                    style={{ width: "36%" }}>
-                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                  <div className="flex flex-col justify-evenly mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 px-12 py-8 h-2/5 object-fit"
+                    style={{ width: "38%" }}>
+                    <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-6 pt-2">
                       Not quite.
                     </div>
-                    <div className="text-center font-medium text-3xl">Try again</div>
+                    <div className="text-center font-medium text-3xl"><div>Try again</div></div>
 
                   </div>
                   <div className="flex items-center justify-evenly w-2/5">
@@ -198,11 +243,11 @@ const UserguideBar = () => {
                 <li>Research lease terms and other legal requirements to protect your rights as a tenant</li>
               </ul>
             </div>
-            <Link href="/rights" className="font-semibold"><div className="m-5 p-5 rounded-3xl bg-ResourceButtonYellow">Click here to check out our What You Need to Know page for more information on rental laws
+            <Link href="/rights" className="font-semibold"><div className="mx-20 my-6 p-5 rounded-2xl bg-ResourceButtonYellow">Click here to check out our What You Need to Know page for more information on rental laws
             </div></Link>
-            <div>
+            <div className="w-4/5">
               <h2 className="text-lg font-semibold">Begin saving</h2>
-              <ul className="list-disc pl-5">
+              <ul className="list-disc pl-5 pb-4">
                 <li>Know that you know how much rent will be a week, start saving up!</li>
                 <li>
                   Be aware that it is standard practice when securing a rental to also pay for security deposits and the first month&apos;s rent so save more than you think you will need</li>
@@ -217,7 +262,7 @@ const UserguideBar = () => {
         <div className='mt-12 mr-3 flex flex-col items-end w-2/5 text-LongContentGray'>
           <button
             onClick={toggleDetails2}
-            className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-between items-center">
               <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">2. When you arrive</h1>
@@ -230,13 +275,13 @@ const UserguideBar = () => {
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center" style={{
+          <div className="flex flex-col items-center w-full" style={{
             transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
             opacity: showDetails2 ? "1" : "0",
             visibility: showDetails2 ? "visible" : "hidden",
             maxHeight: showDetails2 ? "1000px" : "0"
           }}>
-            <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
+            <div className="py-8 px-20 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">Welcome to Melbourne</h2>
                 <ul className="list-disc pl-5">
@@ -262,7 +307,7 @@ const UserguideBar = () => {
                   </ul>
                 </ul>
               </div>
-              <Link href="/questionnaire"><div className="m-5 p-5 rounded-3xl font-semibold bg-ResourceButtonYellow">Complete the questionnaire for our Find a Suburb to Live feature to determine the best suburb for you</div></Link>
+              <Link href="/questionnaire"><div className="m-5 p-5 rounded-2xl font-semibold bg-ResourceButtonYellow">Complete the questionnaire for our Find a Suburb to Live feature to determine the best suburb for you</div></Link>
             </div>
           </div>
         </div>
@@ -293,7 +338,7 @@ const UserguideBar = () => {
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5'>
           <button
             onClick={toggleDetails3}
-            className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-between items-center">
               <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">3. Found a property</h1>
@@ -307,7 +352,7 @@ const UserguideBar = () => {
             </div>
           </button>
           {showDetails3 && (<div className="flex flex-col items-center">
-            <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
+            <div className="py-8 px-20 pb-10 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">Inspecting a property</h2>
                 <ul className="list-disc pl-5">
@@ -389,7 +434,7 @@ export default function Resources() {
             </h1>
 
             {/* <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" /> */}
-            <Image className="object-contain"
+            <Image className="object-contain ml-8"
               src="/resources_dialog_cloud.svg"
               alt="chat"
               width={150}
@@ -408,7 +453,7 @@ export default function Resources() {
             <div className="flex justify-center">
               <button
                 onClick={toggleDetails4}
-                className={showDetails4 ? "font-medium text-2xl p-6 w-10/12 border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-10/12 hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
+                className={showDetails4 ? "font-medium text-2xl p-6 w-3/5 border-1 border-FooterButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-FooterButtonYellow hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
                 <div className="flex justify-between items-center" id="applicationButton">
                   <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">4. Making an application</h1>
@@ -423,7 +468,7 @@ export default function Resources() {
               </button>
             </div>
             {showDetails4 && (<div className="flex flex-col items-center" >
-              <div className="p-8 bg-FooterButtonYellow w-10/12">
+              <div className="p-8 bg-FooterButtonYellow w-3/5">
                 <div>
                   <h2 className="text-lg font-semibold text-LongContentGray">Follow the checklist to make sure that you have everything you need to make a rental application</h2>
                   <FormGroup>
