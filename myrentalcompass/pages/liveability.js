@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://iterationtwo.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
+  return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const ResourceSection = ({ id, imageSrc, altText, link }) => {
