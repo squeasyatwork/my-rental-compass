@@ -9,7 +9,6 @@ import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import { style } from "d3";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -36,18 +35,17 @@ export const getServerSideProps = async (context) => {
       dbResponse.ok &&
       dbResponse.headers.get("content-type").includes("application/json")
     ) {
-      let rankedSuburbs = await dbResponse.json();
-      return { props: { rankedSuburbs, contextQuery } };
+      let data = await dbResponse.json();
+      return { props: { data, contextQuery } };
     }
   }
 
-  return { props: { rankedSuburbs: null, contextQuery: {} } };
+  return { props: { data: null, contextQuery: {} } };
 };
 
-export default function Recommendations({
-  rankedSuburbs = null,
-  contextQuery = {},
-}) {
+export default function Recommendations({ data = null, contextQuery = {} }) {
+  const { rankedSuburbs = [] } = data || {};
+
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
@@ -78,7 +76,16 @@ export default function Recommendations({
     });
   };
 
+  const [universitySuburb, setUniversitySuburb] = useState(null);
+
   const sendInput = () => {
+    if (inputValues.university) {
+      const suburb = inputValues.university.split(",").pop().trim();
+      setUniversitySuburb(suburb);
+    } else {
+      setUniversitySuburb(null);
+    }
+
     router.push({
       pathname: "/recommendations",
       query: inputValues,
@@ -167,14 +174,14 @@ export default function Recommendations({
               {/* University dropdown */}
               <UniversityDropdown
                 value={{ label: inputValues.university }}
-                onChange={(event, newValue) =>
+                onChange={(event, newValue) => {
                   handleInputChange({
                     target: {
                       name: "university",
                       value: newValue ? newValue.label : "",
                     },
-                  })
-                }
+                  });
+                }}
               />
 
               <button
@@ -198,6 +205,7 @@ export default function Recommendations({
               <DynamicBasicMap
                 recommendations={true}
                 data={rankedSuburbs}
+                selectedUniversitySuburb={universitySuburb}
                 setSelectedFeature={setSelectedFeature}
                 onMouseEnter={(feature) => setSelectedFeature(feature)}
                 onMouseLeave={() => setSelectedFeature(null)}
@@ -286,10 +294,24 @@ export default function Recommendations({
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                     zIndex: 1000,
                     position: "absolute",
-                    left: `${boxPosition.x}px`,
-                    top: `${boxPosition.y}px`,
+                    left: `${boxPosition.x + 50}px`,
+                    top: `${boxPosition.y + 2}px`,
                   }}
                 >
+                  <button
+                    style={{
+                      position: "absolute",
+                      top: "5px",
+                      right: "15px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: "1rem",
+                    }}
+                    onClick={() => setSelectedFeature(null)}
+                  >
+                    x
+                  </button>
                   <p>Name: {selectedFeature.suburb}</p>
                   <p>Council: {selectedFeature.lga}</p>
                   <p>

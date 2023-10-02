@@ -139,7 +139,7 @@ body {
   }
   .timeline::after {
     @apply bg-MainButtonYellow;
-    content: '';
+    content: "";
     position: absolute;
     width: 6px;
     /* background-color: black; */
@@ -147,32 +147,59 @@ body {
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-  }   
+  }
   .arrow {
     border: solid black;
     border-width: 1 3px 3px 1;
     display: inline-block;
     padding: 3px;
   }
-  
+
   .right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
   }
-  
+
   .left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
   }
-  
+
   .up {
     transform: rotate(-135deg);
     -webkit-transform: rotate(-135deg);
   }
-  
+
   .down {
     transform: rotate(45deg);
     -webkit-transform: rotate(45deg);
   }
+}
 
+@layer components {
+  .marker-pin {
+    width: 30px;
+    height: 30px;
+    border-radius: 50% 50% 50% 0;
+    background: #c30b82;
+    transform: rotate(-45deg);
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    margin: -15px 0 0 -15px;
+  }
+
+  .marker-pin::after {
+    content: "";
+    width: 24px;
+    height: 24px;
+    margin: 3px 0 0 3px;
+    background: #fff;
+    position: absolute;
+    border-radius: 50%;
+  }
+
+  .custom-div-icon span {
+    @apply absolute w-5.5 text-xl left-0 right-0 mx-auto mt-2.5 text-center;
+  }
 }
