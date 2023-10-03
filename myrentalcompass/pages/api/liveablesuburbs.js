@@ -29,6 +29,14 @@ export default async function getRankedLiveability(req, res) {
   const crimeWeightage = weightageArray[ratingArray.indexOf(crime)];
   const roadWeightage = weightageArray[ratingArray.indexOf(road)];
 
+  const uniScoreGroups = {
+    5: [],
+    4: [],
+    3: [],
+    2: [],
+    default: [],
+  };
+
   // Function to rank suburbs based on different criteria
   const rankSuburbs = async (array) => {
     for (let item of array) {
@@ -44,25 +52,36 @@ export default async function getRankedLiveability(req, res) {
         switch (uniData.distance_score) {
           case 5:
             uniScore = 5;
+            uniScoreGroups[5].push(item.suburb); // Add the suburb to the appropriate score group
             break;
           case 4:
             uniScore = 2.5;
+            uniScoreGroups[4].push(item.suburb);
             break;
           case 3:
             uniScore = 2;
+            uniScoreGroups[3].push(item.suburb);
             break;
           case 2:
             uniScore = 1.5;
+            uniScoreGroups[2].push(item.suburb);
             break;
           default:
+            uniScoreGroups.default.push(item.suburb);
             break;
         }
       }
 
-      const rentScore = item.average_rent <= rent ? 5 :
-                        item.average_rent <= rent * 1.05 ? 2.5 :
-                        item.average_rent <= rent * 1.10 ? 2 :
-                        item.average_rent <= rent * 1.20 ? 1.5 : 1;
+      const rentScore =
+        item.average_rent <= rent
+          ? 5
+          : item.average_rent <= rent * 1.05
+          ? 2.5
+          : item.average_rent <= rent * 1.1
+          ? 2
+          : item.average_rent <= rent * 1.2
+          ? 1.5
+          : 1;
 
       const liveability = await prisma.liveability.findFirst({
         where: {
@@ -76,7 +95,8 @@ export default async function getRankedLiveability(req, res) {
           liveability.openspace_score * parkWeightage +
           liveability.crime_score * crimeWeightage +
           liveability.crash_score * roadWeightage +
-          uniScore + rentScore;
+          uniScore +
+          rentScore;
       }
     }
 
@@ -99,12 +119,13 @@ export default async function getRankedLiveability(req, res) {
       (item.liveability_score - minScore) / (maxScore - minScore),
   }));
 
-  res.status(200).json(
-    rankedSuburbs.map((item) => ({
+  res.status(200).json({
+    rankedSuburbs: rankedSuburbs.map((item) => ({
       suburb: item.suburb,
       liveability_score: item.liveability_score,
       lga: item.lga,
       average_rent: item.average_rent,
-    }))
-  );
+    })),
+    uniScoreGroups: uniScoreGroups,
+  });
 }

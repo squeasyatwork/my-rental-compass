@@ -1,4 +1,4 @@
-import React from "react";
+// import React from "react";
 
 const loadCustomLiveabilityData = (boundaryData, suburbData) => {
   if (boundaryData && boundaryData.features && suburbData) {
@@ -17,5 +17,4 @@ const loadCustomLiveabilityData = (boundaryData, suburbData) => {
 
 export const CustomLiveability = (boundaryData, suburbData) => {
     return loadCustomLiveabilityData(boundaryData, suburbData);
-  };
-  
+};
