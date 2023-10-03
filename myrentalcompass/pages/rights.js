@@ -82,15 +82,15 @@ export default function Rights() {
       <main className="font-inter flex flex-col min-h-screen text-black justify-center">
         <Navbar activePage="What you need to know" className="z-10" />
 
-        <div className="relative h-2/5 w-full">
+        <div className="relative h-3/5 w-full">
           <img
             src="/businesswoman.jpeg"
             alt="businesswoman"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
-            <div className="flex flex-col justify-center items-center my-24 text-gray-100/90">
-              <h2 className=" text-4xl font-bold max-w-4xl">
+            <div className="flex flex-col justify-center items-center my-40 text-gray-100/90">
+              <h2 className=" text-5xl font-bold max-w-5xl">
               As a tenant, you have the right to live in a 
               safe, secure and quiet environment 
               that is managed in accordance with the law.
@@ -99,7 +99,7 @@ export default function Rights() {
           </div>
         </div>
         <div className=" flex flex-col bg-white items-center px-8">
-          <div className="flex justify-between items-center mb-4">
+          <div className="flex justify-between items-center">
             <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-48">
               <h2>Understand your rights and responsibilities</h2>
             </div>
@@ -109,15 +109,15 @@ export default function Rights() {
                   src="/chat_bubble_rights.png"
                   alt="chat"
                   width={300}
-                  height={300}
+                  height={170}
                 />
               </div>
               <div >
                 <Image
                   src="/woman.gif"
                   alt="girl"
-                  width={160}
-                  height={160}
+                  width={140}
+                  height={140}
                   className="mt-20 p-0"
                 />
               </div>
@@ -149,34 +149,31 @@ export default function Rights() {
                     className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Condition reports</h1>
-                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
                   <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "20rem",
+                      maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails1 ? "1" : "0",
                       visibility: showDetails1 ? "visible" : "hidden",
                       maxHeight: showDetails1 ? "1000px" : "0"
                     }}>
-                    <h2> ● A condition report is a&nbsp;
-                      <span className="font-bold">record of a property&apos;s condition </span>
+                    <h2> ● A condition report is a 
+                      record of a property&apos;s condition
                       when a rental agreement(lease) is signed
                     </h2>
-                    <h2> ● Anything that is&nbsp;
-                      <span className="font-bold">dirty, damaged or not working </span>
+                    <h2> ● Anything that is dirty, damaged or not working
                       should be in the condition report, including everything inside and outside the property</h2>
-                    <h2> ● The&nbsp;
-                      <span className="font-bold">landlord is responsible </span>
+                    <h2> ● The landlord is responsible
                       for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
-                    <h2> ● Condition report&nbsp;
-                      <span className="font-bold">can be important </span>
+                    <h2> ● Condition report can be important
                       in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
                   </div>
                 </div>
@@ -200,10 +197,10 @@ export default function Rights() {
                     className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
-                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
@@ -216,10 +213,8 @@ export default function Rights() {
                       visibility: showDetails3 ? "visible" : "hidden",
                       maxHeight: showDetails3 ? "1000px" : "0"
                     }}>
-                    <h2>In Victoria, it is&nbsp;
-                      <span className=" font-bold">against the law </span>
-                      to stop somebody from renting a property because of certain&nbsp;
-                      <span className="font-bold">personal characteristics.</span>
+                    <h2>In Victoria, it is against the law
+                      to stop somebody from renting a property because of certain personal characteristics.
                     </h2>
                     <h2>These include:</h2>
                     <h2> ● age</h2>
@@ -259,60 +254,50 @@ export default function Rights() {
                     className=" flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                   >
                      <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
-                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
                   <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "28rem",
+                      maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails2 ? "1" : "0",
                       visibility: showDetails2 ? "visible" : "hidden",
                       maxHeight: showDetails2 ? "1000px" : "0"
                     }}>
                     <h2>
-                      ● A
-                      <span className="font-bold"> doors and windows&nbsp;</span>
+                      ● A doors and windows
                       that access the outside must have
-                      <span className="font-bold"> functioning locks</span>
+                       functioning locks
                     </h2>
                     <h2> ● Landlords must provide
-                      <span className="font-bold">&nbsp;a general rubbish and recycling bin</span>
+                      a general rubbish and recycling bin
                     </h2>
-                    <h2> ● There must be a&nbsp;
-                      <span className="font-bold">working toilet</span>
+                    <h2> ● There must be a working toilet
                     </h2>
-                    <h2> ● The bathroom must have a&nbsp;
-                      <span className="font-bold">washbasin </span>
-                      (sink) and a&nbsp;
-                      <span className="font-bold">shower or bath, </span>
+                    <h2> ● The bathroom must have a washbasin
+                      (sink) and a shower or bath, 
                       and be connected to hot and cold water.
                     </h2>
                     <h2>
-                      ● There must be a kitchen with a&nbsp;
-                      <span className="font-bold">dedicated cooking and food preparation </span>
-                      area, and a&nbsp;
-                      <span className="font-bold">stovetop </span>
-                      and&nbsp;
-                      <span className="font-bold">sink </span>
+                      ● There must be a kitchen with a dedicated cooking and food preparation
+                      area, and a stovetop
+                      and sink 
                       in good working order, connected to hot and cold water.
                     </h2>
                     <h2>
-                      ● The property must be&nbsp;
-                      <span className="font-bold">structurally sound and weatherproof. </span>
+                      ● The property must be structurally sound and weatherproof.
                     </h2>
                     <h2>
-                      ● All rooms must be&nbsp;
-                      <span className="font-bold">free from mould and damp.</span>
+                      ● All rooms must be free from mould and damp.
                     </h2>
                     <h2>
-                      ● There must be a&nbsp;
-                      <span className="font-bold">fixed heater </span>
+                      ● There must be a fixed heater
                       (not portable) in good working order in the main living area.
                     </h2>
                     <br></br>
@@ -340,11 +325,11 @@ export default function Rights() {
                     onClick={toggleDetails4}
                     className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                   >
-                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
-                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Inspection</h1>
+                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
@@ -357,26 +342,18 @@ export default function Rights() {
                       visibility: showDetails4 ? "visible" : "hidden",
                       maxHeight: showDetails4 ? "1000px" : "0"
                     }}>
-                    <h2> ● Your landlord can enter the property at a date and time that you have&nbsp;
-                      <span className="font-bold">both agreed on.</span>
+                    <h2> ● Your landlord can enter the property at a date and time that you have both agreed on.
                     </h2>
-                    <h2> ● This agreement&nbsp;
-                      <span className="font-bold">must </span>
-                      be made&nbsp;
-                      <span className="font-bold">within 7 days </span>
+                    <h2> ● This agreement must 
+                      be made within 7 days
                       before they enter.
                     </h2>
-                    <h2> ● Unless agreed with you, the rental provider or agent can only enter&nbsp;
-                      <span className="font-bold">between 8am and 6pm, </span>
-                      and&nbsp;<span className=" font-bold">not on public holidays.</span></h2>
+                    <h2> ● Unless agreed with you, the rental provider or agent can only enter between 8am and 6pm,
+                      and not on public holidays.</h2>
                     <h2> ● If you have agreed, they can enter when you are not home.</h2>
-                    <h2> ● A general inspection&nbsp;
-                      <span className=" font-bold">may only be made </span>
-                      after the&nbsp;
-                      <span className=" font-bold">first 3 months </span>of the rental agreement. They can be&nbsp;
-                      <span className=" font-bold">done every 6 months </span>at the most.</h2>
-                    <h2> ● You are&nbsp;
-                      <span className="font-bold">not required to leave </span>
+                    <h2> ● A general inspection may only be made
+                      after the first 3 months of the rental agreement. They can be done every 6 months at the most.</h2>
+                    <h2> ● You are not required to leave
                       if the landlord is doing an inspection or showing the property the prospective buyers.
                     </h2>
                     <br></br>
@@ -403,7 +380,7 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 style={{ marginRight: "28rem" }}>2. Your responsibilities as renters</h2>
+            <h2 style={{ marginRight: "24rem" }}>2. Your responsibilities as renters</h2>
             <button onClick={toggleDetails7}>
               <Image
                 src="/alert.gif"
@@ -466,7 +443,7 @@ export default function Rights() {
                   alt="close"
                   width={80}
                   height={80}
-                  className=" hover: transition duration-1000 ease-in-out"
+                  className=" hover:opacity-70 transition duration-1000 ease-in-out"
                 />
               </button>
             </div>
@@ -500,17 +477,17 @@ export default function Rights() {
                   className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                 >
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Maintenance</h1>
-                  {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                  {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
-                  {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                  {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
                   )}
                 </button>
                 <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                   style={{
-                    maxWidth: "20rem",
+                    maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails5 ? "1" : "0",
                     visibility: showDetails5 ? "visible" : "hidden",
@@ -519,19 +496,14 @@ export default function Rights() {
                   <h2>It is your job as tenant to maintain the property, and keep it up to a reasonable standard. </h2>
                   <br></br>
                   <h2>This includes:</h2>
-                  <h2> ● keeping the premises&nbsp;
-                    <span className="font-bold">clean</span></h2>
-                  <h2> ● not causing any&nbsp;
-                    <span className="font-bold">damage </span>damage
+                  <h2> ● keeping the premises clean</h2>
+                  <h2> ● not causing any damage damage
                     to the property</h2>
-                  <h2> ● if damage is caused,&nbsp;
-                    <span className="font-bold">notifying the landlord </span>
+                  <h2> ● if damage is caused, notifying the landlord 
                     or agent as soon as possible.
                   </h2>
-                  <h2> ●&nbsp;
-                    <span className="font-bold">obtain consent </span>from the landlord before installing any fixtures, or making any alterations/ renovations, if these were not agreed up-front and included in your written lease.</h2>
-                  <h2> ● ensure the property is not used for any&nbsp;
-                    <span className="font-bold">illegal purpose.</span></h2>
+                  <h2> ● obtain consent from the landlord before installing any fixtures, or making any alterations/ renovations, if these were not agreed up-front and included in your written lease.</h2>
+                  <h2> ● ensure the property is not used for any illegal purpose.</h2>
                 </div>
               </div>
             </div>
@@ -562,48 +534,40 @@ export default function Rights() {
                   onClick={toggleDetails6}
                   className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Inspections</h1>
-                  {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">End of lease</h1>
+                  {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
-                  {showDetails6 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                  {showDetails6 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
                   )}
                 </button>
                 <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                   style={{
-                    maxWidth: "20rem",
+                    maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails6 ? "1" : "0",
                     visibility: showDetails6 ? "visible" : "hidden",
                     maxHeight: showDetails6 ? "1000px" : "0"
                   }}>
-                  <h2 className="font-bold">There are three main ways to end a tenancy:  </h2>
+                  <h2 >There are three main ways to end a tenancy:</h2>
                   <h2> 1. All the parties can agree to end the tenancy. </h2>
                   <h2> 2. Your landlord or agent gives you a valid &apos;Notice to Vacate&apos;. </h2>
                   <h2> 3. You give valid notice to your landlord or agent that you intend to vacate.</h2>
                   <br></br>
                   <h2> When ending your lease, make sure you:</h2>
-                  <h2> ●&nbsp;
-                    <span className="font-bold">give adequate notice </span>
+                  <h2> ● give adequate notice
                     when planning to leave; the notice period will depend on your reason for leaving </h2>
-                  <h2> ● pay any&nbsp;
-                    <span className="font-bold">outstanding rent</span></h2>
-                  <h2> ●&nbsp;
-                    <span className="font-bold">clean </span>
+                  <h2> ● pay any outstanding rent</h2>
+                  <h2> ● clean 
                     the property</h2>
-                  <h2> ● consider taking&nbsp;
-                    <span className="font-bold">photos </span>
-                    after you move your furniture out to&nbsp;
-                    <span className="font-bold">show the condition </span>of the property </h2>
-                  <h2> ● take all your&nbsp;
-                    <span className="font-bold">belongings </span>with you</h2>
-                  <h2> ●&nbsp;
-                    <span className="font-bold">keep the &apos;Condition Report&apos; </span>
+                  <h2> ● consider taking photos 
+                    after you move your furniture out to show the condition of the property </h2>
+                  <h2> ● take all your belongings with you</h2>
+                  <h2> ● keep the &apos;Condition Report&apos;
                     in case of a dispute</h2>
-                  <h2> ● try to agree with your landlord or agent on the&nbsp;
-                    <span className="font-bold">return of the bond</span></h2>
+                  <h2> ● try to agree with your landlord or agent on the return of the bond</h2>
                 </div>
               </div>
             </div>
