@@ -78,57 +78,49 @@ export default function Rights() {
       <main className="font-inter flex flex-col min-h-screen text-black justify-center">
         <Navbar activePage="What you need to know" className="z-10" />
 
-        <div className="relative h-3/5 w-full">
+        <div className="relative h-2/5 w-full">
           <img
-            loader={imageLoader}
-            loading="eager"
             src="/businesswoman.jpeg"
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
-          <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
-            <div className="flex flex-col justify-center my-44">
-              <h1 className="text-5xl font-bold text-center">
-                As a tenant, you have the right to live in a
-              </h1>
-              <h1 className="text-5xl font-bold text-center mt-4">
-                safe, secure and quiet environment
-              </h1>
-              <h1 className="text-5xl font-bold text-center mt-4">
-                that is managed in accordance with the law
-              </h1>
+          <div className="relative flex flex-col justify-center h-full text-center ">
+            <div className="flex flex-col justify-center items-center my-24 text-gray-100/90">
+              <h2 className=" text-4xl font-bold max-w-4xl">
+              As a tenant, you have the right to live in a 
+              safe, secure and quiet environment 
+              that is managed in accordance with the law.
+              </h2>
             </div>
           </div>
         </div>
         <div className=" flex flex-col bg-white items-center">
-          <div className="flex justify-between items-center">
-            <div className="flex flex-col items-center justify-center text-HeadingTextGray font-bold text-5xl mr-48 ">
-              <h2>Understand your </h2>
-              <h2>rights and </h2>
-              <h2>responsibilities</h2>
+          <div className="flex justify-between items-center mb-4">
+            <div className="flex flex-col items-center justify-center text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-40">
+              <h2>Understand your rights and responsibilities</h2>
             </div>
-            <div className="flex items-start">
+            <div className="flex justify-between items-start">
               <div>
                 <Image
                   src="/chat_bubble_rights.png"
                   alt="chat"
-                  width={500}
-                  height={500}
+                  width={400}
+                  height={400}
                 />
               </div>
-              <div>
+              <div >
                 <Image
                   src="/woman.gif"
                   alt="girl"
-                  width={200}
-                  height={200}
-                  className="mt-64 p-0"
+                  width={150}
+                  height={150}
+                  className="mt-56 p-0"
                 />
               </div>
             </div>
           </div>
-          <div className="flex justify-center">
-            <div className="font-istok flex flex-col items-center justify-center pb-4 mr-24">
+          <div className="flex justify-center items-start">
+            <div className="font-istok flex flex-col justify-center pb-4 mr-24">
               <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray pb-4">
                 <div className="font-bold text-4xl">
                   <h2>1. Your rights as renters</h2>
@@ -227,8 +219,8 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
-            <div className="font-istok flex flex-col items-center justify-center ml-24">
+            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center"></div>
+            <div className="font-istok flex flex-col justify-center ml-24">
               <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray mt-4 pb-4">
                 <div className="my-8">
                   <Image
