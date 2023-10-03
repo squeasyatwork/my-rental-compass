@@ -4,7 +4,6 @@ import Footer from "./helperpages/footer.js";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -72,7 +71,7 @@ const UserguideBar = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col w-4/5 timeline -space-y-12">
+    <div className="mx-auto flex flex-col w-full timeline -space-y-12">
       <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
@@ -105,9 +104,9 @@ const UserguideBar = () => {
             visibility: showDetails1 ? "visible" : "hidden",
             maxHeight: showDetails1 ? "1000px" : "0"
           }}>
-            <div className="flex flex-col w-4/5">
+            <div className="flex flex-col w-5/6">
               <div className="flex w-full justify-between items-end">
-                <h2 className="text-lg font-semibold">Do your research</h2>
+                <h2 className="text-3xl font-bold">Do your research</h2>
                 <button onClick={() => setShowQuizQuestion(true)}>
                   <Image
                     src="/resources_quiz_icon.gif"
@@ -238,16 +237,16 @@ const UserguideBar = () => {
                   </div>
                 </div>
               </div>
-              <ul className="list-disc pl-5">
+              <ul className="list-disc text-xl pl-6">
                 <li>Understand the typical rent costs of the area</li>
                 <li>Research lease terms and other legal requirements to protect your rights as a tenant</li>
               </ul>
             </div>
-            <Link href="/rights" className="font-semibold"><div className="mx-20 my-6 p-5 rounded-2xl bg-ResourceButtonYellow">Click here to check out our What You Need to Know page for more information on rental laws
+            <Link href="/rights"><div className="text-xl mx-20 my-6 p-5 rounded-2xl bg-ResourceButtonYellow">Click here to check out our <b>What You Need to Know</b> page for more information on rental laws
             </div></Link>
-            <div className="w-4/5">
-              <h2 className="text-lg font-semibold">Begin saving</h2>
-              <ul className="list-disc pl-5 pb-4">
+            <div className="w-5/6">
+              <h2 className="text-3xl font-bold">Begin saving</h2>
+              <ul className="list-disc pl-6 pb-4 text-xl">
                 <li>Know that you know how much rent will be a week, start saving up!</li>
                 <li>
                   Be aware that it is standard practice when securing a rental to also pay for security deposits and the first month&apos;s rent so save more than you think you will need</li>
@@ -275,16 +274,11 @@ const UserguideBar = () => {
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center w-full" style={{
-            transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-            opacity: showDetails2 ? "1" : "0",
-            visibility: showDetails2 ? "visible" : "hidden",
-            maxHeight: showDetails2 ? "1000px" : "0"
-          }}>
+          {showDetails2 && (<div className="flex flex-col items-center w-full">
             <div className="py-8 px-20 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
-                <h2 className="text-lg font-semibold">Welcome to Melbourne</h2>
-                <ul className="list-disc pl-5">
+                <h2 className="text-3xl font-bold">Welcome to Melbourne</h2>
+                <ul className="list-disc pl-6 text-xl">
                   <li>Contact your university&apos;s student services, as they may have resources to help you find rental accommodation</li>
                   <li>Inquire about on-campus accommodation options</li>
                   <li>Arrange temporary accommodation for your first few days or weeks, like a hostel, hotel, or AirBnB</li>
@@ -292,8 +286,8 @@ const UserguideBar = () => {
               </div>
               <br />
               <div>
-                <h2 className="text-lg font-semibold">Finding accommodation</h2>
-                <ul className="list-disc pl-5">
+                <h2 className="text-3xl font-bold">Finding accommodation</h2>
+                <ul className="list-disc pl-6 text-xl">
                   <li>Use our site to help you find out which suburbs best suit your needs</li>
                   <li>
                     Now you can begin finding listed rental properties that match your preferences</li>
@@ -307,9 +301,9 @@ const UserguideBar = () => {
                   </ul>
                 </ul>
               </div>
-              <Link href="/questionnaire"><div className="m-5 p-5 rounded-2xl font-semibold bg-ResourceButtonYellow">Complete the questionnaire for our Find a Suburb to Live feature to determine the best suburb for you</div></Link>
+              <Link href="/questionnaire"><div className="m-5 p-5 rounded-2xl bg-ResourceButtonYellow text-xl">Complete the questionnaire for our <b>Find a Suburb to Live</b> feature to determine the best suburb for you</div></Link>
             </div>
-          </div>
+          </div>)}
         </div>
         <div className="flex justify-start items-center w-2/5">
           <hr class="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
@@ -354,11 +348,11 @@ const UserguideBar = () => {
           {showDetails3 && (<div className="flex flex-col items-center">
             <div className="py-8 px-20 pb-10 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
-                <h2 className="text-lg font-semibold">Inspecting a property</h2>
-                <ul className="list-disc pl-5">
+                <h2 className="text-3xl font-bold">Inspecting a property</h2>
+                <ul className="list-disc pl-6 text-xl">
                   <li>Congratulations you have a found a property that you like. Now it is time to inspect it to make sure it suits your needs, and is safe to live in</li>
                   <li>Some things to consider when inspecting a property include:</li>
-                  <ul className="list-disc pl-5">
+                  <ul className="list-disc pl-6">
                     <li>Assess the general condition of the property, including walls, floors, ceilings, and windows</li>
                     <li>Check the locks on doors and windows to ensure they work properly</li>
                     <li>Verify the presence of smoke detectors, fire extinguishers, and carbon monoxide detectors if required by law.</li>
@@ -428,7 +422,7 @@ export default function Resources() {
           </div>
         </div>
         <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
-          <div className="flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
+          <div className="w-10/12 flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
             <h1>
               Follow our guide to take you on the journey of applying for a property
             </h1>
@@ -470,30 +464,32 @@ export default function Resources() {
             {showDetails4 && (<div className="flex flex-col items-center" >
               <div className="p-8 bg-FooterButtonYellow w-3/5">
                 <div>
-                  <h2 className="text-lg font-semibold text-LongContentGray">Follow the checklist to make sure that you have everything you need to make a rental application</h2>
-                  <FormGroup>
-                    <FormControlLabel control={<Checkbox />} label="Personal Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Full legal name that matches your other documents, and contact details, including phone number and email address.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Identification" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">A copy of your passport, driver&apos;s license, or other government-issued ID.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Income" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Pay slips, employment letter, or bank statements to demonstrate your ability to pay rent.</li><li>If you are not working whilst being a student, provide proof of financial support from a scholarship, sponsor, or family</li><li className="pb-5">Recent bank statements to verify your financial stability and ability to cover rent and expenses.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Visa or Residency Status" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Provide proof of your visa or residency status.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Rental History" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Contact information for previous landlords or property managers.</li><li className="pb-5">Rental references or recommendation letters from previous landlords if available.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="References" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Personal references who can vouch for your character and reliability.</li><li className="pb-5">If you are working, also include contact information for your employer or proof of current employment, such as a job offer letter.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Co-Signer Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">If your income or credit doesn&apos;t meet the landlord&apos;s requirements, provide information about a co-signer who can guarantee the lease.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Cover Letter or Letter of Intent" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Write a brief letter explaining why you are a suitable tenant and why you want to rent the property.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Emergency Contact Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Provide the contact information of someone who can be reached in case of emergencies, preferably someone local as well as from your home country.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Fees" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Be prepared to pay any application fees required by the landlord or property management company.</li><li className="pb-5">Also be prepared to pay the security deposit and first month’s rent promptly if your application is approved</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Application Forms" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Fill out the rental application form provided by the landlord or property manager accurately and completely.</li><li className="pb-5">Note that any application form will include require much of the information that has been listed above</li></ul>
+                  <h2 className="text-3xl pb-4 font-bold text-LongContentGray">Follow the checklist to make sure that you have everything you need to make a rental application</h2>
+                  <FormGroup className="text-xl">
+                    <FormControlLabel control={<Checkbox />} label="Personal Information"
+                      componentsProps={{ typography: { variant: 'h6' } }}
+                    />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">Full legal name that matches your other documents, and contact details, including phone number and email address.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Proof of Identification" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">A copy of your passport, driver&apos;s license, or other government-issued ID.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Proof of Income" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>Pay slips, employment letter, or bank statements to demonstrate your ability to pay rent.</li><li>If you are not working whilst being a student, provide proof of financial support from a scholarship, sponsor, or family</li><li className="pb-5">Recent bank statements to verify your financial stability and ability to cover rent and expenses.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Proof of Visa or Residency Status" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">Provide proof of your visa or residency status.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Rental History" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>Contact information for previous landlords or property managers.</li><li className="pb-5">Rental references or recommendation letters from previous landlords if available.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="References" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>Personal references who can vouch for your character and reliability.</li><li className="pb-5">If you are working, also include contact information for your employer or proof of current employment, such as a job offer letter.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Co-Signer Information" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">If your income or credit doesn&apos;t meet the landlord&apos;s requirements, provide information about a co-signer who can guarantee the lease.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Cover Letter or Letter of Intent" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">Write a brief letter explaining why you are a suitable tenant and why you want to rent the property.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Emergency Contact Information" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">Provide the contact information of someone who can be reached in case of emergencies, preferably someone local as well as from your home country.</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Fees" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>Be prepared to pay any application fees required by the landlord or property management company.</li><li className="pb-5">Also be prepared to pay the security deposit and first month’s rent promptly if your application is approved</li></ul>
+                    <FormControlLabel control={<Checkbox />} label="Application Forms" componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>Fill out the rental application form provided by the landlord or property manager accurately and completely.</li><li className="pb-5">Note that any application form will include require much of the information that has been listed above</li></ul>
                   </FormGroup>
                 </div>
               </div>
