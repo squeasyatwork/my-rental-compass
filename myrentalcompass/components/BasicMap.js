@@ -64,10 +64,12 @@ const BasicMap = ({
     return new L.DivIcon({
       className: "custom-div-icon",
       html: `
-            <div style="background-image: url('/map-marker.svg'); background-repeat: no-repeat; background-size: 35px 35px; background-position: center; width: 35px; height: 35px; display: flex; flex-direction: column; justify-content: center; align-items: center;" class="relative">
+            <div style="background-image: url('/map-marker.svg'); background-repeat: no-repeat; background-size: 35px 35px; background-position: center; width: 35px; 
+            height: 35px; display: flex; flex-direction: column; justify-content: center; align-items: center;" 
+            class="relative">
                 <span class="text-center text-md font-bold" style="opacity: ${
                   isSameAsUniversity ? "0.5" : "1"
-                }">${rank}</span>
+                }; margin-top: -5px;">${rank}</span>
             </div>
         `,
       iconSize: [35, 35],

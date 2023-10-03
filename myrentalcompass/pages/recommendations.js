@@ -119,7 +119,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
           <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
             <h2>● How we calculated your score</h2>
             <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
+              &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity index
               score that ranks the suburbs based on your responses to the
               questionnaire you just finished.
               <br />
