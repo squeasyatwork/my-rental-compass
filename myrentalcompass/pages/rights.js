@@ -126,7 +126,7 @@ export default function Rights() {
           <div className="flex justify-between font-istok text-4xl font-bold mb-2">
             <h2 style={{ marginRight: "44rem" }}>1. Your rights as renters</h2>
           </div>
-          <div className="flex justify-center items-start">
+          <div className="flex justify-center items-start divider_rights">
             <div className="font-istok flex flex-col justify-center pb-4 mr-24">
               <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray">
                 
@@ -402,7 +402,6 @@ export default function Rights() {
               </div>
             </div>
           </div>
-
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
             <h2 style={{ marginRight: "28rem" }}>2. Your responsibilities as renters</h2>
             <button onClick={toggleDetails7}>
@@ -419,15 +418,45 @@ export default function Rights() {
                 opacity: showDetails7 ? "1" : "0",
                 visibility: showDetails7 ? "visible" : "hidden"
               }}>
-              <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                style={{ width: "36%" }}>
-                <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
-                  <h2>Something does not feel quite right?</h2>
+              <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl px-6"
+                style={{ width: "44%" }}>
+                <div className="flex flex-col justify-center items-center font-bold text-4xl text-HeadingTextGray">
+                  <h2>Something doesn&apos;t feel quite right?</h2>
                 </div>
                 <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
-                  <h2 className=" text-justify">
-                    We measure liveability based on the crime rate recorded in a particular suburb.
-                    We used crime statistics data that has been recorded in the year 2019.
+                  <h2 className=" max-w-2xl mb-4 text-base">
+                    If you think that your landlord or rental provider (like a real estate agency)
+                    is not fulfilling their requirements, or is violating your rights, there are several places you can contact for help:
+                  </h2>
+                  <h2 className="font-bold">
+                    Consumer Affairs Victoria
+                  </h2>
+                  <h2 className=" max-w-2xl mb-4 text-base">
+                    If you have questions about renting agreements, bonds, rent increases or repairs, if you are being evicted<br></br>
+                    <span className=" font-semibold underline">1300 55 81 81 </span><br></br>
+                    <span className=" font-semibold underline">
+                      <a href="https://www.consumer.vic.gov.au/" class=" underline">consumer.vic.gov.au</a>
+                    </span>
+                  </h2>
+                  <h2 className="font-bold">
+                    Victorian Civil and Tribunal Authority (VCAT)
+                  </h2>
+                  <h2 className=" max-w-2xl mb-4 text-base">
+                    To apply for a hearing about a renting dispute (e.g not providing repairs, excessive rental increases)<br></br>
+                    <span className=" font-semibold underline">1300 55 81 81 </span><br></br>
+                    <span className=" font-semibold underline">
+                      <a href="https://www.vcat.vic.gov.au/case-types/residential-tenancies" class=" underline">vcat.vic.giv.au/renting</a>
+                    </span>
+                  </h2>
+                  <h2 className="font-bold">
+                    Residential Tenancies Bond Authority (RTBA)
+                  </h2>
+                  <h2 className=" max-w-2xl mb-4 text-base">
+                    To look up your bond, transfer a bond or arrange a bond refund<br></br>
+                    <span className=" font-semibold underline">1300 137 164 </span><br></br>
+                    <span className=" font-semibold underline">
+                      <a href="https://rentalbonds.vic.gov.au/" class=" underline">rentalbonds.vic.giv.au</a>
+                    </span>
                   </h2>
                 </div>
               </div>
@@ -437,12 +466,12 @@ export default function Rights() {
                   alt="close"
                   width={80}
                   height={80}
-                  className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                  className=" hover: transition duration-1000 ease-in-out"
                 />
               </button>
             </div>
           </div>
-          <div className="flex mr-7 items-start">
+          <div className="flex items-start divider_rights">
             <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
@@ -533,7 +562,7 @@ export default function Rights() {
                   onClick={toggleDetails6}
                   className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">End of your lease</h1>
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Inspections</h1>
                   {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
@@ -544,7 +573,7 @@ export default function Rights() {
                 </button>
                 <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                   style={{
-                    maxWidth: "24rem",
+                    maxWidth: "20rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails6 ? "1" : "0",
                     visibility: showDetails6 ? "visible" : "hidden",
