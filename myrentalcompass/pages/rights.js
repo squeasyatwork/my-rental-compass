@@ -104,17 +104,17 @@ export default function Rights() {
                 <Image
                   src="/chat_bubble_rights.png"
                   alt="chat"
-                  width={400}
-                  height={400}
+                  width={300}
+                  height={300}
                 />
               </div>
               <div >
                 <Image
                   src="/woman.gif"
                   alt="girl"
-                  width={150}
-                  height={150}
-                  className="mt-56 p-0"
+                  width={120}
+                  height={120}
+                  className="mt-44 p-0"
                 />
               </div>
             </div>
@@ -141,13 +141,20 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails1}
-                    className="font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                    className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                   >
-                    {showDetails1 ? "⇱ Condition reports" : "⇲ Condition reports"}
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Condition reports</h1>
+                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
                   </button>
                   <div className="p-4 mt-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "28rem",
+                      maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails1 ? "1" : "0",
                       visibility: showDetails1 ? "visible" : "hidden",
