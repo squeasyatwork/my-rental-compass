@@ -45,6 +45,7 @@ export default function Rights() {
   const [showDetails4, setShowDetails4] = useState(false);
   const [showDetails5, setShowDetails5] = useState(false);
   const [showDetails6, setShowDetails6] = useState(false);
+  const [showDetails7, setShowDetails7] = useState(false);
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
@@ -67,6 +68,9 @@ export default function Rights() {
   const toggleDetails6 = () => {
     setShowDetails6(!showDetails6);
   };
+  const toggleDetails7 = () => {
+    setShowDetails7(!showDetails7);
+  };
 
   return (
     <>
@@ -81,7 +85,7 @@ export default function Rights() {
         <div className="relative h-2/5 w-full">
           <img
             src="/businesswoman.jpeg"
-            alt="Description of the image"
+            alt="businesswoman"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
@@ -94,9 +98,9 @@ export default function Rights() {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col bg-white items-center">
+        <div className=" flex flex-col bg-white items-center px-8">
           <div className="flex justify-between items-center mb-4">
-            <div className="flex flex-col items-center justify-center text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-40">
+            <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-48">
               <h2>Understand your rights and responsibilities</h2>
             </div>
             <div className="flex justify-between items-start">
@@ -112,19 +116,20 @@ export default function Rights() {
                 <Image
                   src="/woman.gif"
                   alt="girl"
-                  width={120}
-                  height={120}
-                  className="mt-44 p-0"
+                  width={160}
+                  height={160}
+                  className="mt-20 p-0"
                 />
               </div>
             </div>
           </div>
+          <div className="flex justify-between font-istok text-4xl font-bold mb-2">
+            <h2 style={{ marginRight: "44rem" }}>1. Your rights as renters</h2>
+          </div>
           <div className="flex justify-center items-start">
             <div className="font-istok flex flex-col justify-center pb-4 mr-24">
-              <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray pb-4">
-                <div className="font-bold text-4xl">
-                  <h2>1. Your rights as renters</h2>
-                </div>
+              <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray">
+                
                 <div className="my-8">
                   <Image
                     src="/interior-design.png"
@@ -152,9 +157,9 @@ export default function Rights() {
                       </svg>
                     )}
                   </button>
-                  <div className="p-4 mt-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "24rem",
+                      maxWidth: "20rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails1 ? "1" : "0",
                       visibility: showDetails1 ? "visible" : "hidden",
@@ -176,7 +181,7 @@ export default function Rights() {
                   </div>
                 </div>
               </div>
-              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4 pb-4">
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
                 <div className="my-8">
                   <Image
                     src="/chat.png"
@@ -192,13 +197,20 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails3}
-                    className=" font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                    className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                   >
-                    {showDetails3 ? "⇱ Unlawful discrimination" : "⇲ Unlawful discrimination"}
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
+                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
                   </button>
-                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "28rem",
+                      maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails3 ? "1" : "0",
                       visibility: showDetails3 ? "visible" : "hidden",
@@ -226,9 +238,8 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center"></div>
             <div className="font-istok flex flex-col justify-center ml-24">
-              <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray mt-4 pb-4">
+              <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray">
                 <div className="my-8">
                   <Image
                     src="/agreement.png"
@@ -245,11 +256,18 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails2}
-                    className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                    className=" flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                   >
-                    {showDetails2 ? "⇱ Minimum rental standards" : "⇲ Minimum rental standards"}
+                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
+                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
                   </button>
-                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{
                       maxWidth: "28rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -304,7 +322,7 @@ export default function Rights() {
                   </div>
                 </div>
               </div>
-              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4 pb-4">
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
                 <div className="my-8">
                   <Image
                     src="/village.png"
@@ -320,13 +338,20 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails4}
-                    className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                    className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                   >
-                    {showDetails4 ? "⇱ Inspection" : "⇲ Inspection"}
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
+                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
                   </button>
-                  <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                     style={{
-                      maxWidth: "28rem",
+                      maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails4 ? "1" : "0",
                       visibility: showDetails4 ? "visible" : "hidden",
@@ -380,14 +405,44 @@ export default function Rights() {
 
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
             <h2 style={{ marginRight: "28rem" }}>2. Your responsibilities as renters</h2>
-            <Image
-              src="/alert.gif"
-              alt="repair"
-              width={100}
-              height={100}
-            />
+            <button onClick={toggleDetails7}>
+              <Image
+                src="/alert.gif"
+                alt="alert"
+                width={90}
+                height={90}
+              />
+            </button>
+            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+              style={{
+                transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                opacity: showDetails7 ? "1" : "0",
+                visibility: showDetails7 ? "visible" : "hidden"
+              }}>
+              <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
+                style={{ width: "36%" }}>
+                <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
+                  <h2>Something does not feel quite right?</h2>
+                </div>
+                <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
+                  <h2 className=" text-justify">
+                    We measure liveability based on the crime rate recorded in a particular suburb.
+                    We used crime statistics data that has been recorded in the year 2019.
+                  </h2>
+                </div>
+              </div>
+              <button onClick={toggleDetails7}>
+                <Image
+                  src="/close.svg"
+                  alt="close"
+                  width={80}
+                  height={80}
+                  className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                />
+              </button>
+            </div>
           </div>
-          <div className="flex mr-7">
+          <div className="flex mr-7 items-start">
             <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
@@ -397,7 +452,15 @@ export default function Rights() {
                   height={100}
                 />
               </div>
-              <a href="https://www.youtube.com/watch?v=oX6usi7Rgn0" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Condition reports</a>
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/video.svg"
+                  alt="video"
+                  width={30}
+                  height={30}
+                />
+                <a href="https://www.youtube.com/watch?v=oX6usi7Rgn0" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Condition reports</a>
+              </div>
               <div className=" flex flex-col font-bold text-xl items-center mt-2">
                 <h2>You have a responsibility to maintain the</h2>
                 <h2>house to a reasonable standard</h2>
@@ -405,13 +468,20 @@ export default function Rights() {
               <div className="flex flex-col items-center justify-center mt-8 font-istok">
                 <button
                   onClick={toggleDetails5}
-                  className=" font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                  className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
                 >
-                  {showDetails5 ? "⇱ Maintenance" : "⇲ Maintenance"}
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Maintenance</h1>
+                  {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>)}
+                  {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                  )}
                 </button>
-                <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                   style={{
-                    maxWidth: "28rem",
+                    maxWidth: "20rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails5 ? "1" : "0",
                     visibility: showDetails5 ? "visible" : "hidden",
@@ -436,7 +506,6 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col border-r-4 border-FooterButtonYellow justify-center items-center"></div>
             <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-4">
               <div className="my-8">
                 <Image
@@ -446,7 +515,15 @@ export default function Rights() {
                   height={100}
                 />
               </div>
-              <a href="https://www.youtube.com/watch?v=IJCRr6OYm4U&list=PLyJsWesP-0qmL3r2uf7ddID-LaDIy0Y7F" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Starting and ending a lease</a>
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/video.svg"
+                  alt="video"
+                  width={30}
+                  height={30}
+                />
+                <a href="https://www.youtube.com/watch?v=IJCRr6OYm4U&list=PLyJsWesP-0qmL3r2uf7ddID-LaDIy0Y7F" class=" text-HeadingTextGray hover:underline text-center items-center">Quick Watch: Starting and ending a lease</a>
+              </div>
               <div className=" flex flex-col font-bold text-xl items-center mt-2">
                 <h2>You have several responsibilities to follow</h2>
                 <h2>when ending your tenancy agreement</h2>
@@ -454,13 +531,20 @@ export default function Rights() {
               <div className="flex flex-col items-center mt-8 justify-center font-istok">
                 <button
                   onClick={toggleDetails6}
-                  className=" font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                  className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
                 >
-                  {showDetails6 ? "⇱ End of your lease" : "⇲ End of your lease"}
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">End of your lease</h1>
+                  {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-10 h-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                    </svg>)}
+                  {showDetails6 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-10 h-10">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                    </svg>
+                  )}
                 </button>
-                <div className="p-4 mt-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
                   style={{
-                    maxWidth: "28rem",
+                    maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails6 ? "1" : "0",
                     visibility: showDetails6 ? "visible" : "hidden",
@@ -495,23 +579,32 @@ export default function Rights() {
               </div>
             </div>
           </div>
-          <div className="flex justify-center items-center">
+          <div className="flex justify-between items-center">
             <div className="flex flex-col items-center justify-center">
               <Image
                 src="/chat_bubble_rights2.png"
                 alt="chatb2"
-                width={450}
-                height={450}
+                width={300}
+                height={300}
               />
-              <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
-              /resources-and-guides-for-renters/renters-guide" class="text-ButtonHoverYellow text-2xl font-semibold hover:underline ">▶ Consumer Affairs Victoria</a>
+              <div className="flex justify-center items-center">
+                <Image
+                  src="/finger.svg"
+                  alt="finger"
+                  width={30}
+                  height={30}
+                  className="mr-2"
+                />
+                <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
+                /resources-and-guides-for-renters/renters-guide" className="text-ButtonHoverYellow text-base font-semibold hover:underline lg:text-xl md:text-base">Consumer Affairs Victoria</a>
+              </div>
             </div>
-            <div className="mt-48 mr-32">
+            <div className="mr-80">
               <Image
                 src="/woman.gif"
                 alt="woman"
-                width={200}
-                height={200}
+                width={160}
+                height={160}
               />
             </div>
             <div>
