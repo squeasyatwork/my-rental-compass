@@ -129,7 +129,6 @@ export default function Rights() {
           <div className="flex justify-center items-start divider_rights">
             <div className="font-istok flex flex-col justify-center pb-4 mr-24">
               <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray">
-                
                 <div className="my-8">
                   <Image
                     src="/interior-design.png"
@@ -146,18 +145,18 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails1}
-                    className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Condition reports</h1>
-                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
-                  <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
                       maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -194,18 +193,18 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails3}
-                    className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
-                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
-                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
                       maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -251,18 +250,18 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails2}
-                    className=" flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                      <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
-                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
-                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
                       maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -323,18 +322,18 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails4}
-                    className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Inspection</h1>
-                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                       </svg>)}
-                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                       <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                       </svg>
                     )}
                   </button>
-                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
                       maxWidth: "24rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -449,7 +448,7 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex items-start divider_rights">
-            <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-4">
+            <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-2">
               <div className="my-8">
                 <Image
                   src="/house.png"
@@ -474,18 +473,18 @@ export default function Rights() {
               <div className="flex flex-col items-center justify-center mt-8 font-istok">
                 <button
                   onClick={toggleDetails5}
-                  className="flex font-bold text-4xl px-3 text-HeadingTextGray hover:underline"
+                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Maintenance</h1>
-                  {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                  {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
-                  {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-8 h-8">
+                  {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
                   )}
                 </button>
-                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
                     maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -507,7 +506,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-4">
+            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-2">
               <div className="my-8">
                 <Image
                   src="/home-repair.png"
@@ -529,21 +528,21 @@ export default function Rights() {
                 <h2>You have several responsibilities to follow</h2>
                 <h2>when ending your tenancy agreement</h2>
               </div>
-              <div className="flex flex-col items-center mt-8 justify-center font-istok">
+              <div className="flex flex-col items-center mt-8 font-istok">
                 <button
                   onClick={toggleDetails6}
-                  className="flex font-bold text-4xl px-3  text-HeadingTextGray hover:underline"
+                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-15" 
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">End of lease</h1>
-                  {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray ">End of your lease</h1>
+                  {!showDetails6 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
-                  {showDetails6 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className=" w-8 h-8">
+                  {showDetails6 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                     </svg>
                   )}
                 </button>
-                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl"
+                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
                     maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -573,36 +572,38 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex justify-between items-center">
-            <div className="flex flex-col items-center justify-center">
-              <Image
-                src="/chat_bubble_rights2.png"
-                alt="chatb2"
-                width={270}
-                height={270}
-              />
-              <div className="flex justify-center items-center">
+            <div className="flex justify-start items-center mr-24">
+              <div className="flex flex-col items-start justify-center">
                 <Image
-                  src="/finger.svg"
-                  alt="finger"
-                  width={30}
-                  height={30}
-                  className="mr-2"
+                  src="/chat_bubble_rights2.png"
+                  alt="chatb2"
+                  width={270}
+                  height={270}
                 />
-                <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
-                /resources-and-guides-for-renters/renters-guide" className="text-ButtonHoverYellow text-base font-semibold hover:underline lg:text-xl md:text-base">Consumer Affairs Victoria</a>
+                <div className="flex justify-center items-center">
+                  <Image
+                    src="/finger.svg"
+                    alt="finger"
+                    width={30}
+                    height={30}
+                    className="mr-2"
+                  />
+                  <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
+                  /resources-and-guides-for-renters/renters-guide" className="text-ButtonHoverYellow text-base font-semibold hover:underline lg:text-xl md:text-base">Consumer Affairs Victoria</a>
+                </div>
+              </div>
+              <div className="flex items-start mt-24">
+                <Image
+                  src="/woman.gif"
+                  alt="woman"
+                  width={140}
+                  height={140}
+                />
               </div>
             </div>
-            <div className="mr-48 mt-24">
-              <Image
-                src="/woman.gif"
-                alt="woman"
-                width={140}
-                height={140}
-              />
-            </div>
-            <div>
+            <div className="flex justify-center items-end ml-24">
               <Link href="/">
-                <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-FooterButtonYellow">
+                <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
                   Return Home
                 </button>
               </Link>
