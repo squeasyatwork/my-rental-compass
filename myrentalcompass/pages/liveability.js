@@ -6,7 +6,7 @@ import Link from "next/link";
 import { useState } from "react";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
+  return `https://iterationtwo.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const ResourceSection = ({ id, imageSrc, altText, link }) => {
@@ -58,7 +58,7 @@ function Liveability() {
   const toggleDetails4 = () => {
     setShowDetails4(!showDetails4);
   };
-  
+
   return (
     <>
       <Head>
@@ -80,7 +80,7 @@ function Liveability() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-               Liveability is what a place is like to live in
+                Liveability is what a place is like to live in
               </h1>
               <h1 className="text-5xl font-bold text-center mt-4">
                 - a liveable place is a healthy place
@@ -94,8 +94,8 @@ function Liveability() {
           </div>
           <div className=" px-6 py-2">
             <h2 className="font-bold text-3xl mb-4">Liveability Index</h2>
-            <h2 className="text-2xl">The Liveability Index is a composite score based on measures related to aspects of liveability including good transport connectivity, 
-            safe roads, low crime rate, and abundance of open spaces.</h2>
+            <h2 className="text-2xl">The Liveability Index is a composite score based on measures related to aspects of liveability including good transport connectivity,
+              safe roads, low crime rate, and abundance of open spaces.</h2>
             <br></br>
             <h2 className="text-2xl">Click on each aspect to know more.</h2>
           </div>
@@ -112,12 +112,12 @@ function Liveability() {
               </button>
               <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                 style={{
-                  transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                  opacity: showDetails1 ? "1" : "0", 
+                  transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                  opacity: showDetails1 ? "1" : "0",
                   visibility: showDetails1 ? "visible" : "hidden"
                 }}>
                 <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                  style={{ width: "36%"}}>
+                  style={{ width: "36%" }}>
                   <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
                     <Image
                       src="/subway-map.png"
@@ -130,13 +130,13 @@ function Liveability() {
                   </div>
                   <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                     <h2 className=" text-justify">
-                      In measuring how well connected a suburb is to the public transportation system, 
-                      we use the open data by Public Transport Victoria (PTV) 
-                      to count the number of public transport stops that exist in every suburb. 
+                      In measuring how well connected a suburb is to the public transportation system,
+                      we use the open data by Public Transport Victoria (PTV)
+                      to count the number of public transport stops that exist in every suburb.
                     </h2>
                     <h2 className=" text-justify mb-2">Source: </h2>
                     <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2"
-                    className=" flex justify-center hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
+                      className=" flex justify-center hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
                   </div>
                   <div className="flex justify-between items-center mt-8 px-6">
                     <Image
@@ -150,7 +150,7 @@ function Liveability() {
                       alt="bus"
                       width={100}
                       height={100}
-                      
+
                     />
                     <Image
                       src="/tram.png"
@@ -172,7 +172,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="relative justify-center items-center" style={{left:"12vh"}}>
+              <div className="relative justify-center items-center" style={{ left: "12vh" }}>
                 <button onClick={toggleDetails2}>
                   <Image
                     src="/4-crime.svg"
@@ -184,12 +184,12 @@ function Liveability() {
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                   style={{
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails2 ? "1" : "0", 
+                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                    opacity: showDetails2 ? "1" : "0",
                     visibility: showDetails2 ? "visible" : "hidden"
                   }}>
                   <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ width: "36%"}}>
+                    style={{ width: "36%" }}>
                     <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
                       <Image
                         src="/secure-shield.png"
@@ -201,14 +201,14 @@ function Liveability() {
                     </div>
                     <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                       <h2 className=" text-justify">
-                        We measure liveability based on the crime rate recorded in a particular suburb. 
+                        We measure liveability based on the crime rate recorded in a particular suburb.
                         We used crime statistics data that has been recorded in the year 2019.
                       </h2>
                       <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data"
-                      className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data</a>
+                        className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data</a>
                       <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023"
-                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023</a>
+                        className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023</a>
                     </div>
                     <div className="flex justify-around items-center mt-8 px-6">
                       <Image
@@ -244,7 +244,7 @@ function Liveability() {
                   height={350}
                 />
               </div>
-              <div className="relative flex flex-col justify-center items-center" style={{right:"12vh"}}>
+              <div className="relative flex flex-col justify-center items-center" style={{ right: "12vh" }}>
                 <button onClick={toggleDetails3}>
                   <Image
                     src="/2-roads.svg"
@@ -256,12 +256,12 @@ function Liveability() {
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                   style={{
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails3 ? "1" : "0", 
+                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                    opacity: showDetails3 ? "1" : "0",
                     visibility: showDetails3 ? "visible" : "hidden"
                   }}>
                   <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ width: "36%"}}>
+                    style={{ width: "36%" }}>
                     <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
                       <Image
                         src="/t-kreuzung.png"
@@ -277,7 +277,7 @@ function Liveability() {
                       </h2>
                       <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract"
-                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract</a>
+                        className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract</a>
                     </div>
                     <div className="flex justify-between items-center mt-8 px-6">
                       <Image
@@ -313,7 +313,7 @@ function Liveability() {
               </div>
             </div>
             <div className="flex justify-center items-center">
-              <div className="relative flex flex-col justify-center items-center" style={{top:"-12vh"}}>
+              <div className="relative flex flex-col justify-center items-center" style={{ top: "-12vh" }}>
                 <button onClick={toggleDetails4}>
                   <Image
                     src="/3-openspace.svg"
@@ -325,12 +325,12 @@ function Liveability() {
                 </button>
                 <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                   style={{
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out", 
-                    opacity: showDetails4 ? "1" : "0", 
+                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                    opacity: showDetails4 ? "1" : "0",
                     visibility: showDetails4 ? "visible" : "hidden"
                   }}>
                   <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl"
-                    style={{ width: "36%"}}>
+                    style={{ width: "36%" }}>
                     <div className="flex flex-col justify-center items-center font-bold text-3xl px-6">
                       <Image
                         src="/nature.png"
@@ -347,9 +347,9 @@ function Liveability() {
                       </h2>
                       <h2 className=" justify-start text-justify mb-2">Source: </h2>
                       <a href="https://discover.data.vic.gov.au/dataset/open-space"
-                      className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/open-space</a>
+                        className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/open-space</a>
                       <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie"
-                      className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie</a>
+                        className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie</a>
                     </div>
                     <div className="flex justify-between items-center mt-8 px-6">
                       <Image

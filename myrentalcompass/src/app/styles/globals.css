@@ -43,7 +43,7 @@ body {
     position: absolute;
     left: 0;
     right: 0;
-    bottom: 14px;
+    bottom: 6px;
     height: 2px;
     background-color: #ffd700;
   }
@@ -147,7 +147,25 @@ body {
     bottom: 0;
     left: 50%;
     margin-left: -3px;
+  }   
+  
+  .divider_rights {
+    position: relative;
+    max-width: 20000px;
+    margin: 0 auto;
   }
+  .divider_rights::after {
+    @apply bg-MainButtonYellow;
+    content: '';
+    position: absolute;
+    width: 6px;
+    /* background-color: black; */
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -3px;
+  }   
+
   .arrow {
     border: solid black;
     border-width: 1 3px 3px 1;
