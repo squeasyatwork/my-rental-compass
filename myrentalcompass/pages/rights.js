@@ -79,17 +79,17 @@ export default function Rights() {
         <meta name="description" content="What you need to do." />
       </Head>
 
-      <main className="font-inter flex flex-col min-h-screen text-black justify-center">
+      <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
         <Navbar activePage="What you need to know" className="z-10" />
 
-        <div className="relative h-3/5 w-full">
+        <div className="relative flex flex-col w-">
           <img
             src="/businesswoman.jpeg"
             alt="businesswoman"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
-            <div className="flex flex-col justify-center items-center my-40 text-gray-100/90">
+            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-BackgroundWhite">
               <h2 className=" text-5xl font-bold max-w-5xl">
               As a tenant, you have the right to live in a 
               safe, secure and quiet environment 
@@ -98,7 +98,7 @@ export default function Rights() {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col bg-white items-center px-8">
+        <div className=" flex flex-col bg-white items-center px-8 w-full h-full">
           <div className="flex justify-between items-center">
             <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-48">
               <h2>Understand your rights and responsibilities</h2>
@@ -577,8 +577,8 @@ export default function Rights() {
               <Image
                 src="/chat_bubble_rights2.png"
                 alt="chatb2"
-                width={300}
-                height={300}
+                width={270}
+                height={270}
               />
               <div className="flex justify-center items-center">
                 <Image
@@ -592,17 +592,17 @@ export default function Rights() {
                 /resources-and-guides-for-renters/renters-guide" className="text-ButtonHoverYellow text-base font-semibold hover:underline lg:text-xl md:text-base">Consumer Affairs Victoria</a>
               </div>
             </div>
-            <div className="mr-80">
+            <div className="mr-48 mt-24">
               <Image
                 src="/woman.gif"
                 alt="woman"
-                width={160}
-                height={160}
+                width={140}
+                height={140}
               />
             </div>
             <div>
               <Link href="/">
-                <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">
+                <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-FooterButtonYellow">
                   Return Home
                 </button>
               </Link>
