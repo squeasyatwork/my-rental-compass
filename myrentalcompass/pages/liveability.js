@@ -347,13 +347,13 @@ function Liveability() {
         </div>
         <div className="flex justify-around items-center mt-8 mx-96">
           <Link href="https://auo.org.au/">
-            <button className="text-sm md:text-sm lg:text-md font-bold call-action-button mr-12">
-            Read more at the<br></br>AUO website
+            <button className=" text-xs md:text-sm lg:text-md font-bold call-action-button mr-12">
+              Read more at the<br></br>AUO website
             </button>
           </Link>
           <Link href="/">
-            <button className="text-xl bg-ResourceButtonYellow md:text-xl lg:text-xl font-bold call-action-button p-7">
-              Return Home
+            <button className="text-sm md:text-sm lg:text-xl font-bold call-action-button bg-ResourceButtonYellow">
+              Return Home 
             </button>
           </Link>
         </div>
