@@ -80,12 +80,14 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
   const sendInput = () => {
     if (inputValues.university) {
-      const suburb = inputValues.university.split(",").pop().trim();
+      let suburb = inputValues.university.split(",").pop().trim();
+      if (suburb === "CBD") {
+        suburb = "Melbourne";
+      }
       setUniversitySuburb(suburb);
     } else {
       setUniversitySuburb(null);
     }
-
     router.push({
       pathname: "/recommendations",
       query: inputValues,
