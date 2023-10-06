@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://iterationtwo.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
+  return `'https://develop.d2dfjeo605ve5o.amplifyapp.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const ResourceSection = ({ id, imageSrc, altText, link }) => {
