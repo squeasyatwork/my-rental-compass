@@ -96,9 +96,8 @@ function Liveability() {
             />
           </div>
         </div>
-
         <div className="flex justify-center items-start divider_rights my-8 font-istok">
-          <div className=" flex flex-col justify-center">
+          <div className=" flex flex-col justify-center mr-24">
             <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow">
               <div className="my-8">
                 <Image
@@ -111,7 +110,7 @@ function Liveability() {
               <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails1}
-                  className="flex justify-between font-medium rounded-xl text-2xl p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</h1>
                   {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
@@ -124,7 +123,7 @@ function Liveability() {
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    width: "50%",
+                    maxwidth: "28rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails1 ? "1" : "0",
                     visibility: showDetails1 ? "visible" : "hidden",
@@ -171,7 +170,7 @@ function Liveability() {
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    maxWidth: "34rem",
+                    maxWidth: "28rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails3 ? "1" : "0",
                     visibility: showDetails3 ? "visible" : "hidden",
@@ -307,12 +306,12 @@ function Liveability() {
               </svg>
             )}
           </button>
-          <div className="p-4 mb-2 text-lg justify-center text-left bg-FooterButtonYellow rounded-xl mt-2"
+          {
+            showDetails5 && (
+              <div className="p-4 mb-2 text-lg justify-center text-left bg-FooterButtonYellow rounded-xl mt-2"
             style={{
               maxWidth: "40%",
               transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-              opacity: showDetails5 ? "1" : "0",
-              visibility: showDetails5 ? "visible" : "hidden",
               maxHeight: showDetails5 ? "1000px" : "0"
             }}>
             <h2 className="font-bold">
@@ -337,6 +336,8 @@ function Liveability() {
               - The equation incorporates user preferences, budget, and university location.<br></br>
               - The result is a final liveability score tailored to the user&apos;s unique needs and preferences.<br></br>
           </div>
+            )
+          }
         </div>
         <div className="flex justify-around items-center mt-12 mx-96">
           <Link href="https://auo.org.au/">
@@ -357,8 +358,8 @@ function Liveability() {
             <h2 className=" text-HeadingTextGray">1. Arundel J, Lowe M, Hooper P, Roberts R, Rozek J, Higgs C, Giles-Corti B. (2017) Creating liveable cities in Australia: Mapping urban policy implementation and evidence-based national liveability indicators. Centre for Urban Research (CUR). RMIT University.</h2>
           </a>
         </div>
-        <Footer />
       </main>
+        <Footer />
     </>
   );
 }
