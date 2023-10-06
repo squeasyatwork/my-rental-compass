@@ -7,7 +7,7 @@ import Image from "next/image";
 import { useState, useEffect } from "react";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `'https://develop.d2dfjeo605ve5o.amplifyapp.com/${src}?w=${width}&q=${quality || 75}`;
+  return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export const ResourceSection = ({ id, imageSrc, altText, link }) => {
@@ -82,7 +82,7 @@ export default function Rights() {
       <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
         <Navbar activePage="What you need to know" className="z-10" />
 
-        <div className="relative flex flex-col w-">
+        <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
             alt="businesswoman"
