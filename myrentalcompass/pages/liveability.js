@@ -14,6 +14,7 @@ function Liveability() {
   const [showDetails2, setShowDetails2] = useState(false);
   const [showDetails3, setShowDetails3] = useState(false);
   const [showDetails4, setShowDetails4] = useState(false);
+  const [showDetails5, setShowDetails5] = useState(false);
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
@@ -29,6 +30,10 @@ function Liveability() {
 
   const toggleDetails4 = () => {
     setShowDetails4(!showDetails4);
+  };
+
+  const toggleDetails5 = () => {
+    setShowDetails5(!showDetails5);
   };
   
   return (
@@ -93,9 +98,9 @@ function Liveability() {
             />
           </div>
         </div>
-        <div className="flex justify-center items-start divider_rights">
+        <div className="flex justify-center items-start divider_rights my-8">
           <div className="font-istok flex flex-col justify-center pb-4 mr-24">
-            <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray">
+            <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow">
               <div className="my-8">
                 <Image
                   src="/interior-design.png"
@@ -104,17 +109,12 @@ function Liveability() {
                   height={100}
                 />
               </div>
-              <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to live in a property that is</h2>
-                <h2>clean, and meets minium rental standards.</h2>
-                <h2>This is measured with a condition report</h2>
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok mt-8">
+              <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails1}
                   className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Condition reports</h1>
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</h1>
                   {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
@@ -125,26 +125,29 @@ function Liveability() {
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    maxWidth: "24rem",
+                    maxWidth: "34rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails1 ? "1" : "0",
                     visibility: showDetails1 ? "visible" : "hidden",
                     maxHeight: showDetails1 ? "1000px" : "0"
                   }}>
-                  <h2> ● A condition report is a 
-                    record of a property&apos;s condition
-                    when a rental agreement(lease) is signed
+                  <h2> In measuring how well connected a suburb is to the public transportation system, 
+                    we use the open data by Public Transport Victoria (PTV) 
+                    as at May 2023 to count the number of public transport stops that exist in every suburb, 
+                    and divide it by the suburb&apos;s land size in square kilometre.
                   </h2>
-                  <h2> ● Anything that is dirty, damaged or not working
-                    should be in the condition report, including everything inside and outside the property</h2>
-                  <h2> ● The landlord is responsible
-                    for preparing the condition report. They must sign it and give two copies to the renter(or one copy of sending electronically) before you move in.</h2>
-                  <h2> ● Condition report can be important
-                    in determining claims with the landlord(such as claiming all of your bond amount) so it is important to check the rent whne you get it and maintain your plan</h2>
+                  <br></br>
+                  <h2>Source:</h2>
+                  <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2" className="hover:underline hover:text-ButtonHoverYellow">
+                    1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2
+                  </a><br></br>
+                  <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries" className="hover:underline hover:text-ButtonHoverYellow">
+                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
+            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
               <div className="my-8">
                 <Image
                   src="/chat.png"
@@ -153,16 +156,12 @@ function Liveability() {
                   height={100}
                 />
               </div>
-              <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to not be discriminated</h2>
-                <h2>against when renting or applying to rent</h2>
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok mt-8">
+              <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails3}
                   className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Unlawful discrimination</h1>
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</h1>
                   {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
@@ -171,36 +170,32 @@ function Liveability() {
                     </svg>
                   )}
                 </button>
-                <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
+                <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    maxWidth: "24rem",
+                    maxWidth: "34rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails3 ? "1" : "0",
                     visibility: showDetails3 ? "visible" : "hidden",
                     maxHeight: showDetails3 ? "1000px" : "0"
                   }}>
-                  <h2>In Victoria, it is against the law
-                    to stop somebody from renting a property because of certain personal characteristics.
+                  <h2> We count the number of road crashes and traffic incidents that have been 
+                    recorded in each suburbs during a 12-month period ending 2019, 
+                    and then we divide the number by the suburb&apos;s population as at June 2021.
                   </h2>
-                  <h2>These include:</h2>
-                  <h2> ● age</h2>
-                  <h2> ● carer status, family responsibilities, parental status</h2>
-                  <h2> ● disability</h2>
-                  <h2> ● employment</h2>
-                  <h2> ● gender identity, lawful sexual activity, sexual orientation (e.g. gay, lesbian, transgender, etc)</h2>
-                  <h2> ● marital status</h2>
-                  <h2> ● physical features</h2>
-                  <h2> ● pregnancy, breastfeeding</h2>
-                  <h2> ● profession, trade or occupation, including being a sex worker</h2>
-                  <h2> ● race (including colour, nationality, ethnicity and ethnic origin)</h2>
-                  <h2> ● religious belief or activity</h2>
-                  <h2> ● sex</h2>
+                  <br></br>
+                  <h2>Source:</h2>
+                  <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract " className="hover:underline hover:text-ButtonHoverYellow">
+                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                  </a><br></br>
+                  <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 " className="hover:underline hover:text-ButtonHoverYellow">
+                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023
+                  </a>
                 </div>
               </div>
             </div>
           </div>
           <div className="font-istok flex flex-col justify-center ml-24">
-            <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray">
+            <div className="flex flex-col justify-center items-center border-b-2 border-MainButtonYellow">
               <div className="my-8">
                 <Image
                   src="/agreement.png"
@@ -209,17 +204,12 @@ function Liveability() {
                   height={100}
                 />
               </div>
-              <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to live in a property that</h2>
-                <h2>meets minimum rental standards to ensure a</h2>
-                <h2>safe and adequate place to live</h2>
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok mt-8">
+              <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails2}
                   className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
-                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</h1>
                   {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
@@ -230,50 +220,31 @@ function Liveability() {
                 </button>
                 <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    maxWidth: "24rem",
+                    maxWidth: "38rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails2 ? "1" : "0",
                     visibility: showDetails2 ? "visible" : "hidden",
                     maxHeight: showDetails2 ? "1000px" : "0"
                   }}>
                   <h2>
-                    ● A doors and windows
-                    that access the outside must have
-                      functioning locks
-                  </h2>
-                  <h2> ● Landlords must provide
-                    a general rubbish and recycling bin
-                  </h2>
-                  <h2> ● There must be a working toilet
-                  </h2>
-                  <h2> ● The bathroom must have a washbasin
-                    (sink) and a shower or bath, 
-                    and be connected to hot and cold water.
-                  </h2>
-                  <h2>
-                    ● There must be a kitchen with a dedicated cooking and food preparation
-                    area, and a stovetop
-                    and sink 
-                    in good working order, connected to hot and cold water.
-                  </h2>
-                  <h2>
-                    ● The property must be structurally sound and weatherproof.
-                  </h2>
-                  <h2>
-                    ● All rooms must be free from mould and damp.
-                  </h2>
-                  <h2>
-                    ● There must be a fixed heater
-                    (not portable) in good working order in the main living area.
+                    We measure liveability based on the crime rate recorded in a particular suburb. 
+                    We used crime statistics data that has been recorded during the 12-month period ending March 2023 
+                    and divide it by each suburb&apos;s population as at June 2021
                   </h2>
                   <br></br>
-                  <h2 className="font-bold">
-                    If the property does not meet minimum standards, the renter can request that the rental provider make repairs or changes before signing the agreement or before they move in.
+                  <h2 className=" font-medium">
+                    Source:
                   </h2>
+                  <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data " className="hover:underline hover:text-ButtonHoverYellow">
+                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                  </a><br></br>
+                  <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023  " className="hover:underline hover:text-ButtonHoverYellow">
+                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 
+                  </a>
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
+            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
               <div className="my-8">
                 <Image
                   src="/village.png"
@@ -282,16 +253,12 @@ function Liveability() {
                   height={100}
                 />
               </div>
-              <div className=" flex flex-col font-bold text-xl items-center">
-                <h2>You have the right to informed when the</h2>
-                <h2>landlord intends to access the property</h2>
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok mt-8">
+              <div className="flex flex-col items-center justify-center font-istok">
                 <button
                   onClick={toggleDetails4}
                   className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Inspection</h1>
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</h1>
                   {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                     </svg>)}
@@ -302,47 +269,74 @@ function Liveability() {
                 </button>
                 <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                   style={{
-                    maxWidth: "24rem",
+                    maxWidth: "38rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails4 ? "1" : "0",
                     visibility: showDetails4 ? "visible" : "hidden",
                     maxHeight: showDetails4 ? "1000px" : "0"
                   }}>
-                  <h2> ● Your landlord can enter the property at a date and time that you have both agreed on.
-                  </h2>
-                  <h2> ● This agreement must 
-                    be made within 7 days
-                    before they enter.
-                  </h2>
-                  <h2> ● Unless agreed with you, the rental provider or agent can only enter between 8am and 6pm,
-                    and not on public holidays.</h2>
-                  <h2> ● If you have agreed, they can enter when you are not home.</h2>
-                  <h2> ● A general inspection may only be made
-                    after the first 3 months of the rental agreement. They can be done every 6 months at the most.</h2>
-                  <h2> ● You are not required to leave
-                    if the landlord is doing an inspection or showing the property the prospective buyers.
+                  <h2> 
+                    We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
+                    and divide the number by the land size of each suburb in square kilometre.
                   </h2>
                   <br></br>
-                  <h2>
-                    Reasons for entering your home:
+                  <h2 className=" font-medium">
+                    Source:
                   </h2>
-                  <h2>● General inspection</h2>
-                  <h2>● Repairs or other legal responsibilities</h2>
-                  <h2>● Showing the property to renters, buyers or lenders</h2>
-                  <h2>● Having the property valued</h2>
-                  <h2>● Taking photos or videos to advertise the property</h2>
-                  <h2>● Renter has not met their obligations </h2>
-                  <h2>● Family violence proceedings in VCAT</h2>
-                  <br></br>
-                  <h2>Each of these has different days notice required. Read more at&nbsp;
-                    <span>
-                      <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
-                        /resources-and-guides-for-renters/renters-guide" class="text-ButtonHoverYellow font-semibold hover:underline ">Consumer Affairs Victoria</a>
-                    </span>
-                  </h2>
+                  <a href="https://discover.data.vic.gov.au/dataset/open-space" className="hover:underline hover:text-ButtonHoverYellow">
+                    1. https://discover.data.vic.gov.au/dataset/open-space
+                  </a><br></br>
+                  <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie" className="hover:underline hover:text-ButtonHoverYellow">
+                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie 
+                  </a>
                 </div>
               </div>
             </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center font-istok">
+          <button
+            onClick={toggleDetails5}
+            className="flex justify-between text-4xl font-bold rounded-xl w-2/5 p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+          >
+            <h1 className="text-center text-HeadingTextGray">Liveability Score Explained</h1>
+            {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+              </svg>)}
+            {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+              <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+              </svg>
+            )}
+          </button>
+          <div className="p-4 mb-2 text-lg justify-center text-left bg-FooterButtonYellow rounded-xl mt-2"
+            style={{
+              maxWidth: "40%",
+              transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+              opacity: showDetails5 ? "1" : "0",
+              visibility: showDetails5 ? "visible" : "hidden",
+              maxHeight: showDetails5 ? "1000px" : "0"
+            }}>
+            <h2 className="font-bold">
+              Liveability Score Calculation:
+            </h2>
+            <h2>
+              - Four key factors are considered: crime rate, traffic incidents rate (per 1000 people), number of open spaces, and public transport stops (per square kilometre).<br></br>
+              - Each factor's values for every suburb are normalised between 0 and 1.<br></br>
+              - The suburb's aggregate liveability score is determined by summing these normalised values.
+            </h2>
+            <br></br>
+            <h2 className="font-bold">Personalized Liveability Score:</h2>
+            <h2>
+              - Users rate the importance of each liveability factor on a scale of 1 to 5.<br></br>
+              - The normalised values are weighted according to the user's input.<br></br>
+              - User-provided data, such as rental budget and university location, are also factored in.<br></br>
+              - University campuses are scored based on their proximity to suburbs (e.g., score 5 for within 5km, score 4 for within 5 to 10km).
+            </h2>
+            <br></br>
+            <h2 className="font-bold">Final Score Calculation:</h2>
+              - The personalised liveability score is computed using a linear equation.<br></br>
+              - The equation incorporates user preferences, budget, and university location.<br></br>
+              - The result is a final liveability score tailored to the user's unique needs and preferences.<br></br>
           </div>
         </div>
         <div className="flex justify-around items-center mt-8 mx-96">
@@ -357,7 +351,7 @@ function Liveability() {
             </button>
           </Link>
         </div>
-        <div className="flex flex-col justify-center my-12 px-12">
+        <div className="flex flex-col justify-center mt-12 mb-6 px-8">
           <h1 className="font-bold text-3xl">References</h1>
           <a href="https://research-repository.uwa.edu.au/en/publications/creating-liveable-cities-in-australia-mapping-urban-policy-implem"
             className=" hover:underline">

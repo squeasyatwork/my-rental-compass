@@ -82,7 +82,7 @@ export default function Rights() {
       <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
         <Navbar activePage="What you need to know" className="z-10" />
 
-        <div className="relative flex flex-col w-">
+        <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
             alt="businesswoman"
