@@ -57,9 +57,7 @@ function Liveability() {
           <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
-                Liveability is what a place is like to live in
-              </h1>
-              <h1 className="text-5xl font-bold text-center mt-4">
+                Liveability is what a place is like to live in<br></br>
                 - a liveable place is a healthy place
               </h1>
             </div>
@@ -98,202 +96,203 @@ function Liveability() {
             />
           </div>
         </div>
-        <div className="flex justify-center items-start divider_rights my-8">
-          <div className="font-istok flex flex-col justify-center pb-4 mr-24">
-            <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow">
-              <div className="my-8">
-                <Image
-                  src="/interior-design.png"
-                  alt="interior"
-                  width={100}
-                  height={100}
-                />
+
+          <div className="flex justify-center items-start divider_rights my-8">
+            <div className="font-istok flex flex-col justify-center">
+              <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow w-1/2">
+                <div className="my-8">
+                  <Image
+                    src="/interior-design.png"
+                    alt="interior"
+                    width={100}
+                    height={100}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center font-istok">
+                  <button
+                    onClick={toggleDetails1}
+                    className="flex justify-between font-medium rounded-xl text-2xl p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                  >
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</h1>
+                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
+                  </button>
+                  <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
+                    style={{
+                      width: "50%",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails1 ? "1" : "0",
+                      visibility: showDetails1 ? "visible" : "hidden",
+                      maxHeight: showDetails1 ? "1000px" : "0"
+                    }}>
+                    <h2> In measuring how well connected a suburb is to the public transportation system, 
+                      we use the open data by Public Transport Victoria (PTV) 
+                      as at May 2023 to count the number of public transport stops that exist in every suburb, 
+                      and divide it by the suburb&apos;s land size in square kilometre.
+                    </h2>
+                    <br></br>
+                    <h2>Source:</h2>
+                    <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2" className="hover:underline hover:text-ButtonHoverYellow">
+                      1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2
+                    </a><br></br>
+                    <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries" className="hover:underline hover:text-ButtonHoverYellow">
+                      2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center justify-center font-istok">
-                <button
-                  onClick={toggleDetails1}
-                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</h1>
-                  {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
-                  {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
-                  )}
-                </button>
-                <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
-                  style={{
-                    maxWidth: "34rem",
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-                    opacity: showDetails1 ? "1" : "0",
-                    visibility: showDetails1 ? "visible" : "hidden",
-                    maxHeight: showDetails1 ? "1000px" : "0"
-                  }}>
-                  <h2> In measuring how well connected a suburb is to the public transportation system, 
-                    we use the open data by Public Transport Victoria (PTV) 
-                    as at May 2023 to count the number of public transport stops that exist in every suburb, 
-                    and divide it by the suburb&apos;s land size in square kilometre.
-                  </h2>
-                  <br></br>
-                  <h2>Source:</h2>
-                  <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2" className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2
-                  </a><br></br>
-                  <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries" className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundaries
-                  </a>
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
+                <div className="my-8">
+                  <Image
+                    src="/chat.png"
+                    alt="chat"
+                    width={100}
+                    height={100}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center font-istok">
+                  <button
+                    onClick={toggleDetails3}
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                  >
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</h1>
+                    {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
+                  </button>
+                  <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
+                    style={{
+                      maxWidth: "34rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails3 ? "1" : "0",
+                      visibility: showDetails3 ? "visible" : "hidden",
+                      maxHeight: showDetails3 ? "1000px" : "0"
+                    }}>
+                    <h2> We count the number of road crashes and traffic incidents that have been 
+                      recorded in each suburbs during a 12-month period ending 2019, 
+                      and then we divide the number by the suburb&apos;s population as at June 2021.
+                    </h2>
+                    <br></br>
+                    <h2>Source:</h2>
+                    <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract " className="hover:underline hover:text-ButtonHoverYellow">
+                      1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                    </a><br></br>
+                    <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 " className="hover:underline hover:text-ButtonHoverYellow">
+                      2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
-              <div className="my-8">
-                <Image
-                  src="/chat.png"
-                  alt="chat"
-                  width={100}
-                  height={100}
-                />
+            <div className="font-istok flex flex-col justify-center ml-24">
+              <div className="flex flex-col justify-center items-center border-b-2 border-MainButtonYellow">
+                <div className="my-8">
+                  <Image
+                    src="/agreement.png"
+                    alt="agreement"
+                    width={100}
+                    height={100}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center font-istok">
+                  <button
+                    onClick={toggleDetails2}
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                  >
+                      <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</h1>
+                    {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
+                  </button>
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
+                    style={{
+                      maxWidth: "38rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails2 ? "1" : "0",
+                      visibility: showDetails2 ? "visible" : "hidden",
+                      maxHeight: showDetails2 ? "1000px" : "0"
+                    }}>
+                    <h2>
+                      We measure liveability based on the crime rate recorded in a particular suburb. 
+                      We used crime statistics data that has been recorded during the 12-month period ending March 2023 
+                      and divide it by each suburb&apos;s population as at June 2021
+                    </h2>
+                    <br></br>
+                    <h2 className=" font-medium">
+                      Source:
+                    </h2>
+                    <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data " className="hover:underline hover:text-ButtonHoverYellow">
+                      1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                    </a><br></br>
+                    <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023  " className="hover:underline hover:text-ButtonHoverYellow">
+                      2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 
+                    </a>
+                  </div>
+                </div>
               </div>
-              <div className="flex flex-col items-center justify-center font-istok">
-                <button
-                  onClick={toggleDetails3}
-                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</h1>
-                  {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
-                  {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
-                  )}
-                </button>
-                <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
-                  style={{
-                    maxWidth: "34rem",
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-                    opacity: showDetails3 ? "1" : "0",
-                    visibility: showDetails3 ? "visible" : "hidden",
-                    maxHeight: showDetails3 ? "1000px" : "0"
-                  }}>
-                  <h2> We count the number of road crashes and traffic incidents that have been 
-                    recorded in each suburbs during a 12-month period ending 2019, 
-                    and then we divide the number by the suburb&apos;s population as at June 2021.
-                  </h2>
-                  <br></br>
-                  <h2>Source:</h2>
-                  <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract " className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
-                  </a><br></br>
-                  <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 " className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023
-                  </a>
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
+                <div className="my-8">
+                  <Image
+                    src="/village.png"
+                    alt="village"
+                    width={100}
+                    height={100}
+                  />
+                </div>
+                <div className="flex flex-col items-center justify-center font-istok">
+                  <button
+                    onClick={toggleDetails4}
+                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                  >
+                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</h1>
+                    {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                      </svg>)}
+                    {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                      </svg>
+                    )}
+                  </button>
+                  <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
+                    style={{
+                      maxWidth: "38rem",
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: showDetails4 ? "1" : "0",
+                      visibility: showDetails4 ? "visible" : "hidden",
+                      maxHeight: showDetails4 ? "1000px" : "0"
+                    }}>
+                    <h2> 
+                      We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
+                      and divide the number by the land size of each suburb in square kilometre.
+                    </h2>
+                    <br></br>
+                    <h2 className=" font-medium">
+                      Source:
+                    </h2>
+                    <a href="https://discover.data.vic.gov.au/dataset/open-space" className="hover:underline hover:text-ButtonHoverYellow">
+                      1. https://discover.data.vic.gov.au/dataset/open-space
+                    </a><br></br>
+                    <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie" className="hover:underline hover:text-ButtonHoverYellow">
+                      2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie 
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
-          <div className="font-istok flex flex-col justify-center ml-24">
-            <div className="flex flex-col justify-center items-center border-b-2 border-MainButtonYellow">
-              <div className="my-8">
-                <Image
-                  src="/agreement.png"
-                  alt="agreement"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok">
-                <button
-                  onClick={toggleDetails2}
-                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                >
-                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</h1>
-                  {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
-                  {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
-                  )}
-                </button>
-                <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
-                  style={{
-                    maxWidth: "38rem",
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-                    opacity: showDetails2 ? "1" : "0",
-                    visibility: showDetails2 ? "visible" : "hidden",
-                    maxHeight: showDetails2 ? "1000px" : "0"
-                  }}>
-                  <h2>
-                    We measure liveability based on the crime rate recorded in a particular suburb. 
-                    We used crime statistics data that has been recorded during the 12-month period ending March 2023 
-                    and divide it by each suburb&apos;s population as at June 2021
-                  </h2>
-                  <br></br>
-                  <h2 className=" font-medium">
-                    Source:
-                  </h2>
-                  <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data " className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
-                  </a><br></br>
-                  <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023  " className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 
-                  </a>
-                </div>
-              </div>
-            </div>
-            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
-              <div className="my-8">
-                <Image
-                  src="/village.png"
-                  alt="village"
-                  width={100}
-                  height={100}
-                />
-              </div>
-              <div className="flex flex-col items-center justify-center font-istok">
-                <button
-                  onClick={toggleDetails4}
-                  className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                >
-                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</h1>
-                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
-                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
-                  )}
-                </button>
-                <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
-                  style={{
-                    maxWidth: "38rem",
-                    transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-                    opacity: showDetails4 ? "1" : "0",
-                    visibility: showDetails4 ? "visible" : "hidden",
-                    maxHeight: showDetails4 ? "1000px" : "0"
-                  }}>
-                  <h2> 
-                    We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
-                    and divide the number by the land size of each suburb in square kilometre.
-                  </h2>
-                  <br></br>
-                  <h2 className=" font-medium">
-                    Source:
-                  </h2>
-                  <a href="https://discover.data.vic.gov.au/dataset/open-space" className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/open-space
-                  </a><br></br>
-                  <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie" className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie 
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
         <div className="flex flex-col items-center justify-center font-istok">
           <button
             onClick={toggleDetails5}
@@ -321,14 +320,14 @@ function Liveability() {
             </h2>
             <h2>
               - Four key factors are considered: crime rate, traffic incidents rate (per 1000 people), number of open spaces, and public transport stops (per square kilometre).<br></br>
-              - Each factor's values for every suburb are normalised between 0 and 1.<br></br>
-              - The suburb's aggregate liveability score is determined by summing these normalised values.
+              - Each factor&apos;s values for every suburb are normalised between 0 and 1.<br></br>
+              - The suburb&apos;s aggregate liveability score is determined by summing these normalised values.
             </h2>
             <br></br>
             <h2 className="font-bold">Personalized Liveability Score:</h2>
             <h2>
               - Users rate the importance of each liveability factor on a scale of 1 to 5.<br></br>
-              - The normalised values are weighted according to the user's input.<br></br>
+              - The normalised values are weighted according to the user&apos;s input.<br></br>
               - User-provided data, such as rental budget and university location, are also factored in.<br></br>
               - University campuses are scored based on their proximity to suburbs (e.g., score 5 for within 5km, score 4 for within 5 to 10km).
             </h2>
@@ -336,10 +335,10 @@ function Liveability() {
             <h2 className="font-bold">Final Score Calculation:</h2>
               - The personalised liveability score is computed using a linear equation.<br></br>
               - The equation incorporates user preferences, budget, and university location.<br></br>
-              - The result is a final liveability score tailored to the user's unique needs and preferences.<br></br>
+              - The result is a final liveability score tailored to the user&apos;s unique needs and preferences.<br></br>
           </div>
         </div>
-        <div className="flex justify-around items-center mt-8 mx-96">
+        <div className="flex justify-around items-center mt-12 mx-96">
           <Link href="https://auo.org.au/">
             <button className=" text-xs md:text-sm lg:text-md font-bold call-action-button mr-12">
               Read more at the<br></br>AUO website
