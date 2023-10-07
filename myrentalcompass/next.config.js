@@ -15,7 +15,8 @@ const nextConfig = {
 
     return config;
   },
-  i18n
+  i18n,
+  reactStrictMode: true
 };
 
 module.exports = nextConfig;

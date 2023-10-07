@@ -10,8 +10,28 @@ import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
 import QuizModal from "~/components/QuizModal.js";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import { t } from "i18next";
+
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['resources'])),
+    },
+  }
+}
+
 
 const UserguideBar = () => {
+
+  const { t } = useTranslation();
+
   const [showDetails1, setShowDetails1] = useState(false);
   const [showDetails2, setShowDetails2] = useState(false);
   const [showDetails3, setShowDetails3] = useState(false);
@@ -72,7 +92,7 @@ const UserguideBar = () => {
             className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">1. Before you leave</h1>
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:RESOURCES_STEP_1_TITLE")}</h1>
               {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
@@ -90,7 +110,7 @@ const UserguideBar = () => {
           }}>
             <div>
               <div className="flex w-full justify-between items-end">
-                <h2 className="text-lg font-semibold">Do your research</h2>
+                <h2 className="text-lg font-semibold">{t("resources:RESOURCES_STEP_1_SUBHEADING_1")}</h2>
                 <button onClick={() => setShowQuizQuestion(true)}>
                   <Image
                     src="/resources_quiz_icon.gif"
@@ -110,18 +130,18 @@ const UserguideBar = () => {
                     style={{ width: "38%" }}>
                     <div className="text-3xl p-5 space-y-4">
                       <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
-                        How much do you think the average weekly rent in Melbourne is?
+                        {t("resources:RESOURCES_QUIZ_QUESTION")}
                       </div>
                       <br></br>
                       <div className="flex flex-col items-center justify-center font-medium">
                         <div className="flex">
-                          <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> A. $350 per week
+                          <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_1")}
                         </div>
                         <div className="flex">
-                          <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={() => displayRightAnswer()} /> B. $500 per week
+                          <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={() => displayRightAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_2")}
                         </div>
                         <div className="flex">
-                          <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> C. $750 per week
+                          <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_3")}
                         </div>
                       </div>
                     </div>
@@ -145,10 +165,10 @@ const UserguideBar = () => {
                   <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
                     style={{ width: "36%" }}>
                     <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
-                      Spot On!
+                      {t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_TITLE")}
                     </div>
-                    <div className="text-center font-medium text-3xl">The average weekly rent in Melbourne is A$500.</div>
-                    <div className="text-center text-HeadingTextGray">Source: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
+                    <div className="text-center font-medium text-3xl">{t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_PARA")}</div>
+                    <div className="text-center text-HeadingTextGray">{t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_FOOTER")}: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
                   </div>
 
                   <button onClick={() => closeQuiz()}>
@@ -170,9 +190,9 @@ const UserguideBar = () => {
                   <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
                     style={{ width: "36%" }}>
                     <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
-                      Not quite.
+                      {t("resources:RESOURCES_QUIZ_WRONG_ANSWER_TITLE")}
                     </div>
-                    <div className="text-center font-medium text-3xl">Try again</div>
+                    <div className="text-center font-medium text-3xl">{t("resources:RESOURCES_QUIZ_WRONG_ANSWER_PARA")}</div>
 
                   </div>
                   <div className="flex items-center justify-evenly w-2/5">
@@ -357,7 +377,13 @@ const UserguideBar = () => {
 
   );
 };
+
+
+
 export default function Resources() {
+
+  const { t } = useTranslation();
+
   const [showDetails4, setShowDetails4] = useState(false);
 
   const toggleDetails4 = () => {
@@ -367,7 +393,7 @@ export default function Resources() {
   return (
     <>
       <Head>
-        <title>MyRentalCompass | What you need to do</title>
+        <title>{t("resources:RESOURCES_TAB_TITLE")}</title>
         <meta name="description" content="What you need to do." />
       </Head>
 
