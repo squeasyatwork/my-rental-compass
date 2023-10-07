@@ -297,7 +297,7 @@ function Liveability() {
                 transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                 opacity: showDetails5 ? "1" : "0",
                 visibility: showDetails5 ? "visible" : "hidden",
-                maxHeight: showDetails5 ? "500px" : "0"
+                maxHeight: showDetails5 ? "1000px" : "0"
               }}>
               <h2 className="font-bold text-xl"> 
                 Liveability Score Calculation:
@@ -329,7 +329,7 @@ function Liveability() {
             </div>
           </div>
         </div>
-        <div className="flex justify-around items-center mt-28 mx-96">
+        <div className="flex justify-center items-center mt-28">
           <Link href="https://auo.org.au/">
             <button className=" text-xs md:text-sm lg:text-lg font-bold call-action-button mr-12">
               <p>Read more at the</p>
@@ -338,7 +338,7 @@ function Liveability() {
             </button>
           </Link>
           <Link href="/">
-            <button className="text-sm md:text-sm lg:text-xl font-bold call-action-button bg-ResourceButtonYellow">
+            <button className="text-sm md:text-sm lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
               <p className="my-3">Return Home </p>
             </button>
           </Link>
