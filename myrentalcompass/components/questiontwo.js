@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 // import Link from "next/link";
-import LikertScale from "./likertscale";
+import LikertScale from "../components/likertscale";
 import Image from "next/image";
 
 const QuestionTwo = ({
@@ -31,32 +31,26 @@ const QuestionTwo = ({
   return (
     <div
       id="q2"
-      className="flex flex-col items-center justify-center bg-white rounded-xl text-sm sm:text-md md:text-lg lg:text-xl"
-      style={{ width: "auto", height: "auto", padding: "2rem" }}
+      className="flex flex-col items-center justify-between bg-ResourceButtonYellow p-8 font-istok rounded-xl text-sm sm:text-md md:text-lg lg:text-xl"
     >
-      <div className="flex md:flex-row items-center justify-center mb-6">
+      <div className="flex items-start justify-center mb-6">
         <div
-          className="flex flex-col items-center justify-center text-3xl font-bold mb-4 md:mb-0 md:mr-6"
-          style={{ width: "100%", padding: "1rem" }}
+          className="flex flex-col items-center justify-center mr-12"
         >
-          <h2> How much do you value </h2>
-          <h2> these liveability aspects? </h2>
-          <h2 style={{ fontSize: "1.4rem" }}>( Please rate 1 to 5 )</h2>
-          <div className=" justify-center">
-            <Image
-              src="/forest-nature-park.svg"
-              alt="Park"
-              width={250}
-              height={250}
-              className="rounded-xl"
-            />
-          </div>
+          <h2 className="font-bold text-3xl text-center"> How much do you value<br></br>these liveability aspects?</h2>
+          <h2 className=" font-semibold">( Please rate 1 to 5 )</h2>
+          <Image
+            src="/forest-nature-park.svg"
+            alt="Park"
+            width={200}
+            height={200}
+            className="rounded-xl"
+          />
         </div>
         <div
-          className="flex flex-col font-Inter font-normal text-2xl ml-6"
-          style={{ width: "100%", padding: "1rem" }}
+          className="flex flex-col justify-center font-istok font-normal text-2xl"
         >
-          <div className="flex flex-col font-bold">
+          <div className="flex flex-col">
             <div className=" flex font-normal text-base sm:text-base md:text-base lg:text-xl">
               <Image
                 src="/information-icon.svg"
@@ -73,50 +67,43 @@ const QuestionTwo = ({
                 <h2>5-Very important</h2>
               </div>
             </div>
-            {/* <div className="text-xl mt-4">
-              <h2>Affordable housing</h2>
+            <div className="flex flex-col justify-center">
+              <div className="text-xl flex flex-col p-1">
+                <h2>Easy access to public transport</h2>
+                <LikertScale
+                  name="publicTransport"
+                  selectedChoice={selectedChoices.publicTransport}
+                  handleChoice={(e) =>
+                    handleChoice("publicTransport", e.target.value)
+                  }
+                />
+              </div>
+              
+              <div className="text-xl flex flex-col p-1">
+                <h2>Abundance of public open space e.g. gradens, parks</h2>
+                <LikertScale
+                  name="openSpace"
+                  selectedChoice={selectedChoices.openSpace}
+                  handleChoice={(e) => handleChoice("openSpace", e.target.value)}
+                />
+              </div>
+              <div className="text-xl flex flex-col p-1">
+                <h2>Low crime rate</h2>
+                <LikertScale
+                  name="lowCrimeRate"
+                  selectedChoice={selectedChoices.lowCrimeRate}
+                  handleChoice={(e) => handleChoice("lowCrimeRate", e.target.value)}
+                />
+              </div>
+              <div className="text-xl flex flex-col p-1">
+                <h2>Safe roads</h2>
+                <LikertScale
+                  name="safeRoads"
+                  selectedChoice={selectedChoices.safeRoads}
+                  handleChoice={(e) => handleChoice("safeRoads", e.target.value)}
+                />
+              </div>
             </div>
-            <LikertScale
-              name="affordableHousing"
-              selectedChoice={selectedChoices.affordableHousing}
-              handleChoice={(e) =>
-                handleChoice("affordableHousing", e.target.value)
-              }
-            /> */}
-            <div className="text-xl">
-              <h2>Easy access to public transport</h2>
-            </div>
-            <LikertScale
-              name="publicTransport"
-              selectedChoice={selectedChoices.publicTransport}
-              handleChoice={(e) =>
-                handleChoice("publicTransport", e.target.value)
-              }
-            />
-            <div className="text-xl">
-              <h2>Abundance of public open space e.g. gradens, parks</h2>
-            </div>
-            <LikertScale
-              name="openSpace"
-              selectedChoice={selectedChoices.openSpace}
-              handleChoice={(e) => handleChoice("openSpace", e.target.value)}
-            />
-            <div className="text-xl">
-              <h2>Low crime rate</h2>
-            </div>
-            <LikertScale
-              name="lowCrimeRate"
-              selectedChoice={selectedChoices.lowCrimeRate}
-              handleChoice={(e) => handleChoice("lowCrimeRate", e.target.value)}
-            />
-            <div className="text-xl">
-              <h2>Safe roads</h2>
-            </div>
-            <LikertScale
-              name="safeRoads"
-              selectedChoice={selectedChoices.safeRoads}
-              handleChoice={(e) => handleChoice("safeRoads", e.target.value)}
-            />
           </div>
         </div>
       </div>
