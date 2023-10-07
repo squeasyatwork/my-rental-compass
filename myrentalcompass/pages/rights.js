@@ -250,7 +250,7 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails2}
-                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                      <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
                     {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
@@ -263,7 +263,7 @@ export default function Rights() {
                   </button>
                   <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
-                      maxWidth: "24rem",
+                      maxWidth: "28rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails2 ? "1" : "0",
                       visibility: showDetails2 ? "visible" : "hidden",
