@@ -215,18 +215,18 @@ const UserguideBar = () => {
                 </div>
               </div>
               <ul className="list-disc pl-5">
-                <li>Understand the typical rent costs of the area</li>
-                <li>Research lease terms and other legal requirements to protect your rights as a tenant</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_1")}</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_2")}</li>
               </ul>
             </div>
-            <Link href="/rights" className="font-semibold"><div className="m-5 p-5 rounded-3xl bg-ResourceButtonYellow">Click here to check out our What You Need to Know page for more information on rental laws
+            <Link href="/rights" className="font-semibold"><div className="m-5 p-5 rounded-3xl bg-ResourceButtonYellow">{t("resources:RESOURCES_STEP_1_BRIGHT_YELLOW_BOX")}
             </div></Link>
             <div>
-              <h2 className="text-lg font-semibold">Begin saving</h2>
+              <h2 className="text-lg font-semibold">{t("resources:RESOURCES_STEP_1_SUBHEADING_2")}</h2>
               <ul className="list-disc pl-5">
-                <li>Know that you know how much rent will be a week, start saving up!</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_1")}</li>
                 <li>
-                  Be aware that it is standard practice when securing a rental to also pay for security deposits and the first month&apos;s rent so save more than you think you will need</li>
+                  {t("resources:RESOURCES_STEP_1_PARA_2_STEP_2")}</li>
               </ul>
             </div>
           </div>
@@ -241,7 +241,7 @@ const UserguideBar = () => {
             className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">2. When you arrive</h1>
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_2_title")}</h1>
               {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
@@ -259,31 +259,30 @@ const UserguideBar = () => {
           }}>
             <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
-                <h2 className="text-lg font-semibold">Welcome to Melbourne</h2>
+                <h2 className="text-lg font-semibold">{t("resources:step_2_para_1_subheading")}</h2>
                 <ul className="list-disc pl-5">
-                  <li>Contact your university&apos;s student services, as they may have resources to help you find rental accommodation</li>
-                  <li>Inquire about on-campus accommodation options</li>
-                  <li>Arrange temporary accommodation for your first few days or weeks, like a hostel, hotel, or AirBnB</li>
+                  <li>{t("resources:step_2_para_1_point_1")}</li>
+                  <li>{t("resources:step_2_para_1_point_2")}</li>
+                  <li>{t("resources:step_2_para_1_point_3")}</li>
                 </ul>
               </div>
               <br />
               <div>
-                <h2 className="text-lg font-semibold">Finding accommodation</h2>
+                <h2 className="text-lg font-semibold">{t("resources:step_2_para_2_subheading")}</h2>
                 <ul className="list-disc pl-5">
-                  <li>Use our site to help you find out which suburbs best suit your needs</li>
-                  <li>
-                    Now you can begin finding listed rental properties that match your preferences</li>
-                  <li>Places you could search include:</li>
+                  <li>{t("resources:step_2_para_2_point_1")}</li>
+                  <li>{t("resources:step_2_para_2_point_2")}</li>
+                  <li>{t("resources:step_2_para_2_point_3")}</li>
                   <ul className="list-disc pl-5">
                     <li>realestate.com</li>
-                    <li>Real estate agency websites</li>
-                    <li>Newspaper listings</li>
-                    <li>Noticeboards</li>
-                    <li>Online marketplaces</li>
+                    <li>{t("resources:step_2_para_2_point_4_item_2")}</li>
+                    <li>{t("resources:step_2_para_2_point_4_item_3")}</li>
+                    <li>{t("resources:step_2_para_2_point_4_item_4")}</li>
+                    <li>{t("resources:step_2_para_2_point_4_item_5")}</li>
                   </ul>
                 </ul>
               </div>
-              <Link href="/questionnaire"><div className="m-5 p-5 rounded-3xl font-semibold bg-ResourceButtonYellow">Complete the questionnaire for our Find a Suburb to Live feature to determine the best suburb for you</div></Link>
+              <Link href="/questionnaire"><div className="m-5 p-5 rounded-3xl font-semibold bg-ResourceButtonYellow">{t("resources:step_2_bright_yellow_box")}</div></Link>
             </div>
           </div>
         </div>
@@ -317,7 +316,7 @@ const UserguideBar = () => {
             className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
-              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">3. Found a property</h1>
+              <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_3_title")}</h1>
               {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
@@ -335,23 +334,22 @@ const UserguideBar = () => {
           }}>
             <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
-                <h2 className="text-lg font-semibold">Inspecting a property</h2>
+                <h2 className="text-lg font-semibold">{t("resources:step_3_para_1_subheading")}</h2>
                 <ul className="list-disc pl-5">
-                  <li>Congratulations you have a found a property that you like. Now it is time to inspect it to make sure it suits your needs, and is safe to live in</li>
-                  <li>Some things to consider when inspecting a property include:</li>
+                  <li>{t("resources:step_3_para_1_point_1")}</li>
+                  <li>{t("resources:step_3_para_1_point_2")}</li>
                   <ul className="list-disc pl-5">
-                    <li>Assess the general condition of the property, including walls, floors, ceilings, and windows</li>
-                    <li>Check the locks on doors and windows to ensure they work properly</li>
-                    <li>Verify the presence of smoke detectors, fire extinguishers, and carbon monoxide detectors if required by law.</li>
-                    <li>Inspect appliances such as the stove, refrigerator, dishwasher, and washer/dryer (if included).</li>
-                    <li>Test lights, faucets, and electrical outlets to ensure they are functional.</li>
-                    <li>Turn on faucets and showers to check water pressure and temperature.</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_1")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_2")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_3")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_4")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_5")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_6")}</li>
                     <li>
-                      Consider if there&apos;s enough room for your belongings.
-                      Pay attention to the noise level in the area, especially during the day and night.
+                      {t("resources:step_3_para_1_point_2_item_7")}
                     </li>
-                    <li>Evaluate the proximity to public transportation options if needed.</li>
-                    <li>Explore the neighbourhood to assess proximity to essential services, grocery stores, and schools.</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_8")}</li>
+                    <li>{t("resources:step_3_para_1_point_2_item_9")}</li>
                   </ul>
                 </ul>
               </div>
@@ -400,7 +398,7 @@ export default function Resources() {
       <main className="font-inter flex flex-col min-h-screen text-black">
         <Navbar activePage="What you need to do" className="z-10" />
 
-        <div className="relative h-60 w-full">
+        <div className="relative h-6/12 w-full">
           <img
             src="/resources_page_banner.png"
             alt="Description of the image"
@@ -409,7 +407,7 @@ export default function Resources() {
           <div className="relative flex flex-col justify-between h-full text-center ">
             <div className="flex flex-col justify-center mt-24 text-gray-100/90">
               <h2 className="text-4xl font-bold text-center">
-                Knowing the steps to apply for a rental can be confusing!
+                {t("resources:RESOURCES_BANNER_HEADING")}
               </h2>
               {/* <h2 className="text-4xl font-bold text-center mt-4">
                   
@@ -418,31 +416,26 @@ export default function Resources() {
           </div>
         </div>
         <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
-          <div className="flex flex-col justify-center text-center font-bold text-3xl text-HeadingTextGray">
+          <div className="w-10/12 flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
             <h1>
-              Follow our guide to take you on the journey of
+              Follow our guide to take you on the journey of applying for a property
             </h1>
-            <h1>
-              applying for a property
-            </h1>
-            <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" />
 
+            {/* <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" /> */}
+            <Image className="object-contain ml-8"
+              src="/resources_dialog_cloud.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />
+            <Image className="object-contain"
+              src="/woman.gif"
+              alt="woman"
+              width={150}
+              height={75}
+            />
           </div>
-          <div className="relative h-full w-11/12">
-            <div className='flex justify-center'>
-              <Image className="object-contain"
-                src="/resources_dialog_cloud.svg"
-                alt="chat"
-                width={200}
-                height={100}
-              />
-              <Image className="object-contain"
-                src="/woman.gif"
-                alt="woman"
-                width={200}
-                height={100}
-              />
-            </div>
+          <div className="relative h-full w-full">
             <UserguideBar />
             <div className="flex justify-center">
               <button
@@ -495,7 +488,7 @@ export default function Resources() {
           </div>
         </div>
         <Footer />
-      </main>
+      </main >
     </>
   );
 }
