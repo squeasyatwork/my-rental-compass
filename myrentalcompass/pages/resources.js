@@ -4,7 +4,6 @@ import Footer from "./helperpages/footer.js";
 import React, { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import Checkbox from '@mui/material/Checkbox';
@@ -39,19 +38,34 @@ const UserguideBar = () => {
   const [showQuizQuestion, setShowQuizQuestion] = useState(false);
   const [showQuizRightAnswer, setShowQuizRightAnswer] = useState(false);
   const [showQuizWrongAnswer, setShowQuizWrongAnswer] = useState(false);
+  const [choice1Selected, setChoice1Selected] = useState(false);
+  const [choice2Selected, setChoice2Selected] = useState(false);
+  const [choice3Selected, setChoice3Selected] = useState(false);
 
 
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
   };
 
-  function displayRightAnswer() {
+  function processChoice1() {
     setShowQuizQuestion(false);
+    setChoice1Selected(true);
+    setChoice2Selected(false);
+    setChoice3Selected(false);
+    setShowQuizWrongAnswer(true);
+  }
+  function processChoice2() {
+    setShowQuizQuestion(false);
+    setChoice2Selected(true);
+    setChoice1Selected(false);
+    setChoice3Selected(false);
     setShowQuizRightAnswer(true);
   }
-
-  function displayWrongAnswer() {
+  function processChoice3() {
     setShowQuizQuestion(false);
+    setChoice3Selected(true);
+    setChoice1Selected(false);
+    setChoice2Selected(false);
     setShowQuizWrongAnswer(true);
   }
 
@@ -62,6 +76,9 @@ const UserguideBar = () => {
 
   function closeQuiz() {
     setShowQuizQuestion(false);
+    setChoice1Selected(false);
+    setChoice2Selected(false);
+    setChoice3Selected(false);
     setShowQuizRightAnswer(false);
     setShowQuizWrongAnswer(false);
   }
@@ -76,7 +93,7 @@ const UserguideBar = () => {
   };
 
   return (
-    <div className="mx-auto flex flex-col w-full timeline">
+    <div className="mx-auto flex flex-col w-full timeline -space-y-12">
       <div className='flex justify-center items-start'>
         <div className="flex justify-end items-center w-2/5">
           <Image
@@ -85,31 +102,31 @@ const UserguideBar = () => {
             width={200}
             height={200}
           />
-          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
         </div>
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5' >
           <button
             onClick={toggleDetails1}
-            className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails1 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:RESOURCES_STEP_1_TITLE")}</h1>
               {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center p-5 bg-FooterButtonYellow w-full text-LongContentGray " style={{
+          <div className="flex flex-col items-center px-1 p-5 bg-FooterButtonYellow w-full text-LongContentGray" style={{
             transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
             opacity: showDetails1 ? "1" : "0",
             visibility: showDetails1 ? "visible" : "hidden",
             maxHeight: showDetails1 ? "1000px" : "0"
           }}>
-            <div>
+            <div className="flex flex-col w-5/6">
               <div className="flex w-full justify-between items-end">
                 <h2 className="text-lg font-semibold">{t("resources:RESOURCES_STEP_1_SUBHEADING_1")}</h2>
                 <button onClick={() => setShowQuizQuestion(true)}>
@@ -127,7 +144,7 @@ const UserguideBar = () => {
                     opacity: showQuizQuestion ? "1" : "0",
                     visibility: showQuizQuestion ? "visible" : "hidden"
                   }}>
-                  <div className="p-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl"
+                  <div className="pt-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl h-2/5"
                     style={{ width: "38%" }}>
                     <div className="text-3xl p-5 space-y-4">
                       <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
@@ -239,26 +256,21 @@ const UserguideBar = () => {
         <div className='mt-12 mr-3 flex flex-col items-end w-2/5 text-LongContentGray'>
           <button
             onClick={toggleDetails2}
-            className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails2 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_2_title")}</h1>
               {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center" style={{
-            transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-            opacity: showDetails2 ? "1" : "0",
-            visibility: showDetails2 ? "visible" : "hidden",
-            maxHeight: showDetails2 ? "1000px" : "0"
-          }}>
-            <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
+          {showDetails2 && (<div className="flex flex-col items-center w-full">
+            <div className="py-8 px-20 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">{t("resources:step_2_para_1_subheading")}</h2>
                 <ul className="list-disc pl-5">
@@ -285,7 +297,7 @@ const UserguideBar = () => {
               </div>
               <Link href="/questionnaire"><div className="m-5 p-5 rounded-3xl font-semibold bg-ResourceButtonYellow">{t("resources:step_2_bright_yellow_box")}</div></Link>
             </div>
-          </div>
+          </div>)}
         </div>
         <div className="flex justify-start items-center w-2/5">
           <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
@@ -309,31 +321,26 @@ const UserguideBar = () => {
             height={200}
             className="rounded-xl"
           />
-          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
         </div>
         <div className='mt-12 ml-3 flex flex-col items-start w-2/5'>
           <button
             onClick={toggleDetails3}
-            className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-MainButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-MainButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
+            className={showDetails3 ? "font-medium text-2xl p-6 border-1 border-FooterButtonYellow w-full bg-MainButtonYellow/10" : "font-medium text-2xl p-6 rounded-xl border-1 border-FooterButtonYellow w-full hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 duration-150"}
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_3_title")}</h1>
               {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
-              {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
               </svg>
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center" style={{
-            transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-            opacity: showDetails3 ? "1" : "0",
-            visibility: showDetails3 ? "visible" : "hidden",
-            maxHeight: showDetails3 ? "1000px" : "0"
-          }}>
-            <div className="p-5 bg-FooterButtonYellow w-full text-LongContentGray">
+          {showDetails3 && (<div className="flex flex-col items-center">
+            <div className="py-8 px-20 pb-10 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">{t("resources:step_3_para_1_subheading")}</h2>
                 <ul className="list-disc pl-5">
@@ -355,7 +362,7 @@ const UserguideBar = () => {
                 </ul>
               </div>
             </div>
-          </div>
+          </div>)}
         </div>
 
       </div>
@@ -400,7 +407,7 @@ export default function Resources() {
       <main className="font-inter flex flex-col min-h-screen text-black">
         <Navbar activePage="What you need to do" className="z-10" option1={t("common:menu_item_1")} option2={t("common:menu_item_2")} option3={t("common:menu_item_3")} option4={t("common:menu_item_4")} option5={t("common:menu_item_5")} />
 
-        <div className="relative h-6/12 w-full" style={{ height: "50%" }}>
+        <div className="relative h-6/12 w-full">
           <img
             src="/resources_page_banner.png"
             alt="Description of the image"

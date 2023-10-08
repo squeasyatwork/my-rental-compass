@@ -35,7 +35,7 @@ function Liveability() {
   const toggleDetails5 = () => {
     setShowDetails5(!showDetails5);
   };
-  
+
   return (
     <>
       <Head>
@@ -75,15 +75,15 @@ function Liveability() {
               <br></br>
               <h2 className="text-xl px-4">We understand that not everyone is the same.</h2>
               <br></br>
-              <h2 className="text-xl max-w-4xl px-4">Unlike other websites that provide a standardised liveability index, 
-              My Rental Compass offers personalised liveability score that is unique and tailored to each user, 
-              based on their individual preferences with regards to the liveability factors.</h2>
+              <h2 className="text-xl max-w-4xl px-4">Unlike other websites that provide a standardised liveability index,
+                My Rental Compass offers personalised liveability score that is unique and tailored to each user,
+                based on their individual preferences with regards to the liveability factors.</h2>
             </div>
           </div>
           <div className="flex justify-between items-center">
             <Image
-              src= "/chat_bubble_liveability.png"
-              alt= "chat"
+              src="/chat_bubble_liveability.png"
+              alt="chat"
               width={400}
               height={400}
             />
@@ -116,10 +116,10 @@ function Liveability() {
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</h1>
                   {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
+                  </svg>)}
                   {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
+                  </svg>
                   )}
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -130,9 +130,9 @@ function Liveability() {
                     visibility: showDetails1 ? "visible" : "hidden",
                     maxHeight: showDetails1 ? "1000px" : "0"
                   }}>
-                  <h2> In measuring how well connected a suburb is to the public transportation system, 
-                    we use the open data by Public Transport Victoria (PTV) 
-                    as at May 2023 to count the number of public transport stops that exist in every suburb, 
+                  <h2> In measuring how well connected a suburb is to the public transportation system,
+                    we use the open data by Public Transport Victoria (PTV)
+                    as at May 2023 to count the number of public transport stops that exist in every suburb,
                     and divide it by the suburb&apos;s land size in square kilometre.
                   </h2>
                   <br></br>
@@ -163,10 +163,10 @@ function Liveability() {
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</h1>
                   {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
+                  </svg>)}
                   {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
+                  </svg>
                   )}
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -177,14 +177,14 @@ function Liveability() {
                     visibility: showDetails3 ? "visible" : "hidden",
                     maxHeight: showDetails3 ? "1000px" : "0"
                   }}>
-                  <h2> We count the number of road crashes and traffic incidents that have been 
-                    recorded in each suburbs during a 12-month period ending 2019, 
+                  <h2> We count the number of road crashes and traffic incidents that have been
+                    recorded in each suburbs during a 12-month period ending 2019,
                     and then we divide the number by the suburb&apos;s population as at June 2021.
                   </h2>
                   <br></br>
                   <h2>Source:</h2>
                   <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract " className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract
                   </a><br></br>
                   <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 " className="hover:underline hover:text-ButtonHoverYellow">
                     2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023
@@ -208,13 +208,13 @@ function Liveability() {
                   onClick={toggleDetails2}
                   className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                 >
-                    <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</h1>
+                  <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</h1>
                   {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
+                  </svg>)}
                   {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
+                  </svg>
                   )}
                 </button>
                 <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -226,8 +226,8 @@ function Liveability() {
                     maxHeight: showDetails2 ? "1000px" : "0"
                   }}>
                   <h2>
-                    We measure liveability based on the crime rate recorded in a particular suburb. 
-                    We used crime statistics data that has been recorded during the 12-month period ending March 2023 
+                    We measure liveability based on the crime rate recorded in a particular suburb.
+                    We used crime statistics data that has been recorded during the 12-month period ending March 2023
                     and divide it by each suburb&apos;s population as at June 2021
                   </h2>
                   <br></br>
@@ -235,10 +235,10 @@ function Liveability() {
                     Source:
                   </h2>
                   <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data " className="hover:underline hover:text-ButtonHoverYellow">
-                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract 
+                    1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract
                   </a><br></br>
                   <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023  " className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023 
+                    2. https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023
                   </a>
                 </div>
               </div>
@@ -260,10 +260,10 @@ function Liveability() {
                   <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</h1>
                   {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                    </svg>)}
+                  </svg>)}
                   {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                    </svg>
+                  </svg>
                   )}
                 </button>
                 <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -274,7 +274,7 @@ function Liveability() {
                     visibility: showDetails4 ? "visible" : "hidden",
                     maxHeight: showDetails4 ? "1000px" : "0"
                   }}>
-                  <h2> 
+                  <h2>
                     We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
                     and divide the number by the land size of each suburb in square kilometre.
                   </h2>
@@ -286,7 +286,7 @@ function Liveability() {
                     1. https://discover.data.vic.gov.au/dataset/open-space
                   </a><br></br>
                   <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie" className="hover:underline hover:text-ButtonHoverYellow">
-                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie 
+                    2. https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie
                   </a>
                 </div>
               </div>
@@ -301,10 +301,10 @@ function Liveability() {
             <h1 className="text-center text-HeadingTextGray">Liveability Score Explained</h1>
             {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-              </svg>)}
+            </svg>)}
             {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
               <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-              </svg>
+            </svg>
             )}
           </button>
           <div className="p-4 mb-2 text-lg justify-center text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -333,9 +333,9 @@ function Liveability() {
             </h2>
             <br></br>
             <h2 className="font-bold">Final Score Calculation:</h2>
-              - The personalised liveability score is computed using a linear equation.<br></br>
-              - The equation incorporates user preferences, budget, and university location.<br></br>
-              - The result is a final liveability score tailored to the user&apos;s unique needs and preferences.<br></br>
+            - The personalised liveability score is computed using a linear equation.<br></br>
+            - The equation incorporates user preferences, budget, and university location.<br></br>
+            - The result is a final liveability score tailored to the user&apos;s unique needs and preferences.<br></br>
           </div>
         </div>
         <div className="flex justify-around items-center mt-12 mx-96">
@@ -346,7 +346,7 @@ function Liveability() {
           </Link>
           <Link href="/">
             <button className="text-sm md:text-sm lg:text-xl font-bold call-action-button bg-ResourceButtonYellow">
-              Return Home 
+              Return Home
             </button>
           </Link>
         </div>
