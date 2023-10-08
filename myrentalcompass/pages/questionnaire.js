@@ -34,9 +34,7 @@ function Questionnaire() {
   const handleNext = () => {
     if (currentQuestion === "q1") {
       setCurrentQuestion("q2");
-    } else if (currentQuestion === "q2") {
-      setCurrentQuestion("q3");
-    }
+    } 
   };
 
   const handlePrevious = () => {
@@ -72,38 +70,40 @@ function Questionnaire() {
         <meta name="description" content="Customize your liveability index." />
       </Head>
 
+      <Navbar activePage="Where to live" className="z-10"/>
       <main
-        className="font-inter flex flex-col h-screen justify-center"
+        className="font-inter flex flex-col min-h-screen justify-center"
         style={{
           backgroundImage: 'url("/liveable-cities.jpeg")',
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
         }}
       >
-        <Navbar activePage="Where to live" />
-        <div className="flex flex-grow items-center justify-center text-black">
-          {currentQuestion === "q1" && (
-            <QuestionOne
-              handleNext={handleNext}
-              selectedChoices={selectedChoices}
-              handleChoice={handleChoice}
-            />
-          )}
-          {currentQuestion === "q2" && (
-            <QuestionTwo
-              handleNext={handleNext}
-              handlePrevious={handlePrevious}
-              selectedChoices={selectedChoices}
-              handleChoice={handleChoice}
-            />
-          )}
-          {currentQuestion === "q3" && (
-            <QuestionThree
-              handlePrevious={handlePrevious}
-              handleUniChoice={handleUniChoice}
-              sendInput={sendInput}
-            />
-          )}
+        <div className="flex flex-col justify-center items-center">
+          <div className="flex items-center justify-center text-black">
+            {currentQuestion === "q1" && (
+              <QuestionOne
+                handleNext={handleNext}
+                selectedChoices={selectedChoices}
+                handleChoice={handleChoice}
+              />
+            )}
+            {currentQuestion === "q2" && (
+              <QuestionTwo
+                handleNext={handleNext}
+                handlePrevious={handlePrevious}
+                selectedChoices={selectedChoices}
+                handleChoice={handleChoice}
+              />
+            )}
+            {currentQuestion === "q3" && (
+              <QuestionThree
+                handlePrevious={handlePrevious}
+                handleUniChoice={handleUniChoice}
+                sendInput={sendInput}
+              />
+            )}
+          </div>
         </div>
       </main>
       <Footer />

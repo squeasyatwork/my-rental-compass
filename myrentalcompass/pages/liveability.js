@@ -43,9 +43,8 @@ function Liveability() {
         <meta name="description" content="Learn about liveability factors." />
       </Head>
 
+      <Navbar activePage="What is liveability" className="z-10" />
       <main className="font-inter flex flex-col min-h-screen bg-white text-black">
-        <Navbar activePage="What is liveability" className="z-10" />
-
         <div className="relative h-3/5 w-full">
           <img
             loader={imageLoader}

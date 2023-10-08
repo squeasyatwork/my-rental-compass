@@ -79,9 +79,8 @@ export default function Rights() {
         <meta name="description" content="What you need to do." />
       </Head>
 
+      <Navbar activePage="What you need to know" className="z-10" />
       <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
-        <Navbar activePage="What you need to know" className="z-10" />
-
         <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
