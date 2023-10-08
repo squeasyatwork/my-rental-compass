@@ -473,6 +473,12 @@ export default function Resources() {
               width={150}
               height={75}
             />)}
+            {router.locale === "zh" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_chinese.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
             <Image className="object-contain"
               src="/woman.gif"
               alt="woman"
