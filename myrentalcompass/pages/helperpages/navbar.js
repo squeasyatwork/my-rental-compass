@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const NavBar = ({ activePage }) => {
+const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do", option3 = "What you need to know", option4 = "What is liveability", option5 = "Find a suburb to live" }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
@@ -18,24 +18,24 @@ const NavBar = ({ activePage }) => {
             />
           </div>
         </Link>
-        <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
+        <NavBarButton text={option1} href="/" isActive={activePage === "Home"} />
         <NavBarButton
-          text="What you need to do"
+          text={option2}
           href="/resources"
           isActive={activePage === "What you need to do"}
         />
         <NavBarButton
-          text="What you need to know"
+          text={option3}
           href="/rights"
           isActive={activePage === "What you need to know"}
         />
         <NavBarButton
-          text="What is liveability"
+          text={option4}
           href="/liveability"
           isActive={activePage === "What is liveability"}
         />
         <NavBarButton
-          text="Find a suburb to live"
+          text={option5}
           special={true}
           href="/map"
           isActive={activePage === "Find where to live"}

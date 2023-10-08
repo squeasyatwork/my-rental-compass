@@ -13,16 +13,17 @@ import QuizModal from "~/components/QuizModal.js";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import { t } from "i18next";
+import { useRouter } from "next/router.js";
 
 
-export async function getStaticProps(context) {
+export async function getServerSideProps(context) {
   // extract the locale identifier from the URL
   const { locale } = context
 
   return {
     props: {
       // pass the translation props to the page component
-      ...(await serverSideTranslations(locale, ['resources'])),
+      ...(await serverSideTranslations(locale, ['common', 'resources'])),
     },
   }
 }
@@ -287,7 +288,7 @@ const UserguideBar = () => {
           </div>
         </div>
         <div className="flex justify-start items-center w-2/5">
-          <hr class="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
           <Image
             src="/resources_item2.svg"
             alt="information"
@@ -381,6 +382,7 @@ const UserguideBar = () => {
 export default function Resources() {
 
   const { t } = useTranslation();
+  const router = useRouter();
 
   const [showDetails4, setShowDetails4] = useState(false);
 
@@ -396,38 +398,46 @@ export default function Resources() {
       </Head>
 
       <main className="font-inter flex flex-col min-h-screen text-black">
-        <Navbar activePage="What you need to do" className="z-10" />
+        <Navbar activePage="What you need to do" className="z-10" option1={t("common:menu_item_1")} option2={t("common:menu_item_2")} option3={t("common:menu_item_3")} option4={t("common:menu_item_4")} option5={t("common:menu_item_5")} />
 
-        <div className="relative h-6/12 w-full">
+        <div className="relative h-6/12 w-full" style={{ height: "50%" }}>
           <img
             src="/resources_page_banner.png"
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-center ">
-            <div className="flex flex-col justify-center mt-24 text-gray-100/90">
-              <h2 className="text-4xl font-bold text-center">
+            <div className="flex flex-col justify-center my-40 text-gray-100/90">
+              <h2 className="text-5xl font-bold text-center">
                 {t("resources:RESOURCES_BANNER_HEADING")}
               </h2>
-              {/* <h2 className="text-4xl font-bold text-center mt-4">
-                  
-                </h2> */}
             </div>
           </div>
         </div>
         <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
           <div className="w-10/12 flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
             <h1>
-              Follow our guide to take you on the journey of applying for a property
+              {t("resources:RESOURCES_BYLINE")}
             </h1>
 
-            {/* <hr className="h-1 bg-MainButtonYellow border-10 rounded my-4" /> */}
-            <Image className="object-contain ml-8"
-              src="/resources_dialog_cloud.svg"
+            {router.locale === "en" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_english.svg"
               alt="chat"
               width={150}
               height={75}
-            />
+            />)}
+            {router.locale === "hi" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_hindi.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
+            {router.locale === "ms" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_malay.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
             <Image className="object-contain"
               src="/woman.gif"
               alt="woman"
@@ -436,18 +446,19 @@ export default function Resources() {
             />
           </div>
           <div className="relative h-full w-full">
+
             <UserguideBar />
             <div className="flex justify-center">
               <button
                 onClick={toggleDetails4}
-                className={showDetails4 ? "font-medium text-2xl p-6 w-10/12 border-1 border-MainButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-MainButtonYellow hover:w-10/12 hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
+                className={showDetails4 ? "font-medium text-2xl p-6 w-3/5 border-1 border-FooterButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-FooterButtonYellow hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
-                <div className="flex justify-between" id="applicationButton">
-                  <h1 className="text-5xl font-bold text-center text-HeadingTextGray">4. Making an application</h1>
-                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                <div className="flex justify-between items-center" id="applicationButton">
+                  <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">{t("resources:step_4_title")}</h1>
+                  {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>)}
-                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+                  {showDetails4 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
                   </svg>
                   )}
@@ -455,39 +466,41 @@ export default function Resources() {
               </button>
             </div>
             {showDetails4 && (<div className="flex flex-col items-center" >
-              <div className="p-8 bg-FooterButtonYellow w-10/12">
+              <div className="p-8 bg-FooterButtonYellow w-3/5">
                 <div>
-                  <h2 className="text-lg font-semibold text-LongContentGray">Follow the checklist to make sure that you have everything you need to make a rental application</h2>
-                  <FormGroup>
-                    <FormControlLabel control={<Checkbox />} label="Personal Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Full legal name that matches your other documents, and contact details, including phone number and email address.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Identification" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">A copy of your passport, driver&apos;s license, or other government-issued ID.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Income" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Pay slips, employment letter, or bank statements to demonstrate your ability to pay rent.</li><li>If you are not working whilst being a student, provide proof of financial support from a scholarship, sponsor, or family</li><li className="pb-5">Recent bank statements to verify your financial stability and ability to cover rent and expenses.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Proof of Visa or Residency Status" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Provide proof of your visa or residency status.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Rental History" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Contact information for previous landlords or property managers.</li><li className="pb-5">Rental references or recommendation letters from previous landlords if available.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="References" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Personal references who can vouch for your character and reliability.</li><li className="pb-5">If you are working, also include contact information for your employer or proof of current employment, such as a job offer letter.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Co-Signer Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">If your income or credit doesn&apos;t meet the landlord&apos;s requirements, provide information about a co-signer who can guarantee the lease.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Cover Letter or Letter of Intent" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Write a brief letter explaining why you are a suitable tenant and why you want to rent the property.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Emergency Contact Information" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li className="pb-5">Provide the contact information of someone who can be reached in case of emergencies, preferably someone local as well as from your home country.</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Fees" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Be prepared to pay any application fees required by the landlord or property management company.</li><li className="pb-5">Also be prepared to pay the security deposit and first month’s rent promptly if your application is approved</li></ul>
-                    <FormControlLabel control={<Checkbox />} label="Application Forms" />
-                    <ul className="list-disc pl-16 text-LongContentGray"><li>Fill out the rental application form provided by the landlord or property manager accurately and completely.</li><li className="pb-5">Note that any application form will include require much of the information that has been listed above</li></ul>
+                  <h2 className="text-3xl pb-4 font-bold text-LongContentGray">{t("resources:step_4_checklist_description")}</h2>
+                  <FormGroup className="text-xl">
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_1_title")}
+                      componentsProps={{ typography: { variant: 'h6' } }}
+                    />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_1_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_2_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_2_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_3_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>{t("resources:step_4_item_3_point_1")}</li><li>{t("resources:step_4_item_3_point_2")}</li><li className="pb-5">{t("resources:step_4_item_3_point_3")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_4_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_4_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_5_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>{t("resources:step_4_item_5_point_1")}</li><li className="pb-5">{t("resources:step_4_item_5_point_2")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_6_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>{t("resources:step_4_item_6_point_1")}</li><li className="pb-5">{t("resources:step_4_item_6_point_2")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_7_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_7_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_8_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_8_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_9_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li className="pb-5">{t("resources:step_4_item_9_point_1")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_10_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>{t("resources:step_4_item_10_point_1")}</li><li className="pb-5">{t("resources:step_4_item_10_point_2")}</li></ul>
+                    <FormControlLabel control={<Checkbox />} label={t("resources:step_4_item_11_title")} componentsProps={{ typography: { variant: 'h6' } }} />
+                    <ul className="list-disc pl-14 text-LongContentGray"><li>{t("resources:step_4_item_11_point_1")}</li><li className="pb-5">{t("resources:step_4_item_11_point_2")}</li></ul>
                   </FormGroup>
                 </div>
               </div>
             </div>)}
           </div>
         </div>
-        <Footer />
+        <Footer footer_text={t("common:footer_text")} />
       </main >
     </>
   );
