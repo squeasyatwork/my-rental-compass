@@ -111,7 +111,7 @@ const UserguideBar = () => {
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:RESOURCES_STEP_1_TITLE")}</h1>
-              {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
               {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
@@ -120,7 +120,7 @@ const UserguideBar = () => {
               )}
             </div>
           </button>
-          <div className="flex flex-col items-center px-1 p-5 bg-FooterButtonYellow w-full text-LongContentGray" style={{
+          <div className="flex flex-col items-center px-1 pb-10 p-5 bg-FooterButtonYellow w-full text-LongContentGray" style={{
             transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
             opacity: showDetails1 ? "1" : "0",
             visibility: showDetails1 ? "visible" : "hidden",
@@ -144,24 +144,52 @@ const UserguideBar = () => {
                     opacity: showQuizQuestion ? "1" : "0",
                     visibility: showQuizQuestion ? "visible" : "hidden"
                   }}>
-                  <div className="pt-4 mb-4 text-left bg-white shadow-sm shadow-yellow-400 rounded-xl h-2/5"
+
+
+                  <div className="flex flex-col justify-center px-12 py-8 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
                     style={{ width: "38%" }}>
-                    <div className="text-3xl p-5 space-y-4">
-                      <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
-                        {t("resources:RESOURCES_QUIZ_QUESTION")}
-                      </div>
-                      <br></br>
-                      <div className="flex flex-col items-center justify-center font-medium">
-                        <div className="flex">
-                          <input type="radio" value="350" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_1")}
+                    <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow -mt-5 p-2 pb-4">
+                      {t("resources:RESOURCES_QUIZ_QUESTION")}
+                    </div>
+
+
+                    <div className="flex flex-col items-center justify-center -mt-2 space-y-3">
+                      <button onClick={() => processChoice1()}>
+                        <div className="flex justify-between items-center">
+                          {!choice1Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>)}
+                          {choice1Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                          </svg>
+                          )}
+                          <div className="text-3xl">{t("resources:RESOURCES_QUIZ_CHOICE_1")}</div>
                         </div>
-                        <div className="flex">
-                          <input type="radio" value="500" name="rent" className="py-6 mr-4" onClick={() => displayRightAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_2")}
+                      </button>
+                      <button onClick={() => processChoice2()}>
+                        <div className="flex justify-between items-center">
+                          {!choice2Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>)}
+                          {choice2Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                          </svg>
+                          )}
+                          <div className="text-3xl">{t("resources:RESOURCES_QUIZ_CHOICE_2")}</div>
                         </div>
-                        <div className="flex">
-                          <input type="radio" value="750" name="rent" className="py-6 mr-4" onClick={() => displayWrongAnswer()} /> {"A. " + t("resources:RESOURCES_QUIZ_CHOICE_3")}
+                      </button>
+                      <button onClick={() => processChoice3()}>
+                        <div className="flex justify-between items-center">
+                          {!choice3Selected && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="#FFCD29" class="w-9 h-9 mx-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                          </svg>)}
+                          {choice3Selected && (<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#FFCD29" class="w-9 h-9 mx-5">
+                            <path fill-rule="evenodd" d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12zm13.36-1.814a.75.75 0 10-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 00-1.06 1.06l2.25 2.25a.75.75 0 001.14-.094l3.75-5.25z" clip-rule="evenodd" />
+                          </svg>
+                          )}
+                          <div className="text-3xl">{t("resources:RESOURCES_QUIZ_CHOICE_1")}</div>
                         </div>
-                      </div>
+                      </button>
                     </div>
                   </div>
                   <button onClick={() => closeQuiz()}>
@@ -180,13 +208,13 @@ const UserguideBar = () => {
                     opacity: showQuizRightAnswer ? "1" : "0",
                     visibility: showQuizRightAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
-                    style={{ width: "36%" }}>
-                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                  <div className="flex flex-col justify-between px-12 py-8 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
+                    style={{ width: "38%" }}>
+                    <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-6 pt-2">
                       {t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_TITLE")}
                     </div>
                     <div className="text-center font-medium text-3xl">{t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_PARA")}</div>
-                    <div className="text-center text-HeadingTextGray">{t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_FOOTER")}: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
+                    <div className="text-center text-HeadingTextGray pb-4">{t("resources:RESOURCES_QUIZ_RIGHT_ANSWER_FOOTER")}: <Link className="underline" href="https://www.dffh.vic.gov.au/publications/rental-report">Department of Families, Fairness ad Housing </Link></div>
                   </div>
 
                   <button onClick={() => closeQuiz()}>
@@ -205,9 +233,9 @@ const UserguideBar = () => {
                     opacity: showQuizWrongAnswer ? "1" : "0",
                     visibility: showQuizWrongAnswer ? "visible" : "hidden"
                   }}>
-                  <div className="flex flex-col p-4 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 py-8"
-                    style={{ width: "36%" }}>
-                    <div className=" text-center font-bold text-4xl text-HeadingTextGray border-b-2 border-MainButtonYellow p-2">
+                  <div className="flex flex-col justify-evenly mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 px-12 py-8 h-1/2 object-fit"
+                    style={{ width: "38%" }}>
+                    <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-12 pt-2 -mt-2">
                       {t("resources:RESOURCES_QUIZ_WRONG_ANSWER_TITLE")}
                     </div>
                     <div className="text-center font-medium text-3xl">{t("resources:RESOURCES_QUIZ_WRONG_ANSWER_PARA")}</div>
@@ -239,7 +267,7 @@ const UserguideBar = () => {
             </div>
             <Link href="/rights" className="font-semibold"><div className="m-5 p-5 rounded-3xl bg-ResourceButtonYellow">{t("resources:RESOURCES_STEP_1_BRIGHT_YELLOW_BOX")}
             </div></Link>
-            <div>
+            <div className="w-5/6">
               <h2 className="text-lg font-semibold">{t("resources:RESOURCES_STEP_1_SUBHEADING_2")}</h2>
               <ul className="list-disc pl-5">
                 <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_1")}</li>
@@ -260,7 +288,7 @@ const UserguideBar = () => {
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_2_title")}</h1>
-              {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
               {showDetails2 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
@@ -270,7 +298,7 @@ const UserguideBar = () => {
             </div>
           </button>
           {showDetails2 && (<div className="flex flex-col items-center w-full">
-            <div className="py-8 px-20 bg-FooterButtonYellow w-full text-LongContentGray">
+            <div className="py-8 px-12 bg-FooterButtonYellow w-full text-LongContentGray">
               <div>
                 <h2 className="text-lg font-semibold">{t("resources:step_2_para_1_subheading")}</h2>
                 <ul className="list-disc pl-5">
@@ -295,12 +323,12 @@ const UserguideBar = () => {
                   </ul>
                 </ul>
               </div>
-              <Link href="/questionnaire"><div className="m-5 p-5 rounded-3xl font-semibold bg-ResourceButtonYellow">{t("resources:step_2_bright_yellow_box")}</div></Link>
+              <Link href="/questionnaire"><div className="m-5 p-5 mb-0 -mx-6 rounded-3xl font-semibold bg-ResourceButtonYellow">{t("resources:step_2_bright_yellow_box")}</div></Link>
             </div>
           </div>)}
         </div>
         <div className="flex justify-start items-center w-2/5">
-          <hr className="w-64 h-1 my-4 bg-MerciPurple border-10 rounded md:my-10" />
+          <hr className="w-64 h-1 my-4 bg-HeadingTextGray border-10 rounded md:my-10" />
           <Image
             src="/resources_item2.svg"
             alt="information"
@@ -330,7 +358,7 @@ const UserguideBar = () => {
           >
             <div className="flex justify-evenly">
               <h1 className="text-5xl font-bold text-center text-HeadingTextGray">{t("resources:step_3_title")}</h1>
-              {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={1.5} stroke="currentColor" className="w-12 h-12">
+              {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
               </svg>)}
               {showDetails3 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="#757575" className="w-12 h-12">
