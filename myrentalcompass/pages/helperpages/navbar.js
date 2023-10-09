@@ -1,21 +1,14 @@
 import Link from "next/link";
 import Image from "next/image";
-
 import LanguageSelector from "~/components/LanguageSelector";
-
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import i18nextConfig from '~/next-i18next.config';
-import { t } from "i18next";
-import { useRouter } from "next/router.js";
 
 export async function getStaticProps(context) {
-  // extract the locale identifier from the URL
-  const { locale } = context
-
+  const { locale } = context;
   return {
     props: {
-      // pass the translation props to the page component
       ...(await serverSideTranslations(locale, ['common'], i18nextConfig)),
     },
   }
@@ -23,7 +16,6 @@ export async function getStaticProps(context) {
 
 const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do", option3 = "What you need to know", option4 = "What is liveability", option5 = "Find a suburb to live" }) => {
   const { t } = useTranslation();
-  const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
       className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-MapNavGray shadow-md z-50`}
@@ -40,33 +32,15 @@ const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do",
           </div>
         </Link>
         <NavBarButton text={option1} href="/" isActive={activePage === "Home"} />
-        <NavBarButton
-          text={option2}
-          href="/resources"
-          isActive={activePage === "What you need to do"}
-        />
-        <NavBarButton
-          text={option3}
-          href="/rights"
-          isActive={activePage === "What you need to know"}
-        />
-        <NavBarButton
-          text={option4}
-          href="/liveability"
-          isActive={activePage === "What is liveability"}
-        />
+        <NavBarButton text={option2} href="/resources" isActive={activePage === "What you need to do"} />
+        <NavBarButton text={option3} href="/rights" isActive={activePage === "What you need to know"} />
+        <NavBarButton text={option4} href="/liveability" isActive={activePage === "What is liveability"} />
 
         <div className="flex items-center justify-between">
           <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
-          <NavBarButton
-            text={option5}
-            special={true}
-            href="/map"
-            isActive={activePage === "Find where to live"}
-          />
+          <NavBarButton text={option5} special={true} href="/map" isActive={activePage === "Find where to live"} />
         </div>
       </div>
-
     </nav>
   );
 };

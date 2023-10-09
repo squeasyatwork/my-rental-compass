@@ -83,7 +83,7 @@ function LiveabilityFlower() {
                     width={100}
                     height={100}
                 />
-                </div>
+            </div>
             </div>
             <button onClick={toggleDetails1}>
                 <Image
