@@ -122,7 +122,6 @@ const QuestionTwo = ({
               <div className="flex flex-col justify-center bg-MainButtonYellow/10 rounded-xl p-2">
                 <div className="text-xl flex flex-col p-1">
                   <div className="flex justify-start">
-                    <h2 className="mr-2">Easy access to public transport</h2>
                     <button onClick={toggleDetails2}>
                       <Image
                         src= "/information-icon.svg"
@@ -131,6 +130,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
+                    <h2>Easy access to public transport</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                     style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -200,10 +200,9 @@ const QuestionTwo = ({
                     }
                   />
                 </div>
-                <div className="text-xl flex flex-col p-1">
+                <div className="text-xl flex flex-col p-1 bg-MainButtonYellow/10">
                   <div className="flex justify-start">
-                    <h2 className="mr-2">Abundance of public open space e.g. gardens, parks</h2>
-                    <button onClick={toggleDetails3}>
+                    <button onClick={toggleDetails2}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
@@ -211,6 +210,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
+                    <h2>Abundance of public open space e.g. gardens, parks</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                         style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -277,10 +277,9 @@ const QuestionTwo = ({
                     handleChoice={(e) => handleChoice("openSpace", e.target.value)}
                   />
                 </div>
-                <div className="text-xl flex flex-col p-1">
+                <div className="text-xl flex flex-col p-1 ">
                   <div className="flex justify-start">
-                    <h2 className="mr-2">Low crime rate</h2>
-                    <button onClick={toggleDetails4}>
+                    <button onClick={toggleDetails2}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
@@ -288,6 +287,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
+                    <h2>Low crime rate</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                     style={{
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -348,10 +348,9 @@ const QuestionTwo = ({
                     handleChoice={(e) => handleChoice("lowCrimeRate", e.target.value)}
                   />
                 </div>
-                <div className="text-xl flex flex-col p-1">
+                <div className="text-xl flex flex-col p-1 bg-MainButtonYellow/10">
                   <div className="flex justify-start">
-                    <h2 className="mr-2">Safe roads</h2>
-                    <button onClick={toggleDetails5}>
+                    <button onClick={toggleDetails2}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
@@ -359,6 +358,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
+                    <h2>Safe roads</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                         style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",

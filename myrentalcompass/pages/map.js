@@ -64,10 +64,7 @@ function Map() {
           <div
             className="flex justify-center w-full h-full"
           >
-            <div
-              className="flex justify-center w-4/5"
-              style={{ height: "90%" }}
-            >
+            <div className="flex justify-center w-4/5">
               <div
                 className="flex justify-center items-center"
                 style={{ flex: "1" }}
@@ -89,7 +86,7 @@ function Map() {
               </div>
               {/* Liveability Index Information Section */}
               <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md lg:w-1/3 md:w-1/3 sm:w-1/3">
-                <div className="mb-12">
+                <div className="mb-8">
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3" >
@@ -137,15 +134,10 @@ function Map() {
                     </div>
                   </div>
                 </div>
-                <div className="flex flex-col justify-between text-lg items-center space-y-4">
+                <div className="flex flex-col justify-between text-lg items-center">
                   <Link href="/questionnaire">
                     <button className="call-action-button">
                       Get customised recommendations
-                    </button>
-                  </Link>
-                  <Link href="/recommendations">
-                    <button className="call-action-button bg-FooterButtonYellow">
-                      View my previous recommendations
                     </button>
                   </Link>
                 </div>
