@@ -51,10 +51,10 @@ body {
     @apply opacity-80 shadow-md;
   }
   .call-action-button {
-    @apply bg-MainButtonYellow rounded-2xl h-auto max-h-16 p-4 w-auto font-istok text-NavTextGray
+    @apply bg-MainButtonYellow rounded-2xl p-4 font-istok text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90 
-      text-base sm:text-base md:text-base lg:text-lg 
-      sm:w-40 md:w-44 lg:w-56 sm:h-auto md:h-auto lg:h-auto;
+      text-sm sm:text-sm md:text-sm lg:text-lg 
+      sm:w-28 md:w-32 lg:w-56 sm:h-auto md:h-auto lg:h-auto;
   }
   .call-action-button:hover {
     @apply bg-MainButtonYellow transform scale-110 opacity-100;
@@ -92,12 +92,8 @@ body {
   }
 
   .likert-label {
-    @apply cursor-pointer text-center px-1 py-2 bg-white border rounded-lg shadow-md w-32;
+    @apply cursor-pointer text-center p-2 bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12; 
     transition: background-color 0.2s, transform 0.2s;
-  }
-
-  .yqa-subheading {
-    @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
   }
 
   .likert-radio {
@@ -105,15 +101,15 @@ body {
   }
 
   .likert-label:hover {
-    @apply bg-ResourceButtonYellow transform scale-105;
+    @apply bg-ButtonHoverYellow transform scale-105;
   }
 
   .likert-radio:checked + .likert-label {
-    @apply bg-ResourceButtonYellow transform scale-105;
+    @apply bg-ButtonHoverYellow transform scale-105;
   }
 
   .likert-label.selected {
-    @apply bg-ResourceButtonYellow transform scale-105;
+    @apply bg-ButtonHoverYellow transform scale-105;
   }
 
   .bet_time {

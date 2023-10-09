@@ -79,9 +79,8 @@ export default function Rights() {
         <meta name="description" content="What you need to do." />
       </Head>
 
+      <Navbar activePage="What you need to know" className="z-10" />
       <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
-        <Navbar activePage="What you need to know" className="z-10" />
-
         <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
@@ -124,11 +123,11 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex justify-between font-istok text-4xl font-bold mb-2">
-            <h2 style={{ marginRight: "44rem" }}>1. Your rights as renters</h2>
+            <h2 style={{ marginRight: "37rem" }}>1. Your rights as renters</h2>
           </div>
           <div className="flex justify-center items-start divider_rights">
             <div className="font-istok flex flex-col justify-center pb-4 mr-24">
-              <div className="flex flex-col items-center justify-center border-b-2 border-HeadingTextGray">
+              <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow">
                 <div className="my-8">
                   <Image
                     src="/interior-design.png"
@@ -177,7 +176,7 @@ export default function Rights() {
                   </div>
                 </div>
               </div>
-              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
                 <div className="my-8">
                   <Image
                     src="/chat.png"
@@ -233,7 +232,7 @@ export default function Rights() {
               </div>
             </div>
             <div className="font-istok flex flex-col justify-center ml-24">
-              <div className="flex flex-col justify-center items-center border-b-2 border-HeadingTextGray">
+              <div className="flex flex-col justify-center items-center border-b-2 border-MainButtonYellow">
                 <div className="my-8">
                   <Image
                     src="/agreement.png"
@@ -250,7 +249,7 @@ export default function Rights() {
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
                     onClick={toggleDetails2}
-                    className="flex justify-between font-medium rounded-xl text-2xl w-full p-2 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
                   >
                     <h1 className="text-3xl font-bold text-center text-HeadingTextGray">Minimum rental standards</h1>
                     {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
@@ -263,7 +262,7 @@ export default function Rights() {
                   </button>
                   <div className="p-4 mb-2 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
                     style={{
-                      maxWidth: "24rem",
+                      maxWidth: "28rem",
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: showDetails2 ? "1" : "0",
                       visibility: showDetails2 ? "visible" : "hidden",
@@ -306,7 +305,7 @@ export default function Rights() {
                   </div>
                 </div>
               </div>
-              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-HeadingTextGray mt-4">
+              <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-4">
                 <div className="my-8">
                   <Image
                     src="/village.png"
@@ -316,8 +315,8 @@ export default function Rights() {
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
-                  <h2>You have the right to informed when the</h2>
-                  <h2>landlord intends to access the property</h2>
+                  <p>You have the right to informed when the<br></br>
+                    landlord intends to access the property</p>
                 </div>
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
@@ -379,16 +378,24 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 style={{ marginRight: "24rem" }}>2. Your responsibilities as renters</h2>
-            <button onClick={toggleDetails7}>
+            <h2 className="mr-4 lg:mr-56 md:mr-12 sm:mr-4">2. Your responsibilities as renters</h2>
+            <div className="flex">
+              <button onClick={toggleDetails7}>
+                <Image
+                  src="/alert.gif"
+                  alt="alert"
+                  width={90}
+                  height={90}
+                />
+              </button>
               <Image
-                src="/alert.gif"
-                alt="alert"
-                width={90}
-                height={90}
+                src="/woman.gif"
+                alt="woman"
+                width={100}
+                height={100}
               />
-            </button>
-            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
+            </div>
+            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50 overflow-auto"
               style={{
                 transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                 opacity: showDetails7 ? "1" : "0",
@@ -448,7 +455,7 @@ export default function Rights() {
             </div>
           </div>
           <div className="flex items-start divider_rights">
-            <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-HeadingTextGray pb-2">
+            <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-MainButtonYellow pb-2">
               <div className="my-8">
                 <Image
                   src="/house.png"
@@ -506,7 +513,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-HeadingTextGray pb-2">
+            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-MainButtonYellow pb-2">
               <div className="my-8">
                 <Image
                   src="/home-repair.png"
@@ -582,10 +589,10 @@ export default function Rights() {
                 />
                 <div className="flex justify-center items-center">
                   <Image
-                    src="/finger.svg"
+                    src="/finger.gif"
                     alt="finger"
-                    width={30}
-                    height={30}
+                    width={35}
+                    height={35}
                     className="mr-2"
                   />
                   <a href="https://www.consumer.vic.gov.au/housing/renting/starting-and-changing-rental-agreements
