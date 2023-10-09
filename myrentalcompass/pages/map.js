@@ -14,6 +14,11 @@ function Map() {
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   // create a loading state
   const [mapLoading, setMapLoading] = useState(true);
+  const [showCard, setShowCard] = useState(true);
+
+  const toggleCard = () => {
+    setShowCard(!showCard);
+  };
 
   useEffect(() => {
     const timer = setTimeout(() => {
@@ -81,6 +86,7 @@ function Map() {
                   <DynamicBasicMap
                     recommendations={false}
                     setSelectedFeature={setSelectedFeature}
+                    style={{ zIndex: 1 }}
                   />
                 )}
               </div>
@@ -144,6 +150,7 @@ function Map() {
               </div>
             </div>
           </div>
+          
         </section>
         <Footer /> {/* Footer */}
       </div>

@@ -315,8 +315,8 @@ export default function Rights() {
                   />
                 </div>
                 <div className=" flex flex-col font-bold text-xl items-center">
-                  <h2>You have the right to informed when the</h2>
-                  <h2>landlord intends to access the property</h2>
+                  <p>You have the right to informed when the<br></br>
+                    landlord intends to access the property</p>
                 </div>
                 <div className="flex flex-col items-center justify-center font-istok mt-8">
                   <button
