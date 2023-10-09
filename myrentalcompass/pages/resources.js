@@ -455,7 +455,6 @@ export default function Resources() {
             <h1>
               {t("resources:RESOURCES_BYLINE")}
             </h1>
-
             {router.locale === "en" && (<Image className="object-contain ml-8"
               src="/resources_dialog_cloud_english.svg"
               alt="chat"
