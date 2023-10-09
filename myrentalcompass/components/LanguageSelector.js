@@ -25,7 +25,7 @@ const LanguageSelector = ({ text }) => {
                 <Image src="/translate_icon.svg" width={20} height={20} />
                 <div className="text-HeadingTextGray text-center">{router.locale.toUpperCase()}</div>
             </button>
-            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-80 bg-LongContentGray z-50"
+            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-80 bg-LongContentGray z-auto"
                 style={{
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: languageModalOpen ? "1" : "0",

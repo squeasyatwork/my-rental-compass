@@ -5,11 +5,29 @@ import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
+
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['common', 'dict2'], i18nextConfig)),
+    },
+  }
+}
+
 function Liveability() {
+  const { t } = useTranslation();
+
   const [showDetails1, setShowDetails1] = useState(false);
   const [showDetails2, setShowDetails2] = useState(false);
   const [showDetails3, setShowDetails3] = useState(false);
@@ -39,7 +57,7 @@ function Liveability() {
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Liveability</title>
+        <title>{t("dict2:liveability_tab_title")}</title>
         <meta name="description" content="Learn about liveability factors." />
       </Head>
 
