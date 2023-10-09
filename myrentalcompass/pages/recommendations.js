@@ -46,27 +46,30 @@ export const getServerSideProps = async (context) => {
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
   const contextValues = useContext(DataContext);
+
+  const { rent, transport, park, crime, road, university } = contextValues.data || {};
+
   const { rankedSuburbs = [] } = data || {};
 
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 400,
-    // affordability: contextQuery.affordabilityChoice || 3,
-    transport: contextQuery.transportChoice || 3,
-    park: contextQuery.parkChoice || 3,
-    crime: contextQuery.crimeChoice || 3,
-    road: contextQuery.roadChoice || 3,
-    university: contextQuery.uniChoice || "",
+    rent: rent || contextQuery.rentChoice || 400,
+    transport: transport || contextQuery.transportChoice || 3,
+    park: park || contextQuery.parkChoice || 3,
+    crime: crime || contextQuery.crimeChoice || 3,
+    road: road || contextQuery.roadChoice || 3,
+    university: university || contextQuery.uniChoice || "",
   });
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
-  useEffect(() => {
-    console.log("Values from DataContext on Recommendations page load:", contextValues);
-  }, []); 
+ useEffect(() => {
+//   console.log("Values from DataContext on Recommendations page load:", contextValues);
+  sendInput(); 
+}, []);
 
   const handleInputChange = (e) => {
     setInputValues({
