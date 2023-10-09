@@ -66,7 +66,7 @@ export const Section = ({
   );
 };
 
-export const ResourceSection = ({ id, imageSrc, altText, link }) => {
+export const ResourceSection = ({ id, imageSrc, buttonText, altText, link }) => {
   return (
     <div
       id={id}
@@ -86,7 +86,7 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
       <div className="mt-auto flex items-center justify-center pb-4">
         <Link href={link}>
           <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
-            Read more
+            {buttonText}
           </button>
         </Link>
       </div>
@@ -113,33 +113,33 @@ export default function LandingPage() {
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
-          <div className="relative z-10 flex flex-col justify-between h-full text-BackgroundWhite">
+          <div className="relative z-10 flex flex-col justify-between h-full text-gray-100/90">
             <div className="flex flex-col items-center space-y-6 mt-36">
               <div className="flex flex-col justify-center">
                 <h1 className="text-5xl font-bold text-center">
-                  Everyone has the right to
+                  {t("dict2:index_banner_title_line_1")}
                 </h1>
                 <h1 className="text-5xl font-bold text-center mt-4">
-                  affordable, safe and liveable housing
+                  {t("dict2:index_banner_title_line_2")}
                 </h1>
                 <h2 className="text-2xl font-medium text-center mt-16">
-                  We are here to help students in Melbourne to
+                  {t("dict2:index_banner_title_byline_1")}
                 </h2>
                 <h2 className="text-2xl font-medium text-center">
-                  find the right suburb to live
+                  {t("dict2:index_banner_title_byline_2")}
                 </h2>
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
                   <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl">
-                    Find a suburb to live
+                    {t("dict2:index_banner_map_button")}
                   </button>
                 </Link>
               </div>
             </div>
             <div className="flex flex-col items-end pb-4 pr-4">
               <h2 className="text-xs font-normal">
-                Picture credit: Australian Urban Observatory
+                {t("dict2:index_banner_image_credit") + " Australian Urban Observatory"}
               </h2>
             </div>
           </div>
@@ -147,57 +147,60 @@ export default function LandingPage() {
 
         <div className="bg-white px-6 pb-20">
           <h1 className="index-page-section-heading mt-16 mb-6">
-            Your questions answered
+            {t("dict2:index_yqa_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
             <Section
               id="yqa-section-1"
               imageSrc="/looking-to-rent-icon.jpeg"
               altText="looking-to-rent-icon"
-              subheading="Looking to rent?"
-              content="Finding a place to live in Victoria can be very frustrating. We know, because we have been there too. |||That is why we are driven to help young people like you to make an informed decision in finding a place to call home in Victoria."
+              subheading={t("dict2:index_yqa_section_subheading_1")}
+              content={t("dict2:index_yqa_section_description_1")}
               link="/questionnaire"
-              btnText="Use our AI tool to find where to live"
+              btnText={t("dict2:index_yqa_section_button_1")}
             />
             <Section
               id="yqa-section-2"
               imageSrc="/curious-icon.jpeg"
               altText="curious-icon"
-              subheading="Curious what it means?"
-              content="Not everyone is born to be a lawyer. Tenancy laws and contract can be very confusing, especially if it is your first time.|||We have curated an easy-to-follow guide to help you understand your rights and responsibilities as a renter."
+              subheading={t("dict2:index_yqa_section_subheading_2")}
+              content={t("dict2:index_yqa_section_description_2")}
               link="/rights"
-              btnText="Get to know your rights as a renter"
+              btnText={t("dict2:index_yqa_section_button_2")}
             />
             <Section
               id="yqa-section-3"
               imageSrc="/liveability-icon.jpeg"
               altText="liveability-icon"
-              subheading="What is liveability?"
-              content="Living in a safe and liveable neighborhood is everyone's dream. But do you know what makes a suburb liveable? Researchers have done many studies on this, and we are putting them here to help you make an informed decision when renting in Melbourne."
+              subheading={t("dict2:index_yqa_section_subheading_3")}
+              content={t("dict2:index_yqa_section_description_3")}
               link="/liveability"
-              btnText="Read more about liveability"
+              btnText={t("dict2:index_yqa_section_button_3")}
             />
           </div>
 
           <h1 className="index-page-section-heading pt-12 pb-6">
-            Other Resources
+            {t("dict2:index_or_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
             <ResourceSection
               id="or-section-1"
               imageSrc="/or-plan-melb-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-plan-melb-picture"
               link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
             />
             <ResourceSection
               id="or-section-2"
               imageSrc="/or-unsdg-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-unsdg-picture"
               link="https://sdgs.un.org/goals/goal11"
             />
             <ResourceSection
               id="or-section-3"
               imageSrc="/or-crt-logo.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-crt-picture"
               link="https://www.rentingcommissioner.vic.gov.au/"
             />

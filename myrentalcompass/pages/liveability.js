@@ -71,7 +71,7 @@ function Liveability() {
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
-          <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
+          <div className="relative flex flex-col justify-between h-full text-gray-100/90">
             <div className="flex flex-col justify-center my-44">
               <h1 className="text-5xl font-bold text-center">
                 Liveability is what a place is like to live in<br></br>
@@ -118,7 +118,7 @@ function Liveability() {
           <div className="flex items-start divider_rights">
             <div className="flex flex-col justify-center items-center mr-12">
               <Image
-                src= "/tram.png"
+                src="/tram.png"
                 alt="tram"
                 width={180}
                 height={180}
@@ -127,14 +127,14 @@ function Liveability() {
                 <button onClick={toggleDetails1}
                   className="flex justify-between font-medium rounded-xl p-2 w-full
                   hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200">
-                    <p className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</p>
-                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                      </svg>)}
-                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                      </svg>
-                    )}
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</p>
+                  {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>)}
+                  {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                  </svg>
+                  )}
 
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -146,9 +146,9 @@ function Liveability() {
                     maxHeight: showDetails1 ? "1000px" : "0"
                   }}>
 
-                  <p> In measuring how well connected a suburb is to the public transportation system, 
-                    we use the open data by Public Transport Victoria (PTV) 
-                    as at May 2023 to count the number of public transport stops that exist in every suburb, 
+                  <p> In measuring how well connected a suburb is to the public transportation system,
+                    we use the open data by Public Transport Victoria (PTV)
+                    as at May 2023 to count the number of public transport stops that exist in every suburb,
                     and divide it by the suburb&apos;s land size in square kilometre.
                   </p>
                   <br></br>
@@ -162,17 +162,17 @@ function Liveability() {
                 </div>
               </div>
               <Image
-                src= "/guard.png"
-                alt= "guard"
+                src="/guard.png"
+                alt="guard"
                 width={180}
                 height={180}
                 className="mt-12"
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails3}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
+                  onClick={toggleDetails3}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
                   <p className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</p>
                   {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -190,8 +190,8 @@ function Liveability() {
                     visibility: showDetails3 ? "visible" : "hidden",
                     maxHeight: showDetails3 ? "1000px" : "0"
                   }}>
-                  <p> We count the number of road crashes and traffic incidents that have been 
-                    recorded in each suburbs during a 12-month period ending 2019, 
+                  <p> We count the number of road crashes and traffic incidents that have been
+                    recorded in each suburbs during a 12-month period ending 2019,
 
                     and then we divide the number by the suburb&apos;s population as at June 2021.
                   </p>
@@ -208,17 +208,17 @@ function Liveability() {
             </div>
             <div className="flex flex-col justify-center items-center">
               <Image
-                src= "/police-station.png"
+                src="/police-station.png"
                 alt="police"
                 width={180}
                 height={180}
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails2}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
-                    <p className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</p>
+                  onClick={toggleDetails2}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</p>
 
                   {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -238,8 +238,8 @@ function Liveability() {
                   }}>
 
                   <p>
-                    We measure liveability based on the crime rate recorded in a particular suburb. 
-                    We used crime statistics data that has been recorded during the 12-month period ending March 2023 
+                    We measure liveability based on the crime rate recorded in a particular suburb.
+                    We used crime statistics data that has been recorded during the 12-month period ending March 2023
                     and divide it by each suburb&apos;s population as at June 2021
                   </p>
                   <br></br>
@@ -255,7 +255,7 @@ function Liveability() {
                 </div>
               </div>
               <Image
-                src= "/park.png"
+                src="/park.png"
                 alt="park"
                 width={180}
                 height={180}
@@ -263,9 +263,9 @@ function Liveability() {
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails4}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
+                  onClick={toggleDetails4}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
                   <p className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</p>
                   {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -283,7 +283,7 @@ function Liveability() {
                     visibility: showDetails4 ? "visible" : "hidden",
                     maxHeight: showDetails4 ? "1000px" : "0"
                   }}>
-                  <p> 
+                  <p>
                     We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
                     and divide the number by the land size of each suburb in square kilometre.
                   </p>
@@ -303,16 +303,16 @@ function Liveability() {
           </div>
           <div className="flex flex-col items-center justify-center mt-8">
             <button
-                onClick={toggleDetails5}
-                className="flex justify-center font-medium rounded-xl text-2xl p-2 w-4/5 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-              >
-                <p className="text-4xl font-bold text-center text-HeadingTextGray mr-12">Liveability Score Explained</p>
+              onClick={toggleDetails5}
+              className="flex justify-center font-medium rounded-xl text-2xl p-2 w-4/5 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+            >
+              <p className="text-4xl font-bold text-center text-HeadingTextGray mr-12">Liveability Score Explained</p>
               {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-10 h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>)}
+              </svg>)}
               {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-10 h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                </svg>
+              </svg>
               )}
             </button>
             <div className="p-4 mb-2 text-md justify-between text-left bg-FooterButtonYellow rounded-xl mt-4 w-4/5"
@@ -322,7 +322,7 @@ function Liveability() {
                 visibility: showDetails5 ? "visible" : "hidden",
                 maxHeight: showDetails5 ? "1000px" : "0"
               }}>
-              <h2 className="font-bold text-xl"> 
+              <h2 className="font-bold text-xl">
                 Liveability Score Calculation:
               </h2>
               <p className="text-left">

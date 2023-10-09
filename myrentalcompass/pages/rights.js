@@ -107,8 +107,8 @@ export default function Rights() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
-            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-BackgroundWhite">
-              <h2 className=" text-5xl font-bold max-w-5xl">
+            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-gray-100/90">
+              <h2 className="text-5xl font-bold max-w-5xl">
                 As a tenant, you have the right to live in a
                 safe, secure and quiet environment
                 that is managed in accordance with the law.
