@@ -3,13 +3,29 @@ import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 import Link from "next/link";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['common', 'dict2'], i18nextConfig)),
+    },
+  }
+}
 
 export default function Rights() {
+  const { t } = useTranslation();
   return (
     <>
       <Head>
-        <title>MyRentalCompass | What you need to know</title>
-        <meta name="description" content="What you need to do." />
+        <title>{"MyRentalCompass | " + t("dict2:privacy_tab_title")}</title>
+        <meta name="description" content="Privacy Policy" />
       </Head>
 
       <Navbar className="z-10" />
@@ -21,42 +37,40 @@ export default function Rights() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
-            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-BackgroundWhite">
+            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-gray-100/90">
               <h2 className=" text-5xl font-bold max-w-4xl">
-                Your Privacy Matters to Us
+                {t("dict2:privacy_banner_title")}
               </h2>
-              <h2 className="text-4xl font-bold">We are Committed to Safeguarding Your Personal Information</h2>
+              <h2 className="text-4xl font-bold">{t("dict2:privacy_banner_byline")}</h2>
             </div>
           </div>
         </div>
         <div className=" font-bold text-5xl text-HeadingTextGray mt-4 mb-4 px-6">
-          <h1>Our Privacy Promise</h1>
+          <h1>{t("dict2:privacy_description_heading")}</h1>
         </div>
         <div className="flex flex-col  justify-center items-center text-2xl p-6 space-y-4">
-            <h2 className=" max-w-7xl">At My Rental Compass, we are committed to respecting your privacy and ensuring the security of your personal information.</h2>
-            <p className=" max-w-7xl">
-                1. No Collection of Personal Data: My Rental Compass is designed to provide you with rental information and
-                resources without collecting any personal information. We do not request or store any information that can
-                identify you personally, such as your name, email address, phone number, or physical address. 
-            </p>
-            <p className=" max-w-7xl">
-                2. Automatic Data Collection: Like many websites, we may collect certain non-personal data automatically, including your IP address, browser type, and operating system. This information is collected for the sole purpose of improving our website&apos;s performance, security, and user experience. 
-                
-            </p>
-            <p className="max-w-7xl">
-                3. Cookies and Tracking: We do not use cookies or any tracking technologies to monitor your online behaviour. We respect your privacy and aim to provide you with a simple, data-minimal experience on our platform. 
-            </p>
-            <p className="max-w-7xl">
-                4. Links to Third-Party Websites: Our website may contain links to third-party websites, such as rental service providers or government departments. Please note that once you leave our website, our Privacy Notice no longer applies, and we encourage you to review the privacy policies of those third-party websites.
-            </p>
-            
+          <h2 className=" max-w-7xl">{t("dict2:privacy_description")}</h2>
+          <p className=" max-w-7xl">
+            {t("dict2:privacy_description_point_1")}
+          </p>
+          <p className=" max-w-7xl">
+            {t("dict2:privacy_description_point_2")}
+
+          </p>
+          <p className="max-w-7xl">
+            {t("dict2:privacy_description_point_3")}
+          </p>
+          <p className="max-w-7xl">
+            {t("dict2:privacy_description_point_4")}
+          </p>
+
         </div>
         <div className="flex justify-center items-center my-8">
-            <Link href="/">
-                <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
-                    Return Home
-                </button>
-            </Link>
+          <Link href="/">
+            <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
+              {t("dict2:rights_return_home_button")}
+            </button>
+          </Link>
         </div>
         <Footer />
       </main>
