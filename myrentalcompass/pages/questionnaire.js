@@ -1,15 +1,18 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
-import Navbar from "./helperpages/navbar.js";
-import QuestionOne from "../components/questionone.js";
-import QuestionTwo from "../components/questiontwo.js";
-import Footer from "./helperpages/footer.js";
+import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
 import Router from "next/router";
 import Image from "next/image";
 
+import Navbar from "./helperpages/navbar.js";
+import QuestionOne from "../components/questionone.js";
+import QuestionTwo from "../components/questiontwo.js";
+import DataContext from "../components/DataContext.js";
+import Footer from "./helperpages/footer.js";
+
 function Questionnaire() {
   const router = Router.useRouter();
+  const { setData } = useContext(DataContext); // Get the setData method from context
 
   const [currentQuestion, setCurrentQuestion] = useState("q1");
   const [selectedChoices, setSelectedChoices] = useState({
@@ -47,19 +50,16 @@ function Questionnaire() {
   const handleNext = () => {
     if (currentQuestion === "q1") {
       setCurrentQuestion("q2");
-    } 
+    }
   };
 
   const handlePrevious = () => {
     if (currentQuestion === "q2") {
       setCurrentQuestion("q1");
-    } else if (currentQuestion === "q3") {
-      setCurrentQuestion("q2");
     }
   };
 
   function sendInput() {
-    // Constructing query based on the format you provided
     const formattedQuery = {
       rent: selectedChoices.someQuestionOne,
       transport: selectedChoices.publicTransport,
@@ -69,11 +69,12 @@ function Questionnaire() {
       university: university,
     };
 
-    // Push to the recommendations page with formatted query
-    router.push({
-      pathname: "/recommendations",
-      query: formattedQuery,
-    });
+    console.log("Data being set to DataContext:", formattedQuery); // Added this line
+
+    setData(formattedQuery); // Save the data to context
+
+    // Navigate to the recommendations page
+    router.push("/recommendations");
   }
 
   return (
@@ -83,7 +84,7 @@ function Questionnaire() {
         <meta name="description" content="Customize your liveability index." />
       </Head>
 
-      <Navbar activePage="Where to live" className="z-10"/>
+      <Navbar activePage="Where to live" className="z-10" />
       <main
         className="font-inter flex flex-col min-h-screen justify-center font-istok text-black"
         style={{
@@ -113,16 +114,19 @@ function Questionnaire() {
             )}
           </div>
         </div>
-        {(
-          <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
-          style={{
-            transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
-            opacity: showCard ? "1" : "0",
-            visibility: showCard ? "visible" : "hidden"
-          }}>
+        {
+          <div
+            className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
+            style={{
+              transition:
+                "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+              opacity: showCard ? "1" : "0",
+              visibility: showCard ? "visible" : "hidden",
+            }}
+          >
             <div className="flex flex-col justify-center items-center p-8 mb-4 text-center bg-PopupPurple rounded-xl">
               <Image
-                src= "/secure-shield.png"
+                src="/secure-shield.png"
                 alt="shield"
                 width={120}
                 height={120}
@@ -132,23 +136,29 @@ function Questionnaire() {
                 <h2 className=" font-bold text-3xl">We value your privacy</h2>
                 <br></br>
                 <p className=" text-lg">
-                  At My Rental Compass, we respect your privacy.<br></br> 
-                  We do not collect or store your responses on our website,<br></br>
+                  At My Rental Compass, we respect your privacy.<br></br>
+                  We do not collect or store your responses on our website,
+                  <br></br>
                   nor do we track your activities.
                 </p>
               </div>
               <br></br>
-              <button className="text-2xl font-bold call-action-button mb-2" onClick={toggleCard}>
+              <button
+                className="text-2xl font-bold call-action-button mb-2"
+                onClick={toggleCard}
+              >
                 Okay, got it!
               </button>
-              <Link href="/privacy"> 
+              <Link href="/privacy">
                 <button>
-                  <p className="underline hover:text-ButtonHoverYellow">Learn more</p>
+                  <p className="underline hover:text-ButtonHoverYellow">
+                    Learn more
+                  </p>
                 </button>
               </Link>
             </div>
           </div>
-        )}
+        }
       </main>
       <Footer />
     </>

@@ -3,12 +3,13 @@ import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+import DataContext from "../components/DataContext.js";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -44,6 +45,7 @@ export const getServerSideProps = async (context) => {
 };
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
+  const contextValues = useContext(DataContext);
   const { rankedSuburbs = [] } = data || {};
 
   const router = Router.useRouter();
@@ -61,6 +63,10 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    console.log("Values from DataContext on Recommendations page load:", contextValues);
+  }, []); 
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -80,14 +86,12 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
   const sendInput = () => {
     if (inputValues.university) {
-      let suburb = inputValues.university.split(",").pop().trim();
-      if (suburb === "CBD") {
-        suburb = "Melbourne";
-      }
+      const suburb = inputValues.university.split(",").pop().trim();
       setUniversitySuburb(suburb);
     } else {
       setUniversitySuburb(null);
     }
+
     router.push({
       pathname: "/recommendations",
       query: inputValues,
