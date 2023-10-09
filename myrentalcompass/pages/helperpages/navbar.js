@@ -36,14 +36,18 @@ const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do",
           href="/liveability"
           isActive={activePage === "What is liveability"}
         />
-        <NavBarButton
-          text={option5}
-          special={true}
-          href="/map"
-          isActive={activePage === "Find where to live"}
-        />
+
+        <div className="flex items-center justify-between">
+          <LanguageSelector className="mr-8"></LanguageSelector>
+          <NavBarButton
+            text={option5}
+            special={true}
+            href="/map"
+            isActive={activePage === "Find where to live"}
+          />
+        </div>
       </div>
-      <LanguageSelector></LanguageSelector>
+
     </nav>
   );
 };
