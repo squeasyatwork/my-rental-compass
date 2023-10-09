@@ -54,7 +54,7 @@ function Map() {
           </p>
           <p className="text-xl py-1 w-2/3">To learn more about liveability and how it is calculated, see our &apos;
             <span>
-              <a href="/liveability" className="underline hover:text-ButtonHoverYellow">What is liveability</a>
+              <Link href="/liveability" className="underline hover:text-ButtonHoverYellow">What is liveability</Link>
             </span>&apos; page</p>
         </section>
         {/* Map Section */}
