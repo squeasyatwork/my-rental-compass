@@ -892,7 +892,7 @@ export default function Resources() {
           </div>
         </div>
         <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">Credits</h2>
+          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
           <div className="flex">
             <div className="flex flex-col">
               <a

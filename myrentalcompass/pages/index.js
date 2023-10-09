@@ -127,15 +127,15 @@ export default function LandingPage() {
                 <div className="text-center">
                   <div className="h1-container">
                     <h1 className="text-6xl font-bold mt-16 relative z-10 text-center whitespace-nowrap">
-                      You deserve a place you can call home
+                      {t("dict2:index_banner_title")}
                     </h1>
                     <div className="highlighter-line"></div>
                   </div>
                 </div>
                 <h2 className="text-4xl font-medium text-center mt-14 mb-6">
-                  International students often face difficulties finding
+                  {t("dict2:index_banner_title_byline_1")}
                   <div className="mb-4" />
-                  accommodation in Melbourne, we are here to help!
+                  {t("dict2:index_banner_title_byline_2")}
                 </h2>
               </div>
               <div className="flex items-center justify-center">
@@ -163,10 +163,10 @@ export default function LandingPage() {
               id="yqa-section-1"
               imageSrc="/looking-to-rent-icon.jpeg"
               altText="looking-to-rent-icon"
-              subheading="Not sure where to start?"
-              content="The process of finding a place to rent can be confusing. |||We have made a step-by-step guide that you can follow to lead you through the process - from before you leave your country, all the way to arriving in Melbourne and beyond."
+              subheading={t("dict2:index_yqa_section_subheading_1")}
+              content={t("dict2:index_yqa_section_description_1")}
               link="/resources"
-              btnText="Follow our step-by-step rental guide"
+              btnText={t("dict2:index_yqa_section_button_1")}
             />
             <Section
               id="yqa-section-2"
@@ -216,7 +216,7 @@ export default function LandingPage() {
           </div>
         </div>
         <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">Credits</h2>
+          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
           <div className="flex">
             <div className="flex flex-col">
               <a href="https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm Image by fxquadro on Freepik</a>
