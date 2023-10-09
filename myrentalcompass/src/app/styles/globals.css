@@ -53,7 +53,7 @@ body {
   .call-action-button {
     @apply bg-MainButtonYellow rounded-2xl p-4 font-istok text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90 
-      text-sm sm:text-sm md:text-md lg:text-lg 
+      text-sm sm:text-sm md:text-sm lg:text-lg 
       sm:w-28 md:w-32 lg:w-56 sm:h-auto md:h-auto lg:h-auto;
   }
   .call-action-button:hover {
