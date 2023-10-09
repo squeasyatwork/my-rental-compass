@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 
-const NavBar = ({ activePage }) => {
+const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do", option3 = "What you need to know", option4 = "What is liveability", option5 = "Find a suburb to live" }) => {
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
@@ -46,6 +46,7 @@ const NavBar = ({ activePage }) => {
             isActive={activePage === "Find where to live"}
           />
         </div>
+
       </div>
     </nav>
   );
