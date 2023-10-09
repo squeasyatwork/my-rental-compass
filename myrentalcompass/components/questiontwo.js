@@ -10,6 +10,7 @@ const QuestionTwo = ({
   handleChoice,
   handleUniChoice,
   sendInput,
+  q2Corpus
 }) => {
   const [error, setError] = useState("");
 
@@ -18,7 +19,7 @@ const QuestionTwo = ({
       (choice) => choice !== null
     );
     if (!allQuestionsAnswered) {
-      setError("All questions must have a selection made");
+      setError(q2Corpus.input_validation_message);
       return false;
     }
     return true;
@@ -59,15 +60,15 @@ const QuestionTwo = ({
     >
       <div className="flex flex-col">
         <div className="flex items-center mb-2">
-          <p className="font-bold text-lg">Question 1 / 2</p>
+          <p className="font-bold text-lg">{q2Corpus.question_1_label}</p>
         </div>
         <div className="flex items-start justify-center mb-6">
           <div
             className="flex flex-col items-center justify-center mr-12"
           >
-            <h2 className="font-bold text-3xl text-center"> How much do you value<br></br>these liveability aspects?</h2>
+            <h2 className="font-bold text-3xl text-center"> {q2Corpus.question_1_line_1}<br></br>{q2Corpus.question_1_line_2}</h2>
             <div className="flex">
-              <h2 className=" font-semibold mr-2">( Please rate 1 to 5 )</h2>
+              <h2 className=" font-semibold mr-2">{q2Corpus.question_1_line_3}</h2>
               <button onClick={toggleDetails1}>
                 <Image
                   src="/query.gif"
@@ -83,16 +84,16 @@ const QuestionTwo = ({
                   visibility: showDetails1 ? "visible" : "hidden"
                 }}>
                 <div className="p-4 mb-2 text-left bg-FooterButtonYellow rounded-xl w-fit h-fit">
-                  <div className="flex flex-col justify-center items-center font-bold text-3xl text-HeadingTextGray border-b-2 border-MainButtonYellow">
-                    <h2>Feel Confused?</h2>
+                  <div className="text-center flex flex-col justify-center items-center font-bold text-3xl text-HeadingTextGray border-b-2 border-MainButtonYellow">
+                    <h2>{q2Corpus.question_1_modal_heading}</h2>
                   </div>
                   <div className=" flex flex-col justify-center items-center text-lg font-medium mt-4">
                     <p className=" max-w-2xl mb-4 text-xl">
-                      1- Not at all<br></br>
-                      2- Low importance<br></br>
-                      3- Neutral<br></br>
-                      4- Important<br></br>
-                      5- Very important
+                      {q2Corpus.question_1_modal_line_1}<br></br>
+                      {q2Corpus.question_1_modal_line_2}<br></br>
+                      {q2Corpus.question_1_modal_line_3}<br></br>
+                      {q2Corpus.question_1_modal_line_4}<br></br>
+                      {q2Corpus.question_1_modal_line_5}
                     </p>
                   </div>
                 </div>
@@ -130,7 +131,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
-                    <h2>Easy access to public transport</h2>
+                    <h2>{q2Corpus.likert_1}</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                       style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -146,16 +147,14 @@ const QuestionTwo = ({
                             width={200}
                             height={200}
                           />
-                          <h2>Good transport</h2>
-                          <h2>connectivity</h2>
+                          <h2>{q2Corpus.likert_1_modal_heading_line_1}</h2>
+                          <h2>{q2Corpus.likert_1_modal_heading_line_2}</h2>
                         </div>
                         <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                           <h2 className=" text-justify">
-                            In measuring how well connected a suburb is to the public transportation system,
-                            we use the open data by Public Transport Victoria (PTV)
-                            to count the number of public transport stops that exist in every suburb.
+                            {q2Corpus.likert_1_modal_description}
                           </h2>
-                          <h2 className=" text-justify mb-2">Source: </h2>
+                          <h2 className=" text-justify mb-2">{q2Corpus.likert_1_modal_source_line} </h2>
                           <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2"
                             className=" flex justify-center hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2</a>
                         </div>
@@ -210,7 +209,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
-                    <h2>Abundance of public open space e.g. gardens, parks</h2>
+                    <h2>{q2Corpus.likert_2}</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                       style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -226,14 +225,14 @@ const QuestionTwo = ({
                             width={200}
                             height={200}
                           />
-                          <h2>Abundance of</h2>
-                          <h2>open spaces</h2>
+                          <h2>{q2Corpus.likert_2_modal_heading_line_1}</h2>
+                          <h2>{q2Corpus.likert_2_modal_heading_line_2}</h2>
                         </div>
                         <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                           <h2 className=" text-justify">
-                            We count the number of parks and gardens that exists within the geographical boundary of each suburb in 2023.
+                            {q2Corpus.likert_2_modal_description}
                           </h2>
-                          <h2 className=" justify-start text-justify mb-2">Source: </h2>
+                          <h2 className=" justify-start text-justify mb-2">{q2Corpus.likert_1_modal_source_line} </h2>
                           <a href="https://discover.data.vic.gov.au/dataset/open-space"
                             className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/open-space</a>
                           <a href="https://data.gov.au/data/dataset/vic-suburb-locality-boundaries-geoscape-administrative-boundarie"
@@ -287,7 +286,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
-                    <h2>Low crime rate</h2>
+                    <h2>{q2Corpus.likert_3}</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                       style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -303,14 +302,13 @@ const QuestionTwo = ({
                             width={200}
                             height={200}
                           />
-                          <h2>Low crime rate</h2>
+                          <h2>{q2Corpus.likert_3}</h2>
                         </div>
                         <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                           <h2 className=" text-justify">
-                            We measure liveability based on the crime rate recorded in a particular suburb.
-                            We used crime statistics data that has been recorded in the year 2019.
+                            {q2Corpus.likert_3_modal_description}
                           </h2>
-                          <h2 className=" justify-start text-justify mb-2">Source: </h2>
+                          <h2 className=" justify-start text-justify mb-2">{q2Corpus.likert_1_modal_source_line} </h2>
                           <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data"
                             className=" mb-2 hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data</a>
                           <a href="https://www.abs.gov.au/statistics/people/population/national-state-and-territory-population/mar-2023"
@@ -358,7 +356,7 @@ const QuestionTwo = ({
                         height={25}
                       />
                     </button>
-                    <h2>Safe roads</h2>
+                    <h2>{q2Corpus.likert_4}</h2>
                     <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-50"
                       style={{
                         transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
@@ -374,13 +372,13 @@ const QuestionTwo = ({
                             width={200}
                             height={200}
                           />
-                          <h2>Safe roads</h2>
+                          <h2>{q2Corpus.likert_4}</h2>
                         </div>
                         <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
                           <h2 className=" text-justify">
-                            We count the number of road crashes and traffic incidents that have been recorded in each suburbs in the year 2022 and 2023.
+                            {q2Corpus.likert_4_modal_description}
                           </h2>
-                          <h2 className=" justify-start text-justify mb-2">Source: </h2>
+                          <h2 className=" justify-start text-justify mb-2">{q2Corpus.likert_1_modal_source_line}</h2>
                           <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract"
                             className=" hover:underline hover:text-ButtonHoverYellow text-xs sm:text-sm md:text-normal lg:text-lg"> 1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract</a>
                         </div>
@@ -429,14 +427,14 @@ const QuestionTwo = ({
       </div>
       <div className="flex flex-col mb-6">
         <div className="flex items-center mb-2">
-          <p className="font-bold text-lg">Question 2 / 2</p>
+          <p className="font-bold text-lg">{q2Corpus.question_2_label}</p>
         </div>
         <div className="flex items-start justify-center mb-6">
           <div
             className="flex flex-col items-center justify-center mr-12"
           >
             <h2 className="font-bold text-3xl text-center">
-              Do you prefer to live near<br></br>your place of study?
+              {q2Corpus.question_2_line_1}<br></br>{q2Corpus.question_2_line_2}
             </h2>
             <Image
               src="/school.svg"
@@ -450,14 +448,14 @@ const QuestionTwo = ({
           >
             <div className="flex flex-col justify-center bg-BackgroundWhite rounded-xl p-6">
               <h2 className="justify-center items-center text-center text-xl mb-2">
-                If you want to live near your university,<br></br>
-                please select your university from the list below.
+                {q2Corpus.university_line_1}<br></br>
+                {q2Corpus.university_line_2}
               </h2>
               <select
                 className="mt-4 p-2 bg-ResourceButtonYellow border-4"
                 onChange={(e) => handleUniChoice(e.target.value)}
               >
-                <option value="">No, I do not mind living far</option>
+                <option value="">{q2Corpus.university_default_option}</option>
                 <option value="Monash University, Clayton">
                   Monash University, Clayton
                 </option>
@@ -521,7 +519,7 @@ const QuestionTwo = ({
             className="text-xl font-bold call-action-button"
             onClick={handlePrevious}
           >
-            Go back
+            {q2Corpus.go_back_button}
           </button>
         </div>
         <div>
@@ -529,7 +527,7 @@ const QuestionTwo = ({
             className="text-xl font-bold call-action-button"
             onClick={handleClickNext}
           >
-            Show Result
+            {q2Corpus.show_result_button}
           </button>
         </div>
       </div>
