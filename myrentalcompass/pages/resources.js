@@ -12,8 +12,10 @@ import QuizModal from "~/components/QuizModal.js";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import i18nextConfig from "~/next-i18next.config";
-import { t } from "i18next";
+import Tooltip from '@mui/material/Tooltip';
 import { useRouter } from "next/router.js";
+
+import CustomTooltip from "~/components/CustomTooltip.js";
 
 export async function getStaticProps(context) {
   // extract the locale identifier from the URL
@@ -409,7 +411,9 @@ const UserguideBar = () => {
               </div>
               <ul className="list-disc pl-5">
                 <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_1")}</li>
-                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_2")}</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_1") + " "}
+                  <CustomTooltip displayText={t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_2")} description={t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_TOOLTIP")} ></CustomTooltip>{" " + t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_3")}
+                </li>
               </ul>
             </div>
             <Link href="/rights" className="font-semibold">
@@ -423,7 +427,9 @@ const UserguideBar = () => {
               </h2>
               <ul className="list-disc pl-5">
                 <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_1")}</li>
-                <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_2")}</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_1") + " "}
+                  <CustomTooltip displayText={t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_2")} description={t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_TOOLTIP")} ></CustomTooltip>{" " + t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_3")}
+                </li>
               </ul>
             </div>
           </div>
