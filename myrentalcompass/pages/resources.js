@@ -492,7 +492,7 @@ export default function Resources() {
             <div className="flex justify-center">
               <button
                 onClick={toggleDetails4}
-                className={showDetails4 ? "font-medium text-2xl p-6 w-3/5 border-1 border-FooterButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 rounded-md border-1 rounded-lg border-FooterButtonYellow hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
+                className={showDetails4 ? "font-medium text-2xl p-6 w-3/5 border-1 border-FooterButtonYellow bg-MainButtonYellow/10" : "w-3/5 font-medium text-2xl p-6 border-1 rounded-lg border-FooterButtonYellow hover:bg-MainButtonYellow/10 hover:shadow-sm hover:shadow-purple-100 transition-all duration-1000"}
               >
                 <div className="flex justify-between items-center" id="applicationButton">
                   <h1 className="text-5xl font-semibold text-center text-HeadingTextGray">{t("resources:step_4_title")}</h1>
