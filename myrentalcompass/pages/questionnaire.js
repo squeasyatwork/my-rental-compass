@@ -4,6 +4,7 @@ import Navbar from "./helperpages/navbar.js";
 import QuestionOne from "../components/questionone.js";
 import QuestionTwo from "../components/questiontwo.js";
 import Footer from "./helperpages/footer.js";
+import Link from "next/link";
 import Router from "next/router";
 import Image from "next/image";
 
@@ -24,7 +25,7 @@ function Questionnaire() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCard(true);
-    }, 1000);
+    }, 300);
     return () => clearTimeout(timer);
   }, []);
 
@@ -84,7 +85,7 @@ function Questionnaire() {
 
       <Navbar activePage="Where to live" className="z-10"/>
       <main
-        className="font-inter flex flex-col min-h-screen justify-center"
+        className="font-inter flex flex-col min-h-screen justify-center font-istok text-black"
         style={{
           backgroundImage: 'url("/liveable-cities.jpeg")',
           backgroundSize: "cover",
@@ -92,7 +93,7 @@ function Questionnaire() {
         }}
       >
         <div className="flex flex-col justify-center items-center">
-          <div className="flex items-center justify-center text-black">
+          <div className="flex items-center justify-center ">
             {currentQuestion === "q1" && (
               <QuestionOne
                 handleNext={handleNext}
@@ -112,61 +113,40 @@ function Questionnaire() {
             )}
           </div>
         </div>
-        {showCard && (
+        {(
           <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
           style={{
-            transition: "opacity 2s ease-in-out, visibility 0.4s ease-in-out, max-height 2s ease-in-out",
+            transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+            opacity: showCard ? "1" : "0",
+            visibility: showCard ? "visible" : "hidden"
           }}>
-            <div className="p-4 mb-4 text-left bg-FooterButtonYellow rounded-xl px-6">
-              <div className="flex flex-col justify-center items-center font-bold text-4xl text-HeadingTextGray">
-                <h2>Something doesn&apos;t feel quite right?</h2>
-              </div>
-              <div className=" flex flex-col justify-center px-6 text-lg font-medium mt-4">
-                <h2 className=" max-w-2xl mb-4 text-base">
-                  If you think that your landlord or rental provider (like a real estate agency)
-                  is not fulfilling their requirements, or is violating your rights, there are several places you can contact for help:
-                </h2>
-                <h2 className="font-bold">
-                  Consumer Affairs Victoria
-                </h2>
-                <h2 className=" max-w-2xl mb-4 text-base">
-                  If you have questions about renting agreements, bonds, rent increases or repairs, if you are being evicted<br></br>
-                  <span className=" font-semibold underline">1300 55 81 81 </span><br></br>
-                  <span className=" font-semibold underline">
-                    <a href="https://www.consumer.vic.gov.au/" class=" underline">consumer.vic.gov.au</a>
-                  </span>
-                </h2>
-                <h2 className="font-bold">
-                  Victorian Civil and Tribunal Authority (VCAT)
-                </h2>
-                <h2 className=" max-w-2xl mb-4 text-base">
-                  To apply for a hearing about a renting dispute (e.g not providing repairs, excessive rental increases)<br></br>
-                  <span className=" font-semibold underline">1300 55 81 81 </span><br></br>
-                  <span className=" font-semibold underline">
-                    <a href="https://www.vcat.vic.gov.au/case-types/residential-tenancies" class=" underline">vcat.vic.giv.au/renting</a>
-                  </span>
-                </h2>
-                <h2 className="font-bold">
-                  Residential Tenancies Bond Authority (RTBA)
-                </h2>
-                <h2 className=" max-w-2xl mb-4 text-base">
-                  To look up your bond, transfer a bond or arrange a bond refund<br></br>
-                  <span className=" font-semibold underline">1300 137 164 </span><br></br>
-                  <span className=" font-semibold underline">
-                    <a href="https://rentalbonds.vic.gov.au/" class=" underline">rentalbonds.vic.giv.au</a>
-                  </span>
-                </h2>
-              </div>
-            </div>
-            <button onClick={toggleCard}>
+            <div className="flex flex-col justify-center items-center p-8 mb-4 text-center bg-PopupPurple rounded-xl">
               <Image
-                src="/close.svg"
-                alt="close"
-                width={80}
-                height={80}
-                className=" hover:opacity-70 transition duration-1000 ease-in-out"
+                src= "/secure-shield.png"
+                alt="shield"
+                width={120}
+                height={120}
+                className="mb-2"
               />
-            </button>
+              <div className="flex flex-col justify-center items-center">
+                <h2 className=" font-bold text-3xl">We value your privacy</h2>
+                <br></br>
+                <p className=" text-lg">
+                  At My Rental Compass, we respect your privacy.<br></br> 
+                  We do not collect or store your responses on our website,<br></br>
+                  nor do we track your activities.
+                </p>
+              </div>
+              <br></br>
+              <button className="text-2xl font-bold call-action-button mb-2" onClick={toggleCard}>
+                Okay, got it!
+              </button>
+              <Link href="/privacy"> 
+                <button>
+                  <p className="underline hover:text-ButtonHoverYellow">Learn more</p>
+                </button>
+              </Link>
+            </div>
           </div>
         )}
       </main>

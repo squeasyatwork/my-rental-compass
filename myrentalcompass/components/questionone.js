@@ -60,7 +60,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
         </div>
         <div>
           <button
-            className="text-sm sm:text-sm md:text-md lg:text-xl font-bold call-action-button"
+            className="text-sm sm:text-sm md:text-md lg:text-xl font-bold call-action-button "
             onClick={validateInput}
           >
             Start
