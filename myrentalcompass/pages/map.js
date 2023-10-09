@@ -6,11 +6,28 @@ import dynamic from "next/dynamic";
 import Navbar from "~/pages/helperpages/navbar.js";
 import Footer from "~/pages/helperpages/footer.js";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['common', 'dict3'], i18nextConfig)),
+    },
+  }
+}
+
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
 });
 
 function Map() {
+  const { t } = useTranslation();
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   // create a loading state
   const [mapLoading, setMapLoading] = useState(true);
@@ -43,7 +60,7 @@ function Map() {
       </Head>
 
       <div className="font-istok flex flex-col min-h-screen bg-white text-black">
-        <Navbar activePage="Find where to live" /> {/* Navbar */}
+        <Navbar activePage="Find where to live" className="z-10" /> {/* Navbar */}
         {/* Title and Text Section */}
         <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
           <h2 className="text-3xl font-bold pb-1">
@@ -161,55 +178,55 @@ function Map() {
             </div>
           </div>
           {(
-          <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
-          style={{
-            transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
-            opacity: showCard ? "1" : "0",
-            visibility: showCard ? "visible" : "hidden"
-          }}>
-            <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
-              <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
-                <p className=" text-xl font-bold">
-                  Did you know?<br></br>
-                  One of the most common scams targeting<br></br>
-                  international students is rental fraud
-                </p>
-                <Image
-                  src= "/woman.gif"
-                  alt= "woman"
-                  width={120}
-                  height={120}
-                />
-              </div>
-              <div className="flex flex-col justify-center items-center">
-                <h2 className=" font-bold text-lg">Educate yourself now to avoid falling for dodgy rental deals</h2>
-                <br></br>
-                <div className=" border-b-2 border-MerciPurple pb-6">
-                  <div className="flex flex-col justify-center items-center mb-4">
-                    <p>Learn more about the rental process in Melbourne</p>
-                    <Link href="/resources"> 
-                      <button className=" bg-ResourceButtonYellow call-action-button text-md">
-                        <p>What you need to do</p>
-                      </button>
-                    </Link>
-                  </div>
-                  <div className="flex flex-col justify-center items-center">
-                    <p>Learn more about the rental laws and your rights</p>
-                    <Link href="/rights"> 
-                      <button className=" bg-ResourceButtonYellow call-action-button text-md">
-                        <p>What you need to know</p>
-                      </button>
-                    </Link>
+            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
+              style={{
+                transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                opacity: showCard ? "1" : "0",
+                visibility: showCard ? "visible" : "hidden"
+              }}>
+              <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
+                <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
+                  <p className=" text-xl font-bold">
+                    Did you know?<br></br>
+                    One of the most common scams targeting<br></br>
+                    international students is rental fraud
+                  </p>
+                  <Image
+                    src="/woman.gif"
+                    alt="woman"
+                    width={120}
+                    height={120}
+                  />
+                </div>
+                <div className="flex flex-col justify-center items-center">
+                  <h2 className=" font-bold text-lg">Educate yourself now to avoid falling for dodgy rental deals</h2>
+                  <br></br>
+                  <div className=" border-b-2 border-MerciPurple pb-6">
+                    <div className="flex flex-col justify-center items-center mb-4">
+                      <p>Learn more about the rental process in Melbourne</p>
+                      <Link href="/resources">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                          <p>What you need to do</p>
+                        </button>
+                      </Link>
+                    </div>
+                    <div className="flex flex-col justify-center items-center">
+                      <p>Learn more about the rental laws and your rights</p>
+                      <Link href="/rights">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                          <p>What you need to know</p>
+                        </button>
+                      </Link>
+                    </div>
                   </div>
                 </div>
+                <br></br>
+                <button className="text-2xl font-bold call-action-button mb-4" onClick={toggleCard}>
+                  Continue
+                </button>
               </div>
-              <br></br>
-              <button className="text-2xl font-bold call-action-button mb-4" onClick={toggleCard}>
-                Continue
-              </button>
             </div>
-          </div>
-        )}
+          )}
         </section>
         <Footer /> {/* Footer */}
       </div>

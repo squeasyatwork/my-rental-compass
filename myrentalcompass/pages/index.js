@@ -105,7 +105,7 @@ export default function LandingPage() {
       </Head>
 
       <main className="font-inter flex flex-col min-h-screen text-black">
-        <Navbar activePage="Home" className="z-10" option1={t("common:menu_item_1")} option2={t("common:menu_item_2")} option3={t("common:menu_item_3")} option4={t("common:menu_item_4")} option5={t("common:menu_item_5")} />
+        <Navbar activePage="Home" className="z-10" />
 
         <div className="relative h-3/5 w-full">
           <img

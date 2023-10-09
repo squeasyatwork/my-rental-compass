@@ -99,7 +99,7 @@ export default function Rights() {
         <meta name="description" content="What you need to do." />
       </Head>
 
-      <Navbar activePage="What you need to know" className="z-10" option1={t("common:menu_item_1")} option2={t("common:menu_item_2")} option3={t("common:menu_item_3")} option4={t("common:menu_item_4")} option5={t("common:menu_item_5")} />
+      <Navbar activePage="What you need to know" className="z-10" />
 
       <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
         <div className="relative flex flex-col">
