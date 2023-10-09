@@ -6,9 +6,25 @@ import React from "react";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
+
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['common', 'dict2'], i18nextConfig)),
+    },
+  }
+}
 
 export const Section = ({
   id,
@@ -79,15 +95,17 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
 };
 
 export default function LandingPage() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Home</title>
+        <title>{t("dict2:index_tab_title")}</title>
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
       <main className="font-inter flex flex-col min-h-screen text-black">
-        <Navbar activePage="Home" className="z-10" />
+        <Navbar activePage="Home" className="z-10" option1={t("common:menu_item_1")} option2={t("common:menu_item_2")} option3={t("common:menu_item_3")} option4={t("common:menu_item_4")} option5={t("common:menu_item_5")} />
 
         <div className="relative h-3/5 w-full">
           <img

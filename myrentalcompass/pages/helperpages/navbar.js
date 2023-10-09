@@ -1,52 +1,45 @@
 import Link from "next/link";
 import Image from "next/image";
+import LanguageSelector from "~/components/LanguageSelector";
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
+import i18nextConfig from '~/next-i18next.config';
+
+export async function getStaticProps(context) {
+  const { locale } = context;
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'], i18nextConfig)),
+    },
+  }
+}
 
 const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do", option3 = "What you need to know", option4 = "What is liveability", option5 = "Find a suburb to live" }) => {
-  const isMapPageActive = activePage === "Find where to live";
+  const { t } = useTranslation();
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full py-4 px-4 flex items-center justify-between bg-MapNavGray shadow-md z-50`}
+      className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-MapNavGray shadow-md z-50`}
     >
-      <div className="flex justify-between w-full items-center">
-        <div className="flex justify-center items-center">
-          <Link href="/">
-            <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
-              <Image
-                src="/mrc-logov3.png"
-                alt="MRC Logo"
-                width={140}
-                height={140}
-              />
-            </div>
-          </Link>
-        </div>
-        <div className="flex items-center justify-between lg:space-x-16 md:space-x-10 sm:space-x-6">
-          <NavBarButton text="Home" href="/" isActive={activePage === "Home"} />
-          <NavBarButton
-            text="What you need to do"
-            href="/resources"
-            isActive={activePage === "What you need to do"}
-          />
-          <NavBarButton
-            text="What you need to know"
-            href="/rights"
-            isActive={activePage === "What you need to know"}
-          />
-          <NavBarButton
-            text="What is liveability"
-            href="/liveability"
-            isActive={activePage === "What is liveability"}
-          />
-        </div>
-        <div className="flex items-center justify-between">
-          <NavBarButton
-            text="Find a suburb to live"
-            special={true}
-            href="/map"
-            isActive={activePage === "Find where to live"}
-          />
-        </div>
+      <div className="flex justify-between max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-24">
+        <Link href="/">
+          <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
+            <Image
+              src="/mrc-logov3.png"
+              alt="MRC Logo"
+              width={200}
+              height={200}
+            />
+          </div>
+        </Link>
+        <NavBarButton text={option1} href="/" isActive={activePage === "Home"} />
+        <NavBarButton text={option2} href="/resources" isActive={activePage === "What you need to do"} />
+        <NavBarButton text={option3} href="/rights" isActive={activePage === "What you need to know"} />
+        <NavBarButton text={option4} href="/liveability" isActive={activePage === "What is liveability"} />
 
+        <div className="flex items-center justify-between">
+          <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
+          <NavBarButton text={option5} special={true} href="/map" isActive={activePage === "Find where to live"} />
+        </div>
       </div>
     </nav>
   );

@@ -11,18 +11,19 @@ import QuizModal from "~/components/QuizModal.js";
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
 import { t } from "i18next";
 import { useRouter } from "next/router.js";
 
 
-export async function getServerSideProps(context) {
+export async function getStaticProps(context) {
   // extract the locale identifier from the URL
   const { locale } = context
 
   return {
     props: {
       // pass the translation props to the page component
-      ...(await serverSideTranslations(locale, ['common', 'resources'])),
+      ...(await serverSideTranslations(locale, ['common', 'resources'], i18nextConfig)),
     },
   }
 }
