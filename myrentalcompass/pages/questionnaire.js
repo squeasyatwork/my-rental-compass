@@ -94,11 +94,6 @@ function Questionnaire() {
                 handlePrevious={handlePrevious}
                 selectedChoices={selectedChoices}
                 handleChoice={handleChoice}
-              />
-            )}
-            {currentQuestion === "q3" && (
-              <QuestionThree
-                handlePrevious={handlePrevious}
                 handleUniChoice={handleUniChoice}
                 sendInput={sendInput}
               />

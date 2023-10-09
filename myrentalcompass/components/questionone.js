@@ -68,7 +68,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
         </div>
       </div>
       {showWarning && (
-        <p style={{ color: "red" }}>Please enter a value between 370-2000.</p>
+        <p className=" mt-2" style={{color: "red"}}>Please enter a value between 370-2000.</p>
       )}
     </div>
   );

@@ -5,7 +5,6 @@ import Image from "next/image";
 import UniversityDropdown from "../components/Dropdown";
 
 const QuestionTwo = ({
-  handleNext,
   handlePrevious,
   selectedChoices,
   handleChoice,
@@ -23,6 +22,12 @@ const QuestionTwo = ({
       return false;
     }
     return true;
+  };
+
+  const handleClickNext = () => {
+    if (validateForm()) {
+      sendInput();
+    }
   };
 
   const [showDetails1, setShowDetails1] = useState(false);
@@ -77,7 +82,7 @@ const QuestionTwo = ({
                   opacity: showDetails1 ? "1" : "0",
                   visibility: showDetails1 ? "visible" : "hidden"
                 }}>
-                <div className="p-6 mb-4 text-left bg-FooterButtonYellow rounded-xl w-fit h-fit">
+                <div className="p-4 mb-2 text-left bg-FooterButtonYellow rounded-xl w-fit h-fit">
                   <div className="flex flex-col justify-center items-center font-bold text-3xl text-HeadingTextGray border-b-2 border-MainButtonYellow">
                     <h2>Feel Confused?</h2>
                   </div>
@@ -443,7 +448,7 @@ const QuestionTwo = ({
           <div
             className="flex flex-col justify-center font-istok font-normal"
           >
-            <div className="flex flex-col justify-center bg-white rounded-xl p-6">
+            <div className="flex flex-col justify-center bg-BackgroundWhite rounded-xl p-6">
               <h2 className="justify-center items-center text-center text-xl mb-2">
                 If you want to live near your university,<br></br>
                 please select your university from the list below.
@@ -510,7 +515,7 @@ const QuestionTwo = ({
           </div>
         </div>
       </div>
-      <div className="flex w-full sm:w-full md:w-4/5 lg:w-full items-center justify-between">
+      <div className="flex w-full sm:w-full md:w-4/5 lg:w-full items-center justify-between mb-2">
         <div>
           <button
             className="text-xl font-bold call-action-button"
@@ -522,7 +527,7 @@ const QuestionTwo = ({
         <div>
           <button
             className="text-xl font-bold call-action-button"
-            onClick={sendInput}
+            onClick={handleClickNext}
           >
             Show Result
           </button>
@@ -530,7 +535,7 @@ const QuestionTwo = ({
       </div>
       {error && (
         <div
-          className={`speech-bubble ${error ? "show" : ""}`}
+          className={`speech-bubble ${error ? "show" : ""} text-base`}
           style={{ color: "red" }}
         >
           {error}
