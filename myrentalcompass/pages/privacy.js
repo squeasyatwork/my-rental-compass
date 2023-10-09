@@ -40,7 +40,7 @@ export default function Rights() {
                 identify you personally, such as your name, email address, phone number, or physical address. 
             </p>
             <p className=" max-w-7xl">
-                2. Automatic Data Collection: Like many websites, we may collect certain non-personal data automatically, including your IP address, browser type, and operating system. This information is collected for the sole purpose of improving our website's performance, security, and user experience. 
+                2. Automatic Data Collection: Like many websites, we may collect certain non-personal data automatically, including your IP address, browser type, and operating system. This information is collected for the sole purpose of improving our website&apos;s performance, security, and user experience. 
                 
             </p>
             <p className="max-w-7xl">
