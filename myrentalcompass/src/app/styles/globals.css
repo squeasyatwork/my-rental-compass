@@ -74,25 +74,13 @@ body {
   @apply font-istok text-NavTextGray;
 }
 
-/* For components used in questionnaire page */
 @layer components {
-  /*.fade-in{
-    opacity: 1;
-    transition: opacity 0.3s ease-in;
-  }
-
-  .fade-out{
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.3s ease-out;
-  }*/
-
   .likert-option {
     @apply space-x-4;
   }
 
   .likert-label {
-    @apply cursor-pointer text-center p-2 bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12; 
+    @apply cursor-pointer text-center p-2 bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12;
     transition: background-color 0.2s, transform 0.2s;
   }
 
@@ -138,13 +126,12 @@ body {
     content: "";
     position: absolute;
     width: 6px;
-    /* background-color: black; */
     top: 0;
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-  }   
-  
+  }
+
   .divider_rights {
     position: relative;
     max-width: 20000px;
@@ -152,15 +139,14 @@ body {
   }
   .divider_rights::after {
     @apply bg-MainButtonYellow;
-    content: '';
+    content: "";
     position: absolute;
     width: 4px;
-    /* background-color: black; */
     top: 0;
     bottom: 0;
     left: 50%;
     margin-left: -3px;
-  }   
+  }
 
   .arrow {
     border: solid black;
@@ -215,5 +201,39 @@ body {
 
   .custom-div-icon span {
     @apply absolute w-5.5 text-xl left-0 right-0 mx-auto mt-2.5 text-center;
+  }
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-3xl {
+  font-size: 1.875rem;
+}
+
+.h1-container {
+  display: inline-block; 
+  width: fit-content;
+  position: relative;
+  padding-left: 1%; /* Add 5% padding on the left side */
+  padding-right: 1%; /* Add 5% padding on the right side */
+}
+
+.highlighter-line {
+  width: 100%;
+  height: 13px;
+  background-color: rgba(255,205,41, 0.7); 
+  position: absolute;
+  bottom: -5%;
+  left: 0;
+  transform-origin: left;
+  transform: scaleX(0);
+  animation: drawLine 1s ease-in-out forwards;
+}
+
+@keyframes drawLine {
+  to {
+    transform: scaleX(1);
   }
 }
