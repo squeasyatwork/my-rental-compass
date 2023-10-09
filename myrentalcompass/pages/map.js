@@ -49,11 +49,13 @@ function Map() {
           <h2 className="text-3xl font-bold pb-1">
             Liveability index of Melbourne suburbs
           </h2>
-          <h2 className="text-xl py-1 w-2/3">
-            {
-              "The interactive map below shows each suburb's liveability index based on 4 key criteria: safety, affordability, accessibility, and wellness. Click on a suburb below to get more information!"
-            }
-          </h2>
+          <p className="text-xl py-1 w-2/3">
+            The interactive map below shows each suburb&apos;s average rental amount as well a liveability index based on 4 key criteria: safety, affordability, accessibility and wellness.
+          </p>
+          <p className="text-xl py-1 w-2/3">To learn more about liveability and how it is calculated, see our &apos;
+            <span>
+              <a href="/liveability" className="underline hover:text-ButtonHoverYellow">What is liveability</a>
+            </span>&apos; page</p>
         </section>
         {/* Map Section */}
         <section className="flex-grow flex flex-col h-full">
