@@ -25,7 +25,7 @@ function Questionnaire() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowCard(true);
-    }, 300);
+    }, 150);
     return () => clearTimeout(timer);
   }, []);
 
