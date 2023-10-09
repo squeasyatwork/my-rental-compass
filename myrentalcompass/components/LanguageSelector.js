@@ -6,7 +6,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 
 
-const LanguageSelector = () => {
+const LanguageSelector = ({ text }) => {
     const { t, i18n } = useTranslation();
     const router = useRouter();
     const [languageModalOpen, setLanguageModalOpen] = useState(false);
@@ -37,99 +37,67 @@ const LanguageSelector = () => {
                     style={{ width: "38%" }}>
                     <div className="relative flex flex-col justify-center items-center space-y-4 space-x-4 w-full h-full">
                         <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow -mt-1 p-2 pb-4 mb-4">
-                            Choose your language
+                            {text}
                         </div>
-                        <div className="flex justify-between">
+
+                        <button onClick={() => {
+                            router.push(
+                                {
+                                    pathname: router.pathname,
+                                    query: router.query,
+                                },
+                                null,
+                                { locale: "en" }
+                            );
+                            setLanguageModalOpen(false);
+                        }} className="text-HeadingTextGray font-istok font-semibold w-3/5 text-2xl p-2 rounded-lg hover:bg-MainButtonYellow/10 hover:shadow-md duration-150">
+                            EN | English
+                        </button>
+
+                        <button onClick={() => {
+                            router.push(
+                                {
+                                    pathname: router.pathname,
+                                    query: router.query,
+                                },
+                                null,
+                                { locale: "hi" }
+                            );
+                            setLanguageModalOpen(false);
+                        }} className="text-HeadingTextGray font-istok font-semibold w-3/5 text-2xl p-2 rounded-lg hover:bg-MainButtonYellow/10 hover:shadow-md duration-150">
+                            HI | हिंदी
+                        </button>
+                        <button onClick={() => {
+                            router.push(
+                                {
+                                    pathname: router.pathname,
+                                    query: router.query,
+                                },
+                                null,
+                                { locale: "ms" }
+                            );
+                            setLanguageModalOpen(false);
+                        }} className="text-HeadingTextGray font-istok font-semibold w-3/5 text-2xl p-2 rounded-lg hover:bg-MainButtonYellow/10 hover:shadow-md duration-150">
+                            MS | Melayu
+                        </button>
+                        <button onClick={() => {
+                            router.push(
+                                {
+                                    pathname: router.pathname,
+                                    query: router.query,
+                                },
+                                null,
+                                { locale: "zh" }
+                            );
+                            setLanguageModalOpen(false);
+                        }} className="text-HeadingTextGray font-istok font-semibold w-3/5 text-2xl p-2 rounded-lg hover:bg-MainButtonYellow/10 hover:shadow-md duration-150">
+                            ZH | 中文
+                        </button>
 
 
-                            <div className="flex flex-col bg-black items-center justify-center pt-2 px-4 mr-4 rounded-md hover:shadow-md hover:bg-MainButtonYellow/10 duration-150">
-                                <button onClick={() => {
-                                    router.push(
-                                        {
-                                            pathname: router.pathname,
-                                            query: router.query,
-                                        },
-                                        null,
-                                        { locale: "en" }
-                                    );
-                                    setLanguageModalOpen(false);
-                                }}>
-                                    <Image src="/en_flag.svg" alt="EN flag" height={100} width={100} />
-                                    <div className="text-HeadingTextGray font-istok font-semibold"
-                                    >
-                                        en | English
-                                    </div>
-                                </button>
-                            </div>
 
-
-                            <div className="flex flex-col bg-black items-center justify-center pt-2 px-4 ml-4 rounded-md hover:shadow-md hover:bg-MainButtonYellow/10 duration-150">
-                                <button onClick={() => {
-                                    router.push(
-                                        {
-                                            pathname: router.pathname,
-                                            query: router.query,
-                                        },
-                                        null,
-                                        { locale: "hi" }
-                                    );
-                                    setLanguageModalOpen(false);
-                                }}>
-                                    <Image src="/hi_flag.svg" alt="HI flag" height={100} width={100} />
-                                    <div className="text-HeadingTextGray font-istok font-semibold"
-                                    >
-                                        hi | हिंदी
-                                    </div>
-                                </button>
-                            </div>
-
-
-                        </div>
-                        <div className="flex justify-between space-7">
-                            <div className="flex flex-col bg-black items-center justify-center pt-2 px-4 mr-4 rounded-md hover:shadow-md hover:bg-MainButtonYellow/10 duration-150">
-                                <button onClick={() => {
-                                    router.push(
-                                        {
-                                            pathname: router.pathname,
-                                            query: router.query,
-                                        },
-                                        null,
-                                        { locale: "ms" }
-                                    );
-                                    setLanguageModalOpen(false);
-                                }}>
-                                    <Image src="/ms_flag.svg" alt="MS flag" height={100} width={100} />
-                                    <div className="text-HeadingTextGray font-istok font-semibold"
-                                    >
-                                        ms | Melayu
-                                    </div>
-                                </button>
-                            </div>
-                            <div className="flex flex-col bg-black items-center justify-center pt-2 px-4 ml-4 rounded-md hover:shadow-md hover:bg-MainButtonYellow/10 duration-150">
-                                <button onClick={() => {
-                                    router.push(
-                                        {
-                                            pathname: router.pathname,
-                                            query: router.query,
-                                        },
-                                        null,
-                                        { locale: "zh" }
-                                    );
-                                    setLanguageModalOpen(false);
-                                }}>
-                                    <Image src="/zh_flag.svg" alt="MS flag" height={100} width={100} />
-                                    <div className="text-HeadingTextGray font-istok font-semibold"
-                                    >
-                                        zh | 中国人
-                                    </div>
-                                </button>
-                            </div>
-                        </div>
                     </div>
                 </div>
-
-
-
                 <button onClick={() => setLanguageModalOpen(false)}>
                     <Image
                         src="/close.svg"
@@ -140,6 +108,10 @@ const LanguageSelector = () => {
                     />
                 </button>
             </div>
+
+
+
+
         </div >
     )
     // return (

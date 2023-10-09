@@ -3,7 +3,26 @@ import Image from "next/image";
 
 import LanguageSelector from "~/components/LanguageSelector";
 
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
+import { useTranslation } from 'next-i18next'
+import i18nextConfig from '~/next-i18next.config';
+import { t } from "i18next";
+import { useRouter } from "next/router.js";
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(locale, ['common'], i18nextConfig)),
+    },
+  }
+}
+
 const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do", option3 = "What you need to know", option4 = "What is liveability", option5 = "Find a suburb to live" }) => {
+  const { t } = useTranslation();
   const isMapPageActive = activePage === "Find where to live";
   return (
     <nav
@@ -38,7 +57,7 @@ const NavBar = ({ activePage, option1 = "Home", option2 = "What you need to do",
         />
 
         <div className="flex items-center justify-between">
-          <LanguageSelector className="mr-8"></LanguageSelector>
+          <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
           <NavBarButton
             text={option5}
             special={true}
