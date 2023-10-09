@@ -202,7 +202,7 @@ const QuestionTwo = ({
                 </div>
                 <div className="text-xl flex flex-col p-1 bg-MainButtonYellow/10">
                   <div className="flex justify-start">
-                    <button onClick={toggleDetails2}>
+                    <button onClick={toggleDetails3}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
@@ -279,7 +279,7 @@ const QuestionTwo = ({
                 </div>
                 <div className="text-xl flex flex-col p-1 ">
                   <div className="flex justify-start">
-                    <button onClick={toggleDetails2}>
+                    <button onClick={toggleDetails4}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
@@ -350,7 +350,7 @@ const QuestionTwo = ({
                 </div>
                 <div className="text-xl flex flex-col p-1 bg-MainButtonYellow/10">
                   <div className="flex justify-start">
-                    <button onClick={toggleDetails2}>
+                    <button onClick={toggleDetails5}>
                       <Image
                         src= "/information-icon.svg"
                         alt="information"
