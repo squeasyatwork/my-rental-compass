@@ -16,10 +16,8 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import i18nextConfig from "~/next-i18next.config";
 
-
 // export async function getStaticProps(context) {
 //   // extract the locale identifier from the URL
-
 
 //   return {
 //     props: {
@@ -62,24 +60,28 @@ export const getServerSideProps = async (context) => {
       let data = await dbResponse.json();
       return {
         props: {
-          data, contextQuery, ...(await serverSideTranslations(
+          data,
+          contextQuery,
+          ...(await serverSideTranslations(
             locale,
             ["common", "recommendations"],
             i18nextConfig
-          ))
-        }
+          )),
+        },
       };
     }
   }
 
   return {
     props: {
-      data: null, contextQuery: {}, ...(await serverSideTranslations(
+      data: null,
+      contextQuery: {},
+      ...(await serverSideTranslations(
         locale,
         ["common", "recommendations"],
         i18nextConfig
-      ))
-    }
+      )),
+    },
   };
 };
 
@@ -135,16 +137,23 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const [universitySuburb, setUniversitySuburb] = useState(null);
 
   const sendInput = () => {
+    let suburb = "";
     if (inputValues.university) {
-      const suburb = inputValues.university.split(",").pop().trim();
+      suburb = inputValues.university.split(",").pop().trim();
+      if (suburb === "CBD") {
+        suburb = "Melbourne";
+      }
       setUniversitySuburb(suburb);
     } else {
       setUniversitySuburb(null);
     }
 
+    const updatedInputValues = { ...inputValues };
+    updatedInputValues.university = suburb;
+
     router.push({
       pathname: "/recommendations",
-      query: inputValues,
+      query: updatedInputValues,
     });
   };
 
@@ -161,7 +170,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     t("recommendations:transport_slider"),
     t("recommendations:park_slider"),
     t("recommendations:crime_slider"),
-    t("recommendations:road_slider")
+    t("recommendations:road_slider"),
   ];
 
   return (
@@ -179,36 +188,34 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
             <button onClick={toggleDetails1}>
-              <Image
-                src="/query.gif"
-                alt="query"
-                width={50}
-                height={50}
-              />
+              <Image src="/query.gif" alt="query" width={50} height={50} />
             </button>
           </div>
-          <div className=" p-4 text-lg text-left text-LongContentGray bg-FooterButtonYellow rounded-xl"
+          <div
+            className=" p-4 text-lg text-left text-LongContentGray bg-FooterButtonYellow rounded-xl"
             style={{
-              transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+              transition:
+                "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
               opacity: showDetails1 ? "1" : "0",
               visibility: showDetails1 ? "visible" : "hidden",
-              maxHeight: showDetails1 ? "1000px" : "0"
-            }}>
+              maxHeight: showDetails1 ? "1000px" : "0",
+            }}
+          >
             <div className="font-bold text-2xl text-HeadingTextGrayp-6 rounded-xl">
               <h2>● How we calculated your score</h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity index
-                score that ranks the suburbs based on your responses to the
-                questionnaire you just finished.
+                &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity
+                index score that ranks the suburbs based on your responses to
+                the questionnaire you just finished.
                 <br />
                 &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
                 our page &apos;What is Liveability&apos;.
               </p>
               <h2>● How to read the map</h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
-                highest liveability score) are in dark green. Those with the
-                lowest are dark pink.
+                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match
+                (i.e. highest liveability score) are in dark green. Those with
+                the lowest are dark pink.
               </p>
             </div>
           </div>
@@ -419,7 +426,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                 className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96"
                 onClick={() => router.push("/resources")}
               >
-                Click to see our step-by-step guide to the rental process in Melbourne
+                Click to see our step-by-step guide to the rental process in
+                Melbourne
               </button>
             </div>
           </div>
