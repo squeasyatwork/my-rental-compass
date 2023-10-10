@@ -6,9 +6,29 @@ import React from "react";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
+
 const imageLoader = ({ src, width, quality }) => {
   return `https://www.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context;
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(
+        locale,
+        ["common", "dict2"],
+        i18nextConfig
+      )),
+    },
+  };
+}
 
 export const Section = ({
   id,
@@ -50,7 +70,7 @@ export const Section = ({
   );
 };
 
-export const ResourceSection = ({ id, imageSrc, altText, link }) => {
+export const ResourceSection = ({ id, imageSrc, buttonText, altText, link }) => {
   return (
     <div
       id={id}
@@ -70,7 +90,7 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
       <div className="mt-auto flex items-center justify-center pb-4">
         <Link href={link}>
           <button className="call-action-button text-NavTextGray font-bold bg-ResourceButtonYellow rounded-full w-40">
-            Read more
+            {buttonText}
           </button>
         </Link>
       </div>
@@ -79,10 +99,12 @@ export const ResourceSection = ({ id, imageSrc, altText, link }) => {
 };
 
 export default function LandingPage() {
+  const { t } = useTranslation();
+
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Home</title>
+        <title>{t("dict2:index_tab_title")}</title>
         <meta name="description" content="Welcome to MyRentalCompass." />
       </Head>
 
@@ -91,98 +113,112 @@ export default function LandingPage() {
 
         <div className="relative h-3/5 w-full">
           <img
-            src="/liveable-cities.jpeg"
+            src="/banner-homepage.jpg"
             alt="Description of the image"
-            className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
+            className="absolute inset-0 object-cover object-center w-full h-full z-0 shadow-md"
+            style={{
+              filter: "brightness(60%)",
+            }}
           />
-          <div className="relative z-10 flex flex-col justify-between h-full text-BackgroundWhite">
-            <div className="flex flex-col items-center space-y-6 mt-36">
+          <div className="relative z-10 flex flex-col justify-center h-full text-BackgroundWhite space-y-6">
+            <div className="flex flex-col items-center space-y-6 flex-grow">
               <div className="flex flex-col justify-center">
-                <h1 className="text-5xl font-bold text-center">
-                  Everyone has the right to
-                </h1>
-                <h1 className="text-5xl font-bold text-center mt-4">
-                  affordable, safe and liveable housing
-                </h1>
-                <h2 className="text-2xl font-medium text-center mt-16">
-                  We are here to help students in Melbourne to
-                </h2>
-                <h2 className="text-2xl font-medium text-center">
-                  find the right suburb to live
+                <div className="text-center">
+                  <div className="h1-container">
+                    <h1 className="text-6xl font-bold mt-16 relative z-10 text-center whitespace-nowrap max-w-5/5">
+                      {t("dict2:index_banner_title")}
+                    </h1>
+                    <div className="highlighter-line"></div>
+                  </div>
+                </div>
+                <h2 className="text-4xl font-medium text-center mt-14 mb-6">
+                  {t("dict2:index_banner_title_byline_1")}
+                  <div className="mb-4" />
+                  {t("dict2:index_banner_title_byline_2")}
                 </h2>
               </div>
               <div className="flex items-center justify-center">
                 <Link href="/map">
-                  <button className="call-action-button w-auto p-4 mt-6 text-base sm:text-base md:text-lg lg:text-xl">
-                    Find a suburb to live
+                  <button className="call-action-button w-auto p-6 mt-6 text-2xl font-bold rounded-3xl">
+                    {t("dict2:index_banner_map_button")}
                   </button>
                 </Link>
               </div>
             </div>
             <div className="flex flex-col items-end pb-4 pr-4">
-              <h2 className="text-xs font-normal">
-                Picture credit: Australian Urban Observatory
-              </h2>
             </div>
           </div>
         </div>
-
         <div className="bg-white px-6 pb-20">
           <h1 className="index-page-section-heading mt-16 mb-6">
-            Your questions answered
+            {t("dict2:index_yqa_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
             <Section
               id="yqa-section-1"
               imageSrc="/looking-to-rent-icon.jpeg"
               altText="looking-to-rent-icon"
-              subheading="Looking to rent?"
-              content="Finding a place to live in Victoria can be very frustrating. We know, because we have been there too. |||That is why we are driven to help young people like you to make an informed decision in finding a place to call home in Victoria."
-              link="/questionnaire"
-              btnText="Use our AI tool to find where to live"
+              subheading={t("dict2:index_yqa_section_subheading_1")}
+              content={t("dict2:index_yqa_section_description_1")}
+              link="/resources"
+              btnText={t("dict2:index_yqa_section_button_1")}
             />
             <Section
               id="yqa-section-2"
               imageSrc="/curious-icon.jpeg"
               altText="curious-icon"
-              subheading="Curious what it means?"
-              content="Not everyone is born to be a lawyer. Tenancy laws and contract can be very confusing, especially if it is your first time.|||We have curated an easy-to-follow guide to help you understand your rights and responsibilities as a renter."
+              subheading={t("dict2:index_yqa_section_subheading_2")}
+              content={t("dict2:index_yqa_section_description_2")}
               link="/rights"
-              btnText="Get to know your rights as a renter"
+              btnText={t("dict2:index_yqa_section_button_2")}
             />
             <Section
               id="yqa-section-3"
               imageSrc="/liveability-icon.jpeg"
               altText="liveability-icon"
-              subheading="What is liveability?"
-              content="Living in a safe and liveable neighborhood is everyone's dream. But do you know what makes a suburb liveable? Researchers have done many studies on this, and we are putting them here to help you make an informed decision when renting in Melbourne."
+              subheading={t("dict2:index_yqa_section_subheading_3")}
+              content={t("dict2:index_yqa_section_description_3")}
               link="/liveability"
-              btnText="Read more about liveability"
+              btnText={t("dict2:index_yqa_section_button_3")}
             />
           </div>
 
           <h1 className="index-page-section-heading pt-12 pb-6">
-            Other Resources
+            {t("dict2:index_or_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
             <ResourceSection
               id="or-section-1"
               imageSrc="/or-plan-melb-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-plan-melb-picture"
               link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
             />
             <ResourceSection
               id="or-section-2"
               imageSrc="/or-unsdg-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-unsdg-picture"
               link="https://sdgs.un.org/goals/goal11"
             />
             <ResourceSection
               id="or-section-3"
               imageSrc="/or-crt-logo.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
               altText="or-crt-picture"
               link="https://www.rentingcommissioner.vic.gov.au/"
             />
+          </div>
+        </div>
+        <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
+          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
+          <div className="flex">
+            <div className="flex flex-col">
+              <a href="https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm Image by fxquadro on Freepik</a>
+              <a href="https://www.flaticon.com/free-icons/home" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icons/home Home icons created by Freepik - Flaticon </a>
+              <a href="https://www.flaticon.com/free-icons/playground" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icons/playground Playground icons created by Bamicon - Flaticon </a>
+            </div>
+            <div className="flex flex-col"></div>
           </div>
         </div>
         <Footer />

@@ -36,7 +36,8 @@ module.exports = {
         MapMintGreen: '#51c8ac',
         BorderGreen: "#05FFD7",
         MerciPurple: "#6864F7",
-        LongContentGray: "#252525"
+        LongContentGray: "#252525",
+        PopupPurple: "#C2C8FF",
       },
     },
   },

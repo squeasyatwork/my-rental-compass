@@ -3,13 +3,33 @@ import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import { style } from "d3";
+import DataContext from "../components/DataContext.js";
+import Image from "next/image.js";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
+
+// export async function getStaticProps(context) {
+//   // extract the locale identifier from the URL
+
+//   return {
+//     props: {
+//       // pass the translation props to the page component
+//       ...(await serverSideTranslations(
+//         locale,
+//         ["common", "resources"],
+//         i18nextConfig
+//       )),
+//     },
+//   };
+// }
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -20,6 +40,7 @@ export const config = {
 };
 
 export const getServerSideProps = async (context) => {
+  const { locale } = context;
   if (context.query) {
     let contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
@@ -36,33 +57,68 @@ export const getServerSideProps = async (context) => {
       dbResponse.ok &&
       dbResponse.headers.get("content-type").includes("application/json")
     ) {
-      let rankedSuburbs = await dbResponse.json();
-      return { props: { rankedSuburbs, contextQuery } };
+      let data = await dbResponse.json();
+      return {
+        props: {
+          data,
+          contextQuery,
+          ...(await serverSideTranslations(
+            locale,
+            ["common", "recommendations"],
+            i18nextConfig
+          )),
+        },
+      };
     }
   }
 
-  return { props: { rankedSuburbs: null, contextQuery: {} } };
+  return {
+    props: {
+      data: null,
+      contextQuery: {},
+      ...(await serverSideTranslations(
+        locale,
+        ["common", "recommendations"],
+        i18nextConfig
+      )),
+    },
+  };
 };
 
-export default function Recommendations({
-  rankedSuburbs = null,
-  contextQuery = {},
-}) {
+export default function Recommendations({ data = null, contextQuery = {} }) {
+  const contextValues = useContext(DataContext);
+
+  const [showDetails1, setShowDetails1] = useState(false);
+  const toggleDetails1 = () => {
+    setShowDetails1(!showDetails1);
+  };
+
+  const { rent, transport, park, crime, road, university } =
+    contextValues.data || {};
+
+  const { rankedSuburbs = [] } = data || {};
+
   const router = Router.useRouter();
 
+  const { t } = useTranslation();
+
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 400,
-    // affordability: contextQuery.affordabilityChoice || 3,
-    transport: contextQuery.transportChoice || 3,
-    park: contextQuery.parkChoice || 3,
-    crime: contextQuery.crimeChoice || 3,
-    road: contextQuery.roadChoice || 3,
-    university: contextQuery.uniChoice || "",
+    rent: rent || contextQuery.rentChoice || 400,
+    transport: transport || contextQuery.transportChoice || 3,
+    park: park || contextQuery.parkChoice || 3,
+    crime: crime || contextQuery.crimeChoice || 3,
+    road: road || contextQuery.roadChoice || 3,
+    university: university || contextQuery.uniChoice || "",
   });
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    //   console.log("Values from DataContext on Recommendations page load:", contextValues);
+    sendInput();
+  }, []);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -78,10 +134,26 @@ export default function Recommendations({
     });
   };
 
+  const [universitySuburb, setUniversitySuburb] = useState(null);
+
   const sendInput = () => {
+    let suburb = "";
+    if (inputValues.university) {
+      suburb = inputValues.university.split(",").pop().trim();
+      if (suburb === "CBD") {
+        suburb = "Melbourne";
+      }
+      setUniversitySuburb(suburb);
+    } else {
+      setUniversitySuburb(null);
+    }
+
+    const updatedInputValues = { ...inputValues };
+    updatedInputValues.university = suburb;
+
     router.push({
       pathname: "/recommendations",
-      query: inputValues,
+      query: updatedInputValues,
     });
   };
 
@@ -93,38 +165,54 @@ export default function Recommendations({
     setBoxPosition({ x: mouseX, y: mouseY });
   };
 
+  const criteria = [
+    // "affordability",
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider"),
+  ];
+
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Recommendations</title>
+        <title>{"MyRentalCompass | " + t("recommendations:tab_title")}</title>
         <meta name="description" content="Discover potential suburbs." />
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
-          <div className="font-bold text-4xl text-black">
-            <h1>
-              Here are the Melbourne suburbs that we think are suitable for you
-            </h1>
-            <br />
+          <div className="flex font-bold text-4xl text-black items-center">
+            <h1 className="mr-2">{t("recommendations:page_heading")}</h1>
+            <button onClick={toggleDetails1}>
+              <Image src="/query.gif" alt="query" width={50} height={50} />
+            </button>
           </div>
-          <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
-            <h2>● How we calculated your score</h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;This website grenerates a liveablity index
-              score that ranks the suburbs based on your responses to the
-              questionnaire you just finished.
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
-              our page &apos;What is Liveability&apos;.
-            </p>
-            <h2>● How to read the map</h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
-              highest liveability score) are in dark green. Those with the
-              lowest are dark pink.
-            </p>
+          <div
+            className=" p-4 text-lg text-left text-LongContentGray bg-FooterButtonYellow rounded-xl"
+            style={{
+              transition:
+                "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+              opacity: showDetails1 ? "1" : "0",
+              visibility: showDetails1 ? "visible" : "hidden",
+              maxHeight: showDetails1 ? "1000px" : "0",
+            }}
+          >
+            <div className="font-bold text-2xl text-HeadingTextGrayp-6 rounded-xl">
+              <h2>{"●" + t("recommendations:page_subheading_1")} </h2>
+              <p className="text-xl font-normal">
+                {"    " + t("recommendations:page_description_1_part_1")}
+                <br />
+                {"    " + t("recommendations:page_description_1_part_2")}.
+              </p>
+              <h2>{"●" + t("recommendations:page_subheading_2")}</h2>
+              <p className="text-xl font-normal">
+                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match
+                (i.e. highest liveability score) are in dark green. Those with
+                the lowest are dark pink.
+              </p>
+            </div>
           </div>
         </section>
         <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
@@ -152,36 +240,39 @@ export default function Recommendations({
               }}
             >
               <div className=" font-bold text-2xl">
-                <h1>Updated Selection</h1>
+                <h1>{t("recommendations:slider_section_heading")}</h1>
               </div>
               {/* Rental and liveability sliders */}
               <RentSlider
+                labelText={t("recommendations:rent_slider")}
                 handleChoice={handleSliderChange("rent")}
                 defaultArg={inputValues.rent}
               />
               <LiveabilitySliders
+                criteria={criteria}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
 
               {/* University dropdown */}
               <UniversityDropdown
+                labelText={t("recommendations:university_label")}
                 value={{ label: inputValues.university }}
-                onChange={(event, newValue) =>
+                onChange={(event, newValue) => {
                   handleInputChange({
                     target: {
                       name: "university",
                       value: newValue ? newValue.label : "",
                     },
-                  })
-                }
+                  });
+                }}
               />
 
               <button
                 className="text-lg md:text-lg lg:text-lg font-bold call-action-button"
                 onClick={sendInput}
               >
-                Update Result
+                {t("recommendations:slider_section_update_button")}
               </button>
             </Box>
 
@@ -198,6 +289,7 @@ export default function Recommendations({
               <DynamicBasicMap
                 recommendations={true}
                 data={rankedSuburbs}
+                selectedUniversitySuburb={universitySuburb}
                 setSelectedFeature={setSelectedFeature}
                 onMouseEnter={(feature) => setSelectedFeature(feature)}
                 onMouseLeave={() => setSelectedFeature(null)}
@@ -206,22 +298,22 @@ export default function Recommendations({
 
               {/* Top 10 Suburbs panel */}
               <Box
-                bgcolor="#fff"
+                bgcolor="#FFFEFC"
                 padding="1rem"
                 borderRadius="10px"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   position: "absolute",
-                  justifyContent: "center",
+                  justifyContent: "start",
                   alignItems: "center",
                   right: 0,
                   top: "10px",
                   width: "37%",
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
-                  maxHeight: "70vh",
+                  maxHeight: "90vh",
                   //overflowY: "scroll",
-                  zIndex: 1000,
+                  zIndex: 10,
                 }}
               >
                 {/* Panel toggle button */}
@@ -230,29 +322,29 @@ export default function Recommendations({
                   onClick={() => setIsPanelOpen(!isPanelOpen)}
                 >
                   {isPanelOpen
-                    ? "▼ Hide Top 10 Suburbs"
-                    : "▶ See Top 10 Suburbs"}
+                    ? "▼ " + t("recommendations:map_hide_suburb_list")
+                    : "▶ " + t("recommendations:map_show_suburb_list")}
                 </button>
 
                 {isPanelOpen && (
                   <>
-                    <h3 className=" font-istok text-lg text-center font-bold mt-2">
-                      Suburb Recommendations For You
+                    <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
+                      {t("recommendations:map_suburb_list_title")}
                     </h3>
                     <table className="mx-auto">
                       <thead>
                         <tr>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Rank
+                            {t("recommendations:map_suburb_list_rank")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Score
+                            {t("recommendations:map_suburb_list_score")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Suburbs
+                            {t("recommendations:map_suburb_list_suburb")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Rent ($/week)
+                            {t("recommendations:map_suburb_list_rent")}
                           </th>
                         </tr>
                       </thead>
@@ -265,7 +357,7 @@ export default function Recommendations({
                             </td>
                             <td className="px-2 py-2">{suburb.suburb}</td>
                             <td className="px-2 py-2">
-                              ${suburb.average_rent}
+                              A${suburb.average_rent}
                             </td>
                           </tr>
                         ))}
@@ -284,22 +376,65 @@ export default function Recommendations({
                     padding: "1rem",
                     borderRadius: "12px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    zIndex: 1000,
+                    zIndex: 10,
                     position: "absolute",
-                    left: `${boxPosition.x}px`,
-                    top: `${boxPosition.y}px`,
+                    left: `${boxPosition.x + 50}px`,
+                    top: `${boxPosition.y + 2}px`,
                   }}
                 >
-                  <p>Name: {selectedFeature.suburb}</p>
-                  <p>Council: {selectedFeature.lga}</p>
+                  <button
+                    style={{
+                      position: "absolute",
+                      top: "5px",
+                      right: "15px",
+                      background: "none",
+                      border: "none",
+                      cursor: "pointer",
+                      fontSize: "1rem",
+                    }}
+                    onClick={() => setSelectedFeature(null)}
+                  >
+                    x
+                  </button>
                   <p>
-                    Liveability Score:{" "}
-                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                    {t("recommendations:map_current_suburb_name") +
+                      ": " +
+                      selectedFeature.suburb}
+                  </p>
+                  <p>
+                    {t("recommendations:map_current_suburb_council") +
+                      ": " +
+                      selectedFeature.lga}
+                  </p>
+                  <p>
+                    {t("recommendations:map_current_suburb_score") +
+                      ": " +
+                      (selectedFeature.liveability_score * 100).toFixed(2)}
+                    %
                   </p>
                 </div>
               )}
             </Box>
           </Box>
+          <div className="flex justify-between items-center w-full my-4 px-48 pt-6">
+            <button
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2 z-0"
+              onClick={() => router.push("/map")}
+            >
+              {t("recommendations:map_page_button")}
+            </button>
+            <div className="flex items-center">
+              <span className="text-xl mr-8 font-bold">
+                {t("recommendations:dream_suburb_text")}
+              </span>
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96 z-0"
+                onClick={() => router.push("/resources")}
+              >
+                {t("recommendations:resources_page_button")}
+              </button>
+            </div>
+          </div>
         </section>
         <Footer />
       </main>

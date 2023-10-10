@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 
-const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
+const QuestionOne = ({ handleNext, selectedChoices, handleChoice, q1Corpus }) => {
   const [showWarning, setShowWarning] = useState(false);
 
   const validateInput = () => {
@@ -18,74 +18,57 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice }) => {
   return (
     <div
       id="q1"
-      className="flex flex-col items-center justify-center bg-white rounded-xl text-sm sm:text-md md:text-lg lg:text-xl"
-      style={{ width: "auto", height: "auto", padding: "2rem" }}
+      className="flex flex-col items-center justify-between bg-ResourceButtonYellow rounded-xl p-8 font-istok"
     >
-      <div className="flex md:flex-row items-center justify-center mb-6 flex-wrap">
-        <div className="flex flex-col items-center justify-center text-2xl font-bold mb-4 md:mb-0 md:mr-6">
-          <h2 className="text-3xl sm:text-lg md:text-2xl lg:text-3xl">
-            We are here to help you!
-          </h2>
-          <div>
-            <Image
-              src="/questionnaire_person.svg"
-              alt="Staff"
-              width={250}
-              height={250}
-              className="rounded-xl"
-            />
-          </div>
+      <div className="flex justify-center items-start mb-6">
+        <div className="flex flex-col justify-between items-center mr-4">
+          <h2 className="font-bold text-3xl mb-2"> {q1Corpus.heading} </h2>
+          <Image
+            src="/staff.svg"
+            alt="Staff"
+            width={200}
+            height={200}
+          />
         </div>
-        <div className="flex flex-col justify-center text-base sm:text-lg md:text-xl lg:text-2xl" style={{ marginLeft: "2rem" }}>
-          <h2>
-            Finding a liveable home at an affordable rent in Melbourne can be
-          </h2>
-          <h2>
-            difficult, but we know it is not impossible.
-          </h2>
-          <h2>
-            Using our own AI tool backed by huge data on Melbourne rental
-          </h2>
-          <h2>
-            market, we want to customise our recommendation for the place to
-            live.
-          </h2>
-          <br />
-          <br />
-          <h2 className="font-bold">
-            To start, enter your budget for maximum rent per week
-          </h2>
+        <div className="flex flex-col">
+          <p className="text-2xl"> {q1Corpus.line_1} <br></br>
+            {q1Corpus.line_2}<br></br>
+            {q1Corpus.line_3}<br></br>
+            {q1Corpus.line_4}<br></br>
+            {q1Corpus.line_5}<br></br>
+            {q1Corpus.line_6}</p>
+          <br></br>
+          <p className="font-bold text-2xl">{q1Corpus.line_7}</p>
         </div>
       </div>
-      <div className="flex w-full sm:w-full md:w-full lg:w-4/5 items-center justify-between flex-wrap">
-        <div className="mb-2">
+      <div className="flex items-center justify-center">
+        <div>
           <Link href="/map">
-            <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button">
-              Go back
+            <button className="text-sm sm:text-sm md:text-md lg:text-xl font-bold call-action-button">
+              {q1Corpus.go_back_button}
             </button>
           </Link>
         </div>
-        <div className="flex w-full justify-center md:w-2/4">
+        <div className="flex justify-center items-center" style={{ marginRight: "3rem", marginLeft: "3rem" }}>
           <input
             type="text"
-            className="text-xl md:text-2xl lg:text-2xl font-bold p-4 rounded-xl text-center"
+            className="text-xl font-bold p-4 rounded-xl text-center"
             placeholder="$500"
             value={selectedChoices.someQuestionOne || ""}
             onChange={(e) => handleChoice("someQuestionOne", e.target.value)}
-            style={{ width: "50%", border: "2px solid #FFCD29" }}
           />
         </div>
-        <div className="mb-2">
+        <div>
           <button
-            className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button"
+            className="text-sm sm:text-sm md:text-md lg:text-xl font-bold call-action-button "
             onClick={validateInput}
           >
-            Start
+            {q1Corpus.start_button}
           </button>
         </div>
       </div>
       {showWarning && (
-        <p style={{ color: "red" }}>Please enter a value between 370-2000.</p>
+        <p className=" mt-2" style={{ color: "red" }}>{q1Corpus.input_validation_message}</p>
       )}
     </div>
   );
