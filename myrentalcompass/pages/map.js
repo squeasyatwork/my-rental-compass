@@ -6,20 +6,24 @@ import dynamic from "next/dynamic";
 import Navbar from "~/pages/helperpages/navbar.js";
 import Footer from "~/pages/helperpages/footer.js";
 
-import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
-import { useTranslation } from 'next-i18next'
-import i18nextConfig from '~/next-i18next.config';
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
 
 export async function getStaticProps(context) {
   // extract the locale identifier from the URL
-  const { locale } = context
+  const { locale } = context;
 
   return {
     props: {
       // pass the translation props to the page component
-      ...(await serverSideTranslations(locale, ['common', 'dict3'], i18nextConfig)),
+      ...(await serverSideTranslations(
+        locale,
+        ["common", "dict3"],
+        i18nextConfig
+      )),
     },
-  }
+  };
 }
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
@@ -56,6 +60,20 @@ function Map() {
     return () => clearTimeout(timer);
   }, []);
 
+  console.log(
+    "Average Rent Type:",
+    typeof t.average_rent,
+    "Value:",
+    t.average_rent
+  );
+  // const averageRentFormatted =
+  //   typeof t.average_rent === "number" ? t.average_rent.toFixed(2) : "N/A";
+
+  let displayedRent = "N/A";
+  if (typeof selectedFeature?.average_rent === "number") {
+    displayedRent = `$${selectedFeature.average_rent.toFixed(2)} per week`;
+  }
+
   return (
     <>
       <Head>
@@ -64,7 +82,8 @@ function Map() {
       </Head>
 
       <div className="font-istok flex flex-col min-h-screen bg-white text-black">
-        <Navbar activePage="Find where to live" className="z-10" /> {/* Navbar */}
+        <Navbar activePage="Find where to live" className="z-10" />{" "}
+        {/* Navbar */}
         {/* Title and Text Section */}
         <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
           <h2 className="text-3xl font-bold pb-1">
@@ -73,7 +92,8 @@ function Map() {
           <p className="text-xl py-1 w-2/3">
             The interactive map below shows each suburb&apos;s average rental
             amount as well a liveability index based on 4 key criteria: safety,
-            affordability, accessibility and wellness. This is generalised information back by liveability data.
+            affordability, accessibility and wellness. This is generalised
+            information back by liveability data.
           </p>
           <p className="text-xl py-1 w-2/3">
             To learn more about liveability and how it is calculated, see our
@@ -148,8 +168,8 @@ function Map() {
                         Liveability Score:{" "}
                         {selectedFeature?.liveability_score
                           ? `${(
-                            selectedFeature.liveability_score * 100
-                          ).toFixed(0)}%`
+                              selectedFeature.liveability_score * 100
+                            ).toFixed(0)}%`
                           : "N/A"}
                       </h3>
                     </div>
@@ -160,12 +180,7 @@ function Map() {
                     </h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
-                        Average Rent:{" "}
-                        {selectedFeature?.average_rent
-                          ? `$${selectedFeature.average_rent.toFixed(
-                            2
-                          )} per week`
-                          : "N/A"}
+                        Average Rent: {displayedRent}
                       </h3>
                       <h3 className="font-semibold">
                         No. of Public Transport Stops:{" "}
@@ -196,13 +211,16 @@ function Map() {
               </div>
             </div>
           </div>
-          {(
-            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
+          {
+            <div
+              className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
               style={{
-                transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                transition:
+                  "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
                 opacity: showCard ? "1" : "0",
-                visibility: showCard ? "visible" : "hidden"
-              }}>
+                visibility: showCard ? "visible" : "hidden",
+              }}
+            >
               <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
                 <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
                   <p className=" text-xl font-bold">
@@ -218,7 +236,9 @@ function Map() {
                   />
                 </div>
                 <div className="flex flex-col justify-center items-center">
-                  <h2 className=" font-bold text-lg">Educate yourself now to avoid falling for dodgy rental deals</h2>
+                  <h2 className=" font-bold text-lg">
+                    Educate yourself now to avoid falling for dodgy rental deals
+                  </h2>
                   <br></br>
                   <div className=" border-b-2 border-MerciPurple pb-6">
                     <div className="flex flex-col justify-center items-center mb-4">
@@ -240,12 +260,15 @@ function Map() {
                   </div>
                 </div>
                 <br></br>
-                <button className="text-2xl font-bold call-action-button mb-4" onClick={toggleCard}>
+                <button
+                  className="text-2xl font-bold call-action-button mb-4"
+                  onClick={toggleCard}
+                >
                   Continue
                 </button>
               </div>
             </div>
-          )}
+          }
         </section>
         <Footer /> {/* Footer */}
       </div>

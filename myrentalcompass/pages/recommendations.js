@@ -184,9 +184,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
           <div className="flex font-bold text-4xl text-black items-center">
-            <h1 className="mr-2">
-              {t("recommendations:page_heading")}
-            </h1>
+            <h1 className="mr-2">{t("recommendations:page_heading")}</h1>
             <button onClick={toggleDetails1}>
               <Image src="/query.gif" alt="query" width={50} height={50} />
             </button>
@@ -210,9 +208,9 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               </p>
               <h2>{"●" + t("recommendations:page_subheading_2")}</h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
-                highest liveability score) are in dark green. Those with the
-                lowest are dark pink.
+                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match
+                (i.e. highest liveability score) are in dark green. Those with
+                the lowest are dark pink.
               </p>
             </div>
           </div>
@@ -324,8 +322,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   onClick={() => setIsPanelOpen(!isPanelOpen)}
                 >
                   {isPanelOpen
-                    ? ("▼ " + t("recommendations:map_hide_suburb_list"))
-                    : ("▶ " + t("recommendations:map_show_suburb_list"))}
+                    ? "▼ " + t("recommendations:map_hide_suburb_list")
+                    : "▶ " + t("recommendations:map_show_suburb_list")}
                 </button>
 
                 {isPanelOpen && (
@@ -398,10 +396,21 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   >
                     x
                   </button>
-                  <p>{t("recommendations:map_current_suburb_name") + ": " + selectedFeature.suburb}</p>
-                  <p>{t("recommendations:map_current_suburb_council") + ": " + selectedFeature.lga}</p>
                   <p>
-                    {t("recommendations:map_current_suburb_score") + ": " + (selectedFeature.liveability_score * 100).toFixed(2)}%
+                    {t("recommendations:map_current_suburb_name") +
+                      ": " +
+                      selectedFeature.suburb}
+                  </p>
+                  <p>
+                    {t("recommendations:map_current_suburb_council") +
+                      ": " +
+                      selectedFeature.lga}
+                  </p>
+                  <p>
+                    {t("recommendations:map_current_suburb_score") +
+                      ": " +
+                      (selectedFeature.liveability_score * 100).toFixed(2)}
+                    %
                   </p>
                 </div>
               )}
