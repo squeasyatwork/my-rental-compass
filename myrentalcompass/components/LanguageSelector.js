@@ -30,6 +30,7 @@ const LanguageSelector = ({ text }) => {
                         minWidth: "10rem",
                         top: "calc(100% + 16px)",
                         left: "-80%",
+                        zIndex: "50"
                     }}
                 >
                     <button onClick={() => {
