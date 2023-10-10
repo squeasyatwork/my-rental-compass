@@ -24,7 +24,7 @@ const universityOptions = [
   { label: "Victoria University, Werribee" },
 ];
 
-const UniversityDropdown = ({ value, onChange }) => {
+const UniversityDropdown = ({ labelText, value, onChange }) => {
   return (
     <Autocomplete
       options={universityOptions}
@@ -33,7 +33,7 @@ const UniversityDropdown = ({ value, onChange }) => {
       onChange={onChange}
       isOptionEqualToValue={(option, value) => option.label === value.label}
       renderInput={(params) => (
-        <TextField {...params} label="University" variant="outlined" fullWidth />
+        <TextField {...params} label={labelText} variant="outlined" fullWidth />
       )}
     />
   );

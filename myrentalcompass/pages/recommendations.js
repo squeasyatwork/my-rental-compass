@@ -10,6 +10,27 @@ import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
+
+
+// export async function getStaticProps(context) {
+//   // extract the locale identifier from the URL
+
+
+//   return {
+//     props: {
+//       // pass the translation props to the page component
+//       ...(await serverSideTranslations(
+//         locale,
+//         ["common", "resources"],
+//         i18nextConfig
+//       )),
+//     },
+//   };
+// }
+
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
 });
@@ -19,6 +40,7 @@ export const config = {
 };
 
 export const getServerSideProps = async (context) => {
+  const { locale } = context;
   if (context.query) {
     let contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
@@ -36,17 +58,35 @@ export const getServerSideProps = async (context) => {
       dbResponse.headers.get("content-type").includes("application/json")
     ) {
       let data = await dbResponse.json();
-      return { props: { data, contextQuery } };
+      return {
+        props: {
+          data, contextQuery, ...(await serverSideTranslations(
+            locale,
+            ["common", "recommendations"],
+            i18nextConfig
+          ))
+        }
+      };
     }
   }
 
-  return { props: { data: null, contextQuery: {} } };
+  return {
+    props: {
+      data: null, contextQuery: {}, ...(await serverSideTranslations(
+        locale,
+        ["common", "recommendations"],
+        i18nextConfig
+      ))
+    }
+  };
 };
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
   const { rankedSuburbs = [] } = data || {};
 
   const router = Router.useRouter();
+
+  const { t } = useTranslation();
 
   const [inputValues, setInputValues] = React.useState({
     rent: contextQuery.rentChoice || 400,
@@ -101,6 +141,14 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     const mouseY = event.clientY;
     setBoxPosition({ x: mouseX, y: mouseY });
   };
+
+  const criteria = [
+    // "affordability",
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider")
+  ];
 
   return (
     <>
@@ -165,16 +213,19 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               </div>
               {/* Rental and liveability sliders */}
               <RentSlider
+                labelText={t("recommendations:rent_slider")}
                 handleChoice={handleSliderChange("rent")}
                 defaultArg={inputValues.rent}
               />
               <LiveabilitySliders
+                criteria={criteria}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
 
               {/* University dropdown */}
               <UniversityDropdown
+                labelText={t("recommendations:university_label")}
                 value={{ label: inputValues.university }}
                 onChange={(event, newValue) => {
                   handleInputChange({
