@@ -16,7 +16,7 @@ function rentValueText(value) {
 }
 
 // Rent Slider
-export const RentSlider = ({ labelText, handleChoice, defaultArg = 0 }) => {
+export const RentSlider = ({ handleChoice, defaultArg = 0 }) => {
   const defaultValue = ((defaultArg - 400) / 100) * 25; // Transform the actual rent value to slider value
 
   const handleRentChange = (event, value) => {
@@ -32,7 +32,7 @@ export const RentSlider = ({ labelText, handleChoice, defaultArg = 0 }) => {
 
   return (
     <div className="ml-6">
-      <Typography gutterBottom>{labelText}</Typography>
+      <Typography gutterBottom>Rent</Typography>
       <Slider
         aria-label="Rental amount"
         defaultValue={defaultValue}
@@ -77,16 +77,16 @@ export const RentSlider = ({ labelText, handleChoice, defaultArg = 0 }) => {
   );
 };
 
-// // Liveability Sliders
-// const criteria = [
-//   // "affordability",
-//   "transport",
-//   "park",
-//   "crime",
-//   "road",
-// ];
+// Liveability Sliders
+const criteria = [
+  // "affordability",
+  "transport",
+  "park",
+  "crime",
+  "road",
+];
 
-export const LiveabilitySliders = ({ criteria, handleSliderChange, inputValues }) => {
+export const LiveabilitySliders = ({ handleSliderChange, inputValues }) => {
   return criteria.map((criterion) => (
     <SingleLiveabilitySlider
       key={criterion}
