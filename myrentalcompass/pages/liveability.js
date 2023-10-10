@@ -8,6 +8,7 @@ import { useState } from "react";
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations'
 import { useTranslation } from 'next-i18next'
 import i18nextConfig from '~/next-i18next.config';
+import { useRouter } from "next/router.js";
 
 const imageLoader = ({ src, width, quality }) => {
   return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
@@ -20,13 +21,14 @@ export async function getStaticProps(context) {
   return {
     props: {
       // pass the translation props to the page component
-      ...(await serverSideTranslations(locale, ['common', 'dict2'], i18nextConfig)),
+      ...(await serverSideTranslations(locale, ['common', 'dict3'], i18nextConfig)),
     },
   }
 }
 
 function Liveability() {
   const { t } = useTranslation();
+  const router = useRouter();
 
   const [showDetails1, setShowDetails1] = useState(false);
   const [showDetails2, setShowDetails2] = useState(false);
@@ -57,7 +59,7 @@ function Liveability() {
   return (
     <>
       <Head>
-        <title>{t("dict2:liveability_tab_title")}</title>
+        <title>{"MyRentalCompass | " + t("dict3:liveability_tab_title")}</title>
         <meta name="description" content="Learn about liveability factors." />
       </Head>
 
@@ -71,11 +73,11 @@ function Liveability() {
             alt="Description of the image"
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
-          <div className="relative flex flex-col justify-between h-full text-BackgroundWhite">
-            <div className="flex flex-col justify-center my-44">
+          <div className="relative flex flex-col justify-between h-full text-gray-100/90">
+            <div className="flex flex-col justify-center my-32">
               <h1 className="text-5xl font-bold text-center">
-                Liveability is what a place is like to live in<br></br>
-                - a liveable place is a healthy place
+                {t("dict3:liveability_banner_title_1")}<br></br>
+                {t("dict3:liveability_banner_title_2")}
               </h1>
             </div>
           </div>
@@ -83,27 +85,42 @@ function Liveability() {
         <div className="flex justify-between items-center px-8">
           <div className="flex flex-col justify-center font-istok">
             <div className=" font-bold text-5xl text-HeadingTextGray mt-4 mb-4">
-              <h1>What is liveability?</h1>
+              <h1> {t("dict3:liveability_description_heading")} </h1>
             </div>
             <div className=" my-2">
-              <h2 className="font-bold text-3xl mb-4 px-4">Liveability Index</h2>
-              <h2 className="text-xl max-w-4xl px-4">The Liveability Index is a composite score based on measures related to aspects of liveability including good transport connectivity,
-                safe roads, low crime rate, and abundance of open spaces.</h2>
+              <h2 className="font-bold text-3xl mb-4 px-4"> {t("dict3:liveability_description_subheading")} </h2>
+              <h2 className="text-xl max-w-4xl px-4"> {t("dict3:liveability_description_point_1")} </h2>
               <br></br>
-              <h2 className="text-xl px-4">We understand that not everyone is the same.</h2>
+              <h2 className="text-xl px-4"> {t("dict3:liveability_description_point_2")} </h2>
               <br></br>
-              <h2 className="text-xl max-w-4xl px-4">Unlike other websites that provide a standardised liveability index,
-                My Rental Compass offers personalised liveability score that is unique and tailored to each user,
-                based on their individual preferences with regards to the liveability factors.</h2>
+              <h2 className="text-xl max-w-4xl px-4"> {t("dict3:liveability_description_point_3")} </h2>
             </div>
           </div>
           <div className="flex justify-between items-center">
-            <Image
+            {router.locale === "en" && (<Image
               src="/chat_bubble_liveability.png"
               alt="chat"
               width={400}
               height={400}
-            />
+            />)}
+            {router.locale === "hi" && (<Image
+              src="/liveability_dialog_cloud_hindi.svg"
+              alt="chat"
+              width={400}
+              height={400}
+            />)}
+            {router.locale === "ms" && (<Image
+              src="/liveability_dialog_cloud_malay.svg"
+              alt="chat"
+              width={400}
+              height={400}
+            />)}
+            {router.locale === "zh" && (<Image
+              src="/liveability_dialog_cloud_chinese.svg"
+              alt="chat"
+              width={400}
+              height={400}
+            />)}
             <Image
               src="/woman.gif"
               alt="girl"
@@ -118,7 +135,7 @@ function Liveability() {
           <div className="flex items-start divider_rights">
             <div className="flex flex-col justify-center items-center mr-12">
               <Image
-                src= "/tram.png"
+                src="/tram.png"
                 alt="tram"
                 width={180}
                 height={180}
@@ -127,14 +144,14 @@ function Liveability() {
                 <button onClick={toggleDetails1}
                   className="flex justify-between font-medium rounded-xl p-2 w-full
                   hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200">
-                    <p className="text-3xl font-bold text-center text-HeadingTextGray">Transport Connectivity</p>
-                    {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                      </svg>)}
-                    {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
-                      <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                      </svg>
-                    )}
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray"> {t("dict3:liveability_section_1_button")} </p>
+                  {!showDetails1 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                  </svg>)}
+                  {showDetails1 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-8 h-8">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+                  </svg>
+                  )}
 
                 </button>
                 <div className="p-4 mb-2 text-lg text-left bg-FooterButtonYellow rounded-xl mt-2"
@@ -146,13 +163,10 @@ function Liveability() {
                     maxHeight: showDetails1 ? "1000px" : "0"
                   }}>
 
-                  <p> In measuring how well connected a suburb is to the public transportation system, 
-                    we use the open data by Public Transport Victoria (PTV) 
-                    as at May 2023 to count the number of public transport stops that exist in every suburb, 
-                    and divide it by the suburb&apos;s land size in square kilometre.
+                  <p> {t("dict3:liveability_section_1_description")}
                   </p>
                   <br></br>
-                  <h2>Source:</h2>
+                  <h2>{t("dict3:liveability_section_1_source_heading")}</h2>
                   <a href="https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2" className="hover:underline hover:text-ButtonHoverYellow">
                     1. https://discover.data.vic.gov.au/dataset/public-transport-a-collection-of-ptv-datasets2
                   </a><br></br>
@@ -162,18 +176,18 @@ function Liveability() {
                 </div>
               </div>
               <Image
-                src= "/guard.png"
-                alt= "guard"
+                src="/guard.png"
+                alt="guard"
                 width={180}
                 height={180}
                 className="mt-12"
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails3}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
-                  <p className="text-3xl font-bold text-center text-HeadingTextGray">Safe Roads</p>
+                  onClick={toggleDetails3}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray">{t("dict3:liveability_section_3_button")}</p>
                   {!showDetails3 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>)}
@@ -190,13 +204,10 @@ function Liveability() {
                     visibility: showDetails3 ? "visible" : "hidden",
                     maxHeight: showDetails3 ? "1000px" : "0"
                   }}>
-                  <p> We count the number of road crashes and traffic incidents that have been 
-                    recorded in each suburbs during a 12-month period ending 2019, 
-
-                    and then we divide the number by the suburb&apos;s population as at June 2021.
+                  <p> {t("dict3:liveability_section_3_description")}
                   </p>
                   <br></br>
-                  <h2>Source:</h2>
+                  <h2>{t("dict3:liveability_section_1_source_heading")}</h2>
                   <a href="https://discover.data.vic.gov.au/dataset/crash-stats-data-extract " className="hover:underline hover:text-ButtonHoverYellow">
                     1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract
                   </a><br></br>
@@ -208,17 +219,17 @@ function Liveability() {
             </div>
             <div className="flex flex-col justify-center items-center">
               <Image
-                src= "/police-station.png"
+                src="/police-station.png"
                 alt="police"
                 width={180}
                 height={180}
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails2}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
-                    <p className="text-3xl font-bold text-center text-HeadingTextGray">Crime Rate</p>
+                  onClick={toggleDetails2}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray">{t("dict3:liveability_section_2_button")}</p>
 
                   {!showDetails2 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
@@ -237,14 +248,12 @@ function Liveability() {
                     maxHeight: showDetails2 ? "1000px" : "0"
                   }}>
 
-                  <p>
-                    We measure liveability based on the crime rate recorded in a particular suburb. 
-                    We used crime statistics data that has been recorded during the 12-month period ending March 2023 
-                    and divide it by each suburb&apos;s population as at June 2021
+                  <p>{t("dict3:liveability_section_2_description")}
+
                   </p>
                   <br></br>
                   <h2 className=" font-medium">
-                    Source:
+                    {t("dict3:liveability_section_1_source_heading")}
                   </h2>
                   <a href="https://www.crimestatistics.vic.gov.au/crime-statistics/latest-victorian-crime-data/download-data " className="hover:underline hover:text-ButtonHoverYellow">
                     1. https://discover.data.vic.gov.au/dataset/crash-stats-data-extract
@@ -255,7 +264,7 @@ function Liveability() {
                 </div>
               </div>
               <Image
-                src= "/park.png"
+                src="/park.png"
                 alt="park"
                 width={180}
                 height={180}
@@ -263,10 +272,10 @@ function Liveability() {
               />
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow mt-8">
                 <button
-                    onClick={toggleDetails4}
-                    className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-                  >
-                  <p className="text-3xl font-bold text-center text-HeadingTextGray">Open Spaces</p>
+                  onClick={toggleDetails4}
+                  className="flex justify-between font-medium rounded-xl text-2xl p-2 w-full hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+                >
+                  <p className="text-3xl font-bold text-center text-HeadingTextGray">{t("dict3:liveability_section_4_button")}</p>
                   {!showDetails4 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-8 h-8">
                     <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
                   </svg>)}
@@ -283,13 +292,11 @@ function Liveability() {
                     visibility: showDetails4 ? "visible" : "hidden",
                     maxHeight: showDetails4 ? "1000px" : "0"
                   }}>
-                  <p> 
-                    We count the number of parks and gardens that exists within the geographical boundary of each suburb as at 2023,
-                    and divide the number by the land size of each suburb in square kilometre.
+                  <p>{t("dict3:liveability_section_4_description")}
                   </p>
                   <br></br>
                   <h2 className=" font-medium">
-                    Source:
+                    {t("dict3:liveability_section_1_source_heading")}
                   </h2>
                   <a href="https://discover.data.vic.gov.au/dataset/open-space" className="hover:underline hover:text-ButtonHoverYellow">
                     1. https://discover.data.vic.gov.au/dataset/open-space
@@ -303,16 +310,16 @@ function Liveability() {
           </div>
           <div className="flex flex-col items-center justify-center mt-8">
             <button
-                onClick={toggleDetails5}
-                className="flex justify-center font-medium rounded-xl text-2xl p-2 w-4/5 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
-              >
-                <p className="text-4xl font-bold text-center text-HeadingTextGray mr-12">Liveability Score Explained</p>
+              onClick={toggleDetails5}
+              className="flex justify-center font-medium rounded-xl text-2xl p-2 w-4/5 hover:shadow-md hover:shadow-ShadeGray hover:bg-ResourceButtonYellow duration-200"
+            >
+              <p className="text-4xl font-bold text-center text-HeadingTextGray mr-12">{t("dict3:liveability_section_5_button")}</p>
               {!showDetails5 && (<svg id="applicationButtonArrow" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className=" w-10 h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
-                </svg>)}
+              </svg>)}
               {showDetails5 && (<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth={2.5} stroke="currentColor" className="w-10 h-10">
                 <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
-                </svg>
+              </svg>
               )}
             </button>
             <div className="p-4 mb-2 text-md justify-between text-left bg-FooterButtonYellow rounded-xl mt-4 w-4/5"
@@ -322,32 +329,32 @@ function Liveability() {
                 visibility: showDetails5 ? "visible" : "hidden",
                 maxHeight: showDetails5 ? "1000px" : "0"
               }}>
-              <h2 className="font-bold text-xl"> 
-                Liveability Score Calculation:
+              <h2 className="font-bold text-xl">
+                {t("dict3:liveability_section_5_item_1_heading")}
               </h2>
               <p className="text-left">
-                - Four key factors are considered: crime rate, traffic incidents rate (per 1000 people), number of open spaces, and public transport stops (per square kilometre).<br></br>
-                - Each factor&apos;s values for every suburb are normalised between 0 and 1.<br></br>
-                - The suburb&apos;s aggregate liveability score is determined by summing these normalised values.
+                {"- " + t("dict3:liveability_section_5_item_1_point_1")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_1_point_2")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_1_point_3")}
               </p>
               <br></br>
               <h2 className="font-bold text-xl">
-                Personalized Liveability Score:
+                {t("dict3:liveability_section_5_item_2_heading")}
               </h2>
               <p className="text-left">
-                - Users rate the importance of each liveability factor on a scale of 1 to 5.<br></br>
-                - The normalised values are weighted according to the user&apos;s input.<br></br>
-                - User-provided data, such as rental budget and university location, are also factored in.<br></br>
-                - University campuses are scored based on their proximity to suburbs (e.g., score 5 for within 5km, score 4 for within 5 to 10km).
+                {"- " + t("dict3:liveability_section_5_item_2_point_1")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_2_point_2")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_2_point_3")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_2_point_4")}
               </p>
               <br></br>
               <h2 className="font-bold text-xl">
-                Final Score Calculation:
+                {t("dict3:liveability_section_5_item_3_heading")}
               </h2>
               <p className="text-left">
-                - The personalised liveability score is computed using a linear equation.<br></br>
-                - The equation incorporates user preferences, budget, and university location.<br></br>
-                - The result is a final liveability score tailored to the user&apos;s unique needs and preferences.
+                {"- " + t("dict3:liveability_section_5_item_3_point_1")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_3_point_2")} <br></br>
+                {"- " + t("dict3:liveability_section_5_item_3_point_3")} <br></br>
               </p>
             </div>
 
@@ -356,20 +363,20 @@ function Liveability() {
         <div className="flex justify-center items-center mt-28">
           <Link href="https://auo.org.au/">
             <button className=" text-xs md:text-sm lg:text-lg font-bold call-action-button mr-12">
-              <p>Read more at the</p>
+              <p>{t("dict3:liveability_read_more_auo_button_line_1")}</p>
               <br></br>
-              <p>AUO website</p>
+              <p>{t("dict3:liveability_read_more_auo_button_line_2")}</p>
             </button>
           </Link>
           <Link href="/">
             <button className="text-sm md:text-sm lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
-              <p className="my-3">Return Home </p>
+              <p className="my-3">{t("dict3:liveability_return_home_button")} </p>
 
             </button>
           </Link>
         </div>
         <div className="flex flex-col justify-center mt-12 mb-6 px-8">
-          <h2 className="font-bold text-3xl">References</h2>
+          <h2 className="font-bold text-3xl">{t("dict3:liveability_references_section_heading")}</h2>
           <a href="https://research-repository.uwa.edu.au/en/publications/creating-liveable-cities-in-australia-mapping-urban-policy-implem"
             className=" hover:underline">
             <h2 className=" text-HeadingTextGray">1. Arundel J, Lowe M, Hooper P, Roberts R, Rozek J, Higgs C, Giles-Corti B. (2017) Creating liveable cities in Australia: Mapping urban policy implementation and evidence-based national liveability indicators. Centre for Urban Research (CUR). RMIT University.</h2>

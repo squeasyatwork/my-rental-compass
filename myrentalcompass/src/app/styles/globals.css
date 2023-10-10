@@ -54,7 +54,7 @@ body {
     @apply bg-MainButtonYellow rounded-2xl p-4 font-istok text-NavTextGray
       transition-transform transform font-bold active:scale-95 active:opacity-90 
       text-sm sm:text-sm md:text-sm lg:text-lg 
-      sm:w-28 md:w-32 lg:w-56 sm:h-auto md:h-auto lg:h-auto;
+      sm:w-28 md:w-32 lg:w-56 sm:h-auto md:h-auto lg:h-auto z-0;
   }
   .call-action-button:hover {
     @apply bg-MainButtonYellow transform scale-110 opacity-100;
@@ -202,6 +202,10 @@ body {
   .custom-div-icon span {
     @apply absolute w-5.5 text-xl left-0 right-0 mx-auto mt-2.5 text-center;
   }
+
+  #language_selector_wrapper {
+    @apply z-50;
+  }
 }
 
 .text-center {
@@ -237,3 +241,5 @@ body {
     transform: scaleX(1);
   }
 }
+
+

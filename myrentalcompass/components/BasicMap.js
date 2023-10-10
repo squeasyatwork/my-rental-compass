@@ -67,9 +67,8 @@ const BasicMap = ({
             <div style="background-image: url('/map-marker.svg'); background-repeat: no-repeat; background-size: 35px 35px; background-position: center; width: 35px; 
             height: 35px; display: flex; flex-direction: column; justify-content: center; align-items: center;" 
             class="relative">
-                <span class="text-center text-md font-bold" style="opacity: ${
-                  isSameAsUniversity ? "0.5" : "1"
-                }; margin-top: -5px;">${rank}</span>
+                <span class="text-center text-md font-bold" style="opacity: ${isSameAsUniversity ? "0.5" : "1"
+        }; margin-top: -5px;">${rank}</span>
             </div>
         `,
       iconSize: [35, 35],
@@ -131,7 +130,7 @@ const BasicMap = ({
       center={[-37.8136, 144.9631]}
       zoom={11}
       scrollWheelZoom={false}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%", width: "100%", zIndex: "0" }}
     >
       <TileLayer
         attribution="&copy; Esri &mdash; Esri, DeLorme, NAVTEQ"

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
-import Router from "next/router";
 import Image from "next/image";
 
 import Navbar from "./helperpages/navbar.js";
@@ -10,8 +9,30 @@ import QuestionTwo from "../components/questiontwo.js";
 import DataContext from "../components/DataContext.js";
 import Footer from "./helperpages/footer.js";
 
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
+import { useRouter } from "next/router.js";
+
+export async function getStaticProps(context) {
+  // extract the locale identifier from the URL
+  const { locale } = context;
+
+  return {
+    props: {
+      // pass the translation props to the page component
+      ...(await serverSideTranslations(
+        locale,
+        ["common", "dict3"],
+        i18nextConfig
+      )),
+    },
+  };
+}
+
 function Questionnaire() {
-  const router = Router.useRouter();
+  const router = useRouter();
+  const { t } = useTranslation();
   const { setData } = useContext(DataContext); // Get the setData method from context
 
   const [currentQuestion, setCurrentQuestion] = useState("q1");
@@ -83,10 +104,68 @@ function Questionnaire() {
     router.push("/recommendations");
   }
 
+  let q1Contents = {
+    heading: t("dict3:questionnaire_q1corpus_heading"),
+    line_1: t("dict3:questionnaire_q1corpus_line_1"),
+    line_2: t("dict3:questionnaire_q1corpus_line_2"),
+    line_3: t("dict3:questionnaire_q1corpus_line_3"),
+    line_4: t("dict3:questionnaire_q1corpus_line_4"),
+    line_5: t("dict3:questionnaire_q1corpus_line_5"),
+    line_6: t("dict3:questionnaire_q1corpus_line_6"),
+    line_7: t("dict3:questionnaire_q1corpus_line_7"),
+    go_back_button: t("dict3:questionnaire_q1corpus_go_back_button"),
+    start_button: t("dict3:questionnaire_q1corpus_start_button"),
+    input_validation_message: t(("dict3:questionnaire_q1corpus_input_validation_message"))
+  }
+
+  let q2Contents = {
+    question_1_label: t("dict3:questionnaire_q2corpus_question_1_label"),
+    question_1_line_1: t("dict3:questionnaire_q2corpus_question_1_line_1"),
+    question_1_line_2: t("dict3:questionnaire_q2corpus_question_1_line_2"),
+    question_1_line_3: t("dict3:questionnaire_q2corpus_question_1_line_3"),
+
+    question_1_modal_heading: t("dict3:questionnaire_q2corpus_question_1_modal_heading"),
+    question_1_modal_line_1: t("dict3:questionnaire_q2corpus_question_1_modal_line_1"),
+    question_1_modal_line_2: t("dict3:questionnaire_q2corpus_question_1_modal_line_2"),
+    question_1_modal_line_3: t("dict3:questionnaire_q2corpus_question_1_modal_line_3"),
+    question_1_modal_line_4: t("dict3:questionnaire_q2corpus_question_1_modal_line_4"),
+    question_1_modal_line_5: t("dict3:questionnaire_q2corpus_question_1_modal_line_5"),
+
+    likert_1: t("dict3:questionnaire_q2corpus_likert_1"),
+    likert_1_modal_heading_line_1: t("dict3:questionnaire_q2corpus_likert_1_modal_heading_line_1"),
+    likert_1_modal_heading_line_2: t("dict3:questionnaire_q2corpus_likert_1_modal_heading_line_2"),
+    likert_1_modal_description: t("dict3:questionnaire_q2corpus_likert_1_modal_description"),
+    likert_1_modal_source_line: t("dict3:questionnaire_q2corpus_likert_1_modal_source_line"),
+
+    likert_2: t("dict3:questionnaire_q2corpus_likert_2"),
+    likert_2_modal_heading_line_1: t("dict3:questionnaire_q2corpus_likert_2_modal_heading_line_1"),
+    likert_2_modal_heading_line_2: t("dict3:questionnaire_q2corpus_likert_2_modal_heading_line_2"),
+    likert_2_modal_description: t("dict3:questionnaire_q2corpus_likert_2_modal_description"),
+
+    likert_3: t("dict3:questionnaire_q2corpus_likert_3"),
+    likert_3_modal_description: t("dict3:questionnaire_q2corpus_likert_3_modal_description"),
+
+    likert_4: t("dict3:questionnaire_q2corpus_likert_4"),
+    likert_4_modal_description: t("dict3:questionnaire_q2corpus_likert_4_modal_description"),
+
+    question_2_label: t("dict3:questionnaire_q2corpus_question_2_label"),
+    question_2_line_1: t("dict3:questionnaire_q2corpus_question_2_line_1"),
+    question_2_line_2: t("dict3:questionnaire_q2corpus_question_2_line_2"),
+
+    university_line_1: t("dict3:questionnaire_q2corpus_university_line_1"),
+    university_line_2: t("dict3:questionnaire_q2corpus_university_line_2"),
+    university_default_option: t("dict3:questionnaire_q2corpus_university_default_option"),
+
+    go_back_button: t("dict3:questionnaire_q2corpus_go_back_button"),
+    show_result_button: t("dict3:questionnaire_q2corpus_show_result_button"),
+
+    input_validation_message: t(("dict3:questionnaire_q2corpus_input_validation_message"))
+  }
+
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Questionnaire</title>
+        <title>{"MyRentalCompass | " + t("dict3:questionnaire_tab_title")}</title>
         <meta name="description" content="Customize your liveability index." />
       </Head>
 
@@ -106,6 +185,7 @@ function Questionnaire() {
                 handleNext={handleNext}
                 selectedChoices={selectedChoices}
                 handleChoice={handleChoice}
+                q1Corpus={q1Contents}
               />
             )}
             {currentQuestion === "q2" && (
@@ -116,6 +196,7 @@ function Questionnaire() {
                 handleChoice={handleChoice}
                 handleUniChoice={handleUniChoice}
                 sendInput={sendInput}
+                q2Corpus={q2Contents}
               />
             )}
           </div>
@@ -139,27 +220,21 @@ function Questionnaire() {
                 className="mb-2"
               />
               <div className="flex flex-col justify-center items-center">
-                <h2 className=" font-bold text-3xl">We value your privacy</h2>
+                <h2 className=" font-bold text-3xl">{t("dict3:questionnaire_privacy_heading")}</h2>
                 <br></br>
                 <p className=" text-lg">
-                  At My Rental Compass, we respect your privacy.<br></br>
-                  We do not collect or store your responses on our website,
-                  <br></br>
-                  nor do we track your activities.
+                  {t("dict3:questionnaire_privacy_description_line_1")}
+                  <br></br>{t("dict3:questionnaire_privacy_description_line_2")}
+                  <br></br>{t("dict3:questionnaire_privacy_description_line_3")}
                 </p>
               </div>
               <br></br>
-              <button
-                className="text-2xl font-bold call-action-button mb-2"
-                onClick={toggleCard}
-              >
-                Okay, got it!
+              <button className="text-2xl font-bold call-action-button mb-2" onClick={toggleCard}>
+                {t("dict3:questionnaire_privacy_okay_button")}
               </button>
               <Link href="/privacy">
                 <button>
-                  <p className="underline hover:text-ButtonHoverYellow">
-                    Learn more
-                  </p>
+                  <p className="underline hover:text-ButtonHoverYellow">{t("dict3:questionnaire_more_button")}</p>
                 </button>
               </Link>
             </div>

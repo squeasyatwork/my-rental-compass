@@ -12,8 +12,10 @@ import QuizModal from "~/components/QuizModal.js";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import i18nextConfig from "~/next-i18next.config";
-import { t } from "i18next";
+import Tooltip from '@mui/material/Tooltip';
 import { useRouter } from "next/router.js";
+
+import CustomTooltip from "~/components/CustomTooltip.js";
 
 export async function getStaticProps(context) {
   // extract the locale identifier from the URL
@@ -409,7 +411,9 @@ const UserguideBar = () => {
               </div>
               <ul className="list-disc pl-5">
                 <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_1")}</li>
-                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_2")}</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_1") + " "}
+                  <CustomTooltip displayText={t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_2")} description={t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_TOOLTIP")} ></CustomTooltip>{" " + t("resources:RESOURCES_STEP_1_PARA_1_STEP_2_PART_3")}
+                </li>
               </ul>
             </div>
             <Link href="/rights" className="font-semibold">
@@ -423,7 +427,9 @@ const UserguideBar = () => {
               </h2>
               <ul className="list-disc pl-5">
                 <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_1")}</li>
-                <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_2")}</li>
+                <li>{t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_1") + " "}
+                  <CustomTooltip displayText={t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_2")} description={t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_TOOLTIP")} ></CustomTooltip>{" " + t("resources:RESOURCES_STEP_1_PARA_2_STEP_2_PART_3")}
+                </li>
               </ul>
             </div>
           </div>
@@ -654,15 +660,7 @@ export default function Resources() {
       </Head>
 
       <main className="font-inter flex flex-col min-h-screen text-black">
-        <Navbar
-          activePage="What you need to do"
-          className="z-10"
-          option1={t("common:menu_item_1")}
-          option2={t("common:menu_item_2")}
-          option3={t("common:menu_item_3")}
-          option4={t("common:menu_item_4")}
-          option5={t("common:menu_item_5")}
-        />
+        <Navbar activePage="What you need to do" className="z-10" />
 
         <div className="relative h-6/12 w-full">
           <img
@@ -680,46 +678,34 @@ export default function Resources() {
         </div>
         <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
           <div className="w-10/12 flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
-            <h1>{t("resources:RESOURCES_BYLINE")}</h1>
-
-            {router.locale === "en" && (
-              <Image
-                className="object-contain ml-8"
-                src="/resources_dialog_cloud_english.svg"
-                alt="chat"
-                width={150}
-                height={75}
-              />
-            )}
-            {router.locale === "hi" && (
-              <Image
-                className="object-contain ml-8"
-                src="/resources_dialog_cloud_hindi.svg"
-                alt="chat"
-                width={150}
-                height={75}
-              />
-            )}
-            {router.locale === "ms" && (
-              <Image
-                className="object-contain ml-8"
-                src="/resources_dialog_cloud_malay.svg"
-                alt="chat"
-                width={150}
-                height={75}
-              />
-            )}
-            {router.locale === "zh" && (
-              <Image
-                className="object-contain ml-8"
-                src="/resources_dialog_cloud_chinese.svg"
-                alt="chat"
-                width={150}
-                height={75}
-              />
-            )}
-            <Image
-              className="object-contain"
+            <h1>
+              {t("resources:RESOURCES_BYLINE")}
+            </h1>
+            {router.locale === "en" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_english.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
+            {router.locale === "hi" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_hindi.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
+            {router.locale === "ms" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_malay.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
+            {router.locale === "zh" && (<Image className="object-contain ml-8"
+              src="/resources_dialog_cloud_chinese.svg"
+              alt="chat"
+              width={150}
+              height={75}
+            />)}
+            <Image className="object-contain"
               src="/woman.gif"
               alt="woman"
               width={150}
@@ -912,7 +898,7 @@ export default function Resources() {
           </div>
         </div>
         <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">Credits</h2>
+          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
           <div className="flex">
             <div className="flex flex-col">
               <a
