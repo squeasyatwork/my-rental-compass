@@ -306,7 +306,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
                   maxHeight: "90vh",
                   //overflowY: "scroll",
-                  zIndex: 1000,
+                  zIndex: 10,
                 }}
               >
                 {/* Panel toggle button */}
@@ -321,7 +321,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
                 {isPanelOpen && (
                   <>
-                    <h3 className=" font-istok text-lg text-center font-bold mt-2">
+                    <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
                       {t("recommendations:map_suburb_list_title")}
                     </h3>
                     <table className="mx-auto">
@@ -369,7 +369,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     padding: "1rem",
                     borderRadius: "12px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    zIndex: 1000,
+                    zIndex: 10,
                     position: "absolute",
                     left: `${boxPosition.x + 50}px`,
                     top: `${boxPosition.y + 2}px`,
@@ -400,7 +400,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
           </Box>
           <div className="flex justify-between items-center w-full my-4 px-48 pt-6">
             <button
-              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2"
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2 z-0"
               onClick={() => router.push("/map")}
             >
               {t("recommendations:map_page_button")}
@@ -410,7 +410,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                 {t("recommendations:dream_suburb_text")}
               </span>
               <button
-                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96"
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96 z-0"
                 onClick={() => router.push("/resources")}
               >
                 {t("recommendations:resources_page_button")}

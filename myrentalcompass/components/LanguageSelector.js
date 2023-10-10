@@ -25,7 +25,7 @@ const LanguageSelector = ({ text }) => {
                 <Image src="/translate_icon.svg" width={20} height={20} />
                 <div className="text-HeadingTextGray text-center">{router.locale.toUpperCase()}</div>
             </button>
-            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-80 bg-LongContentGray z-auto"
+            <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-80 bg-LongContentGray"
                 style={{
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: languageModalOpen ? "1" : "0",
@@ -114,46 +114,6 @@ const LanguageSelector = ({ text }) => {
 
         </div >
     )
-    // return (
-    //     <div className="border-yellow border-2">
-    //         <select onChange={(e) =>
-    //             router.push(
-    //                 {
-    //                     pathname: router.pathname,
-    //                     query: router.query,
-    //                 },
-    //                 null,
-    //                 { locale: e.target.value }
-    //             )
-    //         }>
-    //             {(router.locale === "en" || router.locale === "") && (<option selected value="en">
-    //                 <button className="button special big">EN | English</button>
-    //             </option>)}
-    //             {(router.locale !== "en" && router.locale !== "") && (<option value="en">
-    //                 <button className="button special big">EN | English</button>
-    //             </option>)}
-    //             {(router.locale === "hi") && (<option selected value="hi">
-    //                 <button className="button special big">HI | हिंदी</button>
-    //             </option>)}
-    //             {(router.locale !== "hi") && (<option value="hi">
-    //                 <button className="button special big">HI | हिंदी</button>
-    //             </option>)}
-    //             {(router.locale === "ms") && (<option selected value="ms">
-    //                 <button className="button special big">MS | Melayu</button>
-    //             </option>)}
-    //             {(router.locale !== "ms") && (<option value="ms">
-    //                 <button className="button special big">MS | Melayu</button>
-    //             </option>)}
-    //             {(router.locale === "zh") && (<option selected value="zh">
-    //                 <button className="button special big">ZH | 中国人</button>
-    //             </option>)}
-    //             {(router.locale !== "zh") && (<option value="zh">
-    //                 <button className="button special big">ZH | 中国人</button>
-    //             </option>)}
-
-    //         </select>
-    //     </div>
-    // );
 };
 
 export default LanguageSelector;
