@@ -10,6 +10,7 @@ import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 import DataContext from "../components/DataContext.js";
+import Image from "next/image.js";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -120,11 +121,16 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <Navbar activePage="Find where to live" />
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
-          <div className="font-bold text-4xl text-black pt-6">
-            <h1>
+          <div className="flex font-bold text-4xl text-black items-center">
+            <h1 className="mr-2">
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
-            <br />
+            <Image
+              src= "/query.gif"
+              alt="query"
+              width={50}
+              height={50}
+            />
           </div>
           <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
             <h2>● How we calculated your score</h2>
@@ -224,7 +230,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
               {/* Top 10 Suburbs panel */}
               <Box
-                bgcolor="#fff"
+                bgcolor="#FFFEFC"
                 padding="1rem"
                 borderRadius="10px"
                 sx={{
@@ -237,7 +243,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   top: "10px",
                   width: "37%",
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
-                  maxHeight: "70vh",
+                  maxHeight: "90vh",
                   //overflowY: "scroll",
                   zIndex: 1000,
                 }}
