@@ -126,7 +126,7 @@ export default function LandingPage() {
               <div className="flex flex-col justify-center">
                 <div className="text-center">
                   <div className="h1-container">
-                    <h1 className="text-6xl font-bold mt-16 relative z-10 text-center whitespace-nowrap">
+                    <h1 className="text-6xl font-bold mt-16 relative z-10 text-center whitespace-nowrap max-w-5/5">
                       {t("dict2:index_banner_title")}
                     </h1>
                     <div className="highlighter-line"></div>
