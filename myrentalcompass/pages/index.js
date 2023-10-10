@@ -147,10 +147,6 @@ export default function LandingPage() {
               </div>
             </div>
             <div className="flex flex-col items-end pb-4 pr-4">
-              <h2 className="text-xs font-normal">
-                {t("dict2:index_banner_image_credit") + " Australian Urban Observatory"}
-              </h2>
-              <div className="mb-4" />
             </div>
           </div>
         </div>
