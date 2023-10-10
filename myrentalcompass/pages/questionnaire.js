@@ -1,7 +1,6 @@
 import Head from "next/head";
 import { useState, useEffect, useContext } from "react";
 import Link from "next/link";
-import Router from "next/router";
 import Image from "next/image";
 
 import Navbar from "./helperpages/navbar.js";
@@ -9,8 +8,6 @@ import QuestionOne from "../components/questionone.js";
 import QuestionTwo from "../components/questiontwo.js";
 import DataContext from "../components/DataContext.js";
 import Footer from "./helperpages/footer.js";
-import Link from "next/link";
-import Image from "next/image";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
