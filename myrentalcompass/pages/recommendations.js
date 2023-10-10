@@ -3,13 +3,14 @@ import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
-import Image from "next/image";
+import DataContext from "../components/DataContext.js";
+import Image from "next/image.js";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -45,28 +46,37 @@ export const getServerSideProps = async (context) => {
 };
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
-  const { rankedSuburbs = [] } = data || {};
-  const [showDetails1, setShowDetails1] = useState(false);
+  const contextValues = useContext(DataContext);
 
+  const [showDetails1, setShowDetails1] = useState(false);
   const toggleDetails1 = () => {
     setShowDetails1(!showDetails1);
   };
 
+  const { rent, transport, park, crime, road, university } =
+    contextValues.data || {};
+
+  const { rankedSuburbs = [] } = data || {};
+
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 400,
-    // affordability: contextQuery.affordabilityChoice || 3,
-    transport: contextQuery.transportChoice || 3,
-    park: contextQuery.parkChoice || 3,
-    crime: contextQuery.crimeChoice || 3,
-    road: contextQuery.roadChoice || 3,
-    university: contextQuery.uniChoice || "",
+    rent: rent || contextQuery.rentChoice || 400,
+    transport: transport || contextQuery.transportChoice || 3,
+    park: park || contextQuery.parkChoice || 3,
+    crime: crime || contextQuery.crimeChoice || 3,
+    road: road || contextQuery.roadChoice || 3,
+    university: university || contextQuery.uniChoice || "",
   });
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    //   console.log("Values from DataContext on Recommendations page load:", contextValues);
+    sendInput();
+  }, []);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -86,14 +96,12 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
   const sendInput = () => {
     if (inputValues.university) {
-      let suburb = inputValues.university.split(",").pop().trim();
-      if (suburb === "CBD") {
-        suburb = "Melbourne";
-      }
+      const suburb = inputValues.university.split(",").pop().trim();
       setUniversitySuburb(suburb);
     } else {
       setUniversitySuburb(null);
     }
+
     router.push({
       pathname: "/recommendations",
       query: inputValues,
@@ -237,20 +245,20 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
               {/* Top 10 Suburbs panel */}
               <Box
-                bgcolor="#fff"
+                bgcolor="#FFFEFC"
                 padding="1rem"
                 borderRadius="10px"
                 sx={{
                   display: "flex",
                   flexDirection: "column",
                   position: "absolute",
-                  justifyContent: "center",
+                  justifyContent: "start",
                   alignItems: "center",
                   right: 0,
                   top: "10px",
                   width: "37%",
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
-                  maxHeight: "70vh",
+                  maxHeight: "90vh",
                   //overflowY: "scroll",
                   zIndex: 1000,
                 }}
@@ -345,6 +353,25 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               )}
             </Box>
           </Box>
+          <div className="flex justify-between items-center w-full my-4 px-48 pt-6">
+            <button
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2"
+              onClick={() => router.push("/map")}
+            >
+              See liveability map of Melbourne
+            </button>
+            <div className="flex items-center">
+              <span className="text-xl mr-8 font-bold">
+                Found your dream suburb?
+              </span>
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96"
+                onClick={() => router.push("/resources")}
+              >
+                Click to see our step-by-step guide to the rental process in Melbourne
+              </button>
+            </div>
+          </div>
         </section>
         <Footer />
       </main>
