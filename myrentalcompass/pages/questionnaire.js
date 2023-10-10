@@ -26,13 +26,19 @@ function Questionnaire() {
   const [showCard, setShowCard] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCard(true);
-    }, 150);
-    return () => clearTimeout(timer);
+    const hasShownPrivacyPopup = sessionStorage.getItem("hasShownPrivacyPopup");
+
+    if (!hasShownPrivacyPopup) {
+      const timer = setTimeout(() => {
+        setShowCard(true);
+      }, 150);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleCard = () => {
+    sessionStorage.setItem("hasShownPrivacyPopup", "true");
     setShowCard(!showCard);
   };
 

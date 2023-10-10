@@ -47,7 +47,8 @@ export const getServerSideProps = async (context) => {
 export default function Recommendations({ data = null, contextQuery = {} }) {
   const contextValues = useContext(DataContext);
 
-  const { rent, transport, park, crime, road, university } = contextValues.data || {};
+  const { rent, transport, park, crime, road, university } =
+    contextValues.data || {};
 
   const { rankedSuburbs = [] } = data || {};
 
@@ -66,10 +67,10 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
 
- useEffect(() => {
-//   console.log("Values from DataContext on Recommendations page load:", contextValues);
-  sendInput(); 
-}, []);
+  useEffect(() => {
+    //   console.log("Values from DataContext on Recommendations page load:", contextValues);
+    sendInput();
+  }, []);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -119,7 +120,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <Navbar activePage="Find where to live" />
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
-          <div className="font-bold text-4xl text-black">
+          <div className="font-bold text-4xl text-black pt-6">
             <h1>
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
@@ -331,6 +332,26 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               )}
             </Box>
           </Box>
+          <div className="flex justify-between items-center w-full my-4 px-56 pb-16 pt-6">
+            <button
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow rounded-full p-2 px-6"
+              onClick={() => router.push("/map")}
+            >
+              See liveability map of Melbourne
+            </button>
+
+            <div className="flex items-center">
+              <span className="text-xl mr-8 font-bold">
+                Found your dream suburb?
+              </span>
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button w-96 rounded-3xl"
+                onClick={() => router.push("/resources")}
+              >
+                Click to see our step-by-step guide to the rental process in Melbourne
+              </button>
+            </div>
+          </div>
         </section>
         <Footer />
       </main>
