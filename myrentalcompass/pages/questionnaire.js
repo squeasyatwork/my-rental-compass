@@ -1,8 +1,13 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
+import Link from "next/link";
+import Router from "next/router";
+import Image from "next/image";
+
 import Navbar from "./helperpages/navbar.js";
 import QuestionOne from "../components/questionone.js";
 import QuestionTwo from "../components/questiontwo.js";
+import DataContext from "../components/DataContext.js";
 import Footer from "./helperpages/footer.js";
 import Link from "next/link";
 import Image from "next/image";
@@ -31,6 +36,7 @@ export async function getStaticProps(context) {
 function Questionnaire() {
   const router = useRouter();
   const { t } = useTranslation();
+  const { setData } = useContext(DataContext); // Get the setData method from context
 
   const [currentQuestion, setCurrentQuestion] = useState("q1");
   const [selectedChoices, setSelectedChoices] = useState({
@@ -44,13 +50,19 @@ function Questionnaire() {
   const [showCard, setShowCard] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCard(true);
-    }, 150);
-    return () => clearTimeout(timer);
+    const hasShownPrivacyPopup = sessionStorage.getItem("hasShownPrivacyPopup");
+
+    if (!hasShownPrivacyPopup) {
+      const timer = setTimeout(() => {
+        setShowCard(true);
+      }, 150);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleCard = () => {
+    sessionStorage.setItem("hasShownPrivacyPopup", "true");
     setShowCard(!showCard);
   };
 
@@ -74,13 +86,10 @@ function Questionnaire() {
   const handlePrevious = () => {
     if (currentQuestion === "q2") {
       setCurrentQuestion("q1");
-    } else if (currentQuestion === "q3") {
-      setCurrentQuestion("q2");
     }
   };
 
   function sendInput() {
-    // Constructing query based on the format you provided
     const formattedQuery = {
       rent: selectedChoices.someQuestionOne,
       transport: selectedChoices.publicTransport,
@@ -90,11 +99,12 @@ function Questionnaire() {
       university: university,
     };
 
-    // Push to the recommendations page with formatted query
-    router.push({
-      pathname: "/recommendations",
-      query: formattedQuery,
-    });
+    console.log("Data being set to DataContext:", formattedQuery); // Added this line
+
+    setData(formattedQuery); // Save the data to context
+
+    // Navigate to the recommendations page
+    router.push("/recommendations");
   }
 
   let q1Contents = {
@@ -194,13 +204,16 @@ function Questionnaire() {
             )}
           </div>
         </div>
-        {(
-          <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
+        {
+          <div
+            className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
             style={{
-              transition: "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+              transition:
+                "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
               opacity: showCard ? "1" : "0",
-              visibility: showCard ? "visible" : "hidden"
-            }}>
+              visibility: showCard ? "visible" : "hidden",
+            }}
+          >
             <div className="flex flex-col justify-center items-center p-8 mb-4 text-center bg-PopupPurple rounded-xl">
               <Image
                 src="/secure-shield.png"
@@ -229,7 +242,7 @@ function Questionnaire() {
               </Link>
             </div>
           </div>
-        )}
+        }
       </main>
       <Footer />
     </>

@@ -29,19 +29,23 @@ const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
 function Map() {
   const { t } = useTranslation();
   const [selectedFeature, setSelectedFeature] = React.useState(null);
-  // create a loading state
   const [mapLoading, setMapLoading] = useState(true);
   const [showCard, setShowCard] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowCard(true);
-    }, 150);
+    const hasShownPopup = sessionStorage.getItem("hasShownPopup");
 
-    return () => clearTimeout(timer);
+    if (!hasShownPopup) {
+      const timer = setTimeout(() => {
+        setShowCard(true);
+      }, 150);
+
+      return () => clearTimeout(timer);
+    }
   }, []);
 
   const toggleCard = () => {
+    sessionStorage.setItem("hasShownPopup", "true");
     setShowCard(!showCard);
   };
 
@@ -67,12 +71,23 @@ function Map() {
             Liveability index of Melbourne suburbs
           </h2>
           <p className="text-xl py-1 w-2/3">
-            The interactive map below shows each suburb&apos;s average rental amount as well a liveability index based on 4 key criteria: safety, affordability, accessibility and wellness.
+            The interactive map below shows each suburb&apos;s average rental
+            amount as well a liveability index based on 4 key criteria: safety,
+            affordability, accessibility and wellness. This is generalised information back by liveability data.
           </p>
-          <p className="text-xl py-1 w-2/3">To learn more about liveability and how it is calculated, see our &apos;
+          <p className="text-xl py-1 w-2/3">
+            To learn more about liveability and how it is calculated, see our
+            &apos;
             <span>
-              <Link href="/liveability" className="underline hover:text-ButtonHoverYellow">What is liveability</Link>
-            </span>&apos; page</p>
+              <Link
+                href="/liveability"
+                className="underline hover:text-ButtonHoverYellow"
+              >
+                What is liveability
+              </Link>
+            </span>
+            &apos; page
+          </p>
         </section>
         {/* Map Section */}
         <section className="flex-grow flex flex-col h-full">
@@ -93,9 +108,7 @@ function Map() {
               <span className=" py-1">Liveability Index</span>
             </div>
           </div>
-          <div
-            className="flex justify-center w-full h-full"
-          >
+          <div className="flex justify-center w-full h-full">
             <div className="flex justify-center w-4/5">
               <div
                 className="flex justify-center items-center"
@@ -109,12 +122,14 @@ function Map() {
                       style={{ width: "200px", height: "200px" }}
                     />
                   </div>
-                ) : !showCard && (
-                  <DynamicBasicMap
-                    recommendations={false}
-                    setSelectedFeature={setSelectedFeature}
-                    style={{ zIndex: 1 }}
-                  />
+                ) : (
+                  !showCard && (
+                    <DynamicBasicMap
+                      recommendations={false}
+                      setSelectedFeature={setSelectedFeature}
+                      style={{ zIndex: 1 }}
+                    />
+                  )
                 )}
               </div>
               {/* Liveability Index Information Section */}
@@ -122,7 +137,7 @@ function Map() {
                 <div className="mb-16">
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
-                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3" >
+                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
                         Suburb: {selectedFeature?.suburb || "N/A"}
                       </h3>
@@ -132,20 +147,24 @@ function Map() {
                       <h3 className="font-semibold">
                         Liveability Score:{" "}
                         {selectedFeature?.liveability_score
-                          ? `${(selectedFeature.liveability_score * 100).toFixed(
-                            0
-                          )}%`
+                          ? `${(
+                            selectedFeature.liveability_score * 100
+                          ).toFixed(0)}%`
                           : "N/A"}
                       </h3>
                     </div>
                   </div>
                   <div>
-                    <h2 className=" font-bold text-lg mb-1">Selected indicator:</h2>
-                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3" >
+                    <h2 className=" font-bold text-lg mb-1">
+                      Selected indicator:
+                    </h2>
+                    <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
                         Average Rent:{" "}
                         {selectedFeature?.average_rent
-                          ? `$${selectedFeature.average_rent.toFixed(2)} per week`
+                          ? `$${selectedFeature.average_rent.toFixed(
+                            2
+                          )} per week`
                           : "N/A"}
                       </h3>
                       <h3 className="font-semibold">

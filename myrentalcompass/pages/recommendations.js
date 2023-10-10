@@ -3,12 +3,35 @@ import Router from "next/router";
 import { Box } from "@mui/material";
 import Head from "next/head";
 import dynamic from "next/dynamic";
-import { useState } from "react";
+import { useState, useContext, useEffect } from "react";
 
 import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+import DataContext from "../components/DataContext.js";
+import Image from "next/image.js";
+
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "next-i18next";
+import i18nextConfig from "~/next-i18next.config";
+
+
+// export async function getStaticProps(context) {
+//   // extract the locale identifier from the URL
+
+
+//   return {
+//     props: {
+//       // pass the translation props to the page component
+//       ...(await serverSideTranslations(
+//         locale,
+//         ["common", "resources"],
+//         i18nextConfig
+//       )),
+//     },
+//   };
+// }
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -19,6 +42,7 @@ export const config = {
 };
 
 export const getServerSideProps = async (context) => {
+  const { locale } = context;
   if (context.query) {
     let contextQuery = context.query;
     let reqQuery = new URLSearchParams(contextQuery);
@@ -36,31 +60,58 @@ export const getServerSideProps = async (context) => {
       dbResponse.headers.get("content-type").includes("application/json")
     ) {
       let data = await dbResponse.json();
-      return { props: { data, contextQuery } };
+      return {
+        props: {
+          data, contextQuery, ...(await serverSideTranslations(
+            locale,
+            ["common", "recommendations"],
+            i18nextConfig
+          ))
+        }
+      };
     }
   }
 
-  return { props: { data: null, contextQuery: {} } };
+  return {
+    props: {
+      data: null, contextQuery: {}, ...(await serverSideTranslations(
+        locale,
+        ["common", "recommendations"],
+        i18nextConfig
+      ))
+    }
+  };
 };
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
+  const contextValues = useContext(DataContext);
+
+  const { rent, transport, park, crime, road, university } =
+    contextValues.data || {};
+
   const { rankedSuburbs = [] } = data || {};
 
   const router = Router.useRouter();
 
+  const { t } = useTranslation();
+
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rentChoice || 400,
-    // affordability: contextQuery.affordabilityChoice || 3,
-    transport: contextQuery.transportChoice || 3,
-    park: contextQuery.parkChoice || 3,
-    crime: contextQuery.crimeChoice || 3,
-    road: contextQuery.roadChoice || 3,
-    university: contextQuery.uniChoice || "",
+    rent: rent || contextQuery.rentChoice || 400,
+    transport: transport || contextQuery.transportChoice || 3,
+    park: park || contextQuery.parkChoice || 3,
+    crime: crime || contextQuery.crimeChoice || 3,
+    road: road || contextQuery.roadChoice || 3,
+    university: university || contextQuery.uniChoice || "",
   });
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
   const [isPanelOpen, setIsPanelOpen] = React.useState(false);
   const [boxPosition, setBoxPosition] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    //   console.log("Values from DataContext on Recommendations page load:", contextValues);
+    sendInput();
+  }, []);
 
   const handleInputChange = (e) => {
     setInputValues({
@@ -80,14 +131,12 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
   const sendInput = () => {
     if (inputValues.university) {
-      let suburb = inputValues.university.split(",").pop().trim();
-      if (suburb === "CBD") {
-        suburb = "Melbourne";
-      }
+      const suburb = inputValues.university.split(",").pop().trim();
       setUniversitySuburb(suburb);
     } else {
       setUniversitySuburb(null);
     }
+
     router.push({
       pathname: "/recommendations",
       query: inputValues,
@@ -102,6 +151,14 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     setBoxPosition({ x: mouseX, y: mouseY });
   };
 
+  const criteria = [
+    // "affordability",
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider")
+  ];
+
   return (
     <>
       <Head>
@@ -112,11 +169,16 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <Navbar activePage="Find where to live" />
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
-          <div className="font-bold text-4xl text-black">
-            <h1>
+          <div className="flex font-bold text-4xl text-black items-center">
+            <h1 className="mr-2">
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
-            <br />
+            <Image
+              src= "/query.gif"
+              alt="query"
+              width={50}
+              height={50}
+            />
           </div>
           <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
             <h2>● How we calculated your score</h2>
@@ -165,16 +227,19 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               </div>
               {/* Rental and liveability sliders */}
               <RentSlider
+                labelText={t("recommendations:rent_slider")}
                 handleChoice={handleSliderChange("rent")}
                 defaultArg={inputValues.rent}
               />
               <LiveabilitySliders
+                criteria={criteria}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
 
               {/* University dropdown */}
               <UniversityDropdown
+                labelText={t("recommendations:university_label")}
                 value={{ label: inputValues.university }}
                 onChange={(event, newValue) => {
                   handleInputChange({
@@ -216,7 +281,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
 
               {/* Top 10 Suburbs panel */}
               <Box
-                bgcolor="#fff"
+                bgcolor="#FFFEFC"
                 padding="1rem"
                 borderRadius="10px"
                 sx={{
@@ -229,7 +294,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   top: "10px",
                   width: "37%",
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
-                  maxHeight: "70vh",
+                  maxHeight: "90vh",
                   //overflowY: "scroll",
                   zIndex: 1000,
                 }}
@@ -324,6 +389,26 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               )}
             </Box>
           </Box>
+          <div className="flex justify-between items-center w-full my-4 px-56 pb-16 pt-6">
+            <button
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow rounded-full p-2 px-6"
+              onClick={() => router.push("/map")}
+            >
+              See liveability map of Melbourne
+            </button>
+
+            <div className="flex items-center">
+              <span className="text-xl mr-8 font-bold">
+                Found your dream suburb?
+              </span>
+              <button
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button w-96 rounded-3xl"
+                onClick={() => router.push("/resources")}
+              >
+                Click to see our step-by-step guide to the rental process in Melbourne
+              </button>
+            </div>
+          </div>
         </section>
         <Footer />
       </main>
