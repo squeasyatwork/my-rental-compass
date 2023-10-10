@@ -27,17 +27,18 @@ const NavBar = ({ activePage }) => {
               <Image
                 src="/mrc-logov3.png"
                 alt="MRC Logo"
-                width={200}
-                height={200}
+                width={150}
+                height={150}
               />
             </div>
           </Link>
         </div>
-        <NavBarButton text={t("common:menu_item_1")} href="/" isActive={activePage === "Home"} />
-        <NavBarButton text={t("common:menu_item_2")} href="/resources" isActive={activePage === "What you need to do"} />
-        <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
-        <NavBarButton text={t("common:menu_item_4")} href="/liveability" isActive={activePage === "What is liveability"} />
-
+        <div className="flex items-center justify-between lg:space-x-16 md:space-x-10 sm:sapce-x-6">
+          <NavBarButton text={t("common:menu_item_1")} href="/" isActive={activePage === "Home"} />
+          <NavBarButton text={t("common:menu_item_2")} href="/resources" isActive={activePage === "What you need to do"} />
+          <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
+          <NavBarButton text={t("common:menu_item_4")} href="/liveability" isActive={activePage === "What is liveability"} />
+        </div>
         <div className="flex items-center justify-between">
           <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
           <NavBarButton text={t("common:menu_item_5")} special={true} href="/map" isActive={activePage === "Find where to live"} />
