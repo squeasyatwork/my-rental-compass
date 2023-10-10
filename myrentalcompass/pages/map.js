@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
       // pass the translation props to the page component
       ...(await serverSideTranslations(
         locale,
-        ["common", "dict3"],
+        ["common", "map"],
         i18nextConfig
       )),
     },
@@ -77,7 +77,7 @@ function Map() {
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Map</title>
+        <title>{"MyRentalCompass | " + t("map:tab_title")}</title>
         <meta name="description" content="Find the best places to live." />
       </Head>
 
@@ -87,26 +87,23 @@ function Map() {
         {/* Title and Text Section */}
         <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
           <h2 className="text-3xl font-bold pb-1">
-            Liveability index of Melbourne suburbs
+            {t("map:page_heading")}
           </h2>
           <p className="text-xl py-1 w-2/3">
-            The interactive map below shows each suburb&apos;s average rental
-            amount as well a liveability index based on 4 key criteria: safety,
-            affordability, accessibility and wellness. This is generalised
-            information back by liveability data.
+            {t("map:page_description_para_1")}
           </p>
           <p className="text-xl py-1 w-2/3">
-            To learn more about liveability and how it is calculated, see our
+            {t("map:page_description_para_2_part_1") + " "}
             &apos;
             <span>
               <Link
                 href="/liveability"
                 className="underline hover:text-ButtonHoverYellow"
               >
-                What is liveability
+                {t("map:page_description_para_2_part_2")}
               </Link>
             </span>
-            &apos; page
+            &apos; {" " + t("map:page_description_para_2_part_3")}
           </p>
         </section>
         {/* Map Section */}
@@ -125,7 +122,7 @@ function Map() {
                 height={22}
                 className="rounded-xl mx-2"
               />
-              <span className=" py-1">Liveability Index</span>
+              <span className=" py-1">{t("map:map_box_title")}</span>
             </div>
           </div>
           <div className="flex justify-center w-full h-full">
@@ -156,46 +153,46 @@ function Map() {
               <div className="flex flex-col justify-between text-md px-8 py-4 bg-MapHeadingGray shadow-md lg:w-1/3 md:w-1/3 sm:w-1/3">
                 <div className="mb-16">
                   <div className="mb-4">
-                    <h2 className=" font-bold text-lg mb-1">Selected area:</h2>
+                    <h2 className=" font-bold text-lg mb-1">{t("map:map_box_area_title")}</h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
-                        Suburb: {selectedFeature?.suburb || "N/A"}
+                        {t("map:map_box_area_suburb")} {selectedFeature?.suburb || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
-                        Council: {selectedFeature?.lga || "N/A"}
+                        {t("map:map_box_area_council")} {selectedFeature?.lga || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
-                        Liveability Score:{" "}
+                        {t("map:map_box_area_score")} {" "}
                         {selectedFeature?.liveability_score
                           ? `${(
-                              selectedFeature.liveability_score * 100
-                            ).toFixed(0)}%`
+                            selectedFeature.liveability_score * 100
+                          ).toFixed(0)}%`
                           : "N/A"}
                       </h3>
                     </div>
                   </div>
                   <div>
                     <h2 className=" font-bold text-lg mb-1">
-                      Selected indicator:
+                      {t("map:map_box_indicator_title")}
                     </h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
-                        Average Rent: {displayedRent}
+                        {t("map:map_box_indicator_rent")} {displayedRent}
                       </h3>
                       <h3 className="font-semibold">
-                        No. of Public Transport Stops:{" "}
+                        {t("map:map_box_indicator_transport")} {" "}
                         {selectedFeature?.ptv_stop_count || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
-                        Number of Parks & Recreation Areas:{" "}
+                        {t("map:map_box_indicator_park")}{" "}
                         {selectedFeature?.openspace_count || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
-                        Traffic Incident Count (past 12 months):{" "}
+                        {t("map:map_box_indicator_road")} {" "}
                         {selectedFeature?.crash_count || "N/A"}
                       </h3>
                       <h3 className="font-semibold">
-                        Crime Count (past 12 months):{" "}
+                        {t("map:map_box_indicator_crime")} {" "}
                         {selectedFeature?.crime_count || "N/A"}
                       </h3>
                     </div>
@@ -204,7 +201,7 @@ function Map() {
                 <div className="flex flex-col justify-between text-lg items-center">
                   <Link href="/questionnaire">
                     <button className="call-action-button">
-                      Get customised recommendations
+                      {t("map:recommendations_button")}
                     </button>
                   </Link>
                 </div>
@@ -224,9 +221,9 @@ function Map() {
               <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
                 <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
                   <p className=" text-xl font-bold">
-                    Did you know?<br></br>
-                    One of the most common scams targeting<br></br>
-                    international students is rental fraud
+                    {t("map:modal_heading_line_1")}<br></br>
+                    {t("map:modal_heading_line_2")}<br></br>
+                    {t("map:modal_heading_line_3")}
                   </p>
                   <Image
                     src="/woman.gif"
@@ -237,23 +234,23 @@ function Map() {
                 </div>
                 <div className="flex flex-col justify-center items-center">
                   <h2 className=" font-bold text-lg">
-                    Educate yourself now to avoid falling for dodgy rental deals
+                    {t("map:modal_subheading")}
                   </h2>
                   <br></br>
                   <div className=" border-b-2 border-MerciPurple pb-6">
                     <div className="flex flex-col justify-center items-center mb-4">
-                      <p>Learn more about the rental process in Melbourne</p>
+                      <p>{t("map:modal_button_1_description")}</p>
                       <Link href="/resources">
                         <button className=" bg-ResourceButtonYellow call-action-button text-md">
-                          <p>What you need to do</p>
+                          <p>{t("map:modal_button_1_text")}</p>
                         </button>
                       </Link>
                     </div>
                     <div className="flex flex-col justify-center items-center">
-                      <p>Learn more about the rental laws and your rights</p>
+                      <p>{t("map:modal_button_2_description")}</p>
                       <Link href="/rights">
                         <button className=" bg-ResourceButtonYellow call-action-button text-md">
-                          <p>What you need to know</p>
+                          <p>{t("map:modal_button_2_text")}</p>
                         </button>
                       </Link>
                     </div>
@@ -264,7 +261,7 @@ function Map() {
                   className="text-2xl font-bold call-action-button mb-4"
                   onClick={toggleCard}
                 >
-                  Continue
+                  {t("map:modal_continue_button")}
                 </button>
               </div>
             </div>

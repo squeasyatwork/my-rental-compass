@@ -208,9 +208,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               </p>
               <h2>{"●" + t("recommendations:page_subheading_2")}</h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match
-                (i.e. highest liveability score) are in dark green. Those with
-                the lowest are dark pink.
+                {"    " + t("recommendations:page_description_2")}
               </p>
             </div>
           </div>
