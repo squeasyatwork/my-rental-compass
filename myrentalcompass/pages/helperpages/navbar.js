@@ -18,19 +18,21 @@ const NavBar = ({ activePage }) => {
   const { t } = useTranslation();
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-MapNavGray shadow-md z-50`}
+      className={`relative top-0 left-0 h-20 w-full p-4 flex items-center justify-between bg-MapNavGray shadow-md z-50`}
     >
-      <div className="flex justify-between max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-24">
-        <Link href="/">
-          <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
-            <Image
-              src="/mrc-logov3.png"
-              alt="MRC Logo"
-              width={200}
-              height={200}
-            />
-          </div>
-        </Link>
+      <div className="flex justify-between w-full items-center">
+        <div className="flex justify-center items-center">
+          <Link href="/">
+            <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
+              <Image
+                src="/mrc-logov3.png"
+                alt="MRC Logo"
+                width={200}
+                height={200}
+              />
+            </div>
+          </Link>
+        </div>
         <NavBarButton text={t("common:menu_item_1")} href="/" isActive={activePage === "Home"} />
         <NavBarButton text={t("common:menu_item_2")} href="/resources" isActive={activePage === "What you need to do"} />
         <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
