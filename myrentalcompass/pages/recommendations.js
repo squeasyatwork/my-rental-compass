@@ -176,7 +176,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   return (
     <>
       <Head>
-        <title>MyRentalCompass | Recommendations</title>
+        <title>{"MyRentalCompass | " + t("recommendations:tab_title")}</title>
         <meta name="description" content="Discover potential suburbs." />
       </Head>
       <main className="font-inter flex flex-col h-screen">
@@ -185,7 +185,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
           <div className="flex font-bold text-4xl text-black items-center">
             <h1 className="mr-2">
-              Here are the Melbourne suburbs that we think are suitable for you
+              {t("recommendations:page_heading")}
             </h1>
             <button onClick={toggleDetails1}>
               <Image src="/query.gif" alt="query" width={50} height={50} />
@@ -202,20 +202,17 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
             }}
           >
             <div className="font-bold text-2xl text-HeadingTextGrayp-6 rounded-xl">
-              <h2>● How we calculated your score</h2>
+              <h2>{"●" + t("recommendations:page_subheading_1")} </h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity
-                index score that ranks the suburbs based on your responses to
-                the questionnaire you just finished.
+                {"    " + t("recommendations:page_description_1_part_1")}
                 <br />
-                &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
-                our page &apos;What is Liveability&apos;.
+                {"    " + t("recommendations:page_description_1_part_2")}.
               </p>
-              <h2>● How to read the map</h2>
+              <h2>{"●" + t("recommendations:page_subheading_2")}</h2>
               <p className="text-xl font-normal">
-                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match
-                (i.e. highest liveability score) are in dark green. Those with
-                the lowest are dark pink.
+                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
+                highest liveability score) are in dark green. Those with the
+                lowest are dark pink.
               </p>
             </div>
           </div>
@@ -245,7 +242,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               }}
             >
               <div className=" font-bold text-2xl">
-                <h1>Updated Selection</h1>
+                <h1>{t("recommendations:slider_section_heading")}</h1>
               </div>
               {/* Rental and liveability sliders */}
               <RentSlider
@@ -277,7 +274,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                 className="text-lg md:text-lg lg:text-lg font-bold call-action-button"
                 onClick={sendInput}
               >
-                Update Result
+                {t("recommendations:slider_section_update_button")}
               </button>
             </Box>
 
@@ -318,7 +315,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   boxShadow: "0 4px 6px rgb(0 0 0 / 0.1)",
                   maxHeight: "90vh",
                   //overflowY: "scroll",
-                  zIndex: 1000,
+                  zIndex: 10,
                 }}
               >
                 {/* Panel toggle button */}
@@ -327,29 +324,29 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   onClick={() => setIsPanelOpen(!isPanelOpen)}
                 >
                   {isPanelOpen
-                    ? "▼ Hide Top 10 Suburbs"
-                    : "▶ See Top 10 Suburbs"}
+                    ? ("▼ " + t("recommendations:map_hide_suburb_list"))
+                    : ("▶ " + t("recommendations:map_show_suburb_list"))}
                 </button>
 
                 {isPanelOpen && (
                   <>
-                    <h3 className=" font-istok text-lg text-center font-bold mt-2">
-                      Suburb Recommendations For You
+                    <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
+                      {t("recommendations:map_suburb_list_title")}
                     </h3>
                     <table className="mx-auto">
                       <thead>
                         <tr>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Rank
+                            {t("recommendations:map_suburb_list_rank")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Score
+                            {t("recommendations:map_suburb_list_score")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Suburbs
+                            {t("recommendations:map_suburb_list_suburb")}
                           </th>
                           <th className=" text-sm font-medium px-2 border-b-2">
-                            Rent ($/week)
+                            {t("recommendations:map_suburb_list_rent")}
                           </th>
                         </tr>
                       </thead>
@@ -362,7 +359,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                             </td>
                             <td className="px-2 py-2">{suburb.suburb}</td>
                             <td className="px-2 py-2">
-                              ${suburb.average_rent}
+                              A${suburb.average_rent}
                             </td>
                           </tr>
                         ))}
@@ -381,7 +378,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     padding: "1rem",
                     borderRadius: "12px",
                     boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
-                    zIndex: 1000,
+                    zIndex: 10,
                     position: "absolute",
                     left: `${boxPosition.x + 50}px`,
                     top: `${boxPosition.y + 2}px`,
@@ -401,11 +398,10 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   >
                     x
                   </button>
-                  <p>Name: {selectedFeature.suburb}</p>
-                  <p>Council: {selectedFeature.lga}</p>
+                  <p>{t("recommendations:map_current_suburb_name") + ": " + selectedFeature.suburb}</p>
+                  <p>{t("recommendations:map_current_suburb_council") + ": " + selectedFeature.lga}</p>
                   <p>
-                    Liveability Score:{" "}
-                    {(selectedFeature.liveability_score * 100).toFixed(2)}%
+                    {t("recommendations:map_current_suburb_score") + ": " + (selectedFeature.liveability_score * 100).toFixed(2)}%
                   </p>
                 </div>
               )}
@@ -413,21 +409,20 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
           </Box>
           <div className="flex justify-between items-center w-full my-4 px-48 pt-6">
             <button
-              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2"
+              className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2 z-0"
               onClick={() => router.push("/map")}
             >
-              See liveability map of Melbourne
+              {t("recommendations:map_page_button")}
             </button>
             <div className="flex items-center">
               <span className="text-xl mr-8 font-bold">
-                Found your dream suburb?
+                {t("recommendations:dream_suburb_text")}
               </span>
               <button
-                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96"
+                className="text-lg md:text-lg lg:text-lg font-bold call-action-button lg:w-96 z-0"
                 onClick={() => router.push("/resources")}
               >
-                Click to see our step-by-step guide to the rental process in
-                Melbourne
+                {t("recommendations:resources_page_button")}
               </button>
             </div>
           </div>

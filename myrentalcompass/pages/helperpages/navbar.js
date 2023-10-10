@@ -18,25 +18,28 @@ const NavBar = ({ activePage }) => {
   const { t } = useTranslation();
   return (
     <nav
-      className={`relative top-0 left-0 h-20 w-full px-0 py-4 flex items-center justify-between mr-20 bg-MapNavGray shadow-md z-50`}
+      className={`relative top-0 left-0 h-20 w-full p-4 flex items-center justify-between bg-MapNavGray shadow-md z-50`}
     >
-      <div className="flex justify-between max-w-screen-xl mx-auto w-full px-2 items-center sm:px-4 sm:space-x-6 md:space-x-12 lg:space-x-24">
-        <Link href="/">
-          <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
-            <Image
-              src="/mrc-logov3.png"
-              alt="MRC Logo"
-              width={200}
-              height={200}
-            />
-          </div>
-        </Link>
-        <NavBarButton text={t("common:menu_item_1")} href="/" isActive={activePage === "Home"} />
-        <NavBarButton text={t("common:menu_item_2")} href="/resources" isActive={activePage === "What you need to do"} />
-        <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
-        <NavBarButton text={t("common:menu_item_4")} href="/liveability" isActive={activePage === "What is liveability"} />
-
-        <div className="flex items-center justify-between">
+      <div className="flex justify-between w-full items-center">
+        <div className="flex justify-center items-center">
+          <Link href="/">
+            <div className="flex ml-4 sm:ml-8 sm:left-4 items-center">
+              <Image
+                src="/mrc-logov3.png"
+                alt="MRC Logo"
+                width={140}
+                height={140}
+              />
+            </div>
+          </Link>
+        </div>
+        <div className="flex items-center justify-between lg:space-x-16 md:space-x-10 sm:sapce-x-6">
+          <NavBarButton text={t("common:menu_item_1")} href="/" isActive={activePage === "Home"} />
+          <NavBarButton text={t("common:menu_item_2")} href="/resources" isActive={activePage === "What you need to do"} />
+          <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
+          <NavBarButton text={t("common:menu_item_4")} href="/liveability" isActive={activePage === "What is liveability"} />
+        </div>
+        <div className="flex items-center justify-betwee">
           <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
           <NavBarButton text={t("common:menu_item_5")} special={true} href="/map" isActive={activePage === "Find where to live"} />
         </div>
