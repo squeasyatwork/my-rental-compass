@@ -109,7 +109,7 @@ export default function Rights() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-center h-full text-center ">
-            <div className="flex flex-col justify-center items-center space-y-6 my-40 text-gray-100/90">
+            <div className="flex flex-col justify-center items-center space-y-6 my-28 text-gray-100/90">
               <h2 className="text-5xl font-bold max-w-5xl">
                 {t("dict2:rights_banner_title")}
               </h2>

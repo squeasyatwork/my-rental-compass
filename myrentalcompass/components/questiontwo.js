@@ -446,7 +446,7 @@ const QuestionTwo = ({
           <div
             className="flex flex-col justify-center font-istok font-normal"
           >
-            <div className="flex flex-col justify-center bg-BackgroundWhite rounded-xl p-6">
+            <div className="flex flex-col justify-cente bg-white rounded-xl p-6">
               <h2 className="justify-center items-center text-center text-xl mb-2">
                 {q2Corpus.university_line_1}<br></br>
                 {q2Corpus.university_line_2}
