@@ -9,6 +9,7 @@ import { RentSlider, LiveabilitySliders } from "~/components/Sliders.js";
 import UniversityDropdown from "~/components/Dropdown";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
+import Image from "next/image";
 
 const DynamicBasicMap = dynamic(() => import("~/components/BasicMap"), {
   ssr: false,
@@ -45,6 +46,11 @@ export const getServerSideProps = async (context) => {
 
 export default function Recommendations({ data = null, contextQuery = {} }) {
   const { rankedSuburbs = [] } = data || {};
+  const [showDetails1, setShowDetails1] = useState(false);
+
+  const toggleDetails1 = () => {
+    setShowDetails1(!showDetails1);
+  };
 
   const router = Router.useRouter();
 
@@ -112,28 +118,43 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <Navbar activePage="Find where to live" />
 
         <section className="flex flex-col bg-ResourceButtonYellow md:flex-col sm:flex-col items-start justify-center pt-5 pl-12 pb-2 text-left">
-          <div className="font-bold text-4xl text-black">
-            <h1>
+          <div className="flex font-bold text-4xl text-black items-center">
+            <h1 className="mr-2">
               Here are the Melbourne suburbs that we think are suitable for you
             </h1>
-            <br />
+            <button onClick={toggleDetails1}>
+              <Image
+                src= "/query.gif"
+                alt="query"
+                width={50}
+                height={50}
+              />
+            </button>
           </div>
-          <div className="font-bold text-2xl text-HeadingTextGray bg-BackgroundWhite p-6 rounded-xl">
-            <h2>● How we calculated your score</h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity index
-              score that ranks the suburbs based on your responses to the
-              questionnaire you just finished.
-              <br />
-              &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
-              our page &apos;What is Liveability&apos;.
-            </p>
-            <h2>● How to read the map</h2>
-            <p className="text-xl font-normal">
-              &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
-              highest liveability score) are in dark green. Those with the
-              lowest are dark pink.
-            </p>
+          <div className=" p-4 text-lg text-left text-LongContentGray bg-FooterButtonYellow rounded-xl"
+            style={{
+              transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+              opacity: showDetails1 ? "1" : "0",
+              visibility: showDetails1 ? "visible" : "hidden",
+              maxHeight: showDetails1 ? "1000px" : "0"
+            }}>
+            <div className="font-bold text-2xl text-HeadingTextGrayp-6 rounded-xl">
+              <h2>● How we calculated your score</h2>
+              <p className="text-xl font-normal">
+                &nbsp;&nbsp;&nbsp;&nbsp;This website generates a liveablity index
+                score that ranks the suburbs based on your responses to the
+                questionnaire you just finished.
+                <br />
+                &nbsp;&nbsp;&nbsp;&nbsp;To find out more about liveability, see
+                our page &apos;What is Liveability&apos;.
+              </p>
+              <h2>● How to read the map</h2>
+              <p className="text-xl font-normal">
+                &nbsp;&nbsp;&nbsp;&nbsp;The suburbs that are your best match (i.e.
+                highest liveability score) are in dark green. Those with the
+                lowest are dark pink.
+              </p>
+            </div>
           </div>
         </section>
         <section className="flex-grow w-full bg-ResourceButtonYellow flex flex-col items-center justify-center text-NavTextGray p-4">
