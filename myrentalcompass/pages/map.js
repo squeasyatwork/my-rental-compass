@@ -69,13 +69,9 @@ function Map() {
   // const averageRentFormatted =
   //   typeof t.average_rent === "number" ? t.average_rent.toFixed(2) : "N/A";
 
-  let averageRentFormatted = "N/A";
-  try {
-    if (typeof t.average_rent === "number") {
-      averageRentFormatted = t.average_rent.toFixed(2);
-    }
-  } catch (error) {
-    console.error("Error formatting average_rent:", error);
+  let displayedRent = "N/A";
+  if (typeof selectedFeature?.average_rent === "number") {
+    displayedRent = `$${selectedFeature.average_rent.toFixed(2)} per week`;
   }
 
   return (
@@ -184,12 +180,7 @@ function Map() {
                     </h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
                       <h3 className="font-semibold">
-                        Average Rent:{" "}
-                        {selectedFeature?.average_rent
-                          ? `$${selectedFeature.average_rent.toFixed(
-                              2
-                            )} per week`
-                          : "N/A"}
+                        Average Rent: {displayedRent}
                       </h3>
                       <h3 className="font-semibold">
                         No. of Public Transport Stops:{" "}
