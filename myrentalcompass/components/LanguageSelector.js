@@ -21,9 +21,9 @@ const LanguageSelector = ({ text }) => {
 
     return (
         <div id="language_selector_wrapper">
-            <button className="flex justify-between items-center mt-1 mr-8 rounded-lg hover:border-2 duration-150" onClick={() => setLanguageModalOpen(true)}>
-                <Image src="/translate_icon.svg" width={20} height={20} />
-                <div className="text-HeadingTextGray text-center">{router.locale.toUpperCase()}</div>
+            <button className="flex justify-between items-center mr-8 rounded-lg hover:border-2 duration-150" onClick={() => setLanguageModalOpen(true)}>
+                <Image src="/translate_icon.svg" width={25} height={25} />
+                <div className=" text-LongContentGray text-center">{router.locale.toUpperCase()}</div>
             </button>
             <div className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-80 bg-LongContentGray z-auto"
                 style={{

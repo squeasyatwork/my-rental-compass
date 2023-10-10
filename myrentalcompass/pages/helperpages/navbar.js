@@ -27,8 +27,8 @@ const NavBar = ({ activePage }) => {
               <Image
                 src="/mrc-logov3.png"
                 alt="MRC Logo"
-                width={150}
-                height={150}
+                width={140}
+                height={140}
               />
             </div>
           </Link>
@@ -39,7 +39,7 @@ const NavBar = ({ activePage }) => {
           <NavBarButton text={t("common:menu_item_3")} href="/rights" isActive={activePage === "What you need to know"} />
           <NavBarButton text={t("common:menu_item_4")} href="/liveability" isActive={activePage === "What is liveability"} />
         </div>
-        <div className="flex items-center justify-between">
+        <div className="flex items-center justify-betwee">
           <LanguageSelector text={t("common:language_selector_text")} className="mr-8"></LanguageSelector>
           <NavBarButton text={t("common:menu_item_5")} special={true} href="/map" isActive={activePage === "Find where to live"} />
         </div>
