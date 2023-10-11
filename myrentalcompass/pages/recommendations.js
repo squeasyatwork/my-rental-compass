@@ -82,20 +82,20 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     setShowDetails1(!showDetails1);
   };
 
-  // const { rent, transport, park, crime, road, university } =
-  //   contextValues.data || {};
+  const { rent, transport, park, crime, road, university } =
+    contextValues.data || {};
 
   const { rankedSuburbs = [] } = data || {};
 
   const router = Router.useRouter();
 
   const [inputValues, setInputValues] = React.useState({
-    rent: contextQuery.rent || 400,
-    transport: contextQuery.transport || 3,
-    park: contextQuery.park || 3,
-    crime: contextQuery.crime || 3,
-    road: contextQuery.road || 3,
-    university: contextQuery.university || "",
+    rent: contextQuery.rent || contextValues.rent || 400,
+    transport: contextQuery.transport || contextValues.transport || 3,
+    park: contextQuery.park || contextValues.park || 3,
+    crime: contextQuery.crime || contextValues.crime || 3,
+    road: contextQuery.road || contextValues.road || 3,
+    university: contextQuery.university || contextValues.university || ""
   });
 
   const [selectedFeature, setSelectedFeature] = React.useState(null);
