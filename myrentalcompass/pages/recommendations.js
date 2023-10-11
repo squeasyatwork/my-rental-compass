@@ -42,7 +42,7 @@ export const getServerSideProps = async (context) => {
       dbResponse.ok &&
       dbResponse.headers.get("content-type").includes("application/json")
     ) {
-      console.log("RECOS: DB response OK and header condition true.");
+      // console.log("RECOS: DB response OK and header condition true.");
       let data = await dbResponse.json();
       return {
         props: {
@@ -57,7 +57,7 @@ export const getServerSideProps = async (context) => {
     }
   }
 
-  console.log("RECOS: DB response not OK or header condition not true.");
+  // console.log("RECOS: DB response not OK or header condition not true.");
   return {
     props: {
       data: null, contextQuery: {},
@@ -74,8 +74,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const { t } = useTranslation();
   const contextValues = useContext(DataContext);
 
-  // console.log("(/recommendations 50:) DataContext contents:", contextValues); // Added this line
-  console.log("(/recommendations 51:) contextQuery rent value:", contextQuery.rent);
+  // console.log("(/recommendations 77:) DataContext contents:", contextValues); // Added this line
+  // console.log("(/recommendations 78:) contextQuery rent value:", contextQuery.rent);
 
   const [showDetails1, setShowDetails1] = useState(true);
   const toggleDetails1 = () => {
@@ -147,12 +147,17 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     setBoxPosition({ x: mouseX, y: mouseY });
   };
 
-  console.log("(/recommendations 50:) [recos -> RentSLider] rent: ", inputValues.rent);
+  // console.log("(/recommendations 150:) [recos -> RentSLider] rent: ", inputValues.rent);
+  // console.log("(/recommendations 151:) DataContext rent: ", inputValues.rent);
   return (
     <>
       <Head>
         <title>{"MyRentalCompass | " + t("recommendations:tab_title")}</title>
         <meta name="description" content="Discover potential suburbs." />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
       <main className="font-inter flex flex-col h-screen">
         <Navbar activePage="Find where to live" />
