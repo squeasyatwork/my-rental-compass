@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
   }
 }
 
-export default function Rights() {
+export default function privacy() {
   const { t } = useTranslation();
   return (
     <>
