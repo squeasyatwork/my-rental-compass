@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
   }
 }
 
-export default function privacy() {
+export default function Credits() {
   const { t } = useTranslation();
   return (
     <>
