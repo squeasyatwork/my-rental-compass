@@ -22,8 +22,14 @@ function Footer() {
           © {new Date().getFullYear()} SuperFivers.
         </p>
         <Link href="/privacy">
-          <button className="underline hover:text-ButtonHoverYellow">
+          <button className="underline hover:text-ButtonHoverYellow mr-2">
             {t("common:footer_text")}
+          </button>
+        </Link>
+        <p className="mr-2">|</p>
+        <Link href="/credits">
+          <button className="underline hover:text-ButtonHoverYellow mr-2">
+            {t("common:icons_credits_section_heading")}
           </button>
         </Link>
       </div>

@@ -7,12 +7,10 @@ import Link from "next/link";
 import FormGroup from "@mui/material/FormGroup";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
-import QuizModal from "~/components/QuizModal.js";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import i18nextConfig from "~/next-i18next.config";
-import Tooltip from '@mui/material/Tooltip';
 import { useRouter } from "next/router.js";
 
 import CustomTooltip from "~/components/CustomTooltip.js";
@@ -657,6 +655,10 @@ export default function Resources() {
       <Head>
         <title>{t("resources:RESOURCES_TAB_TITLE")}</title>
         <meta name="description" content="What you need to do." />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <main className="font-inter flex flex-col min-h-screen text-black">

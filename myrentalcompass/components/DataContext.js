@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 
 // Step 2: Start with the Import Error
 // Ensure the DataContext is being exported.
-const DataContext = React.createContext();
+const DataContext = React.createContext("NO_CONTEXT");
 
 export const DataProvider = ({ children, value }) => {  // Destructure value prop
   useEffect(() => {
