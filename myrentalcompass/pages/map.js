@@ -89,14 +89,14 @@ function Map() {
         <Navbar activePage="Find where to live" className="z-10" />{" "}
         {/* Navbar */}
         {/* Title and Text Section */}
-        <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
-          <h2 className="text-3xl font-bold pb-1">
+        <section className="flex flex-col md:flex-col sm:flex-col items-center justify-center p-4 text-left mb-4">
+          <h2 className="flex justify-center font-bold text-5xl text-HeadingTextGray my-4">
             {t("map:page_heading")}
           </h2>
-          <p className="text-xl py-1 w-2/3">
+          <p className="text-xl w-2/3">
             {t("map:page_description_para_1")}
           </p>
-          <p className="text-xl py-1 w-2/3">
+          <p className="text-xl w-2/3">
             {t("map:page_description_para_2_part_1") + " "}
             &apos;
             <span>
@@ -159,13 +159,13 @@ function Map() {
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">{t("map:map_box_area_title")}</h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_suburb")} {selectedFeature?.suburb || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_council")} {selectedFeature?.lga || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_score")} {" "}
                         {selectedFeature?.liveability_score
                           ? `${(
@@ -180,22 +180,22 @@ function Map() {
                       {t("map:map_box_indicator_title")}
                     </h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_rent")} {displayedRent}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_transport")} {" "}
                         {selectedFeature?.ptv_stop_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_park")}{" "}
                         {selectedFeature?.openspace_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_road")} {" "}
                         {selectedFeature?.crash_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_crime")} {" "}
                         {selectedFeature?.crime_count || "N/A"}
                       </h3>
@@ -271,7 +271,7 @@ function Map() {
             </div>
           }
         </section>
-        <Footer /> {/* Footer */}
+        <Footer />
       </div>
     </>
   );

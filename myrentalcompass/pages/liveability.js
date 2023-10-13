@@ -78,7 +78,7 @@ function Liveability() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-gray-100/90">
-            <div className="flex flex-col justify-center my-32">
+            <div className="flex flex-col justify-center my-36">
               <h1 className="text-5xl font-bold text-center">
                 {t("dict3:liveability_banner_title_1")}<br></br>
                 {t("dict3:liveability_banner_title_2")}
