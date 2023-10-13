@@ -68,7 +68,7 @@ function Liveability() {
       </Head>
 
       <Navbar activePage="What is liveability" className="z-10" />
-      <main className="font-istok flex flex-col min-h-screen bg-white text-black">
+      <main className="font-istok flex flex-col min-h-screen bg-BackgroundWhite text-black">
         <div className="relative h-3/5 w-full">
           <img
             loader={imageLoader}

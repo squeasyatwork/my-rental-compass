@@ -2,7 +2,6 @@ import Head from "next/head";
 import Navbar from "./helperpages/navbar.js";
 import Footer from "./helperpages/footer.js";
 import Link from "next/link";
-import UserguideBar from "~/components/UserguideBar.js";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
@@ -105,7 +104,7 @@ export default function Rights() {
 
       <Navbar activePage="What you need to know" className="z-10" />
 
-      <main className="font-istok flex flex-col min-h-screen text-black justify-start w-full h-full bg-white">
+      <main className="font-istok flex flex-col min-h-screen text-black justify-start w-full h-full bg-BackgroundWhite">
         <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
@@ -120,7 +119,7 @@ export default function Rights() {
             </div>
           </div>
         </div>
-        <div className=" flex flex-col bg-white items-center px-8 w-full h-full">
+        <div className=" flex flex-col items-center px-8 w-full h-full">
           <div className="flex justify-between items-center w-4/5">
             <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md">
               <h2>{t("dict2:rights_description_heading")}</h2>
@@ -638,7 +637,7 @@ export default function Rights() {
             </div>
           </div>
         </div>
-        <div className="bg-white px-4 my-12">
+        <div className=" px-4 my-12">
           <h1 className="flex index-page-section-heading pt-6 pb-6 items-center justify-center">
             {t("dict2:index_or_section_heading")}
           </h1>

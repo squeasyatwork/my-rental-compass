@@ -210,7 +210,7 @@ function Questionnaire() {
             className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
             style={{
               transition:
-                "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, max-height 0.3s ease-in-out",
               opacity: showCard ? "1" : "0",
               visibility: showCard ? "visible" : "hidden",
             }}

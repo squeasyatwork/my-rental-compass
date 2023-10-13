@@ -85,7 +85,7 @@ function Map() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="font-istok flex flex-col min-h-screen bg-white text-black">
+      <div className="font-istok flex flex-col min-h-screen bg-BackgroundWhite text-black">
         <Navbar activePage="Find where to live" className="z-10" />{" "}
         {/* Navbar */}
         {/* Title and Text Section */}
@@ -217,13 +217,13 @@ function Map() {
               className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
               style={{
                 transition:
-                  "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                  "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, max-height 0.3s ease-in-out",
                 opacity: showCard ? "1" : "0",
                 visibility: showCard ? "visible" : "hidden",
               }}
             >
               <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
-                <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
+                <div className="flex justify-between items-center bg-BackgroundWhite rounded-t-xl p-8 mb-2">
                   <p className=" text-xl font-bold">
                     {t("map:modal_heading_line_1")}<br></br>
                     {t("map:modal_heading_line_2")}<br></br>
@@ -245,7 +245,7 @@ function Map() {
                     <div className="flex flex-col justify-center items-center mb-4">
                       <p>{t("map:modal_button_1_description")}</p>
                       <Link href="/resources">
-                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-base">
                           <p>{t("map:modal_button_1_text")}</p>
                         </button>
                       </Link>
@@ -253,7 +253,7 @@ function Map() {
                     <div className="flex flex-col justify-center items-center">
                       <p>{t("map:modal_button_2_description")}</p>
                       <Link href="/rights">
-                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-base">
                           <p>{t("map:modal_button_2_text")}</p>
                         </button>
                       </Link>

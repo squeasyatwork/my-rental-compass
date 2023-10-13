@@ -22,7 +22,7 @@ module.exports = {
         NavTextGray: "#262626",
         HeadingTextGray: "#757575",
         FooterButtonYellow: "#F9DE89",
-        BackgroundWhite: "#FFFEFC",
+        BackgroundWhite: "#FFFFFF",
         ShadeGray: "#BFBFBF",
         ResourceButtonYellow: "#fff5cc",
         MapNavGray: "#f5f5f5",

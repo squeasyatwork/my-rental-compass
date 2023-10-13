@@ -80,7 +80,7 @@ body {
   }
 
   .likert-label {
-    @apply cursor-pointer text-center p-2 bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12;
+    @apply cursor-pointer flex items-center justify-center text-center bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12;
     transition: background-color 0.2s, transform 0.2s;
   }
 
