@@ -60,7 +60,7 @@ body {
     @apply bg-MainButtonYellow transform scale-110 opacity-100;
   }
   .index-page-section-heading {
-    @apply p-3 mb-4 mt-7 text-6xl font-bold leading-tight justify-center items-center font-istok;
+    @apply p-3 mb-4 mt-7 text-5xl font-bold leading-tight justify-center items-center font-istok;
     color: #757575;
   }
   .yqa-cross-section-container {

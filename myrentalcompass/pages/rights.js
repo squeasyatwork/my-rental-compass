@@ -121,8 +121,8 @@ export default function Rights() {
           </div>
         </div>
         <div className=" flex flex-col bg-white items-center px-8 w-full h-full">
-          <div className="flex justify-between items-center">
-            <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md mr-48">
+          <div className="flex justify-between items-center w-4/5">
+            <div className="flex flex-col items-center justify-between text-HeadingTextGray font-bold text-4xl text-center max-w-md">
               <h2>{t("dict2:rights_description_heading")}</h2>
             </div>
             <div className="flex justify-between items-start">
@@ -163,11 +163,11 @@ export default function Rights() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between font-istok text-4xl font-bold mb-2">
-            <h2 style={{ marginRight: "37rem" }}>{t("dict2:rights_subheading_1")}</h2>
+          <div className="flex justify-between font-istok text-4xl font-bold mb-2 w-4/5">
+            <h2>{t("dict2:rights_subheading_1")}</h2>
           </div>
-          <div className="flex justify-center items-start divider_rights">
-            <div className="font-istok flex flex-col justify-center pb-4 mr-24">
+          <div className="flex justify-between items-start divider_rights w-4/5">
+            <div className="font-istok flex flex-col justify-center pb-4">
               <div className="flex flex-col items-center justify-center border-b-2 border-MainButtonYellow">
                 <div className="my-8">
                   <Image
@@ -263,7 +263,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col justify-center ml-24">
+            <div className="font-istok flex flex-col justify-center">
               <div className="flex flex-col justify-center items-center border-b-2 border-MainButtonYellow">
                 <div className="my-8">
                   <Image
@@ -390,8 +390,8 @@ export default function Rights() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4">
-            <h2 className="mr-4 lg:mr-56 md:mr-12 sm:mr-4">{t("dict2:rights_subheading_2")}</h2>
+          <div className="flex justify-between font-istok text-4xl font-bold mt-12 mb-4 w-4/5">
+            <h2>{t("dict2:rights_subheading_2")}</h2>
             <div className="flex">
               <button onClick={toggleDetails7}>
                 <Image
@@ -466,8 +466,8 @@ export default function Rights() {
               </button>
             </div>
           </div>
-          <div className="flex items-start divider_rights">
-            <div className="font-istok flex flex-col items-center justify-center mr-24 border-b-2 border-MainButtonYellow pb-2">
+          <div className="flex justify-between items-start divider_rights w-4/5">
+            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow pb-2">
               <div className="my-8">
                 <Image
                   src="/house.png"
@@ -502,9 +502,8 @@ export default function Rights() {
                   </svg>
                   )}
                 </button>
-                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2"
+                <div className="p-4 text-lg justify-between text-left bg-FooterButtonYellow rounded-xl mt-2 w-96"
                   style={{
-                    maxWidth: "24rem",
                     transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                     opacity: showDetails5 ? "1" : "0",
                     visibility: showDetails5 ? "visible" : "hidden",
@@ -522,7 +521,7 @@ export default function Rights() {
                 </div>
               </div>
             </div>
-            <div className="font-istok flex flex-col items-center justify-center ml-28 border-b-2 border-MainButtonYellow pb-2">
+            <div className="font-istok flex flex-col items-center justify-center border-b-2 border-MainButtonYellow pb-2">
               <div className="my-8">
                 <Image
                   src="/home-repair.png"
@@ -582,8 +581,8 @@ export default function Rights() {
               </div>
             </div>
           </div>
-          <div className="flex justify-between items-center">
-            <div className="flex justify-start items-center mr-24">
+          <div className="flex justify-between items-center w-3/5">
+            <div className="flex justify-start items-center">
               <div className="flex flex-col items-start justify-center">
                 {router.locale === "en" && (<Image className="object-contain ml-8"
                   src="/chat_bubble_rights2.png"
@@ -630,7 +629,7 @@ export default function Rights() {
                 />
               </div>
             </div>
-            <div className="flex justify-center items-end ml-24">
+            <div className="flex justify-center items-end">
               <Link href="/">
                 <button className="text-xl md:text-2xl lg:text-2xl font-bold call-action-button bg-ResourceButtonYellow">
                   {t("dict2:rights_return_home_button")}
@@ -665,20 +664,6 @@ export default function Rights() {
               altText="or-crt-picture"
               link="https://www.rentingcommissioner.vic.gov.au/"
             />
-          </div>
-        </div>
-        <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
-          <div className="flex">
-            <div className="flex flex-col">
-              <a href="https://www.flaticon.com/free-icon/agreement_2838110?term=agreement&page=1&position=3&origin=search&related_id=2838110 " class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/agreement_2838110?term=agreement&page=1&position=3&origin=search&related_id=2838110 </a>
-              <a href="https://www.flaticon.com/free-icon/interior-design_2400629?term=interior+design&related_id=2400629 " class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/interior-design_2400629?term=interior+design&related_id=2400629 </a>
-              <a href="https://www.flaticon.com/free-icon/chat_3286051?term=tell&related_id=3286051" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/chat_3286051?term=tell&related_id=3286051</a>
-              <a href="https://www.flaticon.com/free-icon/village_1648590?term=neighborhood&page=1&position=4&origin=search&related_id=1648590" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/village_1648590?term=neighborhood&page=1&position=4&origin=search&related_id=1648590</a>
-              <a href="https://www.flaticon.com/free-icon/house_2954870?related_id=2946601&origin=search" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/house_2954870?related_id=2946601&origin=search</a>
-              <a href="https://www.flaticon.com/free-icon/home-repair_3084918?term=house+repair&related_id=3084918" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icon/home-repair_3084918?term=house+repair&related_id=3084918</a>
-            </div>
-            <div className="flex flex-col"></div>
           </div>
         </div>
         <Footer />
