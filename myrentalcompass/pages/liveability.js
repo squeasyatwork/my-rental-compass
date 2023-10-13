@@ -68,7 +68,7 @@ function Liveability() {
       </Head>
 
       <Navbar activePage="What is liveability" className="z-10" />
-      <main className="font-inter flex flex-col min-h-screen bg-white text-black">
+      <main className="font-istok flex flex-col min-h-screen bg-BackgroundWhite text-black">
         <div className="relative h-3/5 w-full">
           <img
             loader={imageLoader}
@@ -78,7 +78,7 @@ function Liveability() {
             className="absolute inset-0 object-cover object-center w-full h-full filter brightness-60 z-0"
           />
           <div className="relative flex flex-col justify-between h-full text-gray-100/90">
-            <div className="flex flex-col justify-center my-32">
+            <div className="flex flex-col justify-center my-36">
               <h1 className="text-5xl font-bold text-center">
                 {t("dict3:liveability_banner_title_1")}<br></br>
                 {t("dict3:liveability_banner_title_2")}
@@ -86,11 +86,11 @@ function Liveability() {
             </div>
           </div>
         </div>
-        <div className="flex justify-between items-center px-8">
-          <div className="flex flex-col justify-center font-istok">
-            <div className=" font-bold text-5xl text-HeadingTextGray mt-4 mb-4">
-              <h1> {t("dict3:liveability_description_heading")} </h1>
-            </div>
+        <div className="flex justify-center font-bold text-5xl text-HeadingTextGray mt-16">
+          <h1> {t("dict3:liveability_description_heading")} </h1>
+        </div>
+        <div className="flex justify-center items-center px-8">
+          <div className="flex flex-col justify-center items-center">
             <div className=" my-2">
               <h2 className="font-bold text-3xl mb-4 px-4"> {t("dict3:liveability_description_subheading")} </h2>
               <h2 className="text-xl max-w-4xl px-4"> {t("dict3:liveability_description_point_1")} </h2>
@@ -368,7 +368,6 @@ function Liveability() {
           <Link href="https://auo.org.au/">
             <button className=" text-xs md:text-sm lg:text-lg font-bold call-action-button mr-12">
               <p>{t("dict3:liveability_read_more_auo_button_line_1")}</p>
-              <br></br>
               <p>{t("dict3:liveability_read_more_auo_button_line_2")}</p>
             </button>
           </Link>

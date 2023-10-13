@@ -186,7 +186,7 @@ const UserguideBar = () => {
                   }}
                 >
                   <div
-                    className="flex flex-col justify-center px-12 py-8 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
+                    className="flex flex-col justify-center px-12 py-8 mb-4 text-left font-istok bg-BackgroundWhite shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
                     style={{ width: "38%" }}
                   >
                     <div className=" text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow -mt-5 p-2 pb-4">
@@ -327,7 +327,7 @@ const UserguideBar = () => {
                   }}
                 >
                   <div
-                    className="flex flex-col justify-between px-12 py-8 mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
+                    className="flex flex-col justify-between px-12 py-8 mb-4 text-left font-istok bg-BackgroundWhite shadow-sm shadow-yellow-400 rounded-xl space-y-4 h-1/2"
                     style={{ width: "38%" }}
                   >
                     <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-6 pt-2">
@@ -367,7 +367,7 @@ const UserguideBar = () => {
                   }}
                 >
                   <div
-                    className="flex flex-col justify-evenly mb-4 text-left font-istok bg-white shadow-sm shadow-yellow-400 rounded-xl space-y-4 px-12 py-8 h-1/2 object-fit"
+                    className="flex flex-col justify-evenly mb-4 text-left font-istok bg-BackgroundWhite shadow-sm shadow-yellow-400 rounded-xl space-y-4 px-12 py-8 h-1/2 object-fit"
                     style={{ width: "38%" }}
                   >
                     <div className="text-center font-bold text-4xl font-istok text-HeadingTextGray border-b-2 border-MainButtonYellow pb-12 pt-2 -mt-2">
@@ -661,7 +661,7 @@ export default function Resources() {
         <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main className="font-inter flex flex-col min-h-screen text-black">
+      <main className="font-istok flex flex-col min-h-screen text-black">
         <Navbar activePage="What you need to do" className="z-10" />
 
         <div className="relative h-6/12 w-full">
@@ -678,7 +678,7 @@ export default function Resources() {
             </div>
           </div>
         </div>
-        <div className="flex flex-col bg-white items-center px-6 pb-20 p-8">
+        <div className="flex flex-col bg-BackgroundWhite items-center px-6 pb-20 p-8">
           <div className="w-10/12 flex justify-center items-center font-bold text-4xl text-HeadingTextGray">
             <h1>
               {t("resources:RESOURCES_BYLINE")}
@@ -897,56 +897,6 @@ export default function Resources() {
                 </div>
               </div>
             )}
-          </div>
-        </div>
-        <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
-          <div className="flex">
-            <div className="flex flex-col">
-              <a
-                href="https://www.flaticon.com/free-icon/agreement_2838110?term=agreement&page=1&position=3&origin=search&related_id=2838110"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ●
-                https://www.flaticon.com/free-icon/agreement_2838110?term=agreement&page=1&position=3&origin=search&related_id=2838110
-              </a>
-              <a
-                href="https://www.flaticon.com/free-icon/interior-design_2400629?term=interior+design&related_id=2400629"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ●
-                https://www.flaticon.com/free-icon/interior-design_2400629?term=interior+design&related_id=2400629
-              </a>
-              <a
-                href="https://www.flaticon.com/free-icon/house_2954870?related_in=2946601&origin=search"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ●
-                https://www.flaticon.com/free-icon/house_2954870?related_in=2946601&origin=search
-              </a>
-              <a
-                href="https://www.flaticon.com/free-icons/house"
-                title="house icons"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ● https://www.flaticon.com/free-icons/house
-              </a>
-              <a
-                href="https://www.flaticon.com/free-icon/home-repair_3084918?term=house+repair&related_id=3084918"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ●
-                https://www.flaticon.com/free-icon/home-repair_3084918?term=house+repair&related_id=3084918
-              </a>
-              <a
-                href="https://www.flaticon.com/free-icon/chat_3286051?term=tell&related_id=3286051"
-                class="text-HeadingTextGrey text-sm font-istok hover:underline"
-              >
-                ●
-                https://www.flaticon.com/free-icon/chat_3286051?term=tell&related_id=3286051
-              </a>
-            </div>
-            <div className="flex flex-col"></div>
           </div>
         </div>
         <Footer footer_text={t("common:footer_text")} />
