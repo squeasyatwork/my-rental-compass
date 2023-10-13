@@ -105,7 +105,7 @@ export default function Rights() {
 
       <Navbar activePage="What you need to know" className="z-10" />
 
-      <main className="font-inter flex flex-col min-h-screen text-black justify-start w-full h-full">
+      <main className="font-istok flex flex-col min-h-screen text-black justify-start w-full h-full bg-white">
         <div className="relative flex flex-col">
           <img
             src="/businesswoman.jpeg"
@@ -638,8 +638,8 @@ export default function Rights() {
             </div>
           </div>
         </div>
-        <div className="bg-white px-4 pb-12">
-          <h1 className="index-page-section-heading pt-6 pb-6">
+        <div className="bg-white px-4 my-12">
+          <h1 className="flex index-page-section-heading pt-6 pb-6 items-center justify-center">
             {t("dict2:index_or_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
