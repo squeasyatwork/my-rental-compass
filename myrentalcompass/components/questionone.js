@@ -21,7 +21,7 @@ const QuestionOne = ({ handleNext, selectedChoices, handleChoice, q1Corpus }) =>
       className="flex flex-col items-center justify-between bg-ResourceButtonYellow rounded-xl p-8 font-istok"
     >
       <div className="flex justify-center items-start mb-6">
-        <div className="flex flex-col justify-between items-center mr-4">
+        <div className="flex flex-col justify-between items-center ">
           <h2 className="font-bold text-3xl mb-2"> {q1Corpus.heading} </h2>
           <Image
             src="/staff.svg"

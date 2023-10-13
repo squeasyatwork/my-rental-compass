@@ -79,20 +79,24 @@ function Map() {
       <Head>
         <title>{"MyRentalCompass | " + t("map:tab_title")}</title>
         <meta name="description" content="Find the best places to live." />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <div className="font-istok flex flex-col min-h-screen bg-white text-black">
+      <div className="font-istok flex flex-col min-h-screen bg-BackgroundWhite text-black">
         <Navbar activePage="Find where to live" className="z-10" />{" "}
         {/* Navbar */}
         {/* Title and Text Section */}
-        <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center mb-4 pt-5 pl-12 pb-2 text-left">
-          <h2 className="text-3xl font-bold pb-1">
+        <section className="flex flex-col md:flex-col sm:flex-col items-center justify-center p-4 text-left mb-4">
+          <h2 className="flex justify-center font-bold text-5xl text-HeadingTextGray my-4">
             {t("map:page_heading")}
           </h2>
-          <p className="text-xl py-1 w-2/3">
+          <p className="text-xl w-2/3">
             {t("map:page_description_para_1")}
           </p>
-          <p className="text-xl py-1 w-2/3">
+          <p className="text-xl w-2/3">
             {t("map:page_description_para_2_part_1") + " "}
             &apos;
             <span>
@@ -155,13 +159,13 @@ function Map() {
                   <div className="mb-4">
                     <h2 className=" font-bold text-lg mb-1">{t("map:map_box_area_title")}</h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_suburb")} {selectedFeature?.suburb || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_council")} {selectedFeature?.lga || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_area_score")} {" "}
                         {selectedFeature?.liveability_score
                           ? `${(
@@ -176,22 +180,22 @@ function Map() {
                       {t("map:map_box_indicator_title")}
                     </h2>
                     <div className="flex flex-col p-4 rounded-2xl w-auto border-MerciPurple border-3">
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_rent")} {displayedRent}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_transport")} {" "}
                         {selectedFeature?.ptv_stop_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_park")}{" "}
                         {selectedFeature?.openspace_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_road")} {" "}
                         {selectedFeature?.crash_count || "N/A"}
                       </h3>
-                      <h3 className="font-semibold">
+                      <h3>
                         {t("map:map_box_indicator_crime")} {" "}
                         {selectedFeature?.crime_count || "N/A"}
                       </h3>
@@ -213,13 +217,13 @@ function Map() {
               className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
               style={{
                 transition:
-                  "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                  "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, max-height 0.3s ease-in-out",
                 opacity: showCard ? "1" : "0",
                 visibility: showCard ? "visible" : "hidden",
               }}
             >
               <div className="flex flex-col justify-center items-center mb-4 text-left bg-PopupPurple rounded-xl">
-                <div className="flex justify-between items-center bg-white rounded-t-xl p-8 mb-2">
+                <div className="flex justify-between items-center bg-BackgroundWhite rounded-t-xl p-8 mb-2">
                   <p className=" text-xl font-bold">
                     {t("map:modal_heading_line_1")}<br></br>
                     {t("map:modal_heading_line_2")}<br></br>
@@ -241,7 +245,7 @@ function Map() {
                     <div className="flex flex-col justify-center items-center mb-4">
                       <p>{t("map:modal_button_1_description")}</p>
                       <Link href="/resources">
-                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-base">
                           <p>{t("map:modal_button_1_text")}</p>
                         </button>
                       </Link>
@@ -249,7 +253,7 @@ function Map() {
                     <div className="flex flex-col justify-center items-center">
                       <p>{t("map:modal_button_2_description")}</p>
                       <Link href="/rights">
-                        <button className=" bg-ResourceButtonYellow call-action-button text-md">
+                        <button className=" bg-ResourceButtonYellow call-action-button text-base">
                           <p>{t("map:modal_button_2_text")}</p>
                         </button>
                       </Link>
@@ -267,7 +271,7 @@ function Map() {
             </div>
           }
         </section>
-        <Footer /> {/* Footer */}
+        <Footer />
       </div>
     </>
   );

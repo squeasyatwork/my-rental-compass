@@ -71,7 +71,7 @@ body {
   @apply pt-7 pb-3 mt-0 text-center text-3xl font-bold text-NavTextGray;
 }
 .copywrite-content {
-  @apply font-istok text-NavTextGray;
+  @apply font-istok text-NavTextGray text-lg;
 }
 
 @layer components {
@@ -80,7 +80,7 @@ body {
   }
 
   .likert-label {
-    @apply cursor-pointer text-center p-2 bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12;
+    @apply cursor-pointer flex items-center justify-center text-center bg-FooterButtonYellow rounded-full shadow-sm w-12 h-12;
     transition: background-color 0.2s, transform 0.2s;
   }
 
@@ -210,10 +210,6 @@ body {
 
 .text-center {
   text-align: center;
-}
-
-.text-3xl {
-  font-size: 1.875rem;
 }
 
 .h1-container {

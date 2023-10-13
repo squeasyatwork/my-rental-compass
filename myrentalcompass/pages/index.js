@@ -106,9 +106,13 @@ export default function LandingPage() {
       <Head>
         <title>{t("dict2:index_tab_title")}</title>
         <meta name="description" content="Welcome to MyRentalCompass." />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
-      <main className="font-inter flex flex-col min-h-screen text-black">
+      <main className="font-istok flex flex-col min-h-screen text-black bg-white">
         <Navbar activePage="Home" className="z-10" />
 
         <div className="relative h-3/5 w-full">
@@ -121,19 +125,18 @@ export default function LandingPage() {
             }}
           />
           <div className="relative z-10 flex flex-col justify-center h-full text-BackgroundWhite space-y-6">
-            <div className="flex flex-col items-center space-y-6 flex-grow">
+            <div className="flex flex-col items-center space-y-6 flex-grow mb-8">
               <div className="flex flex-col justify-center">
                 <div className="text-center">
                   <div className="h1-container">
-                    <h1 className="text-6xl font-bold mt-16 relative z-10 text-center whitespace-nowrap max-w-5/5">
+                    <h1 className="font-bold text-6xl mt-16 relative z-10 text-center whitespace-nowrap max-w-5/5">
                       {t("dict2:index_banner_title")}
                     </h1>
                     <div className="highlighter-line"></div>
                   </div>
                 </div>
-                <h2 className="text-4xl font-medium text-center mt-14 mb-6">
-                  {t("dict2:index_banner_title_byline_1")}
-                  <div className="mb-4" />
+                <h2 className="text-3xl text-center mt-14 mb-6">
+                  {t("dict2:index_banner_title_byline_1")}<br></br>
                   {t("dict2:index_banner_title_byline_2")}
                 </h2>
               </div>
@@ -145,12 +148,10 @@ export default function LandingPage() {
                 </Link>
               </div>
             </div>
-            <div className="flex flex-col items-end pb-4 pr-4">
-            </div>
           </div>
         </div>
-        <div className="bg-white px-6 pb-20">
-          <h1 className="index-page-section-heading mt-16 mb-6">
+        <div className="px-4 mb-20 flex flex-col items-center space-y-4">
+          <h1 className="index-page-section-heading">
             {t("dict2:index_yqa_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
@@ -181,44 +182,6 @@ export default function LandingPage() {
               link="/liveability"
               btnText={t("dict2:index_yqa_section_button_3")}
             />
-          </div>
-
-          <h1 className="index-page-section-heading pt-12 pb-6">
-            {t("dict2:index_or_section_heading")}
-          </h1>
-          <div className="yqa-cross-section-container">
-            <ResourceSection
-              id="or-section-1"
-              imageSrc="/or-plan-melb-picture.jpeg"
-              buttonText={t("dict2:index_or_section_buttons_text")}
-              altText="or-plan-melb-picture"
-              link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
-            />
-            <ResourceSection
-              id="or-section-2"
-              imageSrc="/or-unsdg-picture.jpeg"
-              buttonText={t("dict2:index_or_section_buttons_text")}
-              altText="or-unsdg-picture"
-              link="https://sdgs.un.org/goals/goal11"
-            />
-            <ResourceSection
-              id="or-section-3"
-              imageSrc="/or-crt-logo.jpeg"
-              buttonText={t("dict2:index_or_section_buttons_text")}
-              altText="or-crt-picture"
-              link="https://www.rentingcommissioner.vic.gov.au/"
-            />
-          </div>
-        </div>
-        <div className="flex flex-col justify-center font-istok text-HeadingTextGray bg-white px-8 pb-6">
-          <h2 className="font-semibold text-lg">{t("common:icons_credits_section_heading")}</h2>
-          <div className="flex">
-            <div className="flex flex-col">
-              <a href="https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.freepik.com/free-photo/kitchen-student-dormitory-group-interracial-students-engaged-education_29719888.htm Image by fxquadro on Freepik</a>
-              <a href="https://www.flaticon.com/free-icons/home" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icons/home Home icons created by Freepik - Flaticon </a>
-              <a href="https://www.flaticon.com/free-icons/playground" class="text-HeadingTextGrey text-sm font-istok hover:underline ">● https://www.flaticon.com/free-icons/playground Playground icons created by Bamicon - Flaticon </a>
-            </div>
-            <div className="flex flex-col"></div>
           </div>
         </div>
         <Footer />

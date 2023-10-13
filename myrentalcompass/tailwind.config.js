@@ -16,19 +16,13 @@ module.exports = {
       fontFamily: {
         istok: ["Istok Web", "sans-serif"],
       },
-      fontSize: {
-        "sm": "0.875rem",
-        "md": "1rem",
-        "lg": "1.125rem",
-        "xl": "1.25rem",
-      },
       colors: {
         MainButtonYellow: "#FFCD29",
         ButtonHoverYellow: "#FF7F03",
         NavTextGray: "#262626",
         HeadingTextGray: "#757575",
         FooterButtonYellow: "#F9DE89",
-        BackgroundWhite: "#FFFEFC",
+        BackgroundWhite: "#FFFFFF",
         ShadeGray: "#BFBFBF",
         ResourceButtonYellow: "#fff5cc",
         MapNavGray: "#f5f5f5",

@@ -96,12 +96,12 @@ function Questionnaire() {
       university: university,
     };
 
-    console.log("Data being set to DataContext:", formattedQuery); // Added this line
+    // console.log("Data being set to DataContext:", formattedQuery); // Added this line
 
     setData(formattedQuery); // Save the data to context
 
     // Navigate to the recommendations page
-    router.push("/recommendations");
+    router.push({ pathname: "/recommendations", query: formattedQuery });
   }
 
   let q1Contents = {
@@ -167,6 +167,10 @@ function Questionnaire() {
       <Head>
         <title>{"MyRentalCompass | " + t("dict3:questionnaire_tab_title")}</title>
         <meta name="description" content="Customize your liveability index." />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
       </Head>
 
       <Navbar activePage="Where to live" className="z-10" />
@@ -206,7 +210,7 @@ function Questionnaire() {
             className="fixed top-0 left-0 flex flex-col justify-center items-center w-screen h-screen bg-opacity-50 bg-LongContentGray backdrop-blur-lg z-99 overflow-auto"
             style={{
               transition:
-                "opacity 0.5s ease-in-out, visibility 0.4s ease-in-out, max-height 0.5s ease-in-out",
+                "opacity 0.3s ease-in-out, visibility 0.3s ease-in-out, max-height 0.3s ease-in-out",
               opacity: showCard ? "1" : "0",
               visibility: showCard ? "visible" : "hidden",
             }}
