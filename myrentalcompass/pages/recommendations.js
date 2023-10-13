@@ -163,7 +163,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
         <Navbar activePage="Find where to live" />
 
         <h1 className="flex justify-center font-bold text-4xl text-HeadingTextGray my-4">
-          Here are the Melbourne suburbs that we think is suitable for you
+          {t("recommendations:page_heading")}
         </h1>
         <section className="flex flex-col md:flex-col sm:flex-col items-start justify-center text-left mb-4">
           <div
@@ -296,51 +296,51 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   </svg>
                   )}
                 </button>
-                  <>
+                <>
                   <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2"
-                      style={{
-                        transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
-                        opacity: isPanelOpen ? "1" : "0",
-                        visibility: isPanelOpen ? "visible" : "hidden",
-                        maxHeight:isPanelOpen ? "1000px" : "0"
-                      }}>
-                      <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
-                        {t("recommendations:map_suburb_list_title")}
-                      </h3>
-                      <table className="mx-auto">
-                        <thead>
-                          <tr>
-                            <th className=" text-sm font-medium px-2 border-b-2">
-                              {t("recommendations:map_suburb_list_rank")}
-                            </th>
-                            <th className=" text-sm font-medium px-2 border-b-2">
-                              {t("recommendations:map_suburb_list_score")}
-                            </th>
-                            <th className=" text-sm font-medium px-2 border-b-2">
-                              {t("recommendations:map_suburb_list_suburb")}
-                            </th>
-                            <th className=" text-sm font-medium px-2 border-b-2">
-                              {t("recommendations:map_suburb_list_rent")}
-                            </th>
+                    style={{
+                      transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
+                      opacity: isPanelOpen ? "1" : "0",
+                      visibility: isPanelOpen ? "visible" : "hidden",
+                      maxHeight: isPanelOpen ? "1000px" : "0"
+                    }}>
+                    <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
+                      {t("recommendations:map_suburb_list_title")}
+                    </h3>
+                    <table className="mx-auto">
+                      <thead>
+                        <tr>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            {t("recommendations:map_suburb_list_rank")}
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            {t("recommendations:map_suburb_list_score")}
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            {t("recommendations:map_suburb_list_suburb")}
+                          </th>
+                          <th className=" text-sm font-medium px-2 border-b-2">
+                            {t("recommendations:map_suburb_list_rent")}
+                          </th>
+                        </tr>
+                      </thead>
+                      <tbody className=" text-sm font-normal items-center justify-center text-center">
+                        {topTenSuburbs.map((suburb, index) => (
+                          <tr key={suburb.suburb} style={{ margin: "1rem" }}>
+                            <td className="px-2 py-2">{index + 1}</td>
+                            <td className="px-2 py-2">
+                              {(suburb.liveability_score * 100).toFixed(2)}
+                            </td>
+                            <td className="px-2 py-2">{suburb.suburb}</td>
+                            <td className="px-2 py-2">
+                              A${suburb.average_rent}
+                            </td>
                           </tr>
-                        </thead>
-                        <tbody className=" text-sm font-normal items-center justify-center text-center">
-                          {topTenSuburbs.map((suburb, index) => (
-                            <tr key={suburb.suburb} style={{ margin: "1rem" }}>
-                              <td className="px-2 py-2">{index + 1}</td>
-                              <td className="px-2 py-2">
-                                {(suburb.liveability_score * 100).toFixed(2)}
-                              </td>
-                              <td className="px-2 py-2">{suburb.suburb}</td>
-                              <td className="px-2 py-2">
-                                A${suburb.average_rent}
-                              </td>
-                            </tr>
-                          ))}
-                        </tbody>
-                      </table>
-                    </div>   
-                  </>
+                        ))}
+                      </tbody>
+                    </table>
+                  </div>
+                </>
               </Box>
 
               {/* Selected feature details 
