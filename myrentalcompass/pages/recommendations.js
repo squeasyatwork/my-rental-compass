@@ -139,6 +139,23 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     });
   };
 
+  // Liveability Sliders
+  const criteria = [
+    // "affordability",
+    "transport",
+    "park",
+    "crime",
+    "road",
+  ];
+  const labelText = [
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider"),
+  ];
+
+
+
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
   const handleMouseClick = (event) => {
@@ -217,7 +234,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                 defaultArg={inputValues.rent}
               />
               <LiveabilitySliders
-
+                criteria={criteria}
+                labelText={labelText}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
@@ -297,7 +315,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   )}
                 </button>
                 <>
-                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2"
+                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2 w-full"
                     style={{
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: isPanelOpen ? "1" : "0",
@@ -307,7 +325,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
                       {t("recommendations:map_suburb_list_title")}
                     </h3>
-                    <table className="mx-auto">
+                    <table className="mx-auto w-full">
                       <thead>
                         <tr>
                           <th className=" text-sm font-medium px-2 border-b-2">

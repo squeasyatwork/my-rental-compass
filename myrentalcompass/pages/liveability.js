@@ -11,7 +11,7 @@ import i18nextConfig from '~/next-i18next.config';
 import { useRouter } from "next/router.js";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `https://develop.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
+  return `https://www.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export async function getStaticProps(context) {
@@ -379,7 +379,7 @@ function Liveability() {
           </Link>
         </div>
         <div className="flex flex-col justify-center mt-12 mb-6 px-8">
-          <h2 className="font-bold text-3xl">{t("dict3:liveability_references_section_heading")}</h2>
+          <h2 className="font-bold text-3xl">{t("common:credits_page_title")}</h2>
           <a href="https://research-repository.uwa.edu.au/en/publications/creating-liveable-cities-in-australia-mapping-urban-policy-implem"
             className=" hover:underline">
             <h2 className=" text-HeadingTextGray">1. Arundel J, Lowe M, Hooper P, Roberts R, Rozek J, Higgs C, Giles-Corti B. (2017) Creating liveable cities in Australia: Mapping urban policy implementation and evidence-based national liveability indicators. Centre for Urban Research (CUR). RMIT University.</h2>

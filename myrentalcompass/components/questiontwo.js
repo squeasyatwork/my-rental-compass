@@ -120,6 +120,20 @@ const QuestionTwo = ({
             className="flex flex-col justify-center font-istok font-normal text-2xl"
           >
             <div className="flex flex-col">
+              <div className="flex items-center text-lg" style={{ fontStyle: "italic" }}>
+                <h2 className="flex items-center">
+                  {q2Corpus.click_text}
+                  <span className="mx-2">
+                    <Image
+                      src="/information-icon.svg"
+                      alt="information"
+                      width={25}
+                      height={25}
+                    />
+                  </span>
+                  {q2Corpus.to_learn_more_text}
+                </h2>
+              </div>
               <div className="flex flex-col justify-center bg-MainButtonYellow/10 rounded-xl p-2">
                 <div className="text-xl flex flex-col p-1">
                   <div className="flex justify-start">
