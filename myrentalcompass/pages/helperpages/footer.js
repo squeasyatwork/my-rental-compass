@@ -29,7 +29,7 @@ function Footer() {
         <p className="mr-2">|</p>
         <Link href="/credits">
           <button className="underline hover:text-ButtonHoverYellow mr-2">
-            {t("common:icons_credits_section_heading")}
+            {t("common:credits_page_title")}
           </button>
         </Link>
       </div>
