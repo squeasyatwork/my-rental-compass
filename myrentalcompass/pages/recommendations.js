@@ -304,7 +304,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   )}
                 </button>
                 <>
-                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2 w-full"
+                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2"
                     style={{
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: isPanelOpen ? "1" : "0",
@@ -314,7 +314,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
                       {t("recommendations:map_suburb_list_title")}
                     </h3>
-                    <table className="mx-auto w-full">
+                    <table className="mx-auto">
                       <thead>
                         <tr>
                           <th className=" text-sm font-medium px-2 border-b-2">
