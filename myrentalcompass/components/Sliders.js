@@ -86,18 +86,19 @@ export const RentSlider = ({ labelText, handleChoice, defaultArg = 0 }) => {
 //   "road",
 // ];
 
-export const LiveabilitySliders = ({ criteria, handleSliderChange, inputValues }) => {
+export const LiveabilitySliders = ({ criteria, labelText, handleSliderChange, inputValues }) => {
   return criteria.map((criterion) => (
     <SingleLiveabilitySlider
       key={criterion}
       criterion={criterion}
+      labelText={labelText}
       handleChoice={handleSliderChange(criterion)}
       defaultArg={inputValues[criterion] || 50}
     />
   ));
 };
 
-const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
+const SingleLiveabilitySlider = ({ criterion, labelText, handleChoice, defaultArg }) => {
   const valueLabelFormat = (value) => {
     const labels = ["1", "2", "3", "4", "5"];
     return labels[value - 1];
@@ -144,7 +145,11 @@ const SingleLiveabilitySlider = ({ criterion, handleChoice, defaultArg }) => {
   return (
     <div className="ml-6">
       <Typography gutterBottom>
-        {criterion.charAt(0).toUpperCase() + criterion.slice(1)}
+        {criterion === "transport" && labelText[0].charAt(0).toUpperCase() + labelText[0].slice(1)}
+        {criterion === "park" && labelText[1].charAt(0).toUpperCase() + labelText[1].slice(1)}
+        {criterion === "crime" && labelText[2].charAt(0).toUpperCase() + labelText[2].slice(1)}
+        {criterion === "road" && labelText[3].charAt(0).toUpperCase() + labelText[3].slice(1)}
+
       </Typography>
       <Slider
         defaultValue={defaultArg}

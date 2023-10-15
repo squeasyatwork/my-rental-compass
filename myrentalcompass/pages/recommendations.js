@@ -147,6 +147,13 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
     "crime",
     "road",
   ];
+  const labelText = [
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider"),
+  ];
+
 
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
@@ -228,6 +235,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               />
               <LiveabilitySliders
                 criteria={criteria}
+                labelText={labelText}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
