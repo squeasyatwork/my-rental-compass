@@ -23,7 +23,7 @@ export async function getStaticProps(context) {
       // pass the translation props to the page component
       ...(await serverSideTranslations(
         locale,
-        ["common", "dict3"],
+        ["common", "dict3", "questionnaire_hint_text"],
         i18nextConfig
       )),
     },
@@ -131,6 +131,8 @@ function Questionnaire() {
     question_1_modal_line_4: t("dict3:questionnaire_q2corpus_question_1_modal_line_4"),
     question_1_modal_line_5: t("dict3:questionnaire_q2corpus_question_1_modal_line_5"),
 
+    click_text: t("questionnaire_hint_text:click_text"),
+    to_learn_more_text: t("questionnaire_hint_text:to_learn_more_text"),
     likert_1: t("dict3:questionnaire_q2corpus_likert_1"),
     likert_1_modal_heading_line_1: t("dict3:questionnaire_q2corpus_likert_1_modal_heading_line_1"),
     likert_1_modal_heading_line_2: t("dict3:questionnaire_q2corpus_likert_1_modal_heading_line_2"),

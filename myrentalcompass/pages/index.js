@@ -150,7 +150,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="px-4 mb-20 flex flex-col items-center space-y-4">
+        <div className="px-4 mb-8 flex flex-col items-center space-y-4 w-full">
           <h1 className="index-page-section-heading">
             {t("dict2:index_yqa_section_heading")}
           </h1>
@@ -181,6 +181,36 @@ export default function LandingPage() {
               content={t("dict2:index_yqa_section_description_3")}
               link="/liveability"
               btnText={t("dict2:index_yqa_section_button_3")}
+            />
+
+          </div>
+
+        </div>
+        <div className=" px-4 mb-20">
+          <h1 className="flex index-page-section-heading pt-6 pb-6 items-center justify-center">
+            {t("dict2:index_or_section_heading")}
+          </h1>
+          <div className="yqa-cross-section-container">
+            <ResourceSection
+              id="or-section-1"
+              imageSrc="/or-plan-melb-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-plan-melb-picture"
+              link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
+            />
+            <ResourceSection
+              id="or-section-2"
+              imageSrc="/or-unsdg-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-unsdg-picture"
+              link="https://sdgs.un.org/goals/goal11"
+            />
+            <ResourceSection
+              id="or-section-3"
+              imageSrc="/or-crt-logo.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-crt-picture"
+              link="https://www.rentingcommissioner.vic.gov.au/"
             />
           </div>
         </div>

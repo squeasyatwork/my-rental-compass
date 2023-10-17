@@ -379,7 +379,7 @@ function Liveability() {
           </Link>
         </div>
         <div className="flex flex-col justify-center mt-12 mb-6 px-8">
-          <h2 className="font-bold text-3xl">{t("dict3:liveability_references_section_heading")}</h2>
+          <h2 className="font-bold text-3xl">{t("common:credits_page_title")}</h2>
           <a href="https://research-repository.uwa.edu.au/en/publications/creating-liveable-cities-in-australia-mapping-urban-policy-implem"
             className=" hover:underline">
             <h2 className=" text-HeadingTextGray">1. Arundel J, Lowe M, Hooper P, Roberts R, Rozek J, Higgs C, Giles-Corti B. (2017) Creating liveable cities in Australia: Mapping urban policy implementation and evidence-based national liveability indicators. Centre for Urban Research (CUR). RMIT University.</h2>

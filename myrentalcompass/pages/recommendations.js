@@ -128,7 +128,12 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const sendInput = () => {
     if (inputValues.university) {
       const suburb = inputValues.university.split(",").pop().trim();
-      setUniversitySuburb(suburb);
+      if (suburb === "CBD") {
+        setUniversitySuburb("Melbourne");
+      }
+      else {
+        setUniversitySuburb(suburb);
+      }
     } else {
       setUniversitySuburb(null);
     }
@@ -138,6 +143,23 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
       query: inputValues,
     });
   };
+
+  // Liveability Sliders
+  const criteria = [
+    // "affordability",
+    "transport",
+    "park",
+    "crime",
+    "road",
+  ];
+  const labelText = [
+    t("recommendations:transport_slider"),
+    t("recommendations:park_slider"),
+    t("recommendations:crime_slider"),
+    t("recommendations:road_slider"),
+  ];
+
+
 
   const topTenSuburbs = rankedSuburbs ? rankedSuburbs.slice(0, 10) : [];
 
@@ -217,7 +239,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                 defaultArg={inputValues.rent}
               />
               <LiveabilitySliders
-
+                criteria={criteria}
+                labelText={labelText}
                 inputValues={inputValues}
                 handleSliderChange={handleSliderChange}
               />
@@ -275,7 +298,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   justifyContent: "start",
                   alignItems: "center",
                   right: 0,
-                  top: "10px",
+                  top: "-6px",
                   width: "37%",
                   maxHeight: "90vh",
                   //overflowY: "scroll",
@@ -297,7 +320,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   )}
                 </button>
                 <>
-                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2"
+                  <div className=" bg-BackgroundWhite mt-2 rounded-xl p-2 w-full"
                     style={{
                       transition: "opacity 0.2s ease-in-out, visibility 0.2s ease-in-out, max-height 0.2s ease-in-out",
                       opacity: isPanelOpen ? "1" : "0",
@@ -307,7 +330,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     <h3 className="font-istok text-lg text-center font-bold mt-2 -z-50">
                       {t("recommendations:map_suburb_list_title")}
                     </h3>
-                    <table className="mx-auto">
+                    <table className="mx-auto w-full">
                       <thead>
                         <tr>
                           <th className=" text-sm font-medium px-2 border-b-2">
@@ -355,7 +378,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     zIndex: 10,
                     position: "absolute",
                     left: `${boxPosition.x + 50}px`,
-                    top: `${boxPosition.y + 2}px`,
+                    top: `${boxPosition.y + 10}px`,
                   }}
                 >
                   <button
@@ -367,7 +390,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                       border: "none",
                       cursor: "pointer",
                       fontSize: "1rem",
-                    }}
+                    }
+                    }
                     onClick={() => setSelectedFeature(null)}
                   >
                     x
@@ -392,15 +416,15 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               )}
             </Box>
           </Box>
-          <div className="flex justify-between items-center w-full my-4 px-48">
+          <div className="flex justify-between items-center w-full my-4 px-40">
             <button
               className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2 z-0"
               onClick={() => router.push("/map")}
             >
               {t("recommendations:map_page_button")}
             </button>
-            <div className="flex items-center">
-              <span className="text-xl mr-8 font-bold">
+            <div className="flex justify-end items-center">
+              <span className="text-xl mr-8 font-bold text-right pl-12">
                 {t("recommendations:dream_suburb_text")}
               </span>
               <button
@@ -412,7 +436,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
             </div>
           </div>
         </section>
-      </main>
+      </main >
       <Footer />
     </>
   );
