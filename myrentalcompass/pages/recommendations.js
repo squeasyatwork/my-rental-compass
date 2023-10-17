@@ -128,7 +128,12 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
   const sendInput = () => {
     if (inputValues.university) {
       const suburb = inputValues.university.split(",").pop().trim();
-      setUniversitySuburb(suburb);
+      if (suburb === "CBD") {
+        setUniversitySuburb("Melbourne");
+      }
+      else {
+        setUniversitySuburb(suburb);
+      }
     } else {
       setUniversitySuburb(null);
     }
@@ -411,15 +416,15 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
               )}
             </Box>
           </Box>
-          <div className="flex justify-between items-center w-full my-4 px-48">
+          <div className="flex justify-between items-center w-full my-4 px-40">
             <button
               className="text-lg md:text-lg lg:text-lg font-bold call-action-button bg-FooterButtonYellow p-2 z-0"
               onClick={() => router.push("/map")}
             >
               {t("recommendations:map_page_button")}
             </button>
-            <div className="flex items-center">
-              <span className="text-xl mr-8 font-bold">
+            <div className="flex justify-end items-center">
+              <span className="text-xl mr-8 font-bold text-right pl-12">
                 {t("recommendations:dream_suburb_text")}
               </span>
               <button
