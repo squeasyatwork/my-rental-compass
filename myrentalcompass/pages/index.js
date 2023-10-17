@@ -150,7 +150,7 @@ export default function LandingPage() {
             </div>
           </div>
         </div>
-        <div className="px-4 mb-20 flex flex-col items-center space-y-4">
+        <div className="px-4 mb-8 flex flex-col items-center space-y-4 w-full">
           <h1 className="index-page-section-heading">
             {t("dict2:index_yqa_section_heading")}
           </h1>
@@ -184,7 +184,10 @@ export default function LandingPage() {
             />
 
           </div>
-          <h1 className="index-page-section-heading pt-12 pb-6">
+
+        </div>
+        <div className=" px-4 mb-20">
+          <h1 className="flex index-page-section-heading pt-6 pb-6 items-center justify-center">
             {t("dict2:index_or_section_heading")}
           </h1>
           <div className="yqa-cross-section-container">
