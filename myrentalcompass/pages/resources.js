@@ -414,7 +414,7 @@ const UserguideBar = () => {
                 </li>
               </ul>
             </div>
-            <Link href="/rights" className="font-semibold">
+            <Link href="/rights" className="font-semibold text-center">
               <div className="m-5 p-5 rounded-3xl bg-ResourceButtonYellow">
                 {t("resources:RESOURCES_STEP_1_BRIGHT_YELLOW_BOX")}
               </div>
@@ -515,7 +515,7 @@ const UserguideBar = () => {
                     </ul>
                   </ul>
                 </div>
-                <Link href="/questionnaire">
+                <Link href="/questionnaire" className="text-center">
                   <div className="m-5 p-5 mb-0 -mx-6 rounded-3xl font-semibold bg-ResourceButtonYellow">
                     {t("resources:step_2_bright_yellow_box")}
                   </div>
