@@ -1,1 +1,15 @@
-{"credits_page_credits":"Page: Credits\n","credits_page_home":"Page: Home","credits_page_privacy":"Page: Privacy Policy","credits_page_questionnaire":"Page: Questionnaire\n","credits_page_resources":"Page: What you need to do","credits_page_rights":"Page: What you need to know","credits_page_title":"Credits","footer_text":"Privacy Policy","menu_item_1":"Home","menu_item_2":"What you need to do","menu_item_3":"What you need to know","menu_item_4":"What is liveability","menu_item_5":"Find a suburb to live"}
+{
+    "credits_page_credits": "Page: Credits\n",
+    "credits_page_home": "Page: Home",
+    "credits_page_privacy": "Page: Privacy Policy",
+    "credits_page_questionnaire": "Page: Questionnaire\n",
+    "credits_page_resources": "Page: Rental Guide",
+    "credits_page_rights": "Page: Rights and Responsibilities",
+    "credits_page_title": "Credits",
+    "footer_text": "Privacy Policy",
+    "menu_item_1": "Home",
+    "menu_item_2": "Rental Guide",
+    "menu_item_3": "Rights and Responsibilities",
+    "menu_item_4": "Liveability Information",
+    "menu_item_5": "Find a suburb to live"
+}

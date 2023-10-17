@@ -293,7 +293,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                   justifyContent: "start",
                   alignItems: "center",
                   right: 0,
-                  top: "10px",
+                  top: "-6px",
                   width: "37%",
                   maxHeight: "90vh",
                   //overflowY: "scroll",
@@ -373,7 +373,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                     zIndex: 10,
                     position: "absolute",
                     left: `${boxPosition.x + 50}px`,
-                    top: `${boxPosition.y + 2}px`,
+                    top: `${boxPosition.y + 10}px`,
                   }}
                 >
                   <button
@@ -385,7 +385,8 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
                       border: "none",
                       cursor: "pointer",
                       fontSize: "1rem",
-                    }}
+                    }
+                    }
                     onClick={() => setSelectedFeature(null)}
                   >
                     x
@@ -430,7 +431,7 @@ export default function Recommendations({ data = null, contextQuery = {} }) {
             </div>
           </div>
         </section>
-      </main>
+      </main >
       <Footer />
     </>
   );

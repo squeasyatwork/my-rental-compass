@@ -182,6 +182,33 @@ export default function LandingPage() {
               link="/liveability"
               btnText={t("dict2:index_yqa_section_button_3")}
             />
+
+          </div>
+          <h1 className="index-page-section-heading pt-12 pb-6">
+            {t("dict2:index_or_section_heading")}
+          </h1>
+          <div className="yqa-cross-section-container">
+            <ResourceSection
+              id="or-section-1"
+              imageSrc="/or-plan-melb-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-plan-melb-picture"
+              link="https://www.planning.vic.gov.au/guides-and-resources/strategies-and-initiatives/plan-melbourne"
+            />
+            <ResourceSection
+              id="or-section-2"
+              imageSrc="/or-unsdg-picture.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-unsdg-picture"
+              link="https://sdgs.un.org/goals/goal11"
+            />
+            <ResourceSection
+              id="or-section-3"
+              imageSrc="/or-crt-logo.jpeg"
+              buttonText={t("dict2:index_or_section_buttons_text")}
+              altText="or-crt-picture"
+              link="https://www.rentingcommissioner.vic.gov.au/"
+            />
           </div>
         </div>
         <Footer />
