@@ -74,7 +74,7 @@ export const ResourceSection = ({ id, imageSrc, buttonText, altText, link }) => 
   return (
     <div
       id={id}
-      className="flex flex-col justify-between w-96 h-80 border border-NavTextGray rounded-lg shadow-sm mx-auto p-4 pt-12"
+      className="flex flex-col justify-between w-96 h-80 border border-NavTextGray-800 rounded-lg shadow-sm mx-auto p-4 pt-12"
     >
       <div className="flex-1 flex justify-center items-start">
         <Image
