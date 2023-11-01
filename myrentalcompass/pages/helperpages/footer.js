@@ -2,7 +2,7 @@ import Link from "next/link";
 
 import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import { useTranslation } from 'next-i18next';
-import i18nextConfig from '../../next-i18next.config';
+import i18nextConfig from '~/next-i18next.config';
 
 export async function getStaticProps(context) {
   const { locale } = context;
