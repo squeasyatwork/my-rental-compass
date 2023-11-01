@@ -8,7 +8,7 @@ import Footer from "./helperpages/footer.js";
 
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
-import i18nextConfig from "~/next-i18next.config";
+import i18nextConfig from "../next-i18next.config";
 
 const imageLoader = ({ src, width, quality }) => {
   return `https://www.myrentalcompass.me/${src}?w=${width}&q=${quality || 75}`;
