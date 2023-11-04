@@ -11,7 +11,7 @@ import { useTranslation } from "next-i18next";
 import i18nextConfig from "~/next-i18next.config";
 
 const imageLoader = ({ src, width, quality }) => {
-  return `http://localhost:3000/${src}?w=${width}&q=${quality || 75}`;
+  return `https://main.d2siytxacema5v.amplifyapp.com/${src}?w=${width}&q=${quality || 75}`;
 };
 
 export async function getStaticProps(context) {
